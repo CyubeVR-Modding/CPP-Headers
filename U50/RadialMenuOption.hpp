@@ -28,7 +28,7 @@ class ARadialMenuOption_C : public AActor
     bool IsReal;
     bool IsTool;
 
-    void SetType(int32 Slot, int32 UniqueId, EBlockTypeBP Type, bool IsReal, bool isRIghtHand);
+    void SetType(int32 Slot, int32 UniqueId, EBlockTypeBP Type, bool IsReal, bool IsRightHand);
     void UserConstructionScript();
     void FadeOutTimeline__FinishedFunc();
     void FadeOutTimeline__UpdateFunc();

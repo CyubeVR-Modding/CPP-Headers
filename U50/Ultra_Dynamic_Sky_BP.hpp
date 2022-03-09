@@ -96,7 +96,7 @@ class AUltra_Dynamic_Sky_BP_C : public AActor
     class UTexture* Clouds Base Texture;
     float Cloud Tiling;
     float Cloud Direction;
-    bool One cloud layer;
+    bool One Cloud Layer;
     float Cloud Height 1;
     float Cloud Height 2;
     int32 color_scheme;

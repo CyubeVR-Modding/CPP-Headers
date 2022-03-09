@@ -26,7 +26,7 @@ class AVRSlider_C : public AActor
     void UpdateSliderLocation(FVector WorldLocation);
     void SetValue(float NewValue);
     void SubmitGoodValue(float GoodValue);
-    void ConfigureForHandOverlap(class AVRHandFingers_C* HandActor, bool isRIghtHand);
+    void ConfigureForHandOverlap(class AVRHandFingers_C* HandActor, bool IsRightHand);
     void BndEvt__StaticMesh_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     void Release();
     void EndOverlap();

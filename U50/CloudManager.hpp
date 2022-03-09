@@ -18,7 +18,7 @@ class ACloudManager_C : public AActor
     float MaxAuroraIntensity;
     float AuroraInterpSpeed;
 
-    void SetOneCloudLayer(bool One cloud layer);
+    void SetOneCloudLayer(bool One Cloud Layer);
     void UpdateDensityTarget();
     void ReceiveBeginPlay();
     void ReceiveTick(float DeltaSeconds);

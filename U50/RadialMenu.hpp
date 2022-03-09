@@ -41,7 +41,7 @@ class ARadialMenu_C : public AActor
     bool NotYetMovedAfterOpening;
     int32 PreviousSelection;
     int32 CurrentSelection;
-    bool isRIghtHand;
+    bool IsRightHand;
     int32 LastBlockSelection;
     int32 LastToolSelection;
     float LastSelectedFromHand;

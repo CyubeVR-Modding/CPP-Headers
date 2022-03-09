@@ -25,7 +25,7 @@ class ABlockHolder_C : public AReceiveLightActor
     bool HiddenBecauseMeshObjectSelected;
     bool Active;
     TArray<class UNiagaraComponent*> ParticleSystems;
-    bool isRIghtHand;
+    bool IsRightHand;
     bool EverUsedCrystalInBuildTool;
     float LastCrystalHintShown;
     bool DidEverNotUseCrystal;
