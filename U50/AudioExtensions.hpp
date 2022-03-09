@@ -3,40 +3,40 @@
 
 class UOcclusionPluginSourceSettingsBase : public UObject
 {
-};
+}; // Size: 0x28
 
 class UReverbPluginSourceSettingsBase : public UObject
 {
-};
+}; // Size: 0x28
 
 class USpatializationPluginSourceSettingsBase : public UObject
 {
-};
+}; // Size: 0x28
 
 class USoundfieldEncodingSettingsBase : public UObject
 {
-};
+}; // Size: 0x28
 
 class UAudioEndpointSettingsBase : public UObject
 {
-};
+}; // Size: 0x28
 
 class USoundModulatorBase : public UObject
 {
-};
+}; // Size: 0x28
 
 class USoundfieldEndpointSettingsBase : public UObject
 {
-};
+}; // Size: 0x28
 
 class USoundfieldEffectSettingsBase : public UObject
 {
-};
+}; // Size: 0x28
 
 class USoundfieldEffectBase : public UObject
 {
-    class USoundfieldEffectSettingsBase* Settings;
+    class USoundfieldEffectSettingsBase* Settings;                                    // 0x0028 (size: 0x8)
 
-};
+}; // Size: 0x30
 
 #endif

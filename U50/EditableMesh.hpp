@@ -5,214 +5,214 @@
 
 class UEditableMeshAdapter : public UObject
 {
-};
+}; // Size: 0x28
 
 class UEditableGeometryCollectionAdapter : public UEditableMeshAdapter
 {
-    class UGeometryCollection* GeometryCollection;
-    class UGeometryCollection* OriginalGeometryCollection;
-    int32 GeometryCollectionLODIndex;
+    class UGeometryCollection* GeometryCollection;                                    // 0x0028 (size: 0x8)
+    class UGeometryCollection* OriginalGeometryCollection;                            // 0x0030 (size: 0x8)
+    int32 GeometryCollectionLODIndex;                                                 // 0x0038 (size: 0x4)
 
-};
+}; // Size: 0xD8
 
 struct FVertexPair
 {
-    FVertexID VertexID0;
-    FVertexID VertexID1;
+    FVertexID VertexID0;                                                              // 0x0000 (size: 0x4)
+    FVertexID VertexID1;                                                              // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 struct FPolygonToSplit
 {
-    FPolygonID PolygonID;
-    TArray<FVertexPair> VertexPairsToSplitAt;
+    FPolygonID PolygonID;                                                             // 0x0000 (size: 0x4)
+    TArray<FVertexPair> VertexPairsToSplitAt;                                         // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FMeshElementAttributeValue
 {
-};
+}; // Size: 0x50
 
 struct FMeshElementAttributeData
 {
-    FName AttributeName;
-    int32 AttributeIndex;
-    FMeshElementAttributeValue AttributeValue;
+    FName AttributeName;                                                              // 0x0000 (size: 0x8)
+    int32 AttributeIndex;                                                             // 0x0008 (size: 0x4)
+    FMeshElementAttributeValue AttributeValue;                                        // 0x0010 (size: 0x50)
 
-};
+}; // Size: 0x60
 
 struct FMeshElementAttributeList
 {
-    TArray<FMeshElementAttributeData> Attributes;
+    TArray<FMeshElementAttributeData> Attributes;                                     // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FAttributesForVertex
 {
-    FVertexID VertexID;
-    FMeshElementAttributeList VertexAttributes;
+    FVertexID VertexID;                                                               // 0x0000 (size: 0x4)
+    FMeshElementAttributeList VertexAttributes;                                       // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FAttributesForVertexInstance
 {
-    FVertexInstanceID VertexInstanceID;
-    FMeshElementAttributeList VertexInstanceAttributes;
+    FVertexInstanceID VertexInstanceID;                                               // 0x0000 (size: 0x4)
+    FMeshElementAttributeList VertexInstanceAttributes;                               // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FVertexAttributesForPolygonHole
 {
-    TArray<FMeshElementAttributeList> VertexAttributeList;
+    TArray<FMeshElementAttributeList> VertexAttributeList;                            // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FVertexAttributesForPolygon
 {
-    FPolygonID PolygonID;
-    TArray<FMeshElementAttributeList> PerimeterVertexAttributeLists;
-    TArray<FVertexAttributesForPolygonHole> VertexAttributeListsForEachHole;
+    FPolygonID PolygonID;                                                             // 0x0000 (size: 0x4)
+    TArray<FMeshElementAttributeList> PerimeterVertexAttributeLists;                  // 0x0008 (size: 0x10)
+    TArray<FVertexAttributesForPolygonHole> VertexAttributeListsForEachHole;          // 0x0018 (size: 0x10)
 
-};
+}; // Size: 0x28
 
 struct FAttributesForEdge
 {
-    FEdgeID EdgeID;
-    FMeshElementAttributeList EdgeAttributes;
+    FEdgeID EdgeID;                                                                   // 0x0000 (size: 0x4)
+    FMeshElementAttributeList EdgeAttributes;                                         // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FVertexToMove
 {
-    FVertexID VertexID;
-    FVector NewVertexPosition;
+    FVertexID VertexID;                                                               // 0x0000 (size: 0x4)
+    FVector NewVertexPosition;                                                        // 0x0004 (size: 0xC)
 
-};
+}; // Size: 0x10
 
 struct FSubdividedQuadVertex
 {
-    int32 VertexPositionIndex;
-    FVector2D TextureCoordinate0;
-    FVector2D TextureCoordinate1;
-    FColor VertexColor;
-    FVector VertexNormal;
-    FVector VertexTangent;
-    float VertexBinormalSign;
+    int32 VertexPositionIndex;                                                        // 0x0000 (size: 0x4)
+    FVector2D TextureCoordinate0;                                                     // 0x0004 (size: 0x8)
+    FVector2D TextureCoordinate1;                                                     // 0x000C (size: 0x8)
+    FColor VertexColor;                                                               // 0x0014 (size: 0x4)
+    FVector VertexNormal;                                                             // 0x0018 (size: 0xC)
+    FVector VertexTangent;                                                            // 0x0024 (size: 0xC)
+    float VertexBinormalSign;                                                         // 0x0030 (size: 0x4)
 
-};
+}; // Size: 0x34
 
 struct FSubdividedQuad
 {
-    FSubdividedQuadVertex QuadVertex0;
-    FSubdividedQuadVertex QuadVertex1;
-    FSubdividedQuadVertex QuadVertex2;
-    FSubdividedQuadVertex QuadVertex3;
+    FSubdividedQuadVertex QuadVertex0;                                                // 0x0000 (size: 0x34)
+    FSubdividedQuadVertex QuadVertex1;                                                // 0x0034 (size: 0x34)
+    FSubdividedQuadVertex QuadVertex2;                                                // 0x0068 (size: 0x34)
+    FSubdividedQuadVertex QuadVertex3;                                                // 0x009C (size: 0x34)
 
-};
+}; // Size: 0xD0
 
 struct FSubdivisionLimitSection
 {
-    TArray<FSubdividedQuad> SubdividedQuads;
+    TArray<FSubdividedQuad> SubdividedQuads;                                          // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FSubdividedWireEdge
 {
-    int32 EdgeVertex0PositionIndex;
-    int32 EdgeVertex1PositionIndex;
+    int32 EdgeVertex0PositionIndex;                                                   // 0x0000 (size: 0x4)
+    int32 EdgeVertex1PositionIndex;                                                   // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 struct FSubdivisionLimitData
 {
-    TArray<FVector> VertexPositions;
-    TArray<FSubdivisionLimitSection> Sections;
-    TArray<FSubdividedWireEdge> SubdividedWireEdges;
+    TArray<FVector> VertexPositions;                                                  // 0x0000 (size: 0x10)
+    TArray<FSubdivisionLimitSection> Sections;                                        // 0x0010 (size: 0x10)
+    TArray<FSubdividedWireEdge> SubdividedWireEdges;                                  // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x30
 
 struct FVertexToCreate
 {
-    FMeshElementAttributeList VertexAttributes;
-    FVertexID OriginalVertexID;
+    FMeshElementAttributeList VertexAttributes;                                       // 0x0000 (size: 0x10)
+    FVertexID OriginalVertexID;                                                       // 0x0010 (size: 0x4)
 
-};
+}; // Size: 0x18
 
 struct FVertexInstanceToCreate
 {
-    FVertexID VertexID;
-    FMeshElementAttributeList VertexInstanceAttributes;
-    FVertexInstanceID OriginalVertexInstanceID;
+    FVertexID VertexID;                                                               // 0x0000 (size: 0x4)
+    FMeshElementAttributeList VertexInstanceAttributes;                               // 0x0008 (size: 0x10)
+    FVertexInstanceID OriginalVertexInstanceID;                                       // 0x0018 (size: 0x4)
 
-};
+}; // Size: 0x20
 
 struct FVertexAndAttributes
 {
-    FVertexInstanceID VertexInstanceID;
-    FVertexID VertexID;
-    FMeshElementAttributeList PolygonVertexAttributes;
+    FVertexInstanceID VertexInstanceID;                                               // 0x0000 (size: 0x4)
+    FVertexID VertexID;                                                               // 0x0004 (size: 0x4)
+    FMeshElementAttributeList PolygonVertexAttributes;                                // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FPolygonToCreate
 {
-    FPolygonGroupID PolygonGroupID;
-    TArray<FVertexAndAttributes> PerimeterVertices;
-    FPolygonID OriginalPolygonID;
-    EPolygonEdgeHardness PolygonEdgeHardness;
+    FPolygonGroupID PolygonGroupID;                                                   // 0x0000 (size: 0x4)
+    TArray<FVertexAndAttributes> PerimeterVertices;                                   // 0x0008 (size: 0x10)
+    FPolygonID OriginalPolygonID;                                                     // 0x0018 (size: 0x4)
+    EPolygonEdgeHardness PolygonEdgeHardness;                                         // 0x001C (size: 0x1)
 
-};
+}; // Size: 0x20
 
 struct FPolygonGroupToCreate
 {
-    FMeshElementAttributeList PolygonGroupAttributes;
-    FPolygonGroupID OriginalPolygonGroupID;
+    FMeshElementAttributeList PolygonGroupAttributes;                                 // 0x0000 (size: 0x10)
+    FPolygonGroupID OriginalPolygonGroupID;                                           // 0x0010 (size: 0x4)
 
-};
+}; // Size: 0x18
 
 struct FEdgeToCreate
 {
-    FVertexID VertexID0;
-    FVertexID VertexID1;
-    FMeshElementAttributeList EdgeAttributes;
-    FEdgeID OriginalEdgeID;
+    FVertexID VertexID0;                                                              // 0x0000 (size: 0x4)
+    FVertexID VertexID1;                                                              // 0x0004 (size: 0x4)
+    FMeshElementAttributeList EdgeAttributes;                                         // 0x0008 (size: 0x10)
+    FEdgeID OriginalEdgeID;                                                           // 0x0018 (size: 0x4)
 
-};
+}; // Size: 0x20
 
 struct FVertexIndexAndInstanceID
 {
-    int32 ContourIndex;
-    FVertexInstanceID VertexInstanceID;
+    int32 ContourIndex;                                                               // 0x0000 (size: 0x4)
+    FVertexInstanceID VertexInstanceID;                                               // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 struct FVertexInstancesForPolygonHole
 {
-    TArray<FVertexIndexAndInstanceID> VertexIndicesAndInstanceIDs;
+    TArray<FVertexIndexAndInstanceID> VertexIndicesAndInstanceIDs;                    // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FChangeVertexInstancesForPolygon
 {
-    FPolygonID PolygonID;
-    TArray<FVertexIndexAndInstanceID> PerimeterVertexIndicesAndInstanceIDs;
-    TArray<FVertexInstancesForPolygonHole> VertexIndicesAndInstanceIDsForEachHole;
+    FPolygonID PolygonID;                                                             // 0x0000 (size: 0x4)
+    TArray<FVertexIndexAndInstanceID> PerimeterVertexIndicesAndInstanceIDs;           // 0x0008 (size: 0x10)
+    TArray<FVertexInstancesForPolygonHole> VertexIndicesAndInstanceIDsForEachHole;    // 0x0018 (size: 0x10)
 
-};
+}; // Size: 0x28
 
 struct FPolygonGroupForPolygon
 {
-    FPolygonID PolygonID;
-    FPolygonGroupID PolygonGroupID;
+    FPolygonID PolygonID;                                                             // 0x0000 (size: 0x4)
+    FPolygonGroupID PolygonGroupID;                                                   // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 class UEditableMesh : public UObject
 {
-    TArray<class UEditableMeshAdapter*> Adapters;
-    int32 TextureCoordinateCount;
-    int32 PendingCompactCounter;
-    int32 SubdivisionCount;
+    TArray<class UEditableMeshAdapter*> Adapters;                                     // 0x03B8 (size: 0x10)
+    int32 TextureCoordinateCount;                                                     // 0x03D0 (size: 0x4)
+    int32 PendingCompactCounter;                                                      // 0x051C (size: 0x4)
+    int32 SubdivisionCount;                                                           // 0x0520 (size: 0x4)
 
     void WeldVertices(const TArray<FVertexID>& VertexIDs, FVertexID& OutNewVertexID);
     void TryToRemoveVertex(const FVertexID VertexID, bool& bOutWasVertexRemoved, FEdgeID& OutNewEdgeID);
@@ -343,54 +343,54 @@ class UEditableMesh : public UObject
     void BevelPolygons(const TArray<FPolygonID>& PolygonIDs, const float BevelFixedDistance, const float BevelProgressTowardCenter, TArray<FPolygonID>& OutNewCenterPolygonIDs, TArray<FPolygonID>& OutNewSidePolygonIDs);
     void AssignPolygonsToPolygonGroups(const TArray<FPolygonGroupForPolygon>& PolygonGroupForPolygons, const bool bDeleteOrphanedPolygonGroups);
     bool AnyChangesToUndo();
-};
+}; // Size: 0x708
 
 class UEditableMeshFactory : public UObject
 {
 
     class UEditableMesh* MakeEditableMesh(class UPrimitiveComponent* PrimitiveComponent, const int32 LODIndex);
-};
+}; // Size: 0x28
 
 class UEditableStaticMeshAdapter : public UEditableMeshAdapter
 {
-    class UStaticMesh* StaticMesh;
-    class UStaticMesh* OriginalStaticMesh;
-    int32 StaticMeshLODIndex;
+    class UStaticMesh* StaticMesh;                                                    // 0x0028 (size: 0x8)
+    class UStaticMesh* OriginalStaticMesh;                                            // 0x0030 (size: 0x8)
+    int32 StaticMeshLODIndex;                                                         // 0x0038 (size: 0x4)
 
-};
+}; // Size: 0xE0
 
 struct FAdaptorPolygon2Group
 {
-    uint32 RenderingSectionIndex;
-    int32 MaterialIndex;
-    int32 MaxTriangles;
+    uint32 RenderingSectionIndex;                                                     // 0x0000 (size: 0x4)
+    int32 MaterialIndex;                                                              // 0x0004 (size: 0x4)
+    int32 MaxTriangles;                                                               // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0x48
 
 struct FAdaptorTriangleID : public FElementID
 {
-};
+}; // Size: 0x4
 
 struct FAdaptorPolygon
 {
-    FPolygonGroupID PolygonGroupID;
-    TArray<FAdaptorTriangleID> TriangulatedPolygonTriangleIndices;
+    FPolygonGroupID PolygonGroupID;                                                   // 0x0000 (size: 0x4)
+    TArray<FAdaptorTriangleID> TriangulatedPolygonTriangleIndices;                    // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FRenderingPolygonGroup
 {
-    uint32 RenderingSectionIndex;
-    int32 MaterialIndex;
-    int32 MaxTriangles;
+    uint32 RenderingSectionIndex;                                                     // 0x0000 (size: 0x4)
+    int32 MaterialIndex;                                                              // 0x0004 (size: 0x4)
+    int32 MaxTriangles;                                                               // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0x48
 
 struct FRenderingPolygon
 {
-    FPolygonGroupID PolygonGroupID;
-    TArray<FTriangleID> TriangulatedPolygonTriangleIndices;
+    FPolygonGroupID PolygonGroupID;                                                   // 0x0000 (size: 0x4)
+    TArray<FTriangleID> TriangulatedPolygonTriangleIndices;                           // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 #endif

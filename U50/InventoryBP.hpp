@@ -3,11 +3,11 @@
 
 class AInventoryBP_C : public AInventory
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class USceneComponent* DefaultSceneRoot;
-    class UItemList_New_C* UI_ItemList;
-    class UItemList_Loot_C* UI_LootableInventory;
-    FInventoryBP_CMarkParentForSave MarkParentForSave;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0298 (size: 0x8)
+    class USceneComponent* DefaultSceneRoot;                                          // 0x02A0 (size: 0x8)
+    class UItemList_New_C* UI_ItemList;                                               // 0x02A8 (size: 0x8)
+    class UItemList_Loot_C* UI_LootableInventory;                                     // 0x02B0 (size: 0x8)
+    FInventoryBP_CMarkParentForSave MarkParentForSave;                                // 0x02B8 (size: 0x10)
     void MarkParentForSave();
 
     void AddItemFromChestBP(int32 FromChestIndex, class AChestInternals* OtherChest, EBlockTypeBP Type);
@@ -30,6 +30,6 @@ class AInventoryBP_C : public AInventory
     void AddDefaultItems();
     void ExecuteUbergraph_InventoryBP(int32 EntryPoint);
     void MarkParentForSave__DelegateSignature();
-};
+}; // Size: 0x2C8
 
 #endif

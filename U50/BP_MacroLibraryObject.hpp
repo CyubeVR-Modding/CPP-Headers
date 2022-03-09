@@ -3,6 +3,6 @@
 
 class UBP_MacroLibraryObject_C : public UObject
 {
-};
+}; // Size: 0x28
 
 #endif

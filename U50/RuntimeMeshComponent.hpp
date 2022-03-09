@@ -5,34 +5,34 @@
 
 struct FRuntimeMeshMaterialSlot
 {
-    FName SlotName;
-    class UMaterialInterface* Material;
+    FName SlotName;                                                                   // 0x0000 (size: 0x8)
+    class UMaterialInterface* Material;                                               // 0x0008 (size: 0x8)
 
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshSectionProperties
 {
-    ERuntimeMeshUpdateFrequency UpdateFrequency;
-    int32 MaterialSlot;
-    bool bIsVisible;
-    bool bIsMainPassRenderable;
-    bool bCastsShadow;
-    bool bForceOpaque;
-    bool bUseHighPrecisionTangents;
-    bool bUseHighPrecisionTexCoords;
-    uint8 NumTexCoords;
-    bool bWants32BitIndices;
+    ERuntimeMeshUpdateFrequency UpdateFrequency;                                      // 0x0000 (size: 0x1)
+    int32 MaterialSlot;                                                               // 0x0004 (size: 0x4)
+    bool bIsVisible;                                                                  // 0x0008 (size: 0x1)
+    bool bIsMainPassRenderable;                                                       // 0x0009 (size: 0x1)
+    bool bCastsShadow;                                                                // 0x000A (size: 0x1)
+    bool bForceOpaque;                                                                // 0x000B (size: 0x1)
+    bool bUseHighPrecisionTangents;                                                   // 0x000C (size: 0x1)
+    bool bUseHighPrecisionTexCoords;                                                  // 0x000D (size: 0x1)
+    uint8 NumTexCoords;                                                               // 0x000E (size: 0x1)
+    bool bWants32BitIndices;                                                          // 0x000F (size: 0x1)
 
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshLODProperties
 {
-    float ScreenSize;
-    bool bCanGetSectionsIndependently;
-    bool bCanGetAllSectionsAtOnce;
-    bool bShouldMergeStaticSectionBuffers;
+    float ScreenSize;                                                                 // 0x0000 (size: 0x4)
+    bool bCanGetSectionsIndependently;                                                // 0x0004 (size: 0x1)
+    bool bCanGetAllSectionsAtOnce;                                                    // 0x0005 (size: 0x1)
+    bool bShouldMergeStaticSectionBuffers;                                            // 0x0006 (size: 0x1)
 
-};
+}; // Size: 0x8
 
 class URuntimeMeshProviderTargetInterface : public UObject
 {
@@ -56,44 +56,44 @@ class URuntimeMeshProviderTargetInterface : public UObject
     void CreateSection(int32 LODIndex, int32 SectionId, const FRuntimeMeshSectionProperties& SectionProperties);
     void ConfigureLODs(const TArray<FRuntimeMeshLODProperties>& InLODs);
     void ClearSection(int32 LODIndex, int32 SectionId);
-};
+}; // Size: 0x28
 
 struct FRuntimeMeshCollisionSourceSectionInfo
 {
-    int32 StartIndex;
-    int32 EndIndex;
-    TWeakObjectPtr<class URuntimeMeshProvider> SourceProvider;
-    int32 SectionId;
-    ERuntimeMeshCollisionFaceSourceType SourceType;
+    int32 StartIndex;                                                                 // 0x0000 (size: 0x4)
+    int32 EndIndex;                                                                   // 0x0004 (size: 0x4)
+    TWeakObjectPtr<class URuntimeMeshProvider> SourceProvider;                        // 0x0008 (size: 0x8)
+    int32 SectionId;                                                                  // 0x0010 (size: 0x4)
+    ERuntimeMeshCollisionFaceSourceType SourceType;                                   // 0x0014 (size: 0x1)
 
-};
+}; // Size: 0x18
 
 struct FRuntimeMeshAsyncBodySetupData
 {
-    class UBodySetup* BodySetup;
-    TArray<FRuntimeMeshCollisionSourceSectionInfo> CollisionSources;
+    class UBodySetup* BodySetup;                                                      // 0x0000 (size: 0x8)
+    TArray<FRuntimeMeshCollisionSourceSectionInfo> CollisionSources;                  // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FRuntimeMeshCollisionHitInfo
 {
-    TWeakObjectPtr<class URuntimeMeshProvider> SourceProvider;
-    ERuntimeMeshCollisionFaceSourceType SourceType;
-    int32 SectionId;
-    int32 FaceIndex;
-    class UMaterialInterface* Material;
+    TWeakObjectPtr<class URuntimeMeshProvider> SourceProvider;                        // 0x0000 (size: 0x8)
+    ERuntimeMeshCollisionFaceSourceType SourceType;                                   // 0x0008 (size: 0x1)
+    int32 SectionId;                                                                  // 0x000C (size: 0x4)
+    int32 FaceIndex;                                                                  // 0x0010 (size: 0x4)
+    class UMaterialInterface* Material;                                               // 0x0018 (size: 0x8)
 
-};
+}; // Size: 0x20
 
 class URuntimeMesh : public URuntimeMeshProviderTargetInterface
 {
-    class URuntimeMeshProvider* MeshProviderPtr;
-    class UBodySetup* BodySetup;
-    TArray<FRuntimeMeshCollisionSourceSectionInfo> CollisionSource;
-    TArray<FRuntimeMeshAsyncBodySetupData> AsyncBodySetupQueue;
-    TArray<FRuntimeMeshMaterialSlot> MaterialSlots;
-    TMap<FName, int32> SlotNameLookup;
-    FRuntimeMeshCollisionUpdated CollisionUpdated;
+    class URuntimeMeshProvider* MeshProviderPtr;                                      // 0x0038 (size: 0x8)
+    class UBodySetup* BodySetup;                                                      // 0x0048 (size: 0x8)
+    TArray<FRuntimeMeshCollisionSourceSectionInfo> CollisionSource;                   // 0x0050 (size: 0x10)
+    TArray<FRuntimeMeshAsyncBodySetupData> AsyncBodySetupQueue;                       // 0x0060 (size: 0x10)
+    TArray<FRuntimeMeshMaterialSlot> MaterialSlots;                                   // 0x0368 (size: 0x10)
+    TMap<FName, int32> SlotNameLookup;                                                // 0x0378 (size: 0x50)
+    FRuntimeMeshCollisionUpdated CollisionUpdated;                                    // 0x0460 (size: 0x10)
     void RuntimeMeshCollisionUpdatedDelegate();
 
     void Reset();
@@ -103,120 +103,120 @@ class URuntimeMesh : public URuntimeMeshProviderTargetInterface
     FBoxSphereBounds GetLocalBounds();
     FRuntimeMeshCollisionHitInfo GetHitSource(int32 FaceIndex);
     class UBodySetup* GetBodySetup();
-};
+}; // Size: 0x470
 
 class ARuntimeMeshActor : public AActor
 {
-    class URuntimeMeshComponent* RuntimeMeshComponent;
+    class URuntimeMeshComponent* RuntimeMeshComponent;                                // 0x0220 (size: 0x8)
 
     void SetRuntimeMeshMobility(ERuntimeMeshMobility NewMobility);
     ERuntimeMeshMobility GetRuntimeMeshMobility();
     class URuntimeMeshComponent* GetRuntimeMeshComponent();
-};
+}; // Size: 0x228
 
 struct FRuntimeMeshTriangleStream
 {
-};
+}; // Size: 0x18
 
 struct FRuntimeMeshVertexTexCoordStream
 {
-};
+}; // Size: 0x18
 
 struct FRuntimeMeshVertexTangentStream
 {
-};
+}; // Size: 0x18
 
 struct FRuntimeMeshVertexPositionStream
 {
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshVertexColorStream
 {
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshCollisionVertexStream
 {
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshCollisionTriangleStream
 {
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshCollisionTexCoordStream
 {
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshCollisionMaterialIndexStream
 {
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshRenderableMeshData
 {
-    FRuntimeMeshVertexPositionStream Positions;
-    FRuntimeMeshVertexTangentStream Tangents;
-    FRuntimeMeshVertexTexCoordStream TexCoords;
-    FRuntimeMeshVertexColorStream Colors;
-    FRuntimeMeshTriangleStream Triangles;
-    FRuntimeMeshTriangleStream AdjacencyTriangles;
+    FRuntimeMeshVertexPositionStream Positions;                                       // 0x0000 (size: 0x10)
+    FRuntimeMeshVertexTangentStream Tangents;                                         // 0x0010 (size: 0x18)
+    FRuntimeMeshVertexTexCoordStream TexCoords;                                       // 0x0028 (size: 0x18)
+    FRuntimeMeshVertexColorStream Colors;                                             // 0x0040 (size: 0x10)
+    FRuntimeMeshTriangleStream Triangles;                                             // 0x0050 (size: 0x18)
+    FRuntimeMeshTriangleStream AdjacencyTriangles;                                    // 0x0068 (size: 0x18)
 
-};
+}; // Size: 0x80
 
 struct FRuntimeMeshCollisionData
 {
-    FRuntimeMeshCollisionVertexStream Vertices;
-    FRuntimeMeshCollisionTriangleStream Triangles;
-    FRuntimeMeshCollisionTexCoordStream TexCoords;
-    FRuntimeMeshCollisionMaterialIndexStream MaterialIndices;
-    TArray<FRuntimeMeshCollisionSourceSectionInfo> CollisionSources;
-    bool bFlipNormals;
-    bool bDeformableMesh;
-    bool bFastCook;
-    bool bDisableActiveEdgePrecompute;
+    FRuntimeMeshCollisionVertexStream Vertices;                                       // 0x0000 (size: 0x10)
+    FRuntimeMeshCollisionTriangleStream Triangles;                                    // 0x0010 (size: 0x10)
+    FRuntimeMeshCollisionTexCoordStream TexCoords;                                    // 0x0020 (size: 0x10)
+    FRuntimeMeshCollisionMaterialIndexStream MaterialIndices;                         // 0x0030 (size: 0x10)
+    TArray<FRuntimeMeshCollisionSourceSectionInfo> CollisionSources;                  // 0x0040 (size: 0x10)
+    bool bFlipNormals;                                                                // 0x0050 (size: 0x1)
+    bool bDeformableMesh;                                                             // 0x0051 (size: 0x1)
+    bool bFastCook;                                                                   // 0x0052 (size: 0x1)
+    bool bDisableActiveEdgePrecompute;                                                // 0x0053 (size: 0x1)
 
-};
+}; // Size: 0x58
 
 struct FRuntimeMeshCollisionConvexMesh
 {
-    TArray<FVector> VertexBuffer;
-    FBox BoundingBox;
+    TArray<FVector> VertexBuffer;                                                     // 0x0000 (size: 0x10)
+    FBox BoundingBox;                                                                 // 0x0010 (size: 0x1C)
 
-};
+}; // Size: 0x30
 
 struct FRuntimeMeshCollisionSphere
 {
-    FVector Center;
-    float Radius;
+    FVector Center;                                                                   // 0x0000 (size: 0xC)
+    float Radius;                                                                     // 0x000C (size: 0x4)
 
-};
+}; // Size: 0x10
 
 struct FRuntimeMeshCollisionBox
 {
-    FVector Center;
-    FRotator Rotation;
-    FVector Extents;
+    FVector Center;                                                                   // 0x0000 (size: 0xC)
+    FRotator Rotation;                                                                // 0x000C (size: 0xC)
+    FVector Extents;                                                                  // 0x0018 (size: 0xC)
 
-};
+}; // Size: 0x24
 
 struct FRuntimeMeshCollisionCapsule
 {
-    FVector Center;
-    FRotator Rotation;
-    float Radius;
-    float Length;
+    FVector Center;                                                                   // 0x0000 (size: 0xC)
+    FRotator Rotation;                                                                // 0x000C (size: 0xC)
+    float Radius;                                                                     // 0x0018 (size: 0x4)
+    float Length;                                                                     // 0x001C (size: 0x4)
 
-};
+}; // Size: 0x20
 
 struct FRuntimeMeshCollisionSettings
 {
-    bool bUseComplexAsSimple;
-    bool bUseAsyncCooking;
-    ERuntimeMeshCollisionCookingMode CookingMode;
-    TArray<FRuntimeMeshCollisionConvexMesh> ConvexElements;
-    TArray<FRuntimeMeshCollisionSphere> Spheres;
-    TArray<FRuntimeMeshCollisionBox> Boxes;
-    TArray<FRuntimeMeshCollisionCapsule> Capsules;
+    bool bUseComplexAsSimple;                                                         // 0x0000 (size: 0x1)
+    bool bUseAsyncCooking;                                                            // 0x0001 (size: 0x1)
+    ERuntimeMeshCollisionCookingMode CookingMode;                                     // 0x0002 (size: 0x1)
+    TArray<FRuntimeMeshCollisionConvexMesh> ConvexElements;                           // 0x0008 (size: 0x10)
+    TArray<FRuntimeMeshCollisionSphere> Spheres;                                      // 0x0018 (size: 0x10)
+    TArray<FRuntimeMeshCollisionBox> Boxes;                                           // 0x0028 (size: 0x10)
+    TArray<FRuntimeMeshCollisionCapsule> Capsules;                                    // 0x0038 (size: 0x10)
 
-};
+}; // Size: 0x48
 
 class URuntimeMeshBlueprintFunctions : public UBlueprintFunctionLibrary
 {
@@ -304,11 +304,11 @@ class URuntimeMeshBlueprintFunctions : public UBlueprintFunctionLibrary
     void AddCollisionConvex(FRuntimeMeshCollisionSettings& Settings, FRuntimeMeshCollisionSettings& OutSettings, FRuntimeMeshCollisionConvexMesh NewConvex);
     void AddCollisionCapsule(FRuntimeMeshCollisionSettings& Settings, FRuntimeMeshCollisionSettings& OutSettings, FRuntimeMeshCollisionCapsule NewCapsule);
     void AddCollisionBox(FRuntimeMeshCollisionSettings& Settings, FRuntimeMeshCollisionSettings& OutSettings, FRuntimeMeshCollisionBox NewBox);
-};
+}; // Size: 0x28
 
 class URuntimeMeshComponent : public UMeshComponent
 {
-    class URuntimeMesh* RuntimeMeshReference;
+    class URuntimeMesh* RuntimeMeshReference;                                         // 0x0470 (size: 0x8)
 
     void SetupMaterialSlot(int32 MaterialSlot, FName SlotName, class UMaterialInterface* InMaterial);
     void SetRuntimeMeshMobility(ERuntimeMeshMobility NewMobility);
@@ -320,41 +320,41 @@ class URuntimeMeshComponent : public UMeshComponent
     class URuntimeMesh* GetOrCreateRuntimeMesh();
     TArray<FRuntimeMeshMaterialSlot> GetMaterialSlots();
     FRuntimeMeshCollisionHitInfo GetHitSource(int32 FaceIndex);
-};
+}; // Size: 0x480
 
 class URuntimeMeshComponentEngineSubsystem : public UEngineSubsystem
 {
-};
+}; // Size: 0x60
 
 class URuntimeMeshComponentSettings : public UDeveloperSettings
 {
-    ERuntimeMeshUpdateFrequency DefaultUpdateFrequency;
-    bool bUse32BitIndicesByDefault;
-    bool bUseHighPrecisionTexCoordsByDefault;
-    bool bUseHighPrecisionTangentsByDefault;
-    bool bCookCollisionAsync;
-    ERuntimeMeshCollisionCookingMode DefaultCookingMode;
-    FInt32Range MinMaxThreadPoolThreads;
-    int32 SystemThreadDivisor;
-    ERuntimeMeshThreadingPriority ThreadPriority;
-    int32 ThreadStackSize;
-    float MaxAllowedTimePerTick;
+    ERuntimeMeshUpdateFrequency DefaultUpdateFrequency;                               // 0x0038 (size: 0x1)
+    bool bUse32BitIndicesByDefault;                                                   // 0x0039 (size: 0x1)
+    bool bUseHighPrecisionTexCoordsByDefault;                                         // 0x003A (size: 0x1)
+    bool bUseHighPrecisionTangentsByDefault;                                          // 0x003B (size: 0x1)
+    bool bCookCollisionAsync;                                                         // 0x003C (size: 0x1)
+    ERuntimeMeshCollisionCookingMode DefaultCookingMode;                              // 0x003D (size: 0x1)
+    FInt32Range MinMaxThreadPoolThreads;                                              // 0x0040 (size: 0x10)
+    int32 SystemThreadDivisor;                                                        // 0x0050 (size: 0x4)
+    ERuntimeMeshThreadingPriority ThreadPriority;                                     // 0x0054 (size: 0x1)
+    int32 ThreadStackSize;                                                            // 0x0058 (size: 0x4)
+    float MaxAllowedTimePerTick;                                                      // 0x005C (size: 0x4)
 
-};
+}; // Size: 0x60
 
 struct FRuntimeMeshTangent
 {
-    FVector TangentX;
-    bool bFlipTangentY;
+    FVector TangentX;                                                                 // 0x0000 (size: 0xC)
+    bool bFlipTangentY;                                                               // 0x000C (size: 0x1)
 
-};
+}; // Size: 0x10
 
 class URuntimeMeshComponentStatic : public URuntimeMeshComponent
 {
-    class URuntimeMesh* RuntimeMesh;
-    class URuntimeMeshProviderStatic* StaticProvider;
-    class URuntimeMeshModifierNormals* NormalsModifier;
-    class URuntimeMeshModifierAdjacency* AdjacencyModifier;
+    class URuntimeMesh* RuntimeMesh;                                                  // 0x0478 (size: 0x8)
+    class URuntimeMeshProviderStatic* StaticProvider;                                 // 0x0480 (size: 0x8)
+    class URuntimeMeshModifierNormals* NormalsModifier;                               // 0x0488 (size: 0x8)
+    class URuntimeMeshModifierAdjacency* AdjacencyModifier;                           // 0x0490 (size: 0x8)
 
     void UpdateSectionFromComponents(int32 LODIndex, int32 SectionIndex, const TArray<FVector>& Vertices, const TArray<int32>& Triangles, const TArray<FVector>& Normals, const TArray<FVector2D>& UV0, const TArray<FVector2D>& UV1, const TArray<FVector2D>& UV2, const TArray<FVector2D>& UV3, const TArray<FLinearColor>& VertexColors, const TArray<FRuntimeMeshTangent>& Tangents);
     void UpdateSection_Blueprint(int32 LODIndex, int32 SectionId, const FRuntimeMeshRenderableMeshData& SectionData);
@@ -384,31 +384,31 @@ class URuntimeMeshComponentStatic : public URuntimeMeshComponent
     void CreateSectionFromComponents(int32 LODIndex, int32 SectionIndex, int32 MaterialSlot, const TArray<FVector>& Vertices, const TArray<int32>& Triangles, const TArray<FVector>& Normals, const TArray<FVector2D>& UV0, const TArray<FVector2D>& UV1, const TArray<FVector2D>& UV2, const TArray<FVector2D>& UV3, const TArray<FLinearColor>& VertexColors, const TArray<FRuntimeMeshTangent>& Tangents, ERuntimeMeshUpdateFrequency UpdateFrequency, bool bCreateCollision);
     void CreateSection_Blueprint(int32 LODIndex, int32 SectionId, const FRuntimeMeshSectionProperties& SectionProperties, const FRuntimeMeshRenderableMeshData& SectionData);
     void ClearSection(int32 LODIndex, int32 SectionId);
-};
+}; // Size: 0x4A0
 
 class URuntimeMeshModifier : public UObject
 {
 
     void ApplyToMesh(FRuntimeMeshRenderableMeshData& MeshData);
     void ApplyToCollisionMesh(FRuntimeMeshCollisionData& MeshData);
-};
+}; // Size: 0x28
 
 class URuntimeMeshModifierAdjacency : public URuntimeMeshModifier
 {
 
     void CalculateTessellationIndices(FRuntimeMeshRenderableMeshData& MeshData);
-};
+}; // Size: 0x28
 
 class URuntimeMeshModifierNormals : public URuntimeMeshModifier
 {
-    bool bComputeSmoothNormals;
+    bool bComputeSmoothNormals;                                                       // 0x0028 (size: 0x1)
 
     void CalculateNormalsTangents(FRuntimeMeshRenderableMeshData& MeshData, bool bInComputeSmoothNormals);
-};
+}; // Size: 0x30
 
 struct FRuntimeMeshSectionData
 {
-};
+}; // Size: 0x90
 
 class URuntimeMeshProvider : public URuntimeMeshProviderTargetInterface
 {
@@ -424,85 +424,85 @@ class URuntimeMeshProvider : public URuntimeMeshProviderTargetInterface
     FBoxSphereBounds GetBounds();
     bool GetAllSectionsMeshForLOD(int32 LODIndex, TMap<int32, FRuntimeMeshSectionData>& MeshDatas);
     void CollisionUpdateCompleted();
-};
+}; // Size: 0x58
 
 class URuntimeMeshProviderPassthrough : public URuntimeMeshProvider
 {
-    class URuntimeMeshProvider* ChildProvider;
+    class URuntimeMeshProvider* ChildProvider;                                        // 0x0058 (size: 0x8)
 
     void SetChildProvider(class URuntimeMeshProvider* InProvider);
     class URuntimeMeshProvider* GetChildProvider();
-};
+}; // Size: 0x68
 
 class URuntimeMeshProviderBox : public URuntimeMeshProvider
 {
-    FVector BoxRadius;
-    class UMaterialInterface* Material;
+    FVector BoxRadius;                                                                // 0x0080 (size: 0xC)
+    class UMaterialInterface* Material;                                               // 0x0090 (size: 0x8)
 
     void SetBoxRadius(const FVector& InRadius);
     void SetBoxMaterial(class UMaterialInterface* InMaterial);
     FVector GetBoxRadius();
     class UMaterialInterface* GetBoxMaterial();
-};
+}; // Size: 0x98
 
 struct FRuntimeMeshRenderableCollisionData
 {
-    FRuntimeMeshCollisionVertexStream Vertices;
-    FRuntimeMeshCollisionTriangleStream Triangles;
-    FRuntimeMeshCollisionTexCoordStream TexCoords;
+    FRuntimeMeshCollisionVertexStream Vertices;                                       // 0x0000 (size: 0x10)
+    FRuntimeMeshCollisionTriangleStream Triangles;                                    // 0x0010 (size: 0x10)
+    FRuntimeMeshCollisionTexCoordStream TexCoords;                                    // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x30
 
 class URuntimeMeshProviderCollision : public URuntimeMeshProviderPassthrough
 {
-    int32 LODForMeshCollision;
-    TMap<int32, FRuntimeMeshRenderableCollisionData> RenderableCollisionData;
-    TSet<int32> SectionsAffectingCollision;
-    FRuntimeMeshCollisionSettings CollisionSettings;
-    FRuntimeMeshCollisionData CollisionMesh;
+    int32 LODForMeshCollision;                                                        // 0x0068 (size: 0x4)
+    TMap<int32, FRuntimeMeshRenderableCollisionData> RenderableCollisionData;         // 0x0070 (size: 0x50)
+    TSet<int32> SectionsAffectingCollision;                                           // 0x00C0 (size: 0x50)
+    FRuntimeMeshCollisionSettings CollisionSettings;                                  // 0x0110 (size: 0x48)
+    FRuntimeMeshCollisionData CollisionMesh;                                          // 0x0158 (size: 0x58)
 
     void SetRenderableSectionAffectsCollision(int32 SectionId, bool bCollisionEnabled);
     void SetRenderableLODForCollision(int32 LODIndex);
     void SetCollisionSettings(const FRuntimeMeshCollisionSettings& NewCollisionSettings);
     void SetCollisionMesh(const FRuntimeMeshCollisionData& NewCollisionMesh);
-};
+}; // Size: 0x1D8
 
 class URuntimeMeshProviderMemoryCache : public URuntimeMeshProviderPassthrough
 {
 
     void ClearCache();
-};
+}; // Size: 0x218
 
 class URuntimeMeshProviderModifiers : public URuntimeMeshProviderPassthrough
 {
-    TArray<class URuntimeMeshModifier*> Modifiers;
+    TArray<class URuntimeMeshModifier*> Modifiers;                                    // 0x0068 (size: 0x10)
 
     void RemoveModifier(class URuntimeMeshModifier* ModifierToRemove);
     void AddModifier(class URuntimeMeshModifier* NewModifier);
-};
+}; // Size: 0x78
 
 class URuntimeMeshProviderPlane : public URuntimeMeshProviderPassthrough
 {
-    FVector LocationA;
-    FVector LocationB;
-    FVector LocationC;
-    TArray<int32> VertsAB;
-    TArray<int32> VertsAC;
-    TArray<float> ScreenSize;
-    class UMaterialInterface* Material;
+    FVector LocationA;                                                                // 0x0094 (size: 0xC)
+    FVector LocationB;                                                                // 0x00A0 (size: 0xC)
+    FVector LocationC;                                                                // 0x00AC (size: 0xC)
+    TArray<int32> VertsAB;                                                            // 0x00B8 (size: 0x10)
+    TArray<int32> VertsAC;                                                            // 0x00C8 (size: 0x10)
+    TArray<float> ScreenSize;                                                         // 0x00D8 (size: 0x10)
+    class UMaterialInterface* Material;                                               // 0x00E8 (size: 0x8)
 
-};
+}; // Size: 0xF0
 
 class URuntimeMeshProviderSphere : public URuntimeMeshProvider
 {
-    int32 MaxLOD;
-    float SphereRadius;
-    int32 MaxLatitudeSegments;
-    int32 MinLatitudeSegments;
-    int32 MaxLongitudeSegments;
-    int32 MinLongitudeSegments;
-    float LODMultiplier;
-    class UMaterialInterface* SphereMaterial;
+    int32 MaxLOD;                                                                     // 0x0080 (size: 0x4)
+    float SphereRadius;                                                               // 0x0084 (size: 0x4)
+    int32 MaxLatitudeSegments;                                                        // 0x0088 (size: 0x4)
+    int32 MinLatitudeSegments;                                                        // 0x008C (size: 0x4)
+    int32 MaxLongitudeSegments;                                                       // 0x0090 (size: 0x4)
+    int32 MinLongitudeSegments;                                                       // 0x0094 (size: 0x4)
+    float LODMultiplier;                                                              // 0x0098 (size: 0x4)
+    class UMaterialInterface* SphereMaterial;                                         // 0x00A0 (size: 0x8)
 
     void SetSphereRadius(float InSphereRadius);
     void SetSphereMaterial(class UMaterialInterface* InSphereMaterial);
@@ -518,12 +518,12 @@ class URuntimeMeshProviderSphere : public URuntimeMeshProvider
     int32 GetMaxLongitudeSegments();
     int32 GetMaxLatitudeSegments();
     float GetLODMultiplier();
-};
+}; // Size: 0xA8
 
 class URuntimeMeshProviderStatic : public URuntimeMeshProvider
 {
-    bool StoreEditorGeneratedDataForGame;
-    TArray<class URuntimeMeshModifier*> CurrentMeshModifiers;
+    bool StoreEditorGeneratedDataForGame;                                             // 0x0058 (size: 0x1)
+    TArray<class URuntimeMeshModifier*> CurrentMeshModifiers;                         // 0x0248 (size: 0x10)
 
     void UpdateSectionFromComponents(int32 LODIndex, int32 SectionIndex, const TArray<FVector>& Vertices, const TArray<int32>& Triangles, const TArray<FVector>& Normals, const TArray<FVector2D>& UV0, const TArray<FVector2D>& UV1, const TArray<FVector2D>& UV2, const TArray<FVector2D>& UV3, const TArray<FLinearColor>& VertexColors, const TArray<FRuntimeMeshTangent>& Tangents);
     void UpdateSection_Blueprint(int32 LODIndex, int32 SectionId, const FRuntimeMeshRenderableMeshData& SectionData);
@@ -548,13 +548,13 @@ class URuntimeMeshProviderStatic : public URuntimeMeshProvider
     bool DoesSectionHaveValidMeshData(int32 LODIndex, int32 SectionId);
     void CreateSectionFromComponents(int32 LODIndex, int32 SectionIndex, int32 MaterialSlot, const TArray<FVector>& Vertices, const TArray<int32>& Triangles, const TArray<FVector>& Normals, const TArray<FVector2D>& UV0, const TArray<FVector2D>& UV1, const TArray<FVector2D>& UV2, const TArray<FVector2D>& UV3, const TArray<FLinearColor>& VertexColors, const TArray<FRuntimeMeshTangent>& Tangents, ERuntimeMeshUpdateFrequency UpdateFrequency, bool bCreateCollision);
     void CreateSection_Blueprint(int32 LODIndex, int32 SectionId, const FRuntimeMeshSectionProperties& SectionProperties, const FRuntimeMeshRenderableMeshData& SectionData);
-};
+}; // Size: 0x258
 
 class URuntimeMeshProviderStaticMesh : public URuntimeMeshProvider
 {
-    class UStaticMesh* StaticMesh;
-    int32 MaxLOD;
-    int32 ComplexCollisionLOD;
+    class UStaticMesh* StaticMesh;                                                    // 0x0058 (size: 0x8)
+    int32 MaxLOD;                                                                     // 0x0060 (size: 0x4)
+    int32 ComplexCollisionLOD;                                                        // 0x0064 (size: 0x4)
 
     void SetStaticMesh(class UStaticMesh* InStaticMesh);
     void SetMaxLOD(int32 InMaxLOD);
@@ -562,14 +562,14 @@ class URuntimeMeshProviderStaticMesh : public URuntimeMeshProvider
     class UStaticMesh* GetStaticMesh();
     int32 GetMaxLOD();
     int32 GetComplexCollisionLOD();
-};
+}; // Size: 0x68
 
 class URuntimeMeshSlicer : public UBlueprintFunctionLibrary
 {
 
     bool SliceRuntimeMeshData(FRuntimeMeshRenderableMeshData& SourceSection, const FPlane& SlicePlane, ERuntimeMeshSliceCapOption CapOption, FRuntimeMeshRenderableMeshData& NewSourceSection, FRuntimeMeshRenderableMeshData& NewSourceSectionCap, bool bCreateDestination, FRuntimeMeshRenderableMeshData& DestinationSection, FRuntimeMeshRenderableMeshData& NewDestinationSectionCap);
     void SliceRuntimeMesh(class URuntimeMeshComponent* InRuntimeMesh, FVector PlanePosition, FVector PlaneNormal, bool bCreateOtherHalf, class URuntimeMeshComponent*& OutOtherHalfRuntimeMesh, ERuntimeMeshSliceCapOption CapOption, class UMaterialInterface* CapMaterial);
-};
+}; // Size: 0x28
 
 class URuntimeMeshStaticMeshConverter : public UBlueprintFunctionLibrary
 {
@@ -579,6 +579,6 @@ class URuntimeMeshStaticMeshConverter : public UBlueprintFunctionLibrary
     bool CopyStaticMeshLODToCollisionData(class UStaticMesh* StaticMesh, int32 LODIndex, FRuntimeMeshCollisionData& OutCollisionData);
     bool CopyStaticMeshComponentToRuntimeMesh(class UStaticMeshComponent* StaticMeshComponent, class URuntimeMeshComponent* RuntimeMeshComponent, int32 CollisionLODIndex, int32 MaxLODToCopy);
     bool CopyStaticMeshCollisionToCollisionSettings(class UStaticMesh* StaticMesh, FRuntimeMeshCollisionSettings& OutCollisionSettings);
-};
+}; // Size: 0x28
 
 #endif

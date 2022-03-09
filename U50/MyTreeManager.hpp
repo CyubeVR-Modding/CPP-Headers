@@ -3,6 +3,6 @@
 
 class AMyTreeManager_C : public ATreeManager
 {
-};
+}; // Size: 0x398
 
 #endif

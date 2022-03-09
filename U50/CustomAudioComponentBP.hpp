@@ -3,6 +3,6 @@
 
 class UCustomAudioComponentBP_C : public UCustomAudioComponent
 {
-};
+}; // Size: 0x860
 
 #endif

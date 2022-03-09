@@ -3,6 +3,6 @@
 
 class UDynamicFrames_UtilMacros_C : public UObject
 {
-};
+}; // Size: 0x28
 
 #endif

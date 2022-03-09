@@ -18,6 +18,6 @@ class UDLSSLibrary : public UBlueprintFunctionLibrary
     UDLSSMode GetDLSSMode();
     void GetDLSSMinimumDriverVersion(int32& MinDriverVersionMajor, int32& MinDriverVersionMinor);
     UDLSSMode GetDefaultDLSSMode();
-};
+}; // Size: 0x28
 
 #endif

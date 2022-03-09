@@ -5,41 +5,41 @@
 
 class UNiagaraScriptBase : public UObject
 {
-};
+}; // Size: 0x28
 
 struct FNiagaraDataInterfaceGeneratedFunction
 {
-};
+}; // Size: 0x28
 
 struct FNiagaraDataInterfaceGPUParamInfo
 {
-    FString DataInterfaceHLSLSymbol;
-    FString DIClassName;
-    TArray<FNiagaraDataInterfaceGeneratedFunction> GeneratedFunctions;
+    FString DataInterfaceHLSLSymbol;                                                  // 0x0000 (size: 0x10)
+    FString DIClassName;                                                              // 0x0010 (size: 0x10)
+    TArray<FNiagaraDataInterfaceGeneratedFunction> GeneratedFunctions;                // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x30
 
 struct FSimulationStageMetaData
 {
-    FName SimulationStageName;
-    FName IterationSource;
-    uint8 bSpawnOnly;
-    uint8 bWritesParticles;
-    uint8 bPartialParticleUpdate;
-    TArray<FName> OutputDestinations;
-    int32 MinStage;
-    int32 MaxStage;
+    FName SimulationStageName;                                                        // 0x0000 (size: 0x8)
+    FName IterationSource;                                                            // 0x0008 (size: 0x8)
+    uint8 bSpawnOnly;                                                                 // 0x0010 (size: 0x1)
+    uint8 bWritesParticles;                                                           // 0x0010 (size: 0x1)
+    uint8 bPartialParticleUpdate;                                                     // 0x0010 (size: 0x1)
+    TArray<FName> OutputDestinations;                                                 // 0x0018 (size: 0x10)
+    int32 MinStage;                                                                   // 0x0028 (size: 0x4)
+    int32 MaxStage;                                                                   // 0x002C (size: 0x4)
 
-};
+}; // Size: 0x30
 
 struct FNiagaraCompileEvent
 {
-    FNiagaraCompileEventSeverity Severity;
-    FString Message;
-    FGuid NodeGuid;
-    FGuid PinGuid;
-    TArray<FGuid> StackGuids;
+    FNiagaraCompileEventSeverity Severity;                                            // 0x0000 (size: 0x1)
+    FString Message;                                                                  // 0x0008 (size: 0x10)
+    FGuid NodeGuid;                                                                   // 0x0018 (size: 0x10)
+    FGuid PinGuid;                                                                    // 0x0028 (size: 0x10)
+    TArray<FGuid> StackGuids;                                                         // 0x0038 (size: 0x10)
 
-};
+}; // Size: 0x48
 
 #endif

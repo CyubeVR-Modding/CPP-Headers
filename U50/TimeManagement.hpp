@@ -5,19 +5,19 @@
 
 class UFixedFrameRateCustomTimeStep : public UEngineCustomTimeStep
 {
-    FFrameRate FixedFrameRate;
+    FFrameRate FixedFrameRate;                                                        // 0x0028 (size: 0x8)
 
-};
+}; // Size: 0x30
 
 class UGenlockedCustomTimeStep : public UFixedFrameRateCustomTimeStep
 {
-};
+}; // Size: 0x30
 
 class UGenlockedTimecodeProvider : public UTimecodeProvider
 {
-    bool bUseGenlockToCount;
+    bool bUseGenlockToCount;                                                          // 0x0030 (size: 0x1)
 
-};
+}; // Size: 0x58
 
 class UTimeManagementBlueprintLibrary : public UBlueprintFunctionLibrary
 {
@@ -39,24 +39,24 @@ class UTimeManagementBlueprintLibrary : public UBlueprintFunctionLibrary
     int32 Conv_FrameNumberToInteger(const FFrameNumber& InFrameNumber);
     FFrameNumber Add_FrameNumberInteger(FFrameNumber A, int32 B);
     FFrameNumber Add_FrameNumberFrameNumber(FFrameNumber A, FFrameNumber B);
-};
+}; // Size: 0x28
 
 class UTimeSynchronizationSource : public UObject
 {
-    bool bUseForSynchronization;
-    int32 FrameOffset;
+    bool bUseForSynchronization;                                                      // 0x0028 (size: 0x1)
+    int32 FrameOffset;                                                                // 0x002C (size: 0x4)
 
-};
+}; // Size: 0x30
 
 struct FTimedDataInputEvaluationData
 {
-    float DistanceToNewestSampleSeconds;
-    float DistanceToOldestSampleSeconds;
+    float DistanceToNewestSampleSeconds;                                              // 0x0000 (size: 0x4)
+    float DistanceToOldestSampleSeconds;                                              // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 struct FTimedDataChannelSampleTime
 {
-};
+}; // Size: 0x18
 
 #endif

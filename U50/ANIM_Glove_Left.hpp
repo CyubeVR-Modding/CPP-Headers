@@ -3,66 +3,66 @@
 
 class UANIM_Glove_Left_C : public UAnimInstance
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    FAnimNode_Root AnimGraphNode_Root;
-    FAnimNode_SteamVRInputAnimPose AnimGraphNode_SteamVRInputAnimPose;
-    FAnimNode_TwoWayBlend AnimGraphNode_TwoWayBlend_1;
-    FAnimNode_SaveCachedPose AnimGraphNode_SaveCachedPose_1;
-    FAnimNode_UseCachedPose AnimGraphNode_UseCachedPose_3;
-    FAnimNode_SteamVRSetWristTransform AnimGraphNode_SteamVRSetWristTransform;
-    FAnimNode_UseCachedPose AnimGraphNode_UseCachedPose_2;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_15;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_14;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_13;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_12;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_11;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_10;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_9;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_8;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_7;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_6;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_5;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_4;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_3;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_2;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_1;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_9;
-    FAnimNode_StateResult AnimGraphNode_StateResult_8;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_8;
-    FAnimNode_StateResult AnimGraphNode_StateResult_7;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_7;
-    FAnimNode_StateResult AnimGraphNode_StateResult_6;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_6;
-    FAnimNode_StateResult AnimGraphNode_StateResult_5;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_5;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_4;
-    FAnimNode_TwoWayBlend AnimGraphNode_TwoWayBlend;
-    FAnimNode_StateResult AnimGraphNode_StateResult_4;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_3;
-    FAnimNode_StateResult AnimGraphNode_StateResult_3;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_2;
-    FAnimNode_StateResult AnimGraphNode_StateResult_2;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_1;
-    FAnimNode_StateResult AnimGraphNode_StateResult_1;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer;
-    FAnimNode_StateResult AnimGraphNode_StateResult;
-    FAnimNode_StateMachine AnimGraphNode_StateMachine;
-    FAnimNode_BlendListByBool AnimGraphNode_BlendListByBool;
-    FAnimNode_SaveCachedPose AnimGraphNode_SaveCachedPose;
-    FAnimNode_UseCachedPose AnimGraphNode_UseCachedPose_1;
-    FAnimNode_UseCachedPose AnimGraphNode_UseCachedPose;
-    FSteamVRSkeletonTransform SteamVRTransformWithController;
-    FSteamVRSkeletonTransform SteamVRTransformWithoutController;
-    TEnumAsByte<GripEnum> GripState;
-    TEnumAsByte<HandPoseEnum> GripType;
-    EControllerHand HandType;
-    float Squeeze;
-    float Grip;
-    EMotionRange MotionRange;
-    float InterpolateSpeed;
-    bool ProceduralSkeletonEnabled;
-    bool MirrorSkeletalPose;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x02C0 (size: 0x8)
+    FAnimNode_Root AnimGraphNode_Root;                                                // 0x02C8 (size: 0x30)
+    FAnimNode_SteamVRInputAnimPose AnimGraphNode_SteamVRInputAnimPose;                // 0x0300 (size: 0x620)
+    FAnimNode_TwoWayBlend AnimGraphNode_TwoWayBlend_1;                                // 0x0920 (size: 0xC8)
+    FAnimNode_SaveCachedPose AnimGraphNode_SaveCachedPose_1;                          // 0x09E8 (size: 0x158)
+    FAnimNode_UseCachedPose AnimGraphNode_UseCachedPose_3;                            // 0x0B40 (size: 0x28)
+    FAnimNode_SteamVRSetWristTransform AnimGraphNode_SteamVRSetWristTransform;        // 0x0B68 (size: 0x40)
+    FAnimNode_UseCachedPose AnimGraphNode_UseCachedPose_2;                            // 0x0BA8 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_15;                     // 0x0BD0 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_14;                     // 0x0BF8 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_13;                     // 0x0C20 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_12;                     // 0x0C48 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_11;                     // 0x0C70 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_10;                     // 0x0C98 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_9;                      // 0x0CC0 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_8;                      // 0x0CE8 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_7;                      // 0x0D10 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_6;                      // 0x0D38 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_5;                      // 0x0D60 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_4;                      // 0x0D88 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_3;                      // 0x0DB0 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_2;                      // 0x0DD8 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_1;                      // 0x0E00 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult;                        // 0x0E28 (size: 0x28)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_9;                          // 0x0E50 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_8;                                // 0x0ED0 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_8;                          // 0x0F00 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_7;                                // 0x0F80 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_7;                          // 0x0FB0 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_6;                                // 0x1030 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_6;                          // 0x1060 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_5;                                // 0x10E0 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_5;                          // 0x1110 (size: 0x80)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_4;                          // 0x1190 (size: 0x80)
+    FAnimNode_TwoWayBlend AnimGraphNode_TwoWayBlend;                                  // 0x1210 (size: 0xC8)
+    FAnimNode_StateResult AnimGraphNode_StateResult_4;                                // 0x12D8 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_3;                          // 0x1308 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_3;                                // 0x1388 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_2;                          // 0x13B8 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_2;                                // 0x1438 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_1;                          // 0x1468 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_1;                                // 0x14E8 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer;                            // 0x1518 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult;                                  // 0x1598 (size: 0x30)
+    FAnimNode_StateMachine AnimGraphNode_StateMachine;                                // 0x15C8 (size: 0xB0)
+    FAnimNode_BlendListByBool AnimGraphNode_BlendListByBool;                          // 0x1678 (size: 0xA0)
+    FAnimNode_SaveCachedPose AnimGraphNode_SaveCachedPose;                            // 0x1718 (size: 0x158)
+    FAnimNode_UseCachedPose AnimGraphNode_UseCachedPose_1;                            // 0x1870 (size: 0x28)
+    FAnimNode_UseCachedPose AnimGraphNode_UseCachedPose;                              // 0x1898 (size: 0x28)
+    FSteamVRSkeletonTransform SteamVRTransformWithController;                         // 0x18C0 (size: 0x5D0)
+    FSteamVRSkeletonTransform SteamVRTransformWithoutController;                      // 0x1E90 (size: 0x5D0)
+    TEnumAsByte<GripEnum> GripState;                                                  // 0x2460 (size: 0x1)
+    TEnumAsByte<HandPoseEnum> GripType;                                               // 0x2461 (size: 0x1)
+    EControllerHand HandType;                                                         // 0x2462 (size: 0x1)
+    float Squeeze;                                                                    // 0x2464 (size: 0x4)
+    float Grip;                                                                       // 0x2468 (size: 0x4)
+    EMotionRange MotionRange;                                                         // 0x246C (size: 0x1)
+    float InterpolateSpeed;                                                           // 0x2470 (size: 0x4)
+    bool ProceduralSkeletonEnabled;                                                   // 0x2474 (size: 0x1)
+    bool MirrorSkeletalPose;                                                          // 0x2475 (size: 0x1)
 
     void AnimGraph(FPoseLink& AnimGraph);
     void EvaluateGraphExposedInputs_ExecuteUbergraph_ANIM_Glove_Left_AnimGraphNode_TwoWayBlend_6149ACDD491CE81E1BCEB7A897EA8133();
@@ -90,6 +90,6 @@ class UANIM_Glove_Left_C : public UAnimInstance
     void SetGripType(TEnumAsByte<HandPoseEnum> Value);
     void SetHandType(EControllerHand Value);
     void ExecuteUbergraph_ANIM_Glove_Left(int32 EntryPoint);
-};
+}; // Size: 0x2476
 
 #endif

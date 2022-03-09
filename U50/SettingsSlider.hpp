@@ -3,14 +3,14 @@
 
 class USettingsSlider_C : public UUserWidget
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UButton* Button_0;
-    class USettingName_C* SettingName;
-    class USlider* Slider_0;
-    TEnumAsByte<SliderType> SettingsType;
-    FText Text;
-    float Default;
-    class UMaterialInstanceDynamic* SliderMat;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0260 (size: 0x8)
+    class UButton* Button_0;                                                          // 0x0268 (size: 0x8)
+    class USettingName_C* SettingName;                                                // 0x0270 (size: 0x8)
+    class USlider* Slider_0;                                                          // 0x0278 (size: 0x8)
+    TEnumAsByte<SliderType> SettingsType;                                             // 0x0280 (size: 0x1)
+    FText Text;                                                                       // 0x0288 (size: 0x18)
+    float Default;                                                                    // 0x02A0 (size: 0x4)
+    class UMaterialInstanceDynamic* SliderMat;                                        // 0x02A8 (size: 0x8)
 
     void DoResolutionOffset(float Value);
     void Tick(FGeometry MyGeometry, float InDeltaTime);
@@ -32,6 +32,6 @@ class USettingsSlider_C : public UUserWidget
     void DoBucketAnglePitch(float Value);
     void DoBucketAngleRoll(float Value);
     void ExecuteUbergraph_SettingsSlider(int32 EntryPoint);
-};
+}; // Size: 0x2B0
 
 #endif

@@ -19,6 +19,6 @@ class UBP_FunctionLibrary_C : public UBlueprintFunctionLibrary
     void ToggleBool(bool& Input, class UObject* __WorldContext);
     void GetCaptureActorActive(class UObject* __WorldContext, bool& Active);
     void GetUsedVRHeadset(class UObject* __WorldContext, bool& IsRift, EHMDType& Type);
-};
+}; // Size: 0x28
 
 #endif

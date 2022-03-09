@@ -12,6 +12,6 @@ class UAssetTagsSubsystem : public UEngineSubsystem
     TArray<FName> GetCollections();
     TArray<FAssetData> GetAssetsInCollection(const FName Name);
     bool CollectionExists(const FName Name);
-};
+}; // Size: 0x30
 
 #endif

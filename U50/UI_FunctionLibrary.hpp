@@ -17,6 +17,6 @@ class UUI_FunctionLibrary_C : public UBlueprintFunctionLibrary
     void GetBlockName(EBlockTypeBP Type, class UObject* __WorldContext, FText& Name);
     void PlayHoverSound(class UObject* __WorldContext);
     void GetTexture(EBlockTypeBP Type, class UObject* __WorldContext, class UTexture2D*& Texture);
-};
+}; // Size: 0x28
 
 #endif

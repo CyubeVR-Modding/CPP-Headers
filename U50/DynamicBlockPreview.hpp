@@ -3,11 +3,11 @@
 
 class UDynamicBlockPreview_C : public UUserWidget
 {
-    class UImage* Left;
-    class URetainerBox* RetainerBox_0;
-    class UImage* Right;
-    class UImage* Top;
+    class UImage* Left;                                                               // 0x0260 (size: 0x8)
+    class URetainerBox* RetainerBox_0;                                                // 0x0268 (size: 0x8)
+    class UImage* Right;                                                              // 0x0270 (size: 0x8)
+    class UImage* Top;                                                                // 0x0278 (size: 0x8)
 
-};
+}; // Size: 0x280
 
 #endif

@@ -5,110 +5,110 @@
 
 struct FSynth1PatchCable
 {
-    float Depth;
-    ESynth1PatchDestination Destination;
+    float Depth;                                                                      // 0x0000 (size: 0x4)
+    ESynth1PatchDestination Destination;                                              // 0x0004 (size: 0x1)
 
-};
+}; // Size: 0x8
 
 struct FEpicSynth1Patch
 {
-    ESynth1PatchSource PatchSource;
-    TArray<FSynth1PatchCable> PatchCables;
+    ESynth1PatchSource PatchSource;                                                   // 0x0000 (size: 0x1)
+    TArray<FSynth1PatchCable> PatchCables;                                            // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FModularSynthPreset : public FTableRowBase
 {
-    uint8 bEnablePolyphony;
-    ESynth1OscType Osc1Type;
-    float Osc1Gain;
-    float Osc1Octave;
-    float Osc1Semitones;
-    float Osc1Cents;
-    float Osc1PulseWidth;
-    ESynth1OscType Osc2Type;
-    float Osc2Gain;
-    float Osc2Octave;
-    float Osc2Semitones;
-    float Osc2Cents;
-    float Osc2PulseWidth;
-    float Portamento;
-    uint8 bEnableUnison;
-    uint8 bEnableOscillatorSync;
-    float Spread;
-    float Pan;
-    float LFO1Frequency;
-    float LFO1Gain;
-    ESynthLFOType LFO1Type;
-    ESynthLFOMode LFO1Mode;
-    ESynthLFOPatchType LFO1PatchType;
-    float LFO2Frequency;
-    float LFO2Gain;
-    ESynthLFOType LFO2Type;
-    ESynthLFOMode LFO2Mode;
-    ESynthLFOPatchType LFO2PatchType;
-    float GainDb;
-    float AttackTime;
-    float DecayTime;
-    float SustainGain;
-    float ReleaseTime;
-    ESynthModEnvPatch ModEnvPatchType;
-    ESynthModEnvBiasPatch ModEnvBiasPatchType;
-    uint8 bInvertModulationEnvelope;
-    uint8 bInvertModulationEnvelopeBias;
-    float ModulationEnvelopeDepth;
-    float ModulationEnvelopeAttackTime;
-    float ModulationEnvelopeDecayTime;
-    float ModulationEnvelopeSustainGain;
-    float ModulationEnvelopeReleaseTime;
-    uint8 bLegato;
-    uint8 bRetrigger;
-    float FilterFrequency;
-    float FilterQ;
-    ESynthFilterType FilterType;
-    ESynthFilterAlgorithm FilterAlgorithm;
-    uint8 bStereoDelayEnabled;
-    ESynthStereoDelayMode StereoDelayMode;
-    float StereoDelayTime;
-    float StereoDelayFeedback;
-    float StereoDelayWetlevel;
-    float StereoDelayRatio;
-    uint8 bChorusEnabled;
-    float ChorusDepth;
-    float ChorusFeedback;
-    float ChorusFrequency;
-    TArray<FEpicSynth1Patch> Patches;
+    uint8 bEnablePolyphony;                                                           // 0x0008 (size: 0x1)
+    ESynth1OscType Osc1Type;                                                          // 0x000C (size: 0x1)
+    float Osc1Gain;                                                                   // 0x0010 (size: 0x4)
+    float Osc1Octave;                                                                 // 0x0014 (size: 0x4)
+    float Osc1Semitones;                                                              // 0x0018 (size: 0x4)
+    float Osc1Cents;                                                                  // 0x001C (size: 0x4)
+    float Osc1PulseWidth;                                                             // 0x0020 (size: 0x4)
+    ESynth1OscType Osc2Type;                                                          // 0x0024 (size: 0x1)
+    float Osc2Gain;                                                                   // 0x0028 (size: 0x4)
+    float Osc2Octave;                                                                 // 0x002C (size: 0x4)
+    float Osc2Semitones;                                                              // 0x0030 (size: 0x4)
+    float Osc2Cents;                                                                  // 0x0034 (size: 0x4)
+    float Osc2PulseWidth;                                                             // 0x0038 (size: 0x4)
+    float Portamento;                                                                 // 0x003C (size: 0x4)
+    uint8 bEnableUnison;                                                              // 0x0040 (size: 0x1)
+    uint8 bEnableOscillatorSync;                                                      // 0x0040 (size: 0x1)
+    float Spread;                                                                     // 0x0044 (size: 0x4)
+    float Pan;                                                                        // 0x0048 (size: 0x4)
+    float LFO1Frequency;                                                              // 0x004C (size: 0x4)
+    float LFO1Gain;                                                                   // 0x0050 (size: 0x4)
+    ESynthLFOType LFO1Type;                                                           // 0x0054 (size: 0x1)
+    ESynthLFOMode LFO1Mode;                                                           // 0x0055 (size: 0x1)
+    ESynthLFOPatchType LFO1PatchType;                                                 // 0x0056 (size: 0x1)
+    float LFO2Frequency;                                                              // 0x0058 (size: 0x4)
+    float LFO2Gain;                                                                   // 0x005C (size: 0x4)
+    ESynthLFOType LFO2Type;                                                           // 0x0060 (size: 0x1)
+    ESynthLFOMode LFO2Mode;                                                           // 0x0061 (size: 0x1)
+    ESynthLFOPatchType LFO2PatchType;                                                 // 0x0062 (size: 0x1)
+    float GainDb;                                                                     // 0x0064 (size: 0x4)
+    float AttackTime;                                                                 // 0x0068 (size: 0x4)
+    float DecayTime;                                                                  // 0x006C (size: 0x4)
+    float SustainGain;                                                                // 0x0070 (size: 0x4)
+    float ReleaseTime;                                                                // 0x0074 (size: 0x4)
+    ESynthModEnvPatch ModEnvPatchType;                                                // 0x0078 (size: 0x1)
+    ESynthModEnvBiasPatch ModEnvBiasPatchType;                                        // 0x0079 (size: 0x1)
+    uint8 bInvertModulationEnvelope;                                                  // 0x007C (size: 0x1)
+    uint8 bInvertModulationEnvelopeBias;                                              // 0x007C (size: 0x1)
+    float ModulationEnvelopeDepth;                                                    // 0x0080 (size: 0x4)
+    float ModulationEnvelopeAttackTime;                                               // 0x0084 (size: 0x4)
+    float ModulationEnvelopeDecayTime;                                                // 0x0088 (size: 0x4)
+    float ModulationEnvelopeSustainGain;                                              // 0x008C (size: 0x4)
+    float ModulationEnvelopeReleaseTime;                                              // 0x0090 (size: 0x4)
+    uint8 bLegato;                                                                    // 0x0094 (size: 0x1)
+    uint8 bRetrigger;                                                                 // 0x0094 (size: 0x1)
+    float FilterFrequency;                                                            // 0x0098 (size: 0x4)
+    float FilterQ;                                                                    // 0x009C (size: 0x4)
+    ESynthFilterType FilterType;                                                      // 0x00A0 (size: 0x1)
+    ESynthFilterAlgorithm FilterAlgorithm;                                            // 0x00A1 (size: 0x1)
+    uint8 bStereoDelayEnabled;                                                        // 0x00A4 (size: 0x1)
+    ESynthStereoDelayMode StereoDelayMode;                                            // 0x00A8 (size: 0x1)
+    float StereoDelayTime;                                                            // 0x00AC (size: 0x4)
+    float StereoDelayFeedback;                                                        // 0x00B0 (size: 0x4)
+    float StereoDelayWetlevel;                                                        // 0x00B4 (size: 0x4)
+    float StereoDelayRatio;                                                           // 0x00B8 (size: 0x4)
+    uint8 bChorusEnabled;                                                             // 0x00BC (size: 0x1)
+    float ChorusDepth;                                                                // 0x00C0 (size: 0x4)
+    float ChorusFeedback;                                                             // 0x00C4 (size: 0x4)
+    float ChorusFrequency;                                                            // 0x00C8 (size: 0x4)
+    TArray<FEpicSynth1Patch> Patches;                                                 // 0x00D0 (size: 0x10)
 
-};
+}; // Size: 0xE0
 
 struct FModularSynthPresetBankEntry
 {
-    FString PresetName;
-    FModularSynthPreset Preset;
+    FString PresetName;                                                               // 0x0000 (size: 0x10)
+    FModularSynthPreset Preset;                                                       // 0x0010 (size: 0xE0)
 
-};
+}; // Size: 0xF0
 
 class UModularSynthPresetBank : public UObject
 {
-    TArray<FModularSynthPresetBankEntry> Presets;
+    TArray<FModularSynthPresetBankEntry> Presets;                                     // 0x0028 (size: 0x10)
 
-};
+}; // Size: 0x38
 
 class UModularSynthLibrary : public UBlueprintFunctionLibrary
 {
 
     void AddModularSynthPresetToBankAsset(class UModularSynthPresetBank* InBank, const FModularSynthPreset& Preset, FString PresetName);
-};
+}; // Size: 0x28
 
 struct FPatchId
 {
-    int32 ID;
+    int32 ID;                                                                         // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 class UModularSynthComponent : public USynthComponent
 {
-    int32 VoiceCount;
+    int32 VoiceCount;                                                                 // 0x06C0 (size: 0x4)
 
     void SetSynthPreset(const FModularSynthPreset& SynthPreset);
     void SetSustainGain(float SustainGain);
@@ -169,27 +169,27 @@ class UModularSynthComponent : public USynthComponent
     void NoteOn(const float Note, const int32 Velocity, const float Duration);
     void NoteOff(const float Note, const bool bAllNotesOff, const bool bKillAllNotes);
     FPatchId CreatePatch(const ESynth1PatchSource PatchSource, const TArray<FSynth1PatchCable>& PatchCables, const bool bEnableByDefault);
-};
+}; // Size: 0xD80
 
 struct FSourceEffectBitCrusherSettings
 {
-    float CrushedSampleRate;
-    FSoundModulationDestinationSettings SampleRateModulation;
-    float CrushedBits;
-    FSoundModulationDestinationSettings BitModulation;
+    float CrushedSampleRate;                                                          // 0x0000 (size: 0x4)
+    FSoundModulationDestinationSettings SampleRateModulation;                         // 0x0008 (size: 0x10)
+    float CrushedBits;                                                                // 0x0018 (size: 0x4)
+    FSoundModulationDestinationSettings BitModulation;                                // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x30
 
 struct FSourceEffectBitCrusherBaseSettings
 {
-    float SampleRate;
-    float BitDepth;
+    float SampleRate;                                                                 // 0x0000 (size: 0x4)
+    float BitDepth;                                                                   // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 class USourceEffectBitCrusherPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectBitCrusherSettings Settings;
+    FSourceEffectBitCrusherSettings Settings;                                         // 0x00C0 (size: 0x30)
 
     void SetSettings(const FSourceEffectBitCrusherBaseSettings& Settings);
     void SetSampleRateModulator(const class USoundModulatorBase* Modulator);
@@ -197,39 +197,39 @@ class USourceEffectBitCrusherPreset : public USoundEffectSourcePreset
     void SetModulationSettings(const FSourceEffectBitCrusherSettings& ModulationSettings);
     void SetBits(float Bits);
     void SetBitModulator(const class USoundModulatorBase* Modulator);
-};
+}; // Size: 0xF0
 
 struct FSourceEffectChorusSettings
 {
-    float Depth;
-    float Frequency;
-    float Feedback;
-    float WetLevel;
-    float DryLevel;
-    float Spread;
-    FSoundModulationDestinationSettings DepthModulation;
-    FSoundModulationDestinationSettings FrequencyModulation;
-    FSoundModulationDestinationSettings FeedbackModulation;
-    FSoundModulationDestinationSettings WetModulation;
-    FSoundModulationDestinationSettings DryModulation;
-    FSoundModulationDestinationSettings SpreadModulation;
+    float Depth;                                                                      // 0x0000 (size: 0x4)
+    float Frequency;                                                                  // 0x0004 (size: 0x4)
+    float Feedback;                                                                   // 0x0008 (size: 0x4)
+    float WetLevel;                                                                   // 0x000C (size: 0x4)
+    float DryLevel;                                                                   // 0x0010 (size: 0x4)
+    float Spread;                                                                     // 0x0014 (size: 0x4)
+    FSoundModulationDestinationSettings DepthModulation;                              // 0x0018 (size: 0x10)
+    FSoundModulationDestinationSettings FrequencyModulation;                          // 0x0028 (size: 0x10)
+    FSoundModulationDestinationSettings FeedbackModulation;                           // 0x0038 (size: 0x10)
+    FSoundModulationDestinationSettings WetModulation;                                // 0x0048 (size: 0x10)
+    FSoundModulationDestinationSettings DryModulation;                                // 0x0058 (size: 0x10)
+    FSoundModulationDestinationSettings SpreadModulation;                             // 0x0068 (size: 0x10)
 
-};
+}; // Size: 0x78
 
 struct FSourceEffectChorusBaseSettings
 {
-    float Depth;
-    float Frequency;
-    float Feedback;
-    float WetLevel;
-    float DryLevel;
-    float Spread;
+    float Depth;                                                                      // 0x0000 (size: 0x4)
+    float Frequency;                                                                  // 0x0004 (size: 0x4)
+    float Feedback;                                                                   // 0x0008 (size: 0x4)
+    float WetLevel;                                                                   // 0x000C (size: 0x4)
+    float DryLevel;                                                                   // 0x0010 (size: 0x4)
+    float Spread;                                                                     // 0x0014 (size: 0x4)
 
-};
+}; // Size: 0x18
 
 class USourceEffectChorusPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectChorusSettings Settings;
+    FSourceEffectChorusSettings Settings;                                             // 0x0108 (size: 0x78)
 
     void SetWetModulator(const class USoundModulatorBase* Modulator);
     void SetWet(float WetAmount);
@@ -245,312 +245,312 @@ class USourceEffectChorusPreset : public USoundEffectSourcePreset
     void SetDry(float DryAmount);
     void SetDepthModulator(const class USoundModulatorBase* Modulator);
     void SetDepth(float Depth);
-};
+}; // Size: 0x180
 
 struct FSourceEffectDynamicsProcessorSettings
 {
-    ESourceEffectDynamicsProcessorType DynamicsProcessorType;
-    ESourceEffectDynamicsPeakMode PeakMode;
-    float LookAheadMsec;
-    float AttackTimeMsec;
-    float ReleaseTimeMsec;
-    float ThresholdDb;
-    float Ratio;
-    float KneeBandwidthDb;
-    float InputGainDb;
-    float OutputGainDb;
-    uint8 bStereoLinked;
-    uint8 bAnalogMode;
+    ESourceEffectDynamicsProcessorType DynamicsProcessorType;                         // 0x0000 (size: 0x1)
+    ESourceEffectDynamicsPeakMode PeakMode;                                           // 0x0001 (size: 0x1)
+    float LookAheadMsec;                                                              // 0x0004 (size: 0x4)
+    float AttackTimeMsec;                                                             // 0x0008 (size: 0x4)
+    float ReleaseTimeMsec;                                                            // 0x000C (size: 0x4)
+    float ThresholdDb;                                                                // 0x0010 (size: 0x4)
+    float Ratio;                                                                      // 0x0014 (size: 0x4)
+    float KneeBandwidthDb;                                                            // 0x0018 (size: 0x4)
+    float InputGainDb;                                                                // 0x001C (size: 0x4)
+    float OutputGainDb;                                                               // 0x0020 (size: 0x4)
+    uint8 bStereoLinked;                                                              // 0x0024 (size: 0x1)
+    uint8 bAnalogMode;                                                                // 0x0024 (size: 0x1)
 
-};
+}; // Size: 0x28
 
 class USourceEffectDynamicsProcessorPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectDynamicsProcessorSettings Settings;
+    FSourceEffectDynamicsProcessorSettings Settings;                                  // 0x00B8 (size: 0x28)
 
     void SetSettings(const FSourceEffectDynamicsProcessorSettings& InSettings);
-};
+}; // Size: 0xE0
 
 class UEnvelopeFollowerListener : public UActorComponent
 {
-    FEnvelopeFollowerListenerOnEnvelopeFollowerUpdate OnEnvelopeFollowerUpdate;
+    FEnvelopeFollowerListenerOnEnvelopeFollowerUpdate OnEnvelopeFollowerUpdate;       // 0x00B0 (size: 0x10)
     void OnEnvelopeFollowerUpdate(float EnvelopeValue);
 
-};
+}; // Size: 0xD0
 
 struct FSourceEffectEnvelopeFollowerSettings
 {
-    float AttackTime;
-    float ReleaseTime;
-    EEnvelopeFollowerPeakMode PeakMode;
-    bool bIsAnalogMode;
+    float AttackTime;                                                                 // 0x0000 (size: 0x4)
+    float ReleaseTime;                                                                // 0x0004 (size: 0x4)
+    EEnvelopeFollowerPeakMode PeakMode;                                               // 0x0008 (size: 0x1)
+    bool bIsAnalogMode;                                                               // 0x0009 (size: 0x1)
 
-};
+}; // Size: 0xC
 
 class USourceEffectEnvelopeFollowerPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectEnvelopeFollowerSettings Settings;
+    FSourceEffectEnvelopeFollowerSettings Settings;                                   // 0x009C (size: 0xC)
 
     void UnregisterEnvelopeFollowerListener(class UEnvelopeFollowerListener* EnvelopeFollowerListener);
     void SetSettings(const FSourceEffectEnvelopeFollowerSettings& InSettings);
     void RegisterEnvelopeFollowerListener(class UEnvelopeFollowerListener* EnvelopeFollowerListener);
-};
+}; // Size: 0xA8
 
 struct FSourceEffectEQBand
 {
-    float Frequency;
-    float Bandwidth;
-    float GainDb;
-    uint8 bEnabled;
+    float Frequency;                                                                  // 0x0000 (size: 0x4)
+    float Bandwidth;                                                                  // 0x0004 (size: 0x4)
+    float GainDb;                                                                     // 0x0008 (size: 0x4)
+    uint8 bEnabled;                                                                   // 0x000C (size: 0x1)
 
-};
+}; // Size: 0x10
 
 struct FSourceEffectEQSettings
 {
-    TArray<FSourceEffectEQBand> EQBands;
+    TArray<FSourceEffectEQBand> EQBands;                                              // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 class USourceEffectEQPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectEQSettings Settings;
+    FSourceEffectEQSettings Settings;                                                 // 0x00A0 (size: 0x10)
 
     void SetSettings(const FSourceEffectEQSettings& InSettings);
-};
+}; // Size: 0xB0
 
 struct FSourceEffectFilterAudioBusModulationSettings
 {
-    class UAudioBus* AudioBus;
-    int32 EnvelopeFollowerAttackTimeMsec;
-    int32 EnvelopeFollowerReleaseTimeMsec;
-    float EnvelopeGainMultiplier;
-    ESourceEffectFilterParam FilterParam;
-    float MinFrequencyModulation;
-    float MaxFrequencyModulation;
-    float MinResonanceModulation;
-    float MaxResonanceModulation;
+    class UAudioBus* AudioBus;                                                        // 0x0000 (size: 0x8)
+    int32 EnvelopeFollowerAttackTimeMsec;                                             // 0x0008 (size: 0x4)
+    int32 EnvelopeFollowerReleaseTimeMsec;                                            // 0x000C (size: 0x4)
+    float EnvelopeGainMultiplier;                                                     // 0x0010 (size: 0x4)
+    ESourceEffectFilterParam FilterParam;                                             // 0x0014 (size: 0x1)
+    float MinFrequencyModulation;                                                     // 0x0018 (size: 0x4)
+    float MaxFrequencyModulation;                                                     // 0x001C (size: 0x4)
+    float MinResonanceModulation;                                                     // 0x0020 (size: 0x4)
+    float MaxResonanceModulation;                                                     // 0x0024 (size: 0x4)
 
-};
+}; // Size: 0x28
 
 struct FSourceEffectFilterSettings
 {
-    ESourceEffectFilterCircuit FilterCircuit;
-    ESourceEffectFilterType FilterType;
-    float CutoffFrequency;
-    float FilterQ;
-    TArray<FSourceEffectFilterAudioBusModulationSettings> AudioBusModulation;
+    ESourceEffectFilterCircuit FilterCircuit;                                         // 0x0000 (size: 0x1)
+    ESourceEffectFilterType FilterType;                                               // 0x0001 (size: 0x1)
+    float CutoffFrequency;                                                            // 0x0004 (size: 0x4)
+    float FilterQ;                                                                    // 0x0008 (size: 0x4)
+    TArray<FSourceEffectFilterAudioBusModulationSettings> AudioBusModulation;         // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 class USourceEffectFilterPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectFilterSettings Settings;
+    FSourceEffectFilterSettings Settings;                                             // 0x00B0 (size: 0x20)
 
     void SetSettings(const FSourceEffectFilterSettings& InSettings);
-};
+}; // Size: 0xD0
 
 struct FSourceEffectFoldbackDistortionSettings
 {
-    float InputGainDb;
-    float ThresholdDb;
-    float OutputGainDb;
+    float InputGainDb;                                                                // 0x0000 (size: 0x4)
+    float ThresholdDb;                                                                // 0x0004 (size: 0x4)
+    float OutputGainDb;                                                               // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 class USourceEffectFoldbackDistortionPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectFoldbackDistortionSettings Settings;
+    FSourceEffectFoldbackDistortionSettings Settings;                                 // 0x009C (size: 0xC)
 
     void SetSettings(const FSourceEffectFoldbackDistortionSettings& InSettings);
-};
+}; // Size: 0xA8
 
 struct FSourceEffectMidSideSpreaderSettings
 {
-    float SpreadAmount;
-    EStereoChannelMode InputMode;
-    EStereoChannelMode OutputMode;
-    bool bEqualPower;
+    float SpreadAmount;                                                               // 0x0000 (size: 0x4)
+    EStereoChannelMode InputMode;                                                     // 0x0004 (size: 0x1)
+    EStereoChannelMode OutputMode;                                                    // 0x0005 (size: 0x1)
+    bool bEqualPower;                                                                 // 0x0006 (size: 0x1)
 
-};
+}; // Size: 0x8
 
 class USourceEffectMidSideSpreaderPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectMidSideSpreaderSettings Settings;
+    FSourceEffectMidSideSpreaderSettings Settings;                                    // 0x0098 (size: 0x8)
 
     void SetSettings(const FSourceEffectMidSideSpreaderSettings& InSettings);
-};
+}; // Size: 0xA0
 
 struct FSourceEffectPannerSettings
 {
-    float Spread;
-    float Pan;
+    float Spread;                                                                     // 0x0000 (size: 0x4)
+    float Pan;                                                                        // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 class USourceEffectPannerPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectPannerSettings Settings;
+    FSourceEffectPannerSettings Settings;                                             // 0x0098 (size: 0x8)
 
     void SetSettings(const FSourceEffectPannerSettings& InSettings);
-};
+}; // Size: 0xA0
 
 struct FSourceEffectPhaserSettings
 {
-    float WetLevel;
-    float Frequency;
-    float Feedback;
-    EPhaserLFOType LFOType;
-    bool UseQuadraturePhase;
+    float WetLevel;                                                                   // 0x0000 (size: 0x4)
+    float Frequency;                                                                  // 0x0004 (size: 0x4)
+    float Feedback;                                                                   // 0x0008 (size: 0x4)
+    EPhaserLFOType LFOType;                                                           // 0x000C (size: 0x1)
+    bool UseQuadraturePhase;                                                          // 0x000D (size: 0x1)
 
-};
+}; // Size: 0x10
 
 class USourceEffectPhaserPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectPhaserSettings Settings;
+    FSourceEffectPhaserSettings Settings;                                             // 0x00A0 (size: 0x10)
 
     void SetSettings(const FSourceEffectPhaserSettings& InSettings);
-};
+}; // Size: 0xB0
 
 struct FSourceEffectRingModulationSettings
 {
-    ERingModulatorTypeSourceEffect ModulatorType;
-    float Frequency;
-    float Depth;
-    float DryLevel;
-    float WetLevel;
-    class UAudioBus* AudioBusModulator;
+    ERingModulatorTypeSourceEffect ModulatorType;                                     // 0x0000 (size: 0x1)
+    float Frequency;                                                                  // 0x0004 (size: 0x4)
+    float Depth;                                                                      // 0x0008 (size: 0x4)
+    float DryLevel;                                                                   // 0x000C (size: 0x4)
+    float WetLevel;                                                                   // 0x0010 (size: 0x4)
+    class UAudioBus* AudioBusModulator;                                               // 0x0018 (size: 0x8)
 
-};
+}; // Size: 0x20
 
 class USourceEffectRingModulationPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectRingModulationSettings Settings;
+    FSourceEffectRingModulationSettings Settings;                                     // 0x00B0 (size: 0x20)
 
     void SetSettings(const FSourceEffectRingModulationSettings& InSettings);
-};
+}; // Size: 0xD0
 
 struct FSourceEffectSimpleDelaySettings
 {
-    float SpeedOfSound;
-    float DelayAmount;
-    float DryAmount;
-    float WetAmount;
-    float Feedback;
-    uint8 bDelayBasedOnDistance;
+    float SpeedOfSound;                                                               // 0x0000 (size: 0x4)
+    float DelayAmount;                                                                // 0x0004 (size: 0x4)
+    float DryAmount;                                                                  // 0x0008 (size: 0x4)
+    float WetAmount;                                                                  // 0x000C (size: 0x4)
+    float Feedback;                                                                   // 0x0010 (size: 0x4)
+    uint8 bDelayBasedOnDistance;                                                      // 0x0014 (size: 0x1)
 
-};
+}; // Size: 0x18
 
 class USourceEffectSimpleDelayPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectSimpleDelaySettings Settings;
+    FSourceEffectSimpleDelaySettings Settings;                                        // 0x00A8 (size: 0x18)
 
     void SetSettings(const FSourceEffectSimpleDelaySettings& InSettings);
-};
+}; // Size: 0xC0
 
 struct FSourceEffectStereoDelaySettings
 {
-    EStereoDelaySourceEffect DelayMode;
-    float DelayTimeMsec;
-    float Feedback;
-    float DelayRatio;
-    float WetLevel;
-    float DryLevel;
-    bool bFilterEnabled;
-    EStereoDelayFiltertype FilterType;
-    float FilterFrequency;
-    float FilterQ;
+    EStereoDelaySourceEffect DelayMode;                                               // 0x0000 (size: 0x1)
+    float DelayTimeMsec;                                                              // 0x0004 (size: 0x4)
+    float Feedback;                                                                   // 0x0008 (size: 0x4)
+    float DelayRatio;                                                                 // 0x000C (size: 0x4)
+    float WetLevel;                                                                   // 0x0010 (size: 0x4)
+    float DryLevel;                                                                   // 0x0014 (size: 0x4)
+    bool bFilterEnabled;                                                              // 0x0018 (size: 0x1)
+    EStereoDelayFiltertype FilterType;                                                // 0x0019 (size: 0x1)
+    float FilterFrequency;                                                            // 0x001C (size: 0x4)
+    float FilterQ;                                                                    // 0x0020 (size: 0x4)
 
-};
+}; // Size: 0x24
 
 class USourceEffectStereoDelayPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectStereoDelaySettings Settings;
+    FSourceEffectStereoDelaySettings Settings;                                        // 0x00B4 (size: 0x24)
 
     void SetSettings(const FSourceEffectStereoDelaySettings& InSettings);
-};
+}; // Size: 0xD8
 
 struct FSourceEffectWaveShaperSettings
 {
-    float Amount;
-    float OutputGainDb;
+    float Amount;                                                                     // 0x0000 (size: 0x4)
+    float OutputGainDb;                                                               // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 class USourceEffectWaveShaperPreset : public USoundEffectSourcePreset
 {
-    FSourceEffectWaveShaperSettings Settings;
+    FSourceEffectWaveShaperSettings Settings;                                         // 0x0098 (size: 0x8)
 
     void SetSettings(const FSourceEffectWaveShaperSettings& InSettings);
-};
+}; // Size: 0xA0
 
 class UAudioImpulseResponse : public UObject
 {
-    TArray<float> ImpulseResponse;
-    int32 NumChannels;
-    int32 SampleRate;
-    float NormalizationVolumeDb;
-    bool bTrueStereo;
-    TArray<float> IRData;
+    TArray<float> ImpulseResponse;                                                    // 0x0028 (size: 0x10)
+    int32 NumChannels;                                                                // 0x0038 (size: 0x4)
+    int32 SampleRate;                                                                 // 0x003C (size: 0x4)
+    float NormalizationVolumeDb;                                                      // 0x0040 (size: 0x4)
+    bool bTrueStereo;                                                                 // 0x0044 (size: 0x1)
+    TArray<float> IRData;                                                             // 0x0048 (size: 0x10)
 
-};
+}; // Size: 0x58
 
 struct FSubmixEffectConvolutionReverbSettings
 {
-    float NormalizationVolumeDb;
-    bool bBypass;
-    bool bMixInputChannelFormatToImpulseResponseFormat;
-    bool bMixReverbOutputToOutputChannelFormat;
-    float SurroundRearChannelBleedDb;
-    bool bInvertRearChannelBleedPhase;
-    bool bSurroundRearChannelFlip;
-    float SurroundRearChannelBleedAmount;
-    class UAudioImpulseResponse* ImpulseResponse;
-    bool AllowHArdwareAcceleration;
+    float NormalizationVolumeDb;                                                      // 0x0000 (size: 0x4)
+    bool bBypass;                                                                     // 0x0004 (size: 0x1)
+    bool bMixInputChannelFormatToImpulseResponseFormat;                               // 0x0005 (size: 0x1)
+    bool bMixReverbOutputToOutputChannelFormat;                                       // 0x0006 (size: 0x1)
+    float SurroundRearChannelBleedDb;                                                 // 0x0008 (size: 0x4)
+    bool bInvertRearChannelBleedPhase;                                                // 0x000C (size: 0x1)
+    bool bSurroundRearChannelFlip;                                                    // 0x000D (size: 0x1)
+    float SurroundRearChannelBleedAmount;                                             // 0x0010 (size: 0x4)
+    class UAudioImpulseResponse* ImpulseResponse;                                     // 0x0018 (size: 0x8)
+    bool AllowHArdwareAcceleration;                                                   // 0x0020 (size: 0x1)
 
-};
+}; // Size: 0x28
 
 class USubmixEffectConvolutionReverbPreset : public USoundEffectSubmixPreset
 {
-    class UAudioImpulseResponse* ImpulseResponse;
-    FSubmixEffectConvolutionReverbSettings Settings;
-    ESubmixEffectConvolutionReverbBlockSize BlockSize;
-    bool bEnableHardwareAcceleration;
+    class UAudioImpulseResponse* ImpulseResponse;                                     // 0x0068 (size: 0x8)
+    FSubmixEffectConvolutionReverbSettings Settings;                                  // 0x0070 (size: 0x28)
+    ESubmixEffectConvolutionReverbBlockSize BlockSize;                                // 0x0098 (size: 0x1)
+    bool bEnableHardwareAcceleration;                                                 // 0x0099 (size: 0x1)
 
     void SetSettings(const FSubmixEffectConvolutionReverbSettings& InSettings);
     void SetImpulseResponse(class UAudioImpulseResponse* InImpulseResponse);
-};
+}; // Size: 0xF0
 
 struct FSubmixEffectDelaySettings
 {
-    float MaximumDelayLength;
-    float InterpolationTime;
-    float DelayLength;
+    float MaximumDelayLength;                                                         // 0x0000 (size: 0x4)
+    float InterpolationTime;                                                          // 0x0004 (size: 0x4)
+    float DelayLength;                                                                // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 class USubmixEffectDelayPreset : public USoundEffectSubmixPreset
 {
-    FSubmixEffectDelaySettings Settings;
-    FSubmixEffectDelaySettings DynamicSettings;
+    FSubmixEffectDelaySettings Settings;                                              // 0x009C (size: 0xC)
+    FSubmixEffectDelaySettings DynamicSettings;                                       // 0x00A8 (size: 0xC)
 
     void SetSettings(const FSubmixEffectDelaySettings& InSettings);
     void SetInterpolationTime(float Time);
     void SetDelay(float Length);
     float GetMaxDelayInMilliseconds();
-};
+}; // Size: 0xB8
 
 struct FSubmixEffectFilterSettings
 {
-    ESubmixFilterType FilterType;
-    ESubmixFilterAlgorithm FilterAlgorithm;
-    float FilterFrequency;
-    float FilterQ;
+    ESubmixFilterType FilterType;                                                     // 0x0000 (size: 0x1)
+    ESubmixFilterAlgorithm FilterAlgorithm;                                           // 0x0001 (size: 0x1)
+    float FilterFrequency;                                                            // 0x0004 (size: 0x4)
+    float FilterQ;                                                                    // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 class USubmixEffectFilterPreset : public USoundEffectSubmixPreset
 {
-    FSubmixEffectFilterSettings Settings;
+    FSubmixEffectFilterSettings Settings;                                             // 0x009C (size: 0xC)
 
     void SetSettings(const FSubmixEffectFilterSettings& InSettings);
     void SetFilterType(ESubmixFilterType InType);
@@ -559,100 +559,100 @@ class USubmixEffectFilterPreset : public USoundEffectSubmixPreset
     void SetFilterCutoffFrequencyMod(float InFrequency);
     void SetFilterCutoffFrequency(float InFrequency);
     void SetFilterAlgorithm(ESubmixFilterAlgorithm InAlgorithm);
-};
+}; // Size: 0xA8
 
 struct FSubmixEffectFlexiverbSettings
 {
-    float PreDelay;
-    float DecayTime;
-    float RoomDampening;
-    int32 Complexity;
+    float PreDelay;                                                                   // 0x0000 (size: 0x4)
+    float DecayTime;                                                                  // 0x0004 (size: 0x4)
+    float RoomDampening;                                                              // 0x0008 (size: 0x4)
+    int32 Complexity;                                                                 // 0x000C (size: 0x4)
 
-};
+}; // Size: 0x10
 
 class USubmixEffectFlexiverbPreset : public USoundEffectSubmixPreset
 {
-    FSubmixEffectFlexiverbSettings Settings;
+    FSubmixEffectFlexiverbSettings Settings;                                          // 0x00A0 (size: 0x10)
 
     void SetSettings(const FSubmixEffectFlexiverbSettings& InSettings);
-};
+}; // Size: 0xB0
 
 struct FDynamicsBandSettings
 {
-    float CrossoverTopFrequency;
-    float AttackTimeMsec;
-    float ReleaseTimeMsec;
-    float ThresholdDb;
-    float Ratio;
-    float KneeBandwidthDb;
-    float InputGainDb;
-    float OutputGainDb;
+    float CrossoverTopFrequency;                                                      // 0x0000 (size: 0x4)
+    float AttackTimeMsec;                                                             // 0x0004 (size: 0x4)
+    float ReleaseTimeMsec;                                                            // 0x0008 (size: 0x4)
+    float ThresholdDb;                                                                // 0x000C (size: 0x4)
+    float Ratio;                                                                      // 0x0010 (size: 0x4)
+    float KneeBandwidthDb;                                                            // 0x0014 (size: 0x4)
+    float InputGainDb;                                                                // 0x0018 (size: 0x4)
+    float OutputGainDb;                                                               // 0x001C (size: 0x4)
 
-};
+}; // Size: 0x20
 
 struct FSubmixEffectMultibandCompressorSettings
 {
-    ESubmixEffectDynamicsProcessorType DynamicsProcessorType;
-    ESubmixEffectDynamicsPeakMode PeakMode;
-    float LookAheadMsec;
-    bool bLinkChannels;
-    bool bAnalogMode;
-    bool bFourPole;
-    TArray<FDynamicsBandSettings> Bands;
+    ESubmixEffectDynamicsProcessorType DynamicsProcessorType;                         // 0x0000 (size: 0x1)
+    ESubmixEffectDynamicsPeakMode PeakMode;                                           // 0x0001 (size: 0x1)
+    float LookAheadMsec;                                                              // 0x0004 (size: 0x4)
+    bool bLinkChannels;                                                               // 0x0008 (size: 0x1)
+    bool bAnalogMode;                                                                 // 0x0009 (size: 0x1)
+    bool bFourPole;                                                                   // 0x000A (size: 0x1)
+    TArray<FDynamicsBandSettings> Bands;                                              // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 class USubmixEffectMultibandCompressorPreset : public USoundEffectSubmixPreset
 {
-    FSubmixEffectMultibandCompressorSettings Settings;
+    FSubmixEffectMultibandCompressorSettings Settings;                                // 0x00B0 (size: 0x20)
 
     void SetSettings(const FSubmixEffectMultibandCompressorSettings& InSettings);
-};
+}; // Size: 0xD0
 
 struct FSubmixEffectStereoDelaySettings
 {
-    EStereoDelaySourceEffect DelayMode;
-    float DelayTimeMsec;
-    float Feedback;
-    float DelayRatio;
-    float WetLevel;
-    float DryLevel;
-    bool bFilterEnabled;
-    EStereoDelayFiltertype FilterType;
-    float FilterFrequency;
-    float FilterQ;
+    EStereoDelaySourceEffect DelayMode;                                               // 0x0000 (size: 0x1)
+    float DelayTimeMsec;                                                              // 0x0004 (size: 0x4)
+    float Feedback;                                                                   // 0x0008 (size: 0x4)
+    float DelayRatio;                                                                 // 0x000C (size: 0x4)
+    float WetLevel;                                                                   // 0x0010 (size: 0x4)
+    float DryLevel;                                                                   // 0x0014 (size: 0x4)
+    bool bFilterEnabled;                                                              // 0x0018 (size: 0x1)
+    EStereoDelayFiltertype FilterType;                                                // 0x0019 (size: 0x1)
+    float FilterFrequency;                                                            // 0x001C (size: 0x4)
+    float FilterQ;                                                                    // 0x0020 (size: 0x4)
 
-};
+}; // Size: 0x24
 
 class USubmixEffectStereoDelayPreset : public USoundEffectSubmixPreset
 {
-    FSubmixEffectStereoDelaySettings Settings;
+    FSubmixEffectStereoDelaySettings Settings;                                        // 0x00B4 (size: 0x24)
 
     void SetSettings(const FSubmixEffectStereoDelaySettings& InSettings);
-};
+}; // Size: 0xD8
 
 struct FTapDelayInfo
 {
-    ETapLineMode TapLineMode;
-    float DelayLength;
-    float Gain;
-    int32 OutputChannel;
-    float PanInDegrees;
-    int32 TapId;
+    ETapLineMode TapLineMode;                                                         // 0x0000 (size: 0x1)
+    float DelayLength;                                                                // 0x0004 (size: 0x4)
+    float Gain;                                                                       // 0x0008 (size: 0x4)
+    int32 OutputChannel;                                                              // 0x000C (size: 0x4)
+    float PanInDegrees;                                                               // 0x0010 (size: 0x4)
+    int32 TapId;                                                                      // 0x0014 (size: 0x4)
 
-};
+}; // Size: 0x18
 
 struct FSubmixEffectTapDelaySettings
 {
-    float MaximumDelayLength;
-    float InterpolationTime;
-    TArray<FTapDelayInfo> Taps;
+    float MaximumDelayLength;                                                         // 0x0000 (size: 0x4)
+    float InterpolationTime;                                                          // 0x0004 (size: 0x4)
+    TArray<FTapDelayInfo> Taps;                                                       // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 class USubmixEffectTapDelayPreset : public USoundEffectSubmixPreset
 {
-    FSubmixEffectTapDelaySettings Settings;
+    FSubmixEffectTapDelaySettings Settings;                                           // 0x00A8 (size: 0x18)
 
     void SetTap(int32 TapId, const FTapDelayInfo& TapInfo);
     void SetSettings(const FSubmixEffectTapDelaySettings& InSettings);
@@ -662,44 +662,44 @@ class USubmixEffectTapDelayPreset : public USoundEffectSubmixPreset
     void GetTap(int32 TapId, FTapDelayInfo& TapInfo);
     float GetMaxDelayInMilliseconds();
     void AddTap(int32& TapId);
-};
+}; // Size: 0xD8
 
 struct FSynth2DSliderStyle : public FSlateWidgetStyle
 {
-    FSlateBrush NormalThumbImage;
-    FSlateBrush DisabledThumbImage;
-    FSlateBrush NormalBarImage;
-    FSlateBrush DisabledBarImage;
-    FSlateBrush BackgroundImage;
-    float BarThickness;
+    FSlateBrush NormalThumbImage;                                                     // 0x0008 (size: 0x88)
+    FSlateBrush DisabledThumbImage;                                                   // 0x0090 (size: 0x88)
+    FSlateBrush NormalBarImage;                                                       // 0x0118 (size: 0x88)
+    FSlateBrush DisabledBarImage;                                                     // 0x01A0 (size: 0x88)
+    FSlateBrush BackgroundImage;                                                      // 0x0228 (size: 0x88)
+    float BarThickness;                                                               // 0x02B0 (size: 0x4)
 
-};
+}; // Size: 0x2B8
 
 class USynth2DSlider : public UWidget
 {
-    float ValueX;
-    float ValueY;
-    FSynth2DSliderValueXDelegate ValueXDelegate;
+    float ValueX;                                                                     // 0x0108 (size: 0x4)
+    float ValueY;                                                                     // 0x010C (size: 0x4)
+    FSynth2DSliderValueXDelegate ValueXDelegate;                                      // 0x0110 (size: 0x10)
     float GetFloat();
-    FSynth2DSliderValueYDelegate ValueYDelegate;
+    FSynth2DSliderValueYDelegate ValueYDelegate;                                      // 0x0120 (size: 0x10)
     float GetFloat();
-    FSynth2DSliderStyle WidgetStyle;
-    FLinearColor SliderHandleColor;
-    bool IndentHandle;
-    bool Locked;
-    float StepSize;
-    bool IsFocusable;
-    FSynth2DSliderOnMouseCaptureBegin OnMouseCaptureBegin;
+    FSynth2DSliderStyle WidgetStyle;                                                  // 0x0130 (size: 0x2B8)
+    FLinearColor SliderHandleColor;                                                   // 0x03E8 (size: 0x10)
+    bool IndentHandle;                                                                // 0x03F8 (size: 0x1)
+    bool Locked;                                                                      // 0x03F9 (size: 0x1)
+    float StepSize;                                                                   // 0x03FC (size: 0x4)
+    bool IsFocusable;                                                                 // 0x0400 (size: 0x1)
+    FSynth2DSliderOnMouseCaptureBegin OnMouseCaptureBegin;                            // 0x0408 (size: 0x10)
     void OnMouseCaptureBeginEventSynth2D();
-    FSynth2DSliderOnMouseCaptureEnd OnMouseCaptureEnd;
+    FSynth2DSliderOnMouseCaptureEnd OnMouseCaptureEnd;                                // 0x0418 (size: 0x10)
     void OnMouseCaptureEndEventSynth2D();
-    FSynth2DSliderOnControllerCaptureBegin OnControllerCaptureBegin;
+    FSynth2DSliderOnControllerCaptureBegin OnControllerCaptureBegin;                  // 0x0428 (size: 0x10)
     void OnControllerCaptureBeginEventSynth2D();
-    FSynth2DSliderOnControllerCaptureEnd OnControllerCaptureEnd;
+    FSynth2DSliderOnControllerCaptureEnd OnControllerCaptureEnd;                      // 0x0438 (size: 0x10)
     void OnControllerCaptureEndEventSynth2D();
-    FSynth2DSliderOnValueChangedX OnValueChangedX;
+    FSynth2DSliderOnValueChangedX OnValueChangedX;                                    // 0x0448 (size: 0x10)
     void OnFloatValueChangedEventSynth2D(float Value);
-    FSynth2DSliderOnValueChangedY OnValueChangedY;
+    FSynth2DSliderOnValueChangedY OnValueChangedY;                                    // 0x0458 (size: 0x10)
     void OnFloatValueChangedEventSynth2D(float Value);
 
     void SetValue(FVector2D InValue);
@@ -708,11 +708,11 @@ class USynth2DSlider : public UWidget
     void SetLocked(bool InValue);
     void SetIndentHandle(bool InValue);
     FVector2D GetValue();
-};
+}; // Size: 0x478
 
 class UGranularSynth : public USynthComponent
 {
-    class USoundWave* GranulatedSoundWave;
+    class USoundWave* GranulatedSoundWave;                                            // 0x06C0 (size: 0x8)
 
     void SetSustainGain(const float SustainGain);
     void SetSoundWave(class USoundWave* InSoundWave);
@@ -734,26 +734,26 @@ class UGranularSynth : public USynthComponent
     bool IsLoaded();
     float GetSampleDuration();
     float GetCurrentPlayheadTime();
-};
+}; // Size: 0xA80
 
 class UMonoWaveTableSynthPreset : public UObject
 {
-    FString PresetName;
-    uint8 bLockKeyframesToGridBool;
-    int32 LockKeyframesToGrid;
-    int32 WaveTableResolution;
-    TArray<FRuntimeFloatCurve> WaveTable;
-    uint8 bNormalizeWaveTables;
+    FString PresetName;                                                               // 0x0028 (size: 0x10)
+    uint8 bLockKeyframesToGridBool;                                                   // 0x0038 (size: 0x1)
+    int32 LockKeyframesToGrid;                                                        // 0x003C (size: 0x4)
+    int32 WaveTableResolution;                                                        // 0x0040 (size: 0x4)
+    TArray<FRuntimeFloatCurve> WaveTable;                                             // 0x0048 (size: 0x10)
+    uint8 bNormalizeWaveTables;                                                       // 0x0058 (size: 0x1)
 
-};
+}; // Size: 0x170
 
 class USynthComponentMonoWaveTable : public USynthComponent
 {
-    FSynthComponentMonoWaveTableOnTableAltered OnTableAltered;
+    FSynthComponentMonoWaveTableOnTableAltered OnTableAltered;                        // 0x06C0 (size: 0x10)
     void OnTableAltered(int32 TableIndex);
-    FSynthComponentMonoWaveTableOnNumTablesChanged OnNumTablesChanged;
+    FSynthComponentMonoWaveTableOnNumTablesChanged OnNumTablesChanged;                // 0x06D0 (size: 0x10)
     void NumTablesChanged();
-    class UMonoWaveTableSynthPreset* CurrentPreset;
+    class UMonoWaveTableSynthPreset* CurrentPreset;                                   // 0x06E0 (size: 0x8)
 
     void SetWaveTablePosition(float InPosition);
     void SetSustainPedalState(bool InSustainPedalState);
@@ -799,23 +799,23 @@ class USynthComponentMonoWaveTable : public USynthComponent
     int32 GetMaxTableIndex();
     TArray<float> GetKeyFrameValuesForTable(float TableIndex);
     float GetCurveTangent(int32 TableIndex);
-};
+}; // Size: 0xE00
 
 class USynthComponentToneGenerator : public USynthComponent
 {
-    float Frequency;
-    float Volume;
+    float Frequency;                                                                  // 0x06C0 (size: 0x4)
+    float Volume;                                                                     // 0x06C4 (size: 0x4)
 
     void SetVolume(float InVolume);
     void SetFrequency(float InFrequency);
-};
+}; // Size: 0x6E0
 
 class USynthSamplePlayer : public USynthComponent
 {
-    class USoundWave* SoundWave;
-    FSynthSamplePlayerOnSampleLoaded OnSampleLoaded;
+    class USoundWave* SoundWave;                                                      // 0x06C0 (size: 0x8)
+    FSynthSamplePlayerOnSampleLoaded OnSampleLoaded;                                  // 0x06C8 (size: 0x10)
     void OnSampleLoaded();
-    FSynthSamplePlayerOnSamplePlaybackProgress OnSamplePlaybackProgress;
+    FSynthSamplePlayerOnSamplePlaybackProgress OnSamplePlaybackProgress;              // 0x06D8 (size: 0x10)
     void OnSamplePlaybackProgress(float ProgressPercent, float ProgressTimeSeconds);
 
     void SetSoundWave(class USoundWave* InSoundWave);
@@ -827,63 +827,63 @@ class USynthSamplePlayer : public USynthComponent
     float GetSampleDuration();
     float GetCurrentPlaybackProgressTime();
     float GetCurrentPlaybackProgressPercent();
-};
+}; // Size: 0x7F0
 
 class USynthesisUtilitiesBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
 {
 
     float GetLogFrequency(float InLinearValue, float InDomainMin, float InDomainMax, float InRangeMin, float InRangeMax);
     float GetLinearFrequency(float InLogFrequencyValue, float InDomainMin, float InDomainMax, float InRangeMin, float InRangeMax);
-};
+}; // Size: 0x28
 
 struct FSynthKnobStyle : public FSlateWidgetStyle
 {
-    FSlateBrush LargeKnob;
-    FSlateBrush LargeKnobOverlay;
-    FSlateBrush MediumKnob;
-    FSlateBrush MediumKnobOverlay;
-    float MinValueAngle;
-    float MaxValueAngle;
-    ESynthKnobSize KnobSize;
+    FSlateBrush LargeKnob;                                                            // 0x0008 (size: 0x88)
+    FSlateBrush LargeKnobOverlay;                                                     // 0x0090 (size: 0x88)
+    FSlateBrush MediumKnob;                                                           // 0x0118 (size: 0x88)
+    FSlateBrush MediumKnobOverlay;                                                    // 0x01A0 (size: 0x88)
+    float MinValueAngle;                                                              // 0x0228 (size: 0x4)
+    float MaxValueAngle;                                                              // 0x022C (size: 0x4)
+    ESynthKnobSize KnobSize;                                                          // 0x0230 (size: 0x1)
 
-};
+}; // Size: 0x238
 
 class USynthKnob : public UWidget
 {
-    float Value;
-    float StepSize;
-    float MouseSpeed;
-    float MouseFineTuneSpeed;
-    uint8 ShowTooltipInfo;
-    FText ParameterName;
-    FText ParameterUnits;
-    FSynthKnobValueDelegate ValueDelegate;
+    float Value;                                                                      // 0x0108 (size: 0x4)
+    float StepSize;                                                                   // 0x010C (size: 0x4)
+    float MouseSpeed;                                                                 // 0x0110 (size: 0x4)
+    float MouseFineTuneSpeed;                                                         // 0x0114 (size: 0x4)
+    uint8 ShowTooltipInfo;                                                            // 0x0118 (size: 0x1)
+    FText ParameterName;                                                              // 0x0120 (size: 0x18)
+    FText ParameterUnits;                                                             // 0x0138 (size: 0x18)
+    FSynthKnobValueDelegate ValueDelegate;                                            // 0x0150 (size: 0x10)
     float GetFloat();
-    FSynthKnobStyle WidgetStyle;
-    bool Locked;
-    bool IsFocusable;
-    FSynthKnobOnMouseCaptureBegin OnMouseCaptureBegin;
+    FSynthKnobStyle WidgetStyle;                                                      // 0x0160 (size: 0x238)
+    bool Locked;                                                                      // 0x0398 (size: 0x1)
+    bool IsFocusable;                                                                 // 0x0399 (size: 0x1)
+    FSynthKnobOnMouseCaptureBegin OnMouseCaptureBegin;                                // 0x03A0 (size: 0x10)
     void OnMouseCaptureBeginEvent();
-    FSynthKnobOnMouseCaptureEnd OnMouseCaptureEnd;
+    FSynthKnobOnMouseCaptureEnd OnMouseCaptureEnd;                                    // 0x03B0 (size: 0x10)
     void OnMouseCaptureEndEvent();
-    FSynthKnobOnControllerCaptureBegin OnControllerCaptureBegin;
+    FSynthKnobOnControllerCaptureBegin OnControllerCaptureBegin;                      // 0x03C0 (size: 0x10)
     void OnControllerCaptureBeginEvent();
-    FSynthKnobOnControllerCaptureEnd OnControllerCaptureEnd;
+    FSynthKnobOnControllerCaptureEnd OnControllerCaptureEnd;                          // 0x03D0 (size: 0x10)
     void OnControllerCaptureEndEvent();
-    FSynthKnobOnValueChanged OnValueChanged;
+    FSynthKnobOnValueChanged OnValueChanged;                                          // 0x03E0 (size: 0x10)
     void OnFloatValueChangedEvent(float Value);
 
     void SetValue(float InValue);
     void SetStepSize(float InValue);
     void SetLocked(bool InValue);
     float GetValue();
-};
+}; // Size: 0x400
 
 struct FSynthSlateStyle : public FSlateWidgetStyle
 {
-    ESynthSlateSizeType SizeType;
-    ESynthSlateColorStyle ColorStyle;
+    ESynthSlateSizeType SizeType;                                                     // 0x0008 (size: 0x1)
+    ESynthSlateColorStyle ColorStyle;                                                 // 0x0009 (size: 0x1)
 
-};
+}; // Size: 0x10
 
 #endif

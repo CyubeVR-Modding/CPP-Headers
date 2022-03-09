@@ -3,17 +3,17 @@
 
 class UNewWorldWidget_C : public UUserWidget
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UButton* Button_1;
-    class UButton* NameButton;
-    class UTextBlock* NewWorldNameText;
-    class UButton* SeedButton;
-    class UTextBlock* SeedTextBox;
-    FNewWorldWidget_CClickedOnNameTextBox ClickedOnNameTextBox;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0260 (size: 0x8)
+    class UButton* Button_1;                                                          // 0x0268 (size: 0x8)
+    class UButton* NameButton;                                                        // 0x0270 (size: 0x8)
+    class UTextBlock* NewWorldNameText;                                               // 0x0278 (size: 0x8)
+    class UButton* SeedButton;                                                        // 0x0280 (size: 0x8)
+    class UTextBlock* SeedTextBox;                                                    // 0x0288 (size: 0x8)
+    FNewWorldWidget_CClickedOnNameTextBox ClickedOnNameTextBox;                       // 0x0290 (size: 0x10)
     void ClickedOnNameTextBox();
-    FNewWorldWidget_CClickedOnStart ClickedOnStart;
+    FNewWorldWidget_CClickedOnStart ClickedOnStart;                                   // 0x02A0 (size: 0x10)
     void ClickedOnStart();
-    FNewWorldWidget_CClickedOnSeedTextBox ClickedOnSeedTextBox;
+    FNewWorldWidget_CClickedOnSeedTextBox ClickedOnSeedTextBox;                       // 0x02B0 (size: 0x10)
     void ClickedOnSeedTextBox();
 
     void Construct();
@@ -25,6 +25,6 @@ class UNewWorldWidget_C : public UUserWidget
     void ClickedOnSeedTextBox__DelegateSignature();
     void ClickedOnStart__DelegateSignature();
     void ClickedOnNameTextBox__DelegateSignature();
-};
+}; // Size: 0x2C0
 
 #endif

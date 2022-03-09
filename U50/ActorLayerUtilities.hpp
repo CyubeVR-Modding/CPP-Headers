@@ -3,9 +3,9 @@
 
 struct FActorLayer
 {
-    FName Name;
+    FName Name;                                                                       // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x8
 
 class ULayersBlueprintLibrary : public UBlueprintFunctionLibrary
 {
@@ -13,6 +13,6 @@ class ULayersBlueprintLibrary : public UBlueprintFunctionLibrary
     void RemoveActorFromLayer(class AActor* InActor, const FActorLayer& Layer);
     TArray<class AActor*> GetActors(class UObject* WorldContextObject, const FActorLayer& ActorLayer);
     void AddActorToLayer(class AActor* InActor, const FActorLayer& Layer);
-};
+}; // Size: 0x28
 
 #endif

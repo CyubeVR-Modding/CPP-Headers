@@ -3,36 +3,36 @@
 
 struct FMovieSceneGeometryCollectionParams
 {
-    FSoftObjectPath GeometryCollectionCache;
-    FFrameNumber StartFrameOffset;
-    FFrameNumber EndFrameOffset;
-    float PlayRate;
+    FSoftObjectPath GeometryCollectionCache;                                          // 0x0008 (size: 0x18)
+    FFrameNumber StartFrameOffset;                                                    // 0x0020 (size: 0x4)
+    FFrameNumber EndFrameOffset;                                                      // 0x0024 (size: 0x4)
+    float PlayRate;                                                                   // 0x0028 (size: 0x4)
 
-};
+}; // Size: 0x30
 
 class UMovieSceneGeometryCollectionSection : public UMovieSceneSection
 {
-    FMovieSceneGeometryCollectionParams Params;
+    FMovieSceneGeometryCollectionParams Params;                                       // 0x00E8 (size: 0x30)
 
-};
+}; // Size: 0x118
 
 class UMovieSceneGeometryCollectionTrack : public UMovieSceneNameableTrack
 {
-    TArray<class UMovieSceneSection*> AnimationSections;
+    TArray<class UMovieSceneSection*> AnimationSections;                              // 0x0080 (size: 0x10)
 
-};
+}; // Size: 0x90
 
 struct FMovieSceneGeometryCollectionSectionTemplateParameters : public FMovieSceneGeometryCollectionParams
 {
-    FFrameNumber SectionStartTime;
-    FFrameNumber SectionEndTime;
+    FFrameNumber SectionStartTime;                                                    // 0x0030 (size: 0x4)
+    FFrameNumber SectionEndTime;                                                      // 0x0034 (size: 0x4)
 
-};
+}; // Size: 0x38
 
 struct FMovieSceneGeometryCollectionSectionTemplate : public FMovieSceneEvalTemplate
 {
-    FMovieSceneGeometryCollectionSectionTemplateParameters Params;
+    FMovieSceneGeometryCollectionSectionTemplateParameters Params;                    // 0x0020 (size: 0x38)
 
-};
+}; // Size: 0x58
 
 #endif

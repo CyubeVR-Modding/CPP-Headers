@@ -3,23 +3,23 @@
 
 class ACube_PlayerControllerBP_C : public ACubePlayerController
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UObject* UI;
-    class UAudioComponent* Music;
-    class UAudioComponent* MenuMusic;
-    bool PlayLeft;
-    bool PlayRight;
-    FTimerHandle ResetTimerLeft;
-    FTimerHandle ResetTimerRight;
-    int32 STAT_BlocksPlaced;
-    int32 STAT_BlocksCrafted;
-    FUWorksSteamLeaderboard LB_BlocksMined10Min;
-    FUWorksSteamLeaderboard LB_BlocksDestroyed;
-    FUWorksSteamLeaderboard LB_BlocksCrafted;
-    FUWorksSteamLeaderboard LB_BlocksPlaced;
-    class UStatsSaveGame_C* StatsSaveGame;
-    int32 10MinuteRank;
-    FString 10MinuteRecordHolder;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x05A0 (size: 0x8)
+    class UObject* UI;                                                                // 0x05A8 (size: 0x8)
+    class UAudioComponent* Music;                                                     // 0x05B0 (size: 0x8)
+    class UAudioComponent* MenuMusic;                                                 // 0x05B8 (size: 0x8)
+    bool PlayLeft;                                                                    // 0x05C0 (size: 0x1)
+    bool PlayRight;                                                                   // 0x05C1 (size: 0x1)
+    FTimerHandle ResetTimerLeft;                                                      // 0x05C8 (size: 0x8)
+    FTimerHandle ResetTimerRight;                                                     // 0x05D0 (size: 0x8)
+    int32 STAT_BlocksPlaced;                                                          // 0x05D8 (size: 0x4)
+    int32 STAT_BlocksCrafted;                                                         // 0x05DC (size: 0x4)
+    FUWorksSteamLeaderboard LB_BlocksMined10Min;                                      // 0x05E0 (size: 0x8)
+    FUWorksSteamLeaderboard LB_BlocksDestroyed;                                       // 0x05E8 (size: 0x8)
+    FUWorksSteamLeaderboard LB_BlocksCrafted;                                         // 0x05F0 (size: 0x8)
+    FUWorksSteamLeaderboard LB_BlocksPlaced;                                          // 0x05F8 (size: 0x8)
+    class UStatsSaveGame_C* StatsSaveGame;                                            // 0x0600 (size: 0x8)
+    int32 10MinuteRank;                                                               // 0x0608 (size: 0x4)
+    FString 10MinuteRecordHolder;                                                     // 0x0610 (size: 0x10)
 
     void OnFailure_5C5733CE4E4067DF8BB0A28C01B2D6E4(FName WrittenAchievementName, float WrittenProgress, int32 WrittenUserTag);
     void OnSuccess_5C5733CE4E4067DF8BB0A28C01B2D6E4(FName WrittenAchievementName, float WrittenProgress, int32 WrittenUserTag);
@@ -55,6 +55,6 @@ class ACube_PlayerControllerBP_C : public ACubePlayerController
     void ResetLeft();
     void CheckRealisticHeight();
     void ExecuteUbergraph_Cube_PlayerControllerBP(int32 EntryPoint);
-};
+}; // Size: 0x620
 
 #endif

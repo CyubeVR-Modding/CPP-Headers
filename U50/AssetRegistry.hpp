@@ -3,14 +3,14 @@
 
 class UAssetRegistryImpl : public UObject
 {
-};
+}; // Size: 0x7B8
 
 struct FTagAndValue
 {
-    FName Tag;
-    FString Value;
+    FName Tag;                                                                        // 0x0000 (size: 0x8)
+    FString Value;                                                                    // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 class UAssetRegistryHelpers : public UObject
 {
@@ -28,17 +28,17 @@ class UAssetRegistryHelpers : public UObject
     TScriptInterface<class IAssetRegistry> GetAssetRegistry();
     class UObject* GetAsset(const FAssetData& InAssetData);
     FAssetData CreateAssetData(const class UObject* InAsset, bool bAllowBlueprintClass);
-};
+}; // Size: 0x28
 
 struct FAssetRegistryDependencyOptions
 {
-    bool bIncludeSoftPackageReferences;
-    bool bIncludeHardPackageReferences;
-    bool bIncludeSearchableNames;
-    bool bIncludeSoftManagementReferences;
-    bool bIncludeHardManagementReferences;
+    bool bIncludeSoftPackageReferences;                                               // 0x0000 (size: 0x1)
+    bool bIncludeHardPackageReferences;                                               // 0x0001 (size: 0x1)
+    bool bIncludeSearchableNames;                                                     // 0x0002 (size: 0x1)
+    bool bIncludeSoftManagementReferences;                                            // 0x0003 (size: 0x1)
+    bool bIncludeHardManagementReferences;                                            // 0x0004 (size: 0x1)
 
-};
+}; // Size: 0x5
 
 class IAssetRegistry : public IInterface
 {
@@ -63,6 +63,6 @@ class IAssetRegistry : public IInterface
     FAssetData GetAssetByObjectPath(const FName ObjectPath, bool bIncludeOnlyOnDiskAssets);
     void GetAllCachedPaths(TArray<FString>& OutPathList);
     bool GetAllAssets(TArray<FAssetData>& OutAssetData, bool bIncludeOnlyOnDiskAssets);
-};
+}; // Size: 0x28
 
 #endif

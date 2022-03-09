@@ -3,6 +3,6 @@
 
 class UStandardMacros_C : public UObject
 {
-};
+}; // Size: 0x28
 
 #endif

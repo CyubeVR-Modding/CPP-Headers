@@ -5,88 +5,88 @@
 
 struct FSteamVRAction
 {
-    FName Name;
-    FString Path;
+    FName Name;                                                                       // 0x0000 (size: 0x8)
+    FString Path;                                                                     // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x28
 
 struct FSteamVRActionSet
 {
-    FString Path;
+    FString Path;                                                                     // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FSteamVRInputOriginInfo
 {
-    int32 TrackedDeviceIndex;
-    FString RenderModelComponentName;
-    FString TrackedDeviceModel;
+    int32 TrackedDeviceIndex;                                                         // 0x0000 (size: 0x4)
+    FString RenderModelComponentName;                                                 // 0x0008 (size: 0x10)
+    FString TrackedDeviceModel;                                                       // 0x0018 (size: 0x10)
 
-};
+}; // Size: 0x28
 
 struct FSteamVRInputBindingInfo
 {
-    FName DevicePathName;
-    FName InputPathName;
-    FName ModeName;
-    FName SlotName;
+    FName DevicePathName;                                                             // 0x0000 (size: 0x8)
+    FName InputPathName;                                                              // 0x0008 (size: 0x8)
+    FName ModeName;                                                                   // 0x0010 (size: 0x8)
+    FName SlotName;                                                                   // 0x0018 (size: 0x8)
 
-};
+}; // Size: 0x20
 
 struct FSteamVRSkeletonTransform
 {
-    FTransform Root;
-    FTransform wrist;
-    FTransform Thumb_0;
-    FTransform Thumb_1;
-    FTransform Thumb_2;
-    FTransform Thumb_3;
-    FTransform Index_0;
-    FTransform Index_1;
-    FTransform Index_2;
-    FTransform Index_3;
-    FTransform Index_4;
-    FTransform Middle_0;
-    FTransform Middle_1;
-    FTransform Middle_2;
-    FTransform Middle_3;
-    FTransform Middle_4;
-    FTransform Ring_0;
-    FTransform Ring_1;
-    FTransform Ring_2;
-    FTransform Ring_3;
-    FTransform Ring_4;
-    FTransform Pinky_0;
-    FTransform Pinky_1;
-    FTransform Pinky_2;
-    FTransform Pinky_3;
-    FTransform Pinky_4;
-    FTransform Aux_Thumb;
-    FTransform Aux_Index;
-    FTransform Aux_Middle;
-    FTransform Aux_Ring;
-    FTransform Aux_Pinky;
+    FTransform Root;                                                                  // 0x0000 (size: 0x30)
+    FTransform wrist;                                                                 // 0x0030 (size: 0x30)
+    FTransform Thumb_0;                                                               // 0x0060 (size: 0x30)
+    FTransform Thumb_1;                                                               // 0x0090 (size: 0x30)
+    FTransform Thumb_2;                                                               // 0x00C0 (size: 0x30)
+    FTransform Thumb_3;                                                               // 0x00F0 (size: 0x30)
+    FTransform Index_0;                                                               // 0x0120 (size: 0x30)
+    FTransform Index_1;                                                               // 0x0150 (size: 0x30)
+    FTransform Index_2;                                                               // 0x0180 (size: 0x30)
+    FTransform Index_3;                                                               // 0x01B0 (size: 0x30)
+    FTransform Index_4;                                                               // 0x01E0 (size: 0x30)
+    FTransform Middle_0;                                                              // 0x0210 (size: 0x30)
+    FTransform Middle_1;                                                              // 0x0240 (size: 0x30)
+    FTransform Middle_2;                                                              // 0x0270 (size: 0x30)
+    FTransform Middle_3;                                                              // 0x02A0 (size: 0x30)
+    FTransform Middle_4;                                                              // 0x02D0 (size: 0x30)
+    FTransform Ring_0;                                                                // 0x0300 (size: 0x30)
+    FTransform Ring_1;                                                                // 0x0330 (size: 0x30)
+    FTransform Ring_2;                                                                // 0x0360 (size: 0x30)
+    FTransform Ring_3;                                                                // 0x0390 (size: 0x30)
+    FTransform Ring_4;                                                                // 0x03C0 (size: 0x30)
+    FTransform Pinky_0;                                                               // 0x03F0 (size: 0x30)
+    FTransform Pinky_1;                                                               // 0x0420 (size: 0x30)
+    FTransform Pinky_2;                                                               // 0x0450 (size: 0x30)
+    FTransform Pinky_3;                                                               // 0x0480 (size: 0x30)
+    FTransform Pinky_4;                                                               // 0x04B0 (size: 0x30)
+    FTransform Aux_Thumb;                                                             // 0x04E0 (size: 0x30)
+    FTransform Aux_Index;                                                             // 0x0510 (size: 0x30)
+    FTransform Aux_Middle;                                                            // 0x0540 (size: 0x30)
+    FTransform Aux_Ring;                                                              // 0x0570 (size: 0x30)
+    FTransform Aux_Pinky;                                                             // 0x05A0 (size: 0x30)
 
-};
+}; // Size: 0x5D0
 
 struct FSteamVRFingerCurls
 {
-    float Thumb;
-    float Index;
-    float Middle;
-    float Ring;
-    float Pinky;
+    float Thumb;                                                                      // 0x0000 (size: 0x4)
+    float Index;                                                                      // 0x0004 (size: 0x4)
+    float Middle;                                                                     // 0x0008 (size: 0x4)
+    float Ring;                                                                       // 0x000C (size: 0x4)
+    float Pinky;                                                                      // 0x0010 (size: 0x4)
 
-};
+}; // Size: 0x14
 
 struct FSteamVRFingerSplays
 {
-    float Thumb_Index;
-    float Index_Middle;
-    float Middle_Ring;
-    float Ring_Pinky;
+    float Thumb_Index;                                                                // 0x0000 (size: 0x4)
+    float Index_Middle;                                                               // 0x0004 (size: 0x4)
+    float Middle_Ring;                                                                // 0x0008 (size: 0x4)
+    float Ring_Pinky;                                                                 // 0x000C (size: 0x4)
 
-};
+}; // Size: 0x10
 
 class USteamVRInputDeviceFunctionLibrary : public UBlueprintFunctionLibrary
 {
@@ -118,49 +118,49 @@ class USteamVRInputDeviceFunctionLibrary : public UBlueprintFunctionLibrary
     TArray<FSteamVRInputBindingInfo> FindSteamVR_InputBindingInfo(FName ActionName, FName ActionSet);
     bool FindSteamVR_ActionOrigin(FName ActionName, FName ActionSet);
     void FindSteamVR_Action(FName ActionName, bool& bResult, FSteamVRAction& FoundAction, FSteamVRActionSet& FoundActionSet, FName ActionSet);
-};
+}; // Size: 0x28
 
 class USteamVRTrackingReferences : public UActorComponent
 {
-    FSteamVRTrackingReferencesOnTrackedDeviceActivated OnTrackedDeviceActivated;
+    FSteamVRTrackingReferencesOnTrackedDeviceActivated OnTrackedDeviceActivated;      // 0x00B0 (size: 0x10)
     void ComponentTrackingActivatedSignature(int32 DeviceID, FName DeviceClass, FString DeviceModel);
-    FSteamVRTrackingReferencesOnTrackedDeviceDeactivated OnTrackedDeviceDeactivated;
+    FSteamVRTrackingReferencesOnTrackedDeviceDeactivated OnTrackedDeviceDeactivated;  // 0x00C0 (size: 0x10)
     void ComponentTrackingDeactivatedSignature(int32 DeviceID, FName DeviceClass, FString DeviceModel);
-    float ActiveDevicePollFrequency;
-    FVector TrackingReferenceScale;
-    TArray<class UStaticMeshComponent*> TrackingReferences;
+    float ActiveDevicePollFrequency;                                                  // 0x00D0 (size: 0x4)
+    FVector TrackingReferenceScale;                                                   // 0x00D4 (size: 0xC)
+    TArray<class UStaticMeshComponent*> TrackingReferences;                           // 0x00E0 (size: 0x10)
 
     bool ShowTrackingReferences(class UStaticMesh* TrackingReferenceMesh);
     void HideTrackingReferences();
-};
+}; // Size: 0x108
 
 struct FUE4RetargettingRefs
 {
-    bool bIsInitialized;
-    bool bIsRightHanded;
-    FVector KnuckleAverageMS_UE4;
-    FVector WristSideDirectionLS_UE4;
-    FVector WristForwardLS_UE4;
+    bool bIsInitialized;                                                              // 0x0000 (size: 0x1)
+    bool bIsRightHanded;                                                              // 0x0001 (size: 0x1)
+    FVector KnuckleAverageMS_UE4;                                                     // 0x0004 (size: 0xC)
+    FVector WristSideDirectionLS_UE4;                                                 // 0x0010 (size: 0xC)
+    FVector WristForwardLS_UE4;                                                       // 0x001C (size: 0xC)
 
-};
+}; // Size: 0x28
 
 struct FAnimNode_SteamVRInputAnimPose : public FAnimNode_Base
 {
-    EMotionRange MotionRange;
-    EHand hand;
-    EHandSkeleton HandSkeleton;
-    bool Mirror;
-    FSteamVRSkeletonTransform SteamVRSkeletalTransform;
-    FUE4RetargettingRefs UE4RetargettingRefs;
+    EMotionRange MotionRange;                                                         // 0x0010 (size: 0x1)
+    EHand hand;                                                                       // 0x0011 (size: 0x1)
+    EHandSkeleton HandSkeleton;                                                       // 0x0012 (size: 0x1)
+    bool Mirror;                                                                      // 0x0013 (size: 0x1)
+    FSteamVRSkeletonTransform SteamVRSkeletalTransform;                               // 0x0020 (size: 0x5D0)
+    FUE4RetargettingRefs UE4RetargettingRefs;                                         // 0x05F0 (size: 0x28)
 
-};
+}; // Size: 0x620
 
 struct FAnimNode_SteamVRSetWristTransform : public FAnimNode_Base
 {
-    FPoseLink ReferencePose;
-    EHandSkeleton HandSkeleton;
-    FPoseLink TargetPose;
+    FPoseLink ReferencePose;                                                          // 0x0010 (size: 0x10)
+    EHandSkeleton HandSkeleton;                                                       // 0x0020 (size: 0x1)
+    FPoseLink TargetPose;                                                             // 0x0028 (size: 0x10)
 
-};
+}; // Size: 0x40
 
 #endif

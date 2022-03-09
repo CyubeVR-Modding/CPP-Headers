@@ -3,8 +3,8 @@
 
 class UAvfMediaSettings : public UObject
 {
-    bool NativeAudioOut;
+    bool NativeAudioOut;                                                              // 0x0028 (size: 0x1)
 
-};
+}; // Size: 0x30
 
 #endif

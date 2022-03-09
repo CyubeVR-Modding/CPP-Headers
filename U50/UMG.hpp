@@ -5,49 +5,49 @@
 
 class UVisual : public UObject
 {
-};
+}; // Size: 0x28
 
 struct FWidgetTransform
 {
-    FVector2D Translation;
-    FVector2D Scale;
-    FVector2D Shear;
-    float Angle;
+    FVector2D Translation;                                                            // 0x0000 (size: 0x8)
+    FVector2D Scale;                                                                  // 0x0008 (size: 0x8)
+    FVector2D Shear;                                                                  // 0x0010 (size: 0x8)
+    float Angle;                                                                      // 0x0018 (size: 0x4)
 
-};
+}; // Size: 0x1C
 
 struct FEventReply
 {
-};
+}; // Size: 0xB8
 
 class UWidget : public UVisual
 {
-    class UPanelSlot* Slot;
-    FWidgetBIsEnabledDelegate bIsEnabledDelegate;
+    class UPanelSlot* Slot;                                                           // 0x0028 (size: 0x8)
+    FWidgetBIsEnabledDelegate bIsEnabledDelegate;                                     // 0x0030 (size: 0x10)
     bool GetBool();
-    FText ToolTipText;
-    FWidgetToolTipTextDelegate ToolTipTextDelegate;
+    FText ToolTipText;                                                                // 0x0040 (size: 0x18)
+    FWidgetToolTipTextDelegate ToolTipTextDelegate;                                   // 0x0058 (size: 0x10)
     FText GetText();
-    class UWidget* ToolTipWidget;
-    FWidgetToolTipWidgetDelegate ToolTipWidgetDelegate;
+    class UWidget* ToolTipWidget;                                                     // 0x0068 (size: 0x8)
+    FWidgetToolTipWidgetDelegate ToolTipWidgetDelegate;                               // 0x0070 (size: 0x10)
     class UWidget* GetWidget();
-    FWidgetVisibilityDelegate VisibilityDelegate;
+    FWidgetVisibilityDelegate VisibilityDelegate;                                     // 0x0080 (size: 0x10)
     ESlateVisibility GetSlateVisibility();
-    FWidgetTransform RenderTransform;
-    FVector2D RenderTransformPivot;
-    uint8 bIsVariable;
-    uint8 bCreatedByConstructionScript;
-    uint8 BIsEnabled;
-    uint8 bOverride_Cursor;
-    class USlateAccessibleWidgetData* AccessibleWidgetData;
-    uint8 bIsVolatile;
-    TEnumAsByte<EMouseCursor::Type> Cursor;
-    EWidgetClipping Clipping;
-    ESlateVisibility Visibility;
-    float RenderOpacity;
-    class UWidgetNavigation* Navigation;
-    EFlowDirectionPreference FlowDirectionPreference;
-    TArray<class UPropertyBinding*> NativeBindings;
+    FWidgetTransform RenderTransform;                                                 // 0x0090 (size: 0x1C)
+    FVector2D RenderTransformPivot;                                                   // 0x00AC (size: 0x8)
+    uint8 bIsVariable;                                                                // 0x00B4 (size: 0x1)
+    uint8 bCreatedByConstructionScript;                                               // 0x00B4 (size: 0x1)
+    uint8 BIsEnabled;                                                                 // 0x00B4 (size: 0x1)
+    uint8 bOverride_Cursor;                                                           // 0x00B4 (size: 0x1)
+    class USlateAccessibleWidgetData* AccessibleWidgetData;                           // 0x00B8 (size: 0x8)
+    uint8 bIsVolatile;                                                                // 0x00C0 (size: 0x1)
+    TEnumAsByte<EMouseCursor::Type> Cursor;                                           // 0x00C1 (size: 0x1)
+    EWidgetClipping Clipping;                                                         // 0x00C2 (size: 0x1)
+    ESlateVisibility Visibility;                                                      // 0x00C3 (size: 0x1)
+    float RenderOpacity;                                                              // 0x00C4 (size: 0x4)
+    class UWidgetNavigation* Navigation;                                              // 0x00C8 (size: 0x8)
+    EFlowDirectionPreference FlowDirectionPreference;                                 // 0x00D0 (size: 0x1)
+    TArray<class UPropertyBinding*> NativeBindings;                                   // 0x00F8 (size: 0x10)
 
     void SetVisibility(ESlateVisibility InVisibility);
     void SetUserFocus(class APlayerController* PlayerController);
@@ -115,54 +115,54 @@ class UWidget : public UVisual
     class UWidget* GenerateWidgetForObject__DelegateSignature(class UObject* Item);
     void ForceVolatile(bool bForce);
     void ForceLayoutPrepass();
-};
+}; // Size: 0x108
 
 struct FNamedSlotBinding
 {
-    FName Name;
-    class UWidget* Content;
+    FName Name;                                                                       // 0x0000 (size: 0x8)
+    class UWidget* Content;                                                           // 0x0008 (size: 0x8)
 
-};
+}; // Size: 0x10
 
 struct FAnimationEventBinding
 {
-    class UWidgetAnimation* Animation;
-    FAnimationEventBindingDelegate Delegate;
+    class UWidgetAnimation* Animation;                                                // 0x0000 (size: 0x8)
+    FAnimationEventBindingDelegate Delegate;                                          // 0x0008 (size: 0x10)
     void WidgetAnimationDynamicEvent();
-    EWidgetAnimationEvent AnimationEvent;
-    FName UserTag;
+    EWidgetAnimationEvent AnimationEvent;                                             // 0x0018 (size: 0x1)
+    FName UserTag;                                                                    // 0x001C (size: 0x8)
 
-};
+}; // Size: 0x28
 
 struct FPaintContext
 {
-};
+}; // Size: 0x30
 
 class UUserWidget : public UWidget
 {
-    FLinearColor ColorAndOpacity;
-    FUserWidgetColorAndOpacityDelegate ColorAndOpacityDelegate;
+    FLinearColor ColorAndOpacity;                                                     // 0x0110 (size: 0x10)
+    FUserWidgetColorAndOpacityDelegate ColorAndOpacityDelegate;                       // 0x0120 (size: 0x10)
     FLinearColor GetLinearColor();
-    FSlateColor ForegroundColor;
-    FUserWidgetForegroundColorDelegate ForegroundColorDelegate;
+    FSlateColor ForegroundColor;                                                      // 0x0130 (size: 0x28)
+    FUserWidgetForegroundColorDelegate ForegroundColorDelegate;                       // 0x0158 (size: 0x10)
     FSlateColor GetSlateColor();
-    FUserWidgetOnVisibilityChanged OnVisibilityChanged;
+    FUserWidgetOnVisibilityChanged OnVisibilityChanged;                               // 0x0168 (size: 0x10)
     void OnVisibilityChangedEvent(ESlateVisibility InVisibility);
-    FMargin Padding;
-    TArray<class UUMGSequencePlayer*> ActiveSequencePlayers;
-    class UUMGSequenceTickManager* AnimationTickManager;
-    TArray<class UUMGSequencePlayer*> StoppedSequencePlayers;
-    TArray<FNamedSlotBinding> NamedSlotBindings;
-    class UWidgetTree* WidgetTree;
-    int32 Priority;
-    uint8 bSupportsKeyboardFocus;
-    uint8 bIsFocusable;
-    uint8 bStopAction;
-    uint8 bHasScriptImplementedTick;
-    uint8 bHasScriptImplementedPaint;
-    EWidgetTickFrequency TickFrequency;
-    class UInputComponent* InputComponent;
-    TArray<FAnimationEventBinding> AnimationCallbacks;
+    FMargin Padding;                                                                  // 0x0190 (size: 0x10)
+    TArray<class UUMGSequencePlayer*> ActiveSequencePlayers;                          // 0x01A0 (size: 0x10)
+    class UUMGSequenceTickManager* AnimationTickManager;                              // 0x01B0 (size: 0x8)
+    TArray<class UUMGSequencePlayer*> StoppedSequencePlayers;                         // 0x01B8 (size: 0x10)
+    TArray<FNamedSlotBinding> NamedSlotBindings;                                      // 0x01C8 (size: 0x10)
+    class UWidgetTree* WidgetTree;                                                    // 0x01D8 (size: 0x8)
+    int32 Priority;                                                                   // 0x01E0 (size: 0x4)
+    uint8 bSupportsKeyboardFocus;                                                     // 0x01E4 (size: 0x1)
+    uint8 bIsFocusable;                                                               // 0x01E4 (size: 0x1)
+    uint8 bStopAction;                                                                // 0x01E4 (size: 0x1)
+    uint8 bHasScriptImplementedTick;                                                  // 0x01E4 (size: 0x1)
+    uint8 bHasScriptImplementedPaint;                                                 // 0x01E4 (size: 0x1)
+    EWidgetTickFrequency TickFrequency;                                               // 0x01F0 (size: 0x1)
+    class UInputComponent* InputComponent;                                            // 0x01F8 (size: 0x8)
+    TArray<FAnimationEventBinding> AnimationCallbacks;                                // 0x0200 (size: 0x10)
 
     void UnregisterInputComponent();
     void UnbindFromAnimationStarted(class UWidgetAnimation* Animation, FUnbindFromAnimationStartedDelegate Delegate);
@@ -255,48 +255,48 @@ class UUserWidget : public UWidget
     void BindToAnimationEvent(class UWidgetAnimation* Animation, FBindToAnimationEventDelegate Delegate, EWidgetAnimationEvent AnimationEvent, FName UserTag);
     void AddToViewport(int32 ZOrder);
     bool AddToPlayerScreen(int32 ZOrder);
-};
+}; // Size: 0x260
 
 class UWidgetComponent : public UMeshComponent
 {
-    EWidgetSpace Space;
-    EWidgetTimingPolicy TimingPolicy;
-    TSubclassOf<class UUserWidget> WidgetClass;
-    FIntPoint DrawSize;
-    bool bManuallyRedraw;
-    bool bRedrawRequested;
-    float RedrawTime;
-    FIntPoint CurrentDrawSize;
-    bool bDrawAtDesiredSize;
-    FVector2D Pivot;
-    bool bReceiveHardwareInput;
-    bool bWindowFocusable;
-    EWindowVisibility WindowVisibility;
-    bool bApplyGammaCorrection;
-    class ULocalPlayer* OwnerPlayer;
-    FLinearColor BackgroundColor;
-    FLinearColor TintColorAndOpacity;
-    float OpacityFromTexture;
-    EWidgetBlendMode BlendMode;
-    bool bIsTwoSided;
-    bool TickWhenOffscreen;
-    class UBodySetup* BodySetup;
-    class UMaterialInterface* TranslucentMaterial;
-    class UMaterialInterface* TranslucentMaterial_OneSided;
-    class UMaterialInterface* OpaqueMaterial;
-    class UMaterialInterface* OpaqueMaterial_OneSided;
-    class UMaterialInterface* MaskedMaterial;
-    class UMaterialInterface* MaskedMaterial_OneSided;
-    class UTextureRenderTarget2D* RenderTarget;
-    class UMaterialInstanceDynamic* MaterialInstance;
-    bool bAddedToScreen;
-    bool bEditTimeUsable;
-    FName SharedLayerName;
-    int32 LayerZOrder;
-    EWidgetGeometryMode GeometryMode;
-    float CylinderArcAngle;
-    ETickMode TickMode;
-    class UUserWidget* Widget;
+    EWidgetSpace Space;                                                               // 0x0468 (size: 0x1)
+    EWidgetTimingPolicy TimingPolicy;                                                 // 0x0469 (size: 0x1)
+    TSubclassOf<class UUserWidget> WidgetClass;                                       // 0x0470 (size: 0x8)
+    FIntPoint DrawSize;                                                               // 0x0478 (size: 0x8)
+    bool bManuallyRedraw;                                                             // 0x0480 (size: 0x1)
+    bool bRedrawRequested;                                                            // 0x0481 (size: 0x1)
+    float RedrawTime;                                                                 // 0x0484 (size: 0x4)
+    FIntPoint CurrentDrawSize;                                                        // 0x0490 (size: 0x8)
+    bool bDrawAtDesiredSize;                                                          // 0x0498 (size: 0x1)
+    FVector2D Pivot;                                                                  // 0x049C (size: 0x8)
+    bool bReceiveHardwareInput;                                                       // 0x04A4 (size: 0x1)
+    bool bWindowFocusable;                                                            // 0x04A5 (size: 0x1)
+    EWindowVisibility WindowVisibility;                                               // 0x04A6 (size: 0x1)
+    bool bApplyGammaCorrection;                                                       // 0x04A7 (size: 0x1)
+    class ULocalPlayer* OwnerPlayer;                                                  // 0x04A8 (size: 0x8)
+    FLinearColor BackgroundColor;                                                     // 0x04B0 (size: 0x10)
+    FLinearColor TintColorAndOpacity;                                                 // 0x04C0 (size: 0x10)
+    float OpacityFromTexture;                                                         // 0x04D0 (size: 0x4)
+    EWidgetBlendMode BlendMode;                                                       // 0x04D4 (size: 0x1)
+    bool bIsTwoSided;                                                                 // 0x04D5 (size: 0x1)
+    bool TickWhenOffscreen;                                                           // 0x04D6 (size: 0x1)
+    class UBodySetup* BodySetup;                                                      // 0x04D8 (size: 0x8)
+    class UMaterialInterface* TranslucentMaterial;                                    // 0x04E0 (size: 0x8)
+    class UMaterialInterface* TranslucentMaterial_OneSided;                           // 0x04E8 (size: 0x8)
+    class UMaterialInterface* OpaqueMaterial;                                         // 0x04F0 (size: 0x8)
+    class UMaterialInterface* OpaqueMaterial_OneSided;                                // 0x04F8 (size: 0x8)
+    class UMaterialInterface* MaskedMaterial;                                         // 0x0500 (size: 0x8)
+    class UMaterialInterface* MaskedMaterial_OneSided;                                // 0x0508 (size: 0x8)
+    class UTextureRenderTarget2D* RenderTarget;                                       // 0x0510 (size: 0x8)
+    class UMaterialInstanceDynamic* MaterialInstance;                                 // 0x0518 (size: 0x8)
+    bool bAddedToScreen;                                                              // 0x0520 (size: 0x1)
+    bool bEditTimeUsable;                                                             // 0x0521 (size: 0x1)
+    FName SharedLayerName;                                                            // 0x0524 (size: 0x8)
+    int32 LayerZOrder;                                                                // 0x052C (size: 0x4)
+    EWidgetGeometryMode GeometryMode;                                                 // 0x0530 (size: 0x1)
+    float CylinderArcAngle;                                                           // 0x0534 (size: 0x4)
+    ETickMode TickMode;                                                               // 0x0538 (size: 0x1)
+    class UUserWidget* Widget;                                                        // 0x0560 (size: 0x8)
 
     void SetWindowVisibility(EWindowVisibility InVisibility);
     void SetWindowFocusable(bool bInWindowFocusable);
@@ -335,21 +335,21 @@ class UWidgetComponent : public UMeshComponent
     bool GetDrawAtDesiredSize();
     float GetCylinderArcAngle();
     FVector2D GetCurrentDrawSize();
-};
+}; // Size: 0x590
 
 class UAsyncTaskDownloadImage : public UBlueprintAsyncActionBase
 {
-    FAsyncTaskDownloadImageOnSuccess OnSuccess;
+    FAsyncTaskDownloadImageOnSuccess OnSuccess;                                       // 0x0030 (size: 0x10)
     void DownloadImageDelegate(class UTexture2DDynamic* Texture);
-    FAsyncTaskDownloadImageOnFail OnFail;
+    FAsyncTaskDownloadImageOnFail OnFail;                                             // 0x0040 (size: 0x10)
     void DownloadImageDelegate(class UTexture2DDynamic* Texture);
 
     class UAsyncTaskDownloadImage* DownloadImage(FString URL);
-};
+}; // Size: 0x50
 
 class UPanelWidget : public UWidget
 {
-    TArray<class UPanelSlot*> Slots;
+    TArray<class UPanelSlot*> Slots;                                                  // 0x0108 (size: 0x10)
 
     bool RemoveChildAt(int32 Index);
     bool RemoveChild(class UWidget* Content);
@@ -361,7 +361,7 @@ class UPanelWidget : public UWidget
     TArray<class UWidget*> GetAllChildren();
     void ClearChildren();
     class UPanelSlot* AddChild(class UWidget* Content);
-};
+}; // Size: 0x120
 
 class UContentWidget : public UPanelWidget
 {
@@ -369,18 +369,18 @@ class UContentWidget : public UPanelWidget
     class UPanelSlot* SetContent(class UWidget* Content);
     class UPanelSlot* GetContentSlot();
     class UWidget* GetContent();
-};
+}; // Size: 0x120
 
 class UBackgroundBlur : public UContentWidget
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
-    bool bApplyAlphaToBlur;
-    float BlurStrength;
-    bool bOverrideAutoRadiusCalculation;
-    int32 BlurRadius;
-    FSlateBrush LowQualityFallbackBrush;
+    FMargin Padding;                                                                  // 0x0120 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0130 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0131 (size: 0x1)
+    bool bApplyAlphaToBlur;                                                           // 0x0132 (size: 0x1)
+    float BlurStrength;                                                               // 0x0134 (size: 0x4)
+    bool bOverrideAutoRadiusCalculation;                                              // 0x0138 (size: 0x1)
+    int32 BlurRadius;                                                                 // 0x013C (size: 0x4)
+    FSlateBrush LowQualityFallbackBrush;                                              // 0x0140 (size: 0x88)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
@@ -389,68 +389,68 @@ class UBackgroundBlur : public UContentWidget
     void SetBlurStrength(float InStrength);
     void SetBlurRadius(int32 InBlurRadius);
     void SetApplyAlphaToBlur(bool bInApplyAlphaToBlur);
-};
+}; // Size: 0x1D8
 
 class UPanelSlot : public UVisual
 {
-    class UPanelWidget* Parent;
-    class UWidget* Content;
+    class UPanelWidget* Parent;                                                       // 0x0028 (size: 0x8)
+    class UWidget* Content;                                                           // 0x0030 (size: 0x8)
 
-};
+}; // Size: 0x38
 
 class UBackgroundBlurSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0048 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0049 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x60
 
 struct FDynamicPropertyPath : public FCachedPropertyPath
 {
-};
+}; // Size: 0x28
 
 class UPropertyBinding : public UObject
 {
-    TWeakObjectPtr<class UObject> SourceObject;
-    FDynamicPropertyPath SourcePath;
-    FName DestinationProperty;
+    TWeakObjectPtr<class UObject> SourceObject;                                       // 0x0028 (size: 0x8)
+    FDynamicPropertyPath SourcePath;                                                  // 0x0030 (size: 0x28)
+    FName DestinationProperty;                                                        // 0x0058 (size: 0x8)
 
-};
+}; // Size: 0x60
 
 class UBoolBinding : public UPropertyBinding
 {
 
     bool GetValue();
-};
+}; // Size: 0x60
 
 class UBorder : public UContentWidget
 {
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
-    uint8 bShowEffectWhenDisabled;
-    FLinearColor ContentColorAndOpacity;
-    FBorderContentColorAndOpacityDelegate ContentColorAndOpacityDelegate;
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0120 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0121 (size: 0x1)
+    uint8 bShowEffectWhenDisabled;                                                    // 0x0122 (size: 0x1)
+    FLinearColor ContentColorAndOpacity;                                              // 0x0124 (size: 0x10)
+    FBorderContentColorAndOpacityDelegate ContentColorAndOpacityDelegate;             // 0x0134 (size: 0x10)
     FLinearColor GetLinearColor();
-    FMargin Padding;
-    FSlateBrush Background;
-    FBorderBackgroundDelegate BackgroundDelegate;
+    FMargin Padding;                                                                  // 0x0144 (size: 0x10)
+    FSlateBrush Background;                                                           // 0x0158 (size: 0x88)
+    FBorderBackgroundDelegate BackgroundDelegate;                                     // 0x01E0 (size: 0x10)
     FSlateBrush GetSlateBrush();
-    FLinearColor BrushColor;
-    FBorderBrushColorDelegate BrushColorDelegate;
+    FLinearColor BrushColor;                                                          // 0x01F0 (size: 0x10)
+    FBorderBrushColorDelegate BrushColorDelegate;                                     // 0x0200 (size: 0x10)
     FLinearColor GetLinearColor();
-    FVector2D DesiredSizeScale;
-    bool bFlipForRightToLeftFlowDirection;
-    FBorderOnMouseButtonDownEvent OnMouseButtonDownEvent;
+    FVector2D DesiredSizeScale;                                                       // 0x0210 (size: 0x8)
+    bool bFlipForRightToLeftFlowDirection;                                            // 0x0218 (size: 0x1)
+    FBorderOnMouseButtonDownEvent OnMouseButtonDownEvent;                             // 0x021C (size: 0x10)
     FEventReply OnPointerEvent(FGeometry MyGeometry, const FPointerEvent& MouseEvent);
-    FBorderOnMouseButtonUpEvent OnMouseButtonUpEvent;
+    FBorderOnMouseButtonUpEvent OnMouseButtonUpEvent;                                 // 0x022C (size: 0x10)
     FEventReply OnPointerEvent(FGeometry MyGeometry, const FPointerEvent& MouseEvent);
-    FBorderOnMouseMoveEvent OnMouseMoveEvent;
+    FBorderOnMouseMoveEvent OnMouseMoveEvent;                                         // 0x023C (size: 0x10)
     FEventReply OnPointerEvent(FGeometry MyGeometry, const FPointerEvent& MouseEvent);
-    FBorderOnMouseDoubleClickEvent OnMouseDoubleClickEvent;
+    FBorderOnMouseDoubleClickEvent OnMouseDoubleClickEvent;                           // 0x024C (size: 0x10)
     FEventReply OnPointerEvent(FGeometry MyGeometry, const FPointerEvent& MouseEvent);
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
@@ -464,44 +464,44 @@ class UBorder : public UContentWidget
     void SetBrushColor(FLinearColor InBrushColor);
     void SetBrush(const FSlateBrush& InBrush);
     class UMaterialInstanceDynamic* GetDynamicMaterial();
-};
+}; // Size: 0x270
 
 class UBorderSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0048 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0049 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x60
 
 class UBrushBinding : public UPropertyBinding
 {
 
     FSlateBrush GetValue();
-};
+}; // Size: 0x68
 
 class UButton : public UContentWidget
 {
-    class USlateWidgetStyleAsset* Style;
-    FButtonStyle WidgetStyle;
-    FLinearColor ColorAndOpacity;
-    FLinearColor BackgroundColor;
-    TEnumAsByte<EButtonClickMethod::Type> ClickMethod;
-    TEnumAsByte<EButtonTouchMethod::Type> TouchMethod;
-    TEnumAsByte<EButtonPressMethod::Type> PressMethod;
-    bool IsFocusable;
-    FButtonOnClicked OnClicked;
+    class USlateWidgetStyleAsset* Style;                                              // 0x0120 (size: 0x8)
+    FButtonStyle WidgetStyle;                                                         // 0x0128 (size: 0x278)
+    FLinearColor ColorAndOpacity;                                                     // 0x03A0 (size: 0x10)
+    FLinearColor BackgroundColor;                                                     // 0x03B0 (size: 0x10)
+    TEnumAsByte<EButtonClickMethod::Type> ClickMethod;                                // 0x03C0 (size: 0x1)
+    TEnumAsByte<EButtonTouchMethod::Type> TouchMethod;                                // 0x03C1 (size: 0x1)
+    TEnumAsByte<EButtonPressMethod::Type> PressMethod;                                // 0x03C2 (size: 0x1)
+    bool IsFocusable;                                                                 // 0x03C3 (size: 0x1)
+    FButtonOnClicked OnClicked;                                                       // 0x03C8 (size: 0x10)
     void OnButtonClickedEvent();
-    FButtonOnPressed OnPressed;
+    FButtonOnPressed OnPressed;                                                       // 0x03D8 (size: 0x10)
     void OnButtonPressedEvent();
-    FButtonOnReleased OnReleased;
+    FButtonOnReleased OnReleased;                                                     // 0x03E8 (size: 0x10)
     void OnButtonReleasedEvent();
-    FButtonOnHovered OnHovered;
+    FButtonOnHovered OnHovered;                                                       // 0x03F8 (size: 0x10)
     void OnButtonHoverEvent();
-    FButtonOnUnhovered OnUnhovered;
+    FButtonOnUnhovered OnUnhovered;                                                   // 0x0408 (size: 0x10)
     void OnButtonHoverEvent();
 
     void SetTouchMethod(TEnumAsByte<EButtonTouchMethod::Type> InTouchMethod);
@@ -511,38 +511,38 @@ class UButton : public UContentWidget
     void SetClickMethod(TEnumAsByte<EButtonClickMethod::Type> InClickMethod);
     void SetBackgroundColor(FLinearColor InBackgroundColor);
     bool IsPressed();
-};
+}; // Size: 0x428
 
 class UButtonSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0048 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0049 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x60
 
 class UCanvasPanel : public UPanelWidget
 {
 
     class UCanvasPanelSlot* AddChildToCanvas(class UWidget* Content);
-};
+}; // Size: 0x130
 
 struct FAnchorData
 {
-    FMargin Offsets;
-    FAnchors Anchors;
-    FVector2D Alignment;
+    FMargin Offsets;                                                                  // 0x0000 (size: 0x10)
+    FAnchors Anchors;                                                                 // 0x0010 (size: 0x10)
+    FVector2D Alignment;                                                              // 0x0020 (size: 0x8)
 
-};
+}; // Size: 0x28
 
 class UCanvasPanelSlot : public UPanelSlot
 {
-    FAnchorData LayoutData;
-    bool bAutoSize;
-    int32 ZOrder;
+    FAnchorData LayoutData;                                                           // 0x0038 (size: 0x28)
+    bool bAutoSize;                                                                   // 0x0060 (size: 0x1)
+    int32 ZOrder;                                                                     // 0x0064 (size: 0x4)
 
     void SetZOrder(int32 InZOrder);
     void SetSize(FVector2D InSize);
@@ -562,32 +562,32 @@ class UCanvasPanelSlot : public UPanelSlot
     bool GetAutoSize();
     FAnchors GetAnchors();
     FVector2D GetAlignment();
-};
+}; // Size: 0x70
 
 class UCheckBox : public UContentWidget
 {
-    ECheckBoxState CheckedState;
-    FCheckBoxCheckedStateDelegate CheckedStateDelegate;
+    ECheckBoxState CheckedState;                                                      // 0x0120 (size: 0x1)
+    FCheckBoxCheckedStateDelegate CheckedStateDelegate;                               // 0x0124 (size: 0x10)
     ECheckBoxState GetCheckBoxState();
-    FCheckBoxStyle WidgetStyle;
-    class USlateWidgetStyleAsset* Style;
-    class USlateBrushAsset* UncheckedImage;
-    class USlateBrushAsset* UncheckedHoveredImage;
-    class USlateBrushAsset* UncheckedPressedImage;
-    class USlateBrushAsset* CheckedImage;
-    class USlateBrushAsset* CheckedHoveredImage;
-    class USlateBrushAsset* CheckedPressedImage;
-    class USlateBrushAsset* UndeterminedImage;
-    class USlateBrushAsset* UndeterminedHoveredImage;
-    class USlateBrushAsset* UndeterminedPressedImage;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    FMargin Padding;
-    FSlateColor BorderBackgroundColor;
-    TEnumAsByte<EButtonClickMethod::Type> ClickMethod;
-    TEnumAsByte<EButtonTouchMethod::Type> TouchMethod;
-    TEnumAsByte<EButtonPressMethod::Type> PressMethod;
-    bool IsFocusable;
-    FCheckBoxOnCheckStateChanged OnCheckStateChanged;
+    FCheckBoxStyle WidgetStyle;                                                       // 0x0138 (size: 0x580)
+    class USlateWidgetStyleAsset* Style;                                              // 0x06B8 (size: 0x8)
+    class USlateBrushAsset* UncheckedImage;                                           // 0x06C0 (size: 0x8)
+    class USlateBrushAsset* UncheckedHoveredImage;                                    // 0x06C8 (size: 0x8)
+    class USlateBrushAsset* UncheckedPressedImage;                                    // 0x06D0 (size: 0x8)
+    class USlateBrushAsset* CheckedImage;                                             // 0x06D8 (size: 0x8)
+    class USlateBrushAsset* CheckedHoveredImage;                                      // 0x06E0 (size: 0x8)
+    class USlateBrushAsset* CheckedPressedImage;                                      // 0x06E8 (size: 0x8)
+    class USlateBrushAsset* UndeterminedImage;                                        // 0x06F0 (size: 0x8)
+    class USlateBrushAsset* UndeterminedHoveredImage;                                 // 0x06F8 (size: 0x8)
+    class USlateBrushAsset* UndeterminedPressedImage;                                 // 0x0700 (size: 0x8)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0708 (size: 0x1)
+    FMargin Padding;                                                                  // 0x070C (size: 0x10)
+    FSlateColor BorderBackgroundColor;                                                // 0x0720 (size: 0x28)
+    TEnumAsByte<EButtonClickMethod::Type> ClickMethod;                                // 0x0748 (size: 0x1)
+    TEnumAsByte<EButtonTouchMethod::Type> TouchMethod;                                // 0x0749 (size: 0x1)
+    TEnumAsByte<EButtonPressMethod::Type> PressMethod;                                // 0x074A (size: 0x1)
+    bool IsFocusable;                                                                 // 0x074B (size: 0x1)
+    FCheckBoxOnCheckStateChanged OnCheckStateChanged;                                 // 0x0750 (size: 0x10)
     void OnCheckBoxComponentStateChanged(bool bIsChecked);
 
     void SetTouchMethod(TEnumAsByte<EButtonTouchMethod::Type> InTouchMethod);
@@ -598,62 +598,62 @@ class UCheckBox : public UContentWidget
     bool IsPressed();
     bool IsChecked();
     ECheckBoxState GetCheckedState();
-};
+}; // Size: 0x770
 
 class UCheckedStateBinding : public UPropertyBinding
 {
 
     ECheckBoxState GetValue();
-};
+}; // Size: 0x68
 
 class UCircularThrobber : public UWidget
 {
-    int32 NumberOfPieces;
-    float Period;
-    float Radius;
-    class USlateBrushAsset* PieceImage;
-    FSlateBrush Image;
-    bool bEnableRadius;
+    int32 NumberOfPieces;                                                             // 0x0108 (size: 0x4)
+    float Period;                                                                     // 0x010C (size: 0x4)
+    float Radius;                                                                     // 0x0110 (size: 0x4)
+    class USlateBrushAsset* PieceImage;                                               // 0x0118 (size: 0x8)
+    FSlateBrush Image;                                                                // 0x0120 (size: 0x88)
+    bool bEnableRadius;                                                               // 0x01A8 (size: 0x1)
 
     void SetRadius(float InRadius);
     void SetPeriod(float InPeriod);
     void SetNumberOfPieces(int32 InNumberOfPieces);
-};
+}; // Size: 0x1C0
 
 class UColorBinding : public UPropertyBinding
 {
 
     FSlateColor GetSlateValue();
     FLinearColor GetLinearValue();
-};
+}; // Size: 0x68
 
 class UComboBox : public UWidget
 {
-    TArray<class UObject*> items;
-    FComboBoxOnGenerateWidgetEvent OnGenerateWidgetEvent;
+    TArray<class UObject*> items;                                                     // 0x0108 (size: 0x10)
+    FComboBoxOnGenerateWidgetEvent OnGenerateWidgetEvent;                             // 0x0118 (size: 0x10)
     class UWidget* GenerateWidgetForObject(class UObject* Item);
-    bool bIsFocusable;
+    bool bIsFocusable;                                                                // 0x0128 (size: 0x1)
 
-};
+}; // Size: 0x140
 
 class UComboBoxString : public UWidget
 {
-    TArray<FString> DefaultOptions;
-    FString SelectedOption;
-    FComboBoxStyle WidgetStyle;
-    FTableRowStyle ItemStyle;
-    FMargin ContentPadding;
-    float MaxListHeight;
-    bool HasDownArrow;
-    bool EnableGamepadNavigationMode;
-    FSlateFontInfo Font;
-    FSlateColor ForegroundColor;
-    bool bIsFocusable;
-    FComboBoxStringOnGenerateWidgetEvent OnGenerateWidgetEvent;
+    TArray<FString> DefaultOptions;                                                   // 0x0108 (size: 0x10)
+    FString SelectedOption;                                                           // 0x0118 (size: 0x10)
+    FComboBoxStyle WidgetStyle;                                                       // 0x0128 (size: 0x3F0)
+    FTableRowStyle ItemStyle;                                                         // 0x0518 (size: 0x7C8)
+    FMargin ContentPadding;                                                           // 0x0CE0 (size: 0x10)
+    float MaxListHeight;                                                              // 0x0CF0 (size: 0x4)
+    bool HasDownArrow;                                                                // 0x0CF4 (size: 0x1)
+    bool EnableGamepadNavigationMode;                                                 // 0x0CF5 (size: 0x1)
+    FSlateFontInfo Font;                                                              // 0x0CF8 (size: 0x58)
+    FSlateColor ForegroundColor;                                                      // 0x0D50 (size: 0x28)
+    bool bIsFocusable;                                                                // 0x0D78 (size: 0x1)
+    FComboBoxStringOnGenerateWidgetEvent OnGenerateWidgetEvent;                       // 0x0D7C (size: 0x10)
     class UWidget* GenerateWidgetForString(FString Item);
-    FComboBoxStringOnSelectionChanged OnSelectionChanged;
+    FComboBoxStringOnSelectionChanged OnSelectionChanged;                             // 0x0D90 (size: 0x10)
     void OnSelectionChangedEvent(FString SelectedItem, TEnumAsByte<ESelectInfo::Type> SelectionType);
-    FComboBoxStringOnOpening OnOpening;
+    FComboBoxStringOnOpening OnOpening;                                               // 0x0DA0 (size: 0x10)
     void OnOpeningEvent();
 
     void SetSelectedOption(FString Option);
@@ -671,119 +671,119 @@ class UComboBoxString : public UWidget
     void ClearSelection();
     void ClearOptions();
     void AddOption(FString Option);
-};
+}; // Size: 0xE00
 
 class UDragDropOperation : public UObject
 {
-    FString Tag;
-    class UObject* Payload;
-    class UWidget* DefaultDragVisual;
-    EDragPivot Pivot;
-    FVector2D Offset;
-    FDragDropOperationOnDrop OnDrop;
+    FString Tag;                                                                      // 0x0028 (size: 0x10)
+    class UObject* Payload;                                                           // 0x0038 (size: 0x8)
+    class UWidget* DefaultDragVisual;                                                 // 0x0040 (size: 0x8)
+    EDragPivot Pivot;                                                                 // 0x0048 (size: 0x1)
+    FVector2D Offset;                                                                 // 0x004C (size: 0x8)
+    FDragDropOperationOnDrop OnDrop;                                                  // 0x0058 (size: 0x10)
     void OnDragDropMulticast(class UDragDropOperation* Operation);
-    FDragDropOperationOnDragCancelled OnDragCancelled;
+    FDragDropOperationOnDragCancelled OnDragCancelled;                                // 0x0068 (size: 0x10)
     void OnDragDropMulticast(class UDragDropOperation* Operation);
-    FDragDropOperationOnDragged OnDragged;
+    FDragDropOperationOnDragged OnDragged;                                            // 0x0078 (size: 0x10)
     void OnDragDropMulticast(class UDragDropOperation* Operation);
 
     void Drop(const FPointerEvent& PointerEvent);
     void Dragged(const FPointerEvent& PointerEvent);
     void DragCancelled(const FPointerEvent& PointerEvent);
-};
+}; // Size: 0x88
 
 struct FSlateChildSize
 {
-    float Value;
-    TEnumAsByte<ESlateSizeRule::Type> SizeRule;
+    float Value;                                                                      // 0x0000 (size: 0x4)
+    TEnumAsByte<ESlateSizeRule::Type> SizeRule;                                       // 0x0004 (size: 0x1)
 
-};
+}; // Size: 0x8
 
 struct FRadialBoxSettings
 {
-    bool bDistributeItemsEvenly;
-    float AngleBetweenItems;
-    float StartingAngle;
+    bool bDistributeItemsEvenly;                                                      // 0x0000 (size: 0x1)
+    float AngleBetweenItems;                                                          // 0x0004 (size: 0x4)
+    float StartingAngle;                                                              // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 struct FUserWidgetPool
 {
-    TArray<class UUserWidget*> ActiveWidgets;
-    TArray<class UUserWidget*> InactiveWidgets;
+    TArray<class UUserWidget*> ActiveWidgets;                                         // 0x0000 (size: 0x10)
+    TArray<class UUserWidget*> InactiveWidgets;                                       // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x80
 
 class UDynamicEntryBoxBase : public UWidget
 {
-    EDynamicBoxType EntryBoxType;
-    FVector2D EntrySpacing;
-    TArray<FVector2D> SpacingPattern;
-    FSlateChildSize EntrySizeRule;
-    TEnumAsByte<EHorizontalAlignment> EntryHorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> EntryVerticalAlignment;
-    int32 MaxElementSize;
-    FRadialBoxSettings RadialBoxSettings;
-    FUserWidgetPool EntryWidgetPool;
+    EDynamicBoxType EntryBoxType;                                                     // 0x0108 (size: 0x1)
+    FVector2D EntrySpacing;                                                           // 0x010C (size: 0x8)
+    TArray<FVector2D> SpacingPattern;                                                 // 0x0118 (size: 0x10)
+    FSlateChildSize EntrySizeRule;                                                    // 0x0128 (size: 0x8)
+    TEnumAsByte<EHorizontalAlignment> EntryHorizontalAlignment;                       // 0x0130 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> EntryVerticalAlignment;                           // 0x0131 (size: 0x1)
+    int32 MaxElementSize;                                                             // 0x0134 (size: 0x4)
+    FRadialBoxSettings RadialBoxSettings;                                             // 0x0138 (size: 0xC)
+    FUserWidgetPool EntryWidgetPool;                                                  // 0x0158 (size: 0x80)
 
     void SetRadialSettings(const FRadialBoxSettings& InSettings);
     void SetEntrySpacing(const FVector2D& InEntrySpacing);
     int32 GetNumEntries();
     TArray<class UUserWidget*> GetAllEntries();
-};
+}; // Size: 0x1D8
 
 class UDynamicEntryBox : public UDynamicEntryBoxBase
 {
-    TSubclassOf<class UUserWidget> EntryWidgetClass;
+    TSubclassOf<class UUserWidget> EntryWidgetClass;                                  // 0x01D8 (size: 0x8)
 
     void Reset(bool bDeleteWidgets);
     void RemoveEntry(class UUserWidget* EntryWidget);
     class UUserWidget* BP_CreateEntryOfClass(TSubclassOf<class UUserWidget> EntryClass);
     class UUserWidget* BP_CreateEntry();
-};
+}; // Size: 0x1E0
 
 struct FShapedTextOptions
 {
-    uint8 bOverride_TextShapingMethod;
-    uint8 bOverride_TextFlowDirection;
-    ETextShapingMethod TextShapingMethod;
-    ETextFlowDirection TextFlowDirection;
+    uint8 bOverride_TextShapingMethod;                                                // 0x0000 (size: 0x1)
+    uint8 bOverride_TextFlowDirection;                                                // 0x0000 (size: 0x1)
+    ETextShapingMethod TextShapingMethod;                                             // 0x0001 (size: 0x1)
+    ETextFlowDirection TextFlowDirection;                                             // 0x0002 (size: 0x1)
 
-};
+}; // Size: 0x3
 
 class UEditableText : public UWidget
 {
-    FText Text;
-    FEditableTextTextDelegate TextDelegate;
+    FText Text;                                                                       // 0x0108 (size: 0x18)
+    FEditableTextTextDelegate TextDelegate;                                           // 0x0120 (size: 0x10)
     FText GetText();
-    FText HintText;
-    FEditableTextHintTextDelegate HintTextDelegate;
+    FText HintText;                                                                   // 0x0130 (size: 0x18)
+    FEditableTextHintTextDelegate HintTextDelegate;                                   // 0x0148 (size: 0x10)
     FText GetText();
-    FEditableTextStyle WidgetStyle;
-    class USlateWidgetStyleAsset* Style;
-    class USlateBrushAsset* BackgroundImageSelected;
-    class USlateBrushAsset* BackgroundImageComposing;
-    class USlateBrushAsset* CaretImage;
-    FSlateFontInfo Font;
-    FSlateColor ColorAndOpacity;
-    bool isReadOnly;
-    bool IsPassword;
-    float MinimumDesiredWidth;
-    bool IsCaretMovedWhenGainFocus;
-    bool SelectAllTextWhenFocused;
-    bool RevertTextOnEscape;
-    bool ClearKeyboardFocusOnCommit;
-    bool SelectAllTextOnCommit;
-    bool AllowContextMenu;
-    TEnumAsByte<EVirtualKeyboardType::Type> KeyboardType;
-    FVirtualKeyboardOptions VirtualKeyboardOptions;
-    EVirtualKeyboardTrigger VirtualKeyboardTrigger;
-    EVirtualKeyboardDismissAction VirtualKeyboardDismissAction;
-    TEnumAsByte<ETextJustify::Type> Justification;
-    FShapedTextOptions ShapedTextOptions;
-    FEditableTextOnTextChanged OnTextChanged;
+    FEditableTextStyle WidgetStyle;                                                   // 0x0158 (size: 0x220)
+    class USlateWidgetStyleAsset* Style;                                              // 0x0378 (size: 0x8)
+    class USlateBrushAsset* BackgroundImageSelected;                                  // 0x0380 (size: 0x8)
+    class USlateBrushAsset* BackgroundImageComposing;                                 // 0x0388 (size: 0x8)
+    class USlateBrushAsset* CaretImage;                                               // 0x0390 (size: 0x8)
+    FSlateFontInfo Font;                                                              // 0x0398 (size: 0x58)
+    FSlateColor ColorAndOpacity;                                                      // 0x03F0 (size: 0x28)
+    bool isReadOnly;                                                                  // 0x0418 (size: 0x1)
+    bool IsPassword;                                                                  // 0x0419 (size: 0x1)
+    float MinimumDesiredWidth;                                                        // 0x041C (size: 0x4)
+    bool IsCaretMovedWhenGainFocus;                                                   // 0x0420 (size: 0x1)
+    bool SelectAllTextWhenFocused;                                                    // 0x0421 (size: 0x1)
+    bool RevertTextOnEscape;                                                          // 0x0422 (size: 0x1)
+    bool ClearKeyboardFocusOnCommit;                                                  // 0x0423 (size: 0x1)
+    bool SelectAllTextOnCommit;                                                       // 0x0424 (size: 0x1)
+    bool AllowContextMenu;                                                            // 0x0425 (size: 0x1)
+    TEnumAsByte<EVirtualKeyboardType::Type> KeyboardType;                             // 0x0426 (size: 0x1)
+    FVirtualKeyboardOptions VirtualKeyboardOptions;                                   // 0x0427 (size: 0x1)
+    EVirtualKeyboardTrigger VirtualKeyboardTrigger;                                   // 0x0428 (size: 0x1)
+    EVirtualKeyboardDismissAction VirtualKeyboardDismissAction;                       // 0x0429 (size: 0x1)
+    TEnumAsByte<ETextJustify::Type> Justification;                                    // 0x042A (size: 0x1)
+    FShapedTextOptions ShapedTextOptions;                                             // 0x042B (size: 0x3)
+    FEditableTextOnTextChanged OnTextChanged;                                         // 0x0430 (size: 0x10)
     void OnEditableTextChangedEvent(const FText& Text);
-    FEditableTextOnTextCommitted OnTextCommitted;
+    FEditableTextOnTextCommitted OnTextCommitted;                                     // 0x0440 (size: 0x10)
     void OnEditableTextCommittedEvent(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
 
     void SetText(FText InText);
@@ -794,41 +794,41 @@ class UEditableText : public UWidget
     void OnEditableTextCommittedEvent__DelegateSignature(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
     void OnEditableTextChangedEvent__DelegateSignature(const FText& Text);
     FText GetText();
-};
+}; // Size: 0x460
 
 class UEditableTextBox : public UWidget
 {
-    FText Text;
-    FEditableTextBoxTextDelegate TextDelegate;
+    FText Text;                                                                       // 0x0108 (size: 0x18)
+    FEditableTextBoxTextDelegate TextDelegate;                                        // 0x0120 (size: 0x10)
     FText GetText();
-    FEditableTextBoxStyle WidgetStyle;
-    class USlateWidgetStyleAsset* Style;
-    FText HintText;
-    FEditableTextBoxHintTextDelegate HintTextDelegate;
+    FEditableTextBoxStyle WidgetStyle;                                                // 0x0130 (size: 0x7F8)
+    class USlateWidgetStyleAsset* Style;                                              // 0x0928 (size: 0x8)
+    FText HintText;                                                                   // 0x0930 (size: 0x18)
+    FEditableTextBoxHintTextDelegate HintTextDelegate;                                // 0x0948 (size: 0x10)
     FText GetText();
-    FSlateFontInfo Font;
-    FLinearColor ForegroundColor;
-    FLinearColor BackgroundColor;
-    FLinearColor ReadOnlyForegroundColor;
-    bool isReadOnly;
-    bool IsPassword;
-    float MinimumDesiredWidth;
-    FMargin Padding;
-    bool IsCaretMovedWhenGainFocus;
-    bool SelectAllTextWhenFocused;
-    bool RevertTextOnEscape;
-    bool ClearKeyboardFocusOnCommit;
-    bool SelectAllTextOnCommit;
-    bool AllowContextMenu;
-    TEnumAsByte<EVirtualKeyboardType::Type> KeyboardType;
-    FVirtualKeyboardOptions VirtualKeyboardOptions;
-    EVirtualKeyboardTrigger VirtualKeyboardTrigger;
-    EVirtualKeyboardDismissAction VirtualKeyboardDismissAction;
-    TEnumAsByte<ETextJustify::Type> Justification;
-    FShapedTextOptions ShapedTextOptions;
-    FEditableTextBoxOnTextChanged OnTextChanged;
+    FSlateFontInfo Font;                                                              // 0x0958 (size: 0x58)
+    FLinearColor ForegroundColor;                                                     // 0x09B0 (size: 0x10)
+    FLinearColor BackgroundColor;                                                     // 0x09C0 (size: 0x10)
+    FLinearColor ReadOnlyForegroundColor;                                             // 0x09D0 (size: 0x10)
+    bool isReadOnly;                                                                  // 0x09E0 (size: 0x1)
+    bool IsPassword;                                                                  // 0x09E1 (size: 0x1)
+    float MinimumDesiredWidth;                                                        // 0x09E4 (size: 0x4)
+    FMargin Padding;                                                                  // 0x09E8 (size: 0x10)
+    bool IsCaretMovedWhenGainFocus;                                                   // 0x09F8 (size: 0x1)
+    bool SelectAllTextWhenFocused;                                                    // 0x09F9 (size: 0x1)
+    bool RevertTextOnEscape;                                                          // 0x09FA (size: 0x1)
+    bool ClearKeyboardFocusOnCommit;                                                  // 0x09FB (size: 0x1)
+    bool SelectAllTextOnCommit;                                                       // 0x09FC (size: 0x1)
+    bool AllowContextMenu;                                                            // 0x09FD (size: 0x1)
+    TEnumAsByte<EVirtualKeyboardType::Type> KeyboardType;                             // 0x09FE (size: 0x1)
+    FVirtualKeyboardOptions VirtualKeyboardOptions;                                   // 0x09FF (size: 0x1)
+    EVirtualKeyboardTrigger VirtualKeyboardTrigger;                                   // 0x0A00 (size: 0x1)
+    EVirtualKeyboardDismissAction VirtualKeyboardDismissAction;                       // 0x0A01 (size: 0x1)
+    TEnumAsByte<ETextJustify::Type> Justification;                                    // 0x0A02 (size: 0x1)
+    FShapedTextOptions ShapedTextOptions;                                             // 0x0A03 (size: 0x3)
+    FEditableTextBoxOnTextChanged OnTextChanged;                                      // 0x0A08 (size: 0x10)
     void OnEditableTextBoxChangedEvent(const FText& Text);
-    FEditableTextBoxOnTextCommitted OnTextCommitted;
+    FEditableTextBoxOnTextCommitted OnTextCommitted;                                  // 0x0A18 (size: 0x10)
     void OnEditableTextBoxCommittedEvent(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
 
     void SetText(FText InText);
@@ -842,54 +842,54 @@ class UEditableTextBox : public UWidget
     bool HasError();
     FText GetText();
     void ClearError();
-};
+}; // Size: 0xA38
 
 class UExpandableArea : public UWidget
 {
-    FExpandableAreaStyle Style;
-    FSlateBrush BorderBrush;
-    FSlateColor BorderColor;
-    bool bIsExpanded;
-    float MaxHeight;
-    FMargin HeaderPadding;
-    FMargin AreaPadding;
-    FExpandableAreaOnExpansionChanged OnExpansionChanged;
+    FExpandableAreaStyle Style;                                                       // 0x0110 (size: 0x120)
+    FSlateBrush BorderBrush;                                                          // 0x0230 (size: 0x88)
+    FSlateColor BorderColor;                                                          // 0x02B8 (size: 0x28)
+    bool bIsExpanded;                                                                 // 0x02E0 (size: 0x1)
+    float MaxHeight;                                                                  // 0x02E4 (size: 0x4)
+    FMargin HeaderPadding;                                                            // 0x02E8 (size: 0x10)
+    FMargin AreaPadding;                                                              // 0x02F8 (size: 0x10)
+    FExpandableAreaOnExpansionChanged OnExpansionChanged;                             // 0x0308 (size: 0x10)
     void OnExpandableAreaExpansionChanged(class UExpandableArea* Area, bool bIsExpanded);
-    class UWidget* HeaderContent;
-    class UWidget* BodyContent;
+    class UWidget* HeaderContent;                                                     // 0x0318 (size: 0x8)
+    class UWidget* BodyContent;                                                       // 0x0320 (size: 0x8)
 
     void SetIsExpanded_Animated(bool IsExpanded);
     void SetIsExpanded(bool IsExpanded);
     bool GetIsExpanded();
-};
+}; // Size: 0x338
 
 class UFloatBinding : public UPropertyBinding
 {
 
     float GetValue();
-};
+}; // Size: 0x60
 
 class UGridPanel : public UPanelWidget
 {
-    TArray<float> ColumnFill;
-    TArray<float> RowFill;
+    TArray<float> ColumnFill;                                                         // 0x0120 (size: 0x10)
+    TArray<float> RowFill;                                                            // 0x0130 (size: 0x10)
 
     void SetRowFill(int32 ColumnIndex, float Coefficient);
     void SetColumnFill(int32 ColumnIndex, float Coefficient);
     class UGridSlot* AddChildToGrid(class UWidget* Content, int32 InRow, int32 InColumn);
-};
+}; // Size: 0x150
 
 class UGridSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
-    int32 Row;
-    int32 RowSpan;
-    int32 Column;
-    int32 ColumnSpan;
-    int32 Layer;
-    FVector2D Nudge;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0048 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0049 (size: 0x1)
+    int32 Row;                                                                        // 0x004C (size: 0x4)
+    int32 RowSpan;                                                                    // 0x0050 (size: 0x4)
+    int32 Column;                                                                     // 0x0054 (size: 0x4)
+    int32 ColumnSpan;                                                                 // 0x0058 (size: 0x4)
+    int32 Layer;                                                                      // 0x005C (size: 0x4)
+    FVector2D Nudge;                                                                  // 0x0060 (size: 0x8)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetRowSpan(int32 InRowSpan);
@@ -900,37 +900,37 @@ class UGridSlot : public UPanelSlot
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
     void SetColumnSpan(int32 InColumnSpan);
     void SetColumn(int32 InColumn);
-};
+}; // Size: 0x70
 
 class UHorizontalBox : public UPanelWidget
 {
 
     class UHorizontalBoxSlot* AddChildToHorizontalBox(class UWidget* Content);
-};
+}; // Size: 0x130
 
 class UHorizontalBoxSlot : public UPanelSlot
 {
-    FMargin Padding;
-    FSlateChildSize Size;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0040 (size: 0x10)
+    FSlateChildSize Size;                                                             // 0x0050 (size: 0x8)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0058 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0059 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetSize(FSlateChildSize InSize);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x60
 
 class UImage : public UWidget
 {
-    FSlateBrush Brush;
-    FImageBrushDelegate BrushDelegate;
+    FSlateBrush Brush;                                                                // 0x0108 (size: 0x88)
+    FImageBrushDelegate BrushDelegate;                                                // 0x0190 (size: 0x10)
     FSlateBrush GetSlateBrush();
-    FLinearColor ColorAndOpacity;
-    FImageColorAndOpacityDelegate ColorAndOpacityDelegate;
+    FLinearColor ColorAndOpacity;                                                     // 0x01A0 (size: 0x10)
+    FImageColorAndOpacityDelegate ColorAndOpacityDelegate;                            // 0x01B0 (size: 0x10)
     FLinearColor GetLinearColor();
-    bool bFlipForRightToLeftFlowDirection;
-    FImageOnMouseButtonDownEvent OnMouseButtonDownEvent;
+    bool bFlipForRightToLeftFlowDirection;                                            // 0x01C0 (size: 0x1)
+    FImageOnMouseButtonDownEvent OnMouseButtonDownEvent;                              // 0x01C4 (size: 0x10)
     FEventReply OnPointerEvent(FGeometry MyGeometry, const FPointerEvent& MouseEvent);
 
     void SetOpacity(float InOpacity);
@@ -947,24 +947,24 @@ class UImage : public UWidget
     void SetBrushFromAsset(class USlateBrushAsset* Asset);
     void SetBrush(const FSlateBrush& InBrush);
     class UMaterialInstanceDynamic* GetDynamicMaterial();
-};
+}; // Size: 0x210
 
 class UInputKeySelector : public UWidget
 {
-    FButtonStyle WidgetStyle;
-    FTextBlockStyle TextStyle;
-    FInputChord SelectedKey;
-    FSlateFontInfo Font;
-    FMargin Margin;
-    FLinearColor ColorAndOpacity;
-    FText KeySelectionText;
-    FText NoKeySpecifiedText;
-    bool bAllowModifierKeys;
-    bool bAllowGamepadKeys;
-    TArray<FKey> EscapeKeys;
-    FInputKeySelectorOnKeySelected OnKeySelected;
+    FButtonStyle WidgetStyle;                                                         // 0x0108 (size: 0x278)
+    FTextBlockStyle TextStyle;                                                        // 0x0380 (size: 0x270)
+    FInputChord SelectedKey;                                                          // 0x05F0 (size: 0x20)
+    FSlateFontInfo Font;                                                              // 0x0610 (size: 0x58)
+    FMargin Margin;                                                                   // 0x0668 (size: 0x10)
+    FLinearColor ColorAndOpacity;                                                     // 0x0678 (size: 0x10)
+    FText KeySelectionText;                                                           // 0x0688 (size: 0x18)
+    FText NoKeySpecifiedText;                                                         // 0x06A0 (size: 0x18)
+    bool bAllowModifierKeys;                                                          // 0x06B8 (size: 0x1)
+    bool bAllowGamepadKeys;                                                           // 0x06B9 (size: 0x1)
+    TArray<FKey> EscapeKeys;                                                          // 0x06C0 (size: 0x10)
+    FInputKeySelectorOnKeySelected OnKeySelected;                                     // 0x06D0 (size: 0x10)
     void OnKeySelected(FInputChord SelectedKey);
-    FInputKeySelectorOnIsSelectingKeyChanged OnIsSelectingKeyChanged;
+    FInputKeySelectorOnIsSelectingKeyChanged OnIsSelectingKeyChanged;                 // 0x06E0 (size: 0x10)
     void OnIsSelectingKeyChanged();
 
     void SetTextBlockVisibility(const ESlateVisibility InVisibility);
@@ -977,23 +977,23 @@ class UInputKeySelector : public UWidget
     void OnKeySelected__DelegateSignature(FInputChord SelectedKey);
     void OnIsSelectingKeyChanged__DelegateSignature();
     bool GetIsSelectingKey();
-};
+}; // Size: 0x700
 
 class UInt32Binding : public UPropertyBinding
 {
 
     int32 GetValue();
-};
+}; // Size: 0x60
 
 class UInvalidationBox : public UContentWidget
 {
-    bool bCanCache;
-    bool CacheRelativeTransforms;
+    bool bCanCache;                                                                   // 0x0120 (size: 0x1)
+    bool CacheRelativeTransforms;                                                     // 0x0121 (size: 0x1)
 
     void SetCanCache(bool CanCache);
     void InvalidateCache();
     bool GetCanCache();
-};
+}; // Size: 0x138
 
 class IUserListEntry : public IInterface
 {
@@ -1001,7 +1001,7 @@ class IUserListEntry : public IInterface
     void BP_OnItemSelectionChanged(bool bIsSelected);
     void BP_OnItemExpansionChanged(bool bIsExpanded);
     void BP_OnEntryReleased();
-};
+}; // Size: 0x28
 
 class UUserListEntryLibrary : public UBlueprintFunctionLibrary
 {
@@ -1009,32 +1009,32 @@ class UUserListEntryLibrary : public UBlueprintFunctionLibrary
     bool IsListItemSelected(TScriptInterface<class IUserListEntry> UserListEntry);
     bool IsListItemExpanded(TScriptInterface<class IUserListEntry> UserListEntry);
     class UListViewBase* GetOwningListView(TScriptInterface<class IUserListEntry> UserListEntry);
-};
+}; // Size: 0x28
 
 class IUserObjectListEntry : public IUserListEntry
 {
 
     void OnListItemObjectSet(class UObject* ListItemObject);
-};
+}; // Size: 0x28
 
 class UUserObjectListEntryLibrary : public UBlueprintFunctionLibrary
 {
 
     class UObject* GetListItemObject(TScriptInterface<class IUserObjectListEntry> UserObjectListEntry);
-};
+}; // Size: 0x28
 
 class UListViewBase : public UWidget
 {
-    TSubclassOf<class UUserWidget> EntryWidgetClass;
-    float WheelScrollMultiplier;
-    bool bEnableScrollAnimation;
-    bool bEnableFixedLineOffset;
-    float FixedLineScrollOffset;
-    FListViewBaseBP_OnEntryGenerated BP_OnEntryGenerated;
+    TSubclassOf<class UUserWidget> EntryWidgetClass;                                  // 0x0108 (size: 0x8)
+    float WheelScrollMultiplier;                                                      // 0x0110 (size: 0x4)
+    bool bEnableScrollAnimation;                                                      // 0x0114 (size: 0x1)
+    bool bEnableFixedLineOffset;                                                      // 0x0115 (size: 0x1)
+    float FixedLineScrollOffset;                                                      // 0x0118 (size: 0x4)
+    FListViewBaseBP_OnEntryGenerated BP_OnEntryGenerated;                             // 0x0120 (size: 0x10)
     void OnListEntryGeneratedDynamic(class UUserWidget* Widget);
-    FListViewBaseBP_OnEntryReleased BP_OnEntryReleased;
+    FListViewBaseBP_OnEntryReleased BP_OnEntryReleased;                               // 0x0130 (size: 0x10)
     void OnListEntryReleasedDynamic(class UUserWidget* Widget);
-    FUserWidgetPool EntryWidgetPool;
+    FUserWidgetPool EntryWidgetPool;                                                  // 0x0140 (size: 0x80)
 
     void SetWheelScrollMultiplier(float NewWheelScrollMultiplier);
     void SetScrollOffset(const float InScrollOffset);
@@ -1044,29 +1044,29 @@ class UListViewBase : public UWidget
     void RequestRefresh();
     void RegenerateAllEntries();
     TArray<class UUserWidget*> GetDisplayedEntryWidgets();
-};
+}; // Size: 0x218
 
 class UListView : public UListViewBase
 {
-    TEnumAsByte<EOrientation> Orientation;
-    TEnumAsByte<ESelectionMode::Type> SelectionMode;
-    EConsumeMouseWheel ConsumeMouseWheel;
-    bool bClearSelectionOnClick;
-    bool bIsFocusable;
-    float EntrySpacing;
-    bool bReturnFocusToSelection;
-    TArray<class UObject*> ListItems;
-    FListViewBP_OnEntryInitialized BP_OnEntryInitialized;
+    TEnumAsByte<EOrientation> Orientation;                                            // 0x02D8 (size: 0x1)
+    TEnumAsByte<ESelectionMode::Type> SelectionMode;                                  // 0x02D9 (size: 0x1)
+    EConsumeMouseWheel ConsumeMouseWheel;                                             // 0x02DA (size: 0x1)
+    bool bClearSelectionOnClick;                                                      // 0x02DB (size: 0x1)
+    bool bIsFocusable;                                                                // 0x02DC (size: 0x1)
+    float EntrySpacing;                                                               // 0x02E0 (size: 0x4)
+    bool bReturnFocusToSelection;                                                     // 0x02E4 (size: 0x1)
+    TArray<class UObject*> ListItems;                                                 // 0x02E8 (size: 0x10)
+    FListViewBP_OnEntryInitialized BP_OnEntryInitialized;                             // 0x0308 (size: 0x10)
     void OnListEntryInitializedDynamic(class UObject* Item, class UUserWidget* Widget);
-    FListViewBP_OnItemClicked BP_OnItemClicked;
+    FListViewBP_OnItemClicked BP_OnItemClicked;                                       // 0x0318 (size: 0x10)
     void SimpleListItemEventDynamic(class UObject* Item);
-    FListViewBP_OnItemDoubleClicked BP_OnItemDoubleClicked;
+    FListViewBP_OnItemDoubleClicked BP_OnItemDoubleClicked;                           // 0x0328 (size: 0x10)
     void SimpleListItemEventDynamic(class UObject* Item);
-    FListViewBP_OnItemIsHoveredChanged BP_OnItemIsHoveredChanged;
+    FListViewBP_OnItemIsHoveredChanged BP_OnItemIsHoveredChanged;                     // 0x0338 (size: 0x10)
     void OnItemIsHoveredChangedDynamic(class UObject* Item, bool bIsHovered);
-    FListViewBP_OnItemSelectionChanged BP_OnItemSelectionChanged;
+    FListViewBP_OnItemSelectionChanged BP_OnItemSelectionChanged;                     // 0x0348 (size: 0x10)
     void OnListItemSelectionChangedDynamic(class UObject* Item, bool bIsSelected);
-    FListViewBP_OnItemScrolledIntoView BP_OnItemScrolledIntoView;
+    FListViewBP_OnItemScrolledIntoView BP_OnItemScrolledIntoView;                     // 0x0358 (size: 0x10)
     void OnListItemScrolledIntoViewDynamic(class UObject* Item, class UUserWidget* Widget);
 
     void SetSelectionMode(TEnumAsByte<ESelectionMode::Type> SelectionMode);
@@ -1092,24 +1092,24 @@ class UListView : public UListViewBase
     void BP_ClearSelection();
     void BP_CancelScrollIntoView();
     void AddItem(class UObject* Item);
-};
+}; // Size: 0x368
 
 class UListViewDesignerPreviewItem : public UObject
 {
-};
+}; // Size: 0x28
 
 class UMenuAnchor : public UContentWidget
 {
-    TSubclassOf<class UUserWidget> MenuClass;
-    FMenuAnchorOnGetMenuContentEvent OnGetMenuContentEvent;
+    TSubclassOf<class UUserWidget> MenuClass;                                         // 0x0120 (size: 0x8)
+    FMenuAnchorOnGetMenuContentEvent OnGetMenuContentEvent;                           // 0x0128 (size: 0x10)
     class UWidget* GetWidget();
-    FMenuAnchorOnGetUserMenuContentEvent OnGetUserMenuContentEvent;
+    FMenuAnchorOnGetUserMenuContentEvent OnGetUserMenuContentEvent;                   // 0x0138 (size: 0x10)
     class UUserWidget* GetUserWidget();
-    TEnumAsByte<EMenuPlacement> Placement;
-    bool bFitInWindow;
-    bool ShouldDeferPaintingAfterWindowContent;
-    bool UseApplicationMenuStack;
-    FMenuAnchorOnMenuOpenChanged OnMenuOpenChanged;
+    TEnumAsByte<EMenuPlacement> Placement;                                            // 0x0148 (size: 0x1)
+    bool bFitInWindow;                                                                // 0x0149 (size: 0x1)
+    bool ShouldDeferPaintingAfterWindowContent;                                       // 0x014A (size: 0x1)
+    bool UseApplicationMenuStack;                                                     // 0x014B (size: 0x1)
+    FMenuAnchorOnMenuOpenChanged OnMenuOpenChanged;                                   // 0x0150 (size: 0x10)
     void OnMenuOpenChangedEvent(bool bIsOpen);
 
     void ToggleOpen(bool bFocusOnOpen);
@@ -1122,90 +1122,90 @@ class UMenuAnchor : public UContentWidget
     FVector2D GetMenuPosition();
     void FitInWindow(bool bFit);
     void Close();
-};
+}; // Size: 0x170
 
 class UMouseCursorBinding : public UPropertyBinding
 {
 
     TEnumAsByte<EMouseCursor::Type> GetValue();
-};
+}; // Size: 0x60
 
 class UMovieScene2DTransformPropertySystem : public UMovieScenePropertySystem
 {
-};
+}; // Size: 0x50
 
 struct FMovieScene2DTransformMask
 {
-    uint32 Mask;
+    uint32 Mask;                                                                      // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 class UMovieScene2DTransformSection : public UMovieSceneSection
 {
-    FMovieScene2DTransformMask TransformMask;
-    FMovieSceneFloatChannel Translation;
-    FMovieSceneFloatChannel Rotation;
-    FMovieSceneFloatChannel Scale;
-    FMovieSceneFloatChannel Shear;
+    FMovieScene2DTransformMask TransformMask;                                         // 0x00F0 (size: 0x4)
+    FMovieSceneFloatChannel Translation;                                              // 0x00F8 (size: 0x140)
+    FMovieSceneFloatChannel Rotation;                                                 // 0x0238 (size: 0xA0)
+    FMovieSceneFloatChannel Scale;                                                    // 0x02D8 (size: 0x140)
+    FMovieSceneFloatChannel Shear;                                                    // 0x0418 (size: 0x140)
 
-};
+}; // Size: 0x558
 
 class UMovieScene2DTransformTrack : public UMovieScenePropertyTrack
 {
-};
+}; // Size: 0xA8
 
 class UMovieSceneMarginSection : public UMovieSceneSection
 {
-    FMovieSceneFloatChannel TopCurve;
-    FMovieSceneFloatChannel LeftCurve;
-    FMovieSceneFloatChannel RightCurve;
-    FMovieSceneFloatChannel BottomCurve;
+    FMovieSceneFloatChannel TopCurve;                                                 // 0x00E8 (size: 0xA0)
+    FMovieSceneFloatChannel LeftCurve;                                                // 0x0188 (size: 0xA0)
+    FMovieSceneFloatChannel RightCurve;                                               // 0x0228 (size: 0xA0)
+    FMovieSceneFloatChannel BottomCurve;                                              // 0x02C8 (size: 0xA0)
 
-};
+}; // Size: 0x368
 
 class UMovieSceneMarginTrack : public UMovieScenePropertyTrack
 {
-};
+}; // Size: 0xB0
 
 class UMovieSceneWidgetMaterialTrack : public UMovieSceneMaterialTrack
 {
-    TArray<FName> BrushPropertyNamePath;
-    FName TrackName;
+    TArray<FName> BrushPropertyNamePath;                                              // 0x0090 (size: 0x10)
+    FName TrackName;                                                                  // 0x00A0 (size: 0x8)
 
-};
+}; // Size: 0xA8
 
 class UTextLayoutWidget : public UWidget
 {
-    FShapedTextOptions ShapedTextOptions;
-    TEnumAsByte<ETextJustify::Type> Justification;
-    ETextWrappingPolicy WrappingPolicy;
-    uint8 AutoWrapText;
-    float WrapTextAt;
-    FMargin Margin;
-    float LineHeightPercentage;
+    FShapedTextOptions ShapedTextOptions;                                             // 0x0108 (size: 0x3)
+    TEnumAsByte<ETextJustify::Type> Justification;                                    // 0x010B (size: 0x1)
+    ETextWrappingPolicy WrappingPolicy;                                               // 0x010C (size: 0x1)
+    uint8 AutoWrapText;                                                               // 0x010D (size: 0x1)
+    float WrapTextAt;                                                                 // 0x0110 (size: 0x4)
+    FMargin Margin;                                                                   // 0x0114 (size: 0x10)
+    float LineHeightPercentage;                                                       // 0x0124 (size: 0x4)
 
     void SetJustification(TEnumAsByte<ETextJustify::Type> InJustification);
-};
+}; // Size: 0x128
 
 class UMultiLineEditableText : public UTextLayoutWidget
 {
-    FText Text;
-    FText HintText;
-    FMultiLineEditableTextHintTextDelegate HintTextDelegate;
+    FText Text;                                                                       // 0x0128 (size: 0x18)
+    FText HintText;                                                                   // 0x0140 (size: 0x18)
+    FMultiLineEditableTextHintTextDelegate HintTextDelegate;                          // 0x0158 (size: 0x10)
     FText GetText();
-    FTextBlockStyle WidgetStyle;
-    bool bIsReadOnly;
-    FSlateFontInfo Font;
-    bool SelectAllTextWhenFocused;
-    bool ClearTextSelectionOnFocusLoss;
-    bool RevertTextOnEscape;
-    bool ClearKeyboardFocusOnCommit;
-    bool AllowContextMenu;
-    FVirtualKeyboardOptions VirtualKeyboardOptions;
-    EVirtualKeyboardDismissAction VirtualKeyboardDismissAction;
-    FMultiLineEditableTextOnTextChanged OnTextChanged;
+    FTextBlockStyle WidgetStyle;                                                      // 0x0168 (size: 0x270)
+    bool bIsReadOnly;                                                                 // 0x03D8 (size: 0x1)
+    FSlateFontInfo Font;                                                              // 0x03E0 (size: 0x58)
+    bool SelectAllTextWhenFocused;                                                    // 0x0438 (size: 0x1)
+    bool ClearTextSelectionOnFocusLoss;                                               // 0x0439 (size: 0x1)
+    bool RevertTextOnEscape;                                                          // 0x043A (size: 0x1)
+    bool ClearKeyboardFocusOnCommit;                                                  // 0x043B (size: 0x1)
+    bool AllowContextMenu;                                                            // 0x043C (size: 0x1)
+    FVirtualKeyboardOptions VirtualKeyboardOptions;                                   // 0x043D (size: 0x1)
+    EVirtualKeyboardDismissAction VirtualKeyboardDismissAction;                       // 0x043E (size: 0x1)
+    FMultiLineEditableTextOnTextChanged OnTextChanged;                                // 0x0440 (size: 0x10)
     void OnMultiLineEditableTextChangedEvent(const FText& Text);
-    FMultiLineEditableTextOnTextCommitted OnTextCommitted;
+    FMultiLineEditableTextOnTextCommitted OnTextCommitted;                            // 0x0450 (size: 0x10)
     void OnMultiLineEditableTextCommittedEvent(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
 
     void SetWidgetStyle(const FTextBlockStyle& InWidgetStyle);
@@ -1216,28 +1216,28 @@ class UMultiLineEditableText : public UTextLayoutWidget
     void OnMultiLineEditableTextChangedEvent__DelegateSignature(const FText& Text);
     FText GetText();
     FText GetHintText();
-};
+}; // Size: 0x470
 
 class UMultiLineEditableTextBox : public UTextLayoutWidget
 {
-    FText Text;
-    FText HintText;
-    FMultiLineEditableTextBoxHintTextDelegate HintTextDelegate;
+    FText Text;                                                                       // 0x0128 (size: 0x18)
+    FText HintText;                                                                   // 0x0140 (size: 0x18)
+    FMultiLineEditableTextBoxHintTextDelegate HintTextDelegate;                       // 0x0158 (size: 0x10)
     FText GetText();
-    FEditableTextBoxStyle WidgetStyle;
-    FTextBlockStyle TextStyle;
-    bool bIsReadOnly;
-    bool AllowContextMenu;
-    FVirtualKeyboardOptions VirtualKeyboardOptions;
-    EVirtualKeyboardDismissAction VirtualKeyboardDismissAction;
-    class USlateWidgetStyleAsset* Style;
-    FSlateFontInfo Font;
-    FLinearColor ForegroundColor;
-    FLinearColor BackgroundColor;
-    FLinearColor ReadOnlyForegroundColor;
-    FMultiLineEditableTextBoxOnTextChanged OnTextChanged;
+    FEditableTextBoxStyle WidgetStyle;                                                // 0x0168 (size: 0x7F8)
+    FTextBlockStyle TextStyle;                                                        // 0x0960 (size: 0x270)
+    bool bIsReadOnly;                                                                 // 0x0BD0 (size: 0x1)
+    bool AllowContextMenu;                                                            // 0x0BD1 (size: 0x1)
+    FVirtualKeyboardOptions VirtualKeyboardOptions;                                   // 0x0BD2 (size: 0x1)
+    EVirtualKeyboardDismissAction VirtualKeyboardDismissAction;                       // 0x0BD3 (size: 0x1)
+    class USlateWidgetStyleAsset* Style;                                              // 0x0BD8 (size: 0x8)
+    FSlateFontInfo Font;                                                              // 0x0BE0 (size: 0x58)
+    FLinearColor ForegroundColor;                                                     // 0x0C38 (size: 0x10)
+    FLinearColor BackgroundColor;                                                     // 0x0C48 (size: 0x10)
+    FLinearColor ReadOnlyForegroundColor;                                             // 0x0C58 (size: 0x10)
+    FMultiLineEditableTextBoxOnTextChanged OnTextChanged;                             // 0x0C68 (size: 0x10)
     void OnMultiLineEditableTextBoxChangedEvent(const FText& Text);
-    FMultiLineEditableTextBoxOnTextCommitted OnTextCommitted;
+    FMultiLineEditableTextBoxOnTextCommitted OnTextCommitted;                         // 0x0C78 (size: 0x10)
     void OnMultiLineEditableTextBoxCommittedEvent(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
 
     void SetTextStyle(const FTextBlockStyle& InTextStyle);
@@ -1249,68 +1249,68 @@ class UMultiLineEditableTextBox : public UTextLayoutWidget
     void OnMultiLineEditableTextBoxChangedEvent__DelegateSignature(const FText& Text);
     FText GetText();
     FText GetHintText();
-};
+}; // Size: 0xC98
 
 class UNamedSlot : public UContentWidget
 {
-};
+}; // Size: 0x130
 
 class INamedSlotInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UNativeWidgetHost : public UWidget
 {
-};
+}; // Size: 0x118
 
 class UOverlay : public UPanelWidget
 {
 
     class UOverlaySlot* AddChildToOverlay(class UWidget* Content);
-};
+}; // Size: 0x130
 
 class UOverlaySlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0040 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0050 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0051 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x58
 
 class UProgressBar : public UWidget
 {
-    FProgressBarStyle WidgetStyle;
-    class USlateWidgetStyleAsset* Style;
-    class USlateBrushAsset* BackgroundImage;
-    class USlateBrushAsset* FillImage;
-    class USlateBrushAsset* MarqueeImage;
-    float Percent;
-    TEnumAsByte<EProgressBarFillType::Type> BarFillType;
-    bool bIsMarquee;
-    FVector2D BorderPadding;
-    FProgressBarPercentDelegate PercentDelegate;
+    FProgressBarStyle WidgetStyle;                                                    // 0x0108 (size: 0x1A0)
+    class USlateWidgetStyleAsset* Style;                                              // 0x02A8 (size: 0x8)
+    class USlateBrushAsset* BackgroundImage;                                          // 0x02B0 (size: 0x8)
+    class USlateBrushAsset* FillImage;                                                // 0x02B8 (size: 0x8)
+    class USlateBrushAsset* MarqueeImage;                                             // 0x02C0 (size: 0x8)
+    float Percent;                                                                    // 0x02C8 (size: 0x4)
+    TEnumAsByte<EProgressBarFillType::Type> BarFillType;                              // 0x02CC (size: 0x1)
+    bool bIsMarquee;                                                                  // 0x02CD (size: 0x1)
+    FVector2D BorderPadding;                                                          // 0x02D0 (size: 0x8)
+    FProgressBarPercentDelegate PercentDelegate;                                      // 0x02D8 (size: 0x10)
     float GetFloat();
-    FLinearColor FillColorAndOpacity;
-    FProgressBarFillColorAndOpacityDelegate FillColorAndOpacityDelegate;
+    FLinearColor FillColorAndOpacity;                                                 // 0x02E8 (size: 0x10)
+    FProgressBarFillColorAndOpacityDelegate FillColorAndOpacityDelegate;              // 0x02F8 (size: 0x10)
     FLinearColor GetLinearColor();
 
     void SetPercent(float InPercent);
     void SetIsMarquee(bool InbIsMarquee);
     void SetFillColorAndOpacity(FLinearColor InColor);
-};
+}; // Size: 0x318
 
 class URetainerBox : public UContentWidget
 {
-    bool bRetainRender;
-    bool RenderOnInvalidation;
-    bool RenderOnPhase;
-    int32 Phase;
-    int32 PhaseCount;
-    class UMaterialInterface* EffectMaterial;
-    FName TextureParameter;
+    bool bRetainRender;                                                               // 0x0120 (size: 0x1)
+    bool RenderOnInvalidation;                                                        // 0x0121 (size: 0x1)
+    bool RenderOnPhase;                                                               // 0x0122 (size: 0x1)
+    int32 Phase;                                                                      // 0x0124 (size: 0x4)
+    int32 PhaseCount;                                                                 // 0x0128 (size: 0x4)
+    class UMaterialInterface* EffectMaterial;                                         // 0x0130 (size: 0x8)
+    FName TextureParameter;                                                           // 0x0138 (size: 0x8)
 
     void SetTextureParameter(FName TextureParameter);
     void SetRetainRendering(bool bInRetainRendering);
@@ -1320,19 +1320,19 @@ class URetainerBox : public UContentWidget
     void RequestRender();
     class UTextureRenderTarget2D* GetRenderTarget();
     class UMaterialInstanceDynamic* GetEffectMaterial();
-};
+}; // Size: 0x150
 
 class URichTextBlock : public UTextLayoutWidget
 {
-    FText Text;
-    class UDataTable* TextStyleSet;
-    TArray<class TSubclassOf<URichTextBlockDecorator>> DecoratorClasses;
-    bool bOverrideDefaultStyle;
-    FTextBlockStyle DefaultTextStyleOverride;
-    float MinDesiredWidth;
-    ETextTransformPolicy TextTransformPolicy;
-    FTextBlockStyle DefaultTextStyle;
-    TArray<class URichTextBlockDecorator*> InstanceDecorators;
+    FText Text;                                                                       // 0x0128 (size: 0x18)
+    class UDataTable* TextStyleSet;                                                   // 0x0140 (size: 0x8)
+    TArray<class TSubclassOf<URichTextBlockDecorator>> DecoratorClasses;              // 0x0148 (size: 0x10)
+    bool bOverrideDefaultStyle;                                                       // 0x0158 (size: 0x1)
+    FTextBlockStyle DefaultTextStyleOverride;                                         // 0x0160 (size: 0x270)
+    float MinDesiredWidth;                                                            // 0x03D0 (size: 0x4)
+    ETextTransformPolicy TextTransformPolicy;                                         // 0x03D4 (size: 0x1)
+    FTextBlockStyle DefaultTextStyle;                                                 // 0x03D8 (size: 0x270)
+    TArray<class URichTextBlockDecorator*> InstanceDecorators;                        // 0x0648 (size: 0x10)
 
     void SetTextTransformPolicy(ETextTransformPolicy InTransformPolicy);
     void SetTextStyleSet(class UDataTable* NewTextStyleSet);
@@ -1348,96 +1348,96 @@ class URichTextBlock : public UTextLayoutWidget
     FText GetText();
     class URichTextBlockDecorator* GetDecoratorByClass(TSubclassOf<class URichTextBlockDecorator> DecoratorClass);
     void ClearAllDefaultStyleOverrides();
-};
+}; // Size: 0x678
 
 class URichTextBlockDecorator : public UObject
 {
-};
+}; // Size: 0x28
 
 class URichTextBlockImageDecorator : public URichTextBlockDecorator
 {
-    class UDataTable* ImageSet;
+    class UDataTable* ImageSet;                                                       // 0x0028 (size: 0x8)
 
-};
+}; // Size: 0x30
 
 class USafeZone : public UContentWidget
 {
-    bool PadLeft;
-    bool PadRight;
-    bool PadTop;
-    bool PadBottom;
+    bool PadLeft;                                                                     // 0x0120 (size: 0x1)
+    bool PadRight;                                                                    // 0x0121 (size: 0x1)
+    bool PadTop;                                                                      // 0x0122 (size: 0x1)
+    bool PadBottom;                                                                   // 0x0123 (size: 0x1)
 
     void SetSidesToPad(bool InPadLeft, bool InPadRight, bool InPadTop, bool InPadBottom);
-};
+}; // Size: 0x138
 
 class USafeZoneSlot : public UPanelSlot
 {
-    bool bIsTitleSafe;
-    FMargin SafeAreaScale;
-    TEnumAsByte<EHorizontalAlignment> HAlign;
-    TEnumAsByte<EVerticalAlignment> VAlign;
-    FMargin Padding;
+    bool bIsTitleSafe;                                                                // 0x0038 (size: 0x1)
+    FMargin SafeAreaScale;                                                            // 0x003C (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HAlign;                                         // 0x004C (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VAlign;                                           // 0x004D (size: 0x1)
+    FMargin Padding;                                                                  // 0x0050 (size: 0x10)
 
-};
+}; // Size: 0x60
 
 class UScaleBox : public UContentWidget
 {
-    TEnumAsByte<EStretch::Type> Stretch;
-    TEnumAsByte<EStretchDirection::Type> StretchDirection;
-    float UserSpecifiedScale;
-    bool IgnoreInheritedScale;
+    TEnumAsByte<EStretch::Type> Stretch;                                              // 0x0120 (size: 0x1)
+    TEnumAsByte<EStretchDirection::Type> StretchDirection;                            // 0x0121 (size: 0x1)
+    float UserSpecifiedScale;                                                         // 0x0124 (size: 0x4)
+    bool IgnoreInheritedScale;                                                        // 0x0128 (size: 0x1)
 
     void SetUserSpecifiedScale(float InUserSpecifiedScale);
     void SetStretchDirection(TEnumAsByte<EStretchDirection::Type> InStretchDirection);
     void SetStretch(TEnumAsByte<EStretch::Type> InStretch);
     void SetIgnoreInheritedScale(bool bInIgnoreInheritedScale);
-};
+}; // Size: 0x140
 
 class UScaleBoxSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0048 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0049 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x60
 
 class UScrollBar : public UWidget
 {
-    FScrollBarStyle WidgetStyle;
-    class USlateWidgetStyleAsset* Style;
-    bool bAlwaysShowScrollbar;
-    bool bAlwaysShowScrollbarTrack;
-    TEnumAsByte<EOrientation> Orientation;
-    FVector2D Thickness;
-    FMargin Padding;
+    FScrollBarStyle WidgetStyle;                                                      // 0x0108 (size: 0x4D0)
+    class USlateWidgetStyleAsset* Style;                                              // 0x05D8 (size: 0x8)
+    bool bAlwaysShowScrollbar;                                                        // 0x05E0 (size: 0x1)
+    bool bAlwaysShowScrollbarTrack;                                                   // 0x05E1 (size: 0x1)
+    TEnumAsByte<EOrientation> Orientation;                                            // 0x05E2 (size: 0x1)
+    FVector2D Thickness;                                                              // 0x05E4 (size: 0x8)
+    FMargin Padding;                                                                  // 0x05EC (size: 0x10)
 
     void SetState(float InOffsetFraction, float InThumbSizeFraction);
-};
+}; // Size: 0x610
 
 class UScrollBox : public UPanelWidget
 {
-    FScrollBoxStyle WidgetStyle;
-    FScrollBarStyle WidgetBarStyle;
-    class USlateWidgetStyleAsset* Style;
-    class USlateWidgetStyleAsset* BarStyle;
-    TEnumAsByte<EOrientation> Orientation;
-    ESlateVisibility ScrollBarVisibility;
-    EConsumeMouseWheel ConsumeMouseWheel;
-    FVector2D ScrollbarThickness;
-    FMargin ScrollbarPadding;
-    bool AlwaysShowScrollbar;
-    bool AlwaysShowScrollbarTrack;
-    bool AllowOverscroll;
-    bool bAnimateWheelScrolling;
-    EDescendantScrollDestination NavigationDestination;
-    float NavigationScrollPadding;
-    EScrollWhenFocusChanges ScrollWhenFocusChanges;
-    bool bAllowRightClickDragScrolling;
-    float WheelScrollMultiplier;
-    FScrollBoxOnUserScrolled OnUserScrolled;
+    FScrollBoxStyle WidgetStyle;                                                      // 0x0120 (size: 0x228)
+    FScrollBarStyle WidgetBarStyle;                                                   // 0x0348 (size: 0x4D0)
+    class USlateWidgetStyleAsset* Style;                                              // 0x0818 (size: 0x8)
+    class USlateWidgetStyleAsset* BarStyle;                                           // 0x0820 (size: 0x8)
+    TEnumAsByte<EOrientation> Orientation;                                            // 0x0828 (size: 0x1)
+    ESlateVisibility ScrollBarVisibility;                                             // 0x0829 (size: 0x1)
+    EConsumeMouseWheel ConsumeMouseWheel;                                             // 0x082A (size: 0x1)
+    FVector2D ScrollbarThickness;                                                     // 0x082C (size: 0x8)
+    FMargin ScrollbarPadding;                                                         // 0x0834 (size: 0x10)
+    bool AlwaysShowScrollbar;                                                         // 0x0844 (size: 0x1)
+    bool AlwaysShowScrollbarTrack;                                                    // 0x0845 (size: 0x1)
+    bool AllowOverscroll;                                                             // 0x0846 (size: 0x1)
+    bool bAnimateWheelScrolling;                                                      // 0x0847 (size: 0x1)
+    EDescendantScrollDestination NavigationDestination;                               // 0x0848 (size: 0x1)
+    float NavigationScrollPadding;                                                    // 0x084C (size: 0x4)
+    EScrollWhenFocusChanges ScrollWhenFocusChanges;                                   // 0x0850 (size: 0x1)
+    bool bAllowRightClickDragScrolling;                                               // 0x0851 (size: 0x1)
+    float WheelScrollMultiplier;                                                      // 0x0854 (size: 0x4)
+    FScrollBoxOnUserScrolled OnUserScrolled;                                          // 0x0858 (size: 0x10)
     void OnUserScrolledEvent(float CurrentOffset);
 
     void SetWheelScrollMultiplier(float NewWheelScrollMultiplier);
@@ -1457,37 +1457,37 @@ class UScrollBox : public UPanelWidget
     float GetScrollOffsetOfEnd();
     float GetScrollOffset();
     void EndInertialScrolling();
-};
+}; // Size: 0x880
 
 class UScrollBoxSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0048 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0049 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x58
 
 class USizeBox : public UContentWidget
 {
-    float WidthOverride;
-    float HeightOverride;
-    float MinDesiredWidth;
-    float MinDesiredHeight;
-    float MaxDesiredWidth;
-    float MaxDesiredHeight;
-    float MinAspectRatio;
-    float MaxAspectRatio;
-    uint8 bOverride_WidthOverride;
-    uint8 bOverride_HeightOverride;
-    uint8 bOverride_MinDesiredWidth;
-    uint8 bOverride_MinDesiredHeight;
-    uint8 bOverride_MaxDesiredWidth;
-    uint8 bOverride_MaxDesiredHeight;
-    uint8 bOverride_MinAspectRatio;
-    uint8 bOverride_MaxAspectRatio;
+    float WidthOverride;                                                              // 0x0130 (size: 0x4)
+    float HeightOverride;                                                             // 0x0134 (size: 0x4)
+    float MinDesiredWidth;                                                            // 0x0138 (size: 0x4)
+    float MinDesiredHeight;                                                           // 0x013C (size: 0x4)
+    float MaxDesiredWidth;                                                            // 0x0140 (size: 0x4)
+    float MaxDesiredHeight;                                                           // 0x0144 (size: 0x4)
+    float MinAspectRatio;                                                             // 0x0148 (size: 0x4)
+    float MaxAspectRatio;                                                             // 0x014C (size: 0x4)
+    uint8 bOverride_WidthOverride;                                                    // 0x0150 (size: 0x1)
+    uint8 bOverride_HeightOverride;                                                   // 0x0150 (size: 0x1)
+    uint8 bOverride_MinDesiredWidth;                                                  // 0x0150 (size: 0x1)
+    uint8 bOverride_MinDesiredHeight;                                                 // 0x0150 (size: 0x1)
+    uint8 bOverride_MaxDesiredWidth;                                                  // 0x0150 (size: 0x1)
+    uint8 bOverride_MaxDesiredHeight;                                                 // 0x0150 (size: 0x1)
+    uint8 bOverride_MinAspectRatio;                                                   // 0x0150 (size: 0x1)
+    uint8 bOverride_MaxAspectRatio;                                                   // 0x0150 (size: 0x1)
 
     void SetWidthOverride(float InWidthOverride);
     void SetMinDesiredWidth(float InMinDesiredWidth);
@@ -1505,18 +1505,18 @@ class USizeBox : public UContentWidget
     void ClearMaxDesiredHeight();
     void ClearMaxAspectRatio();
     void ClearHeightOverride();
-};
+}; // Size: 0x158
 
 class USizeBoxSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0058 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0059 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x60
 
 class USlateBlueprintLibrary : public UBlueprintFunctionLibrary
 {
@@ -1537,71 +1537,71 @@ class USlateBlueprintLibrary : public UBlueprintFunctionLibrary
     bool EqualEqual_SlateBrush(const FSlateBrush& A, const FSlateBrush& B);
     void AbsoluteToViewport(class UObject* WorldContextObject, FVector2D AbsoluteDesktopCoordinate, FVector2D& PixelPosition, FVector2D& ViewportPosition);
     FVector2D AbsoluteToLocal(const FGeometry& Geometry, FVector2D AbsoluteCoordinate);
-};
+}; // Size: 0x28
 
 struct FSlateMeshVertex
 {
-    FVector2D Position;
-    FColor Color;
-    FVector2D UV0;
-    FVector2D UV1;
-    FVector2D UV2;
-    FVector2D UV3;
-    FVector2D UV4;
-    FVector2D UV5;
+    FVector2D Position;                                                               // 0x0000 (size: 0x8)
+    FColor Color;                                                                     // 0x0008 (size: 0x4)
+    FVector2D UV0;                                                                    // 0x000C (size: 0x8)
+    FVector2D UV1;                                                                    // 0x0014 (size: 0x8)
+    FVector2D UV2;                                                                    // 0x001C (size: 0x8)
+    FVector2D UV3;                                                                    // 0x0024 (size: 0x8)
+    FVector2D UV4;                                                                    // 0x002C (size: 0x8)
+    FVector2D UV5;                                                                    // 0x0034 (size: 0x8)
 
-};
+}; // Size: 0x3C
 
 class USlateVectorArtData : public UObject
 {
-    TArray<FSlateMeshVertex> VertexData;
-    TArray<uint32> IndexData;
-    class UMaterialInterface* Material;
-    FVector2D ExtentMin;
-    FVector2D ExtentMax;
+    TArray<FSlateMeshVertex> VertexData;                                              // 0x0028 (size: 0x10)
+    TArray<uint32> IndexData;                                                         // 0x0038 (size: 0x10)
+    class UMaterialInterface* Material;                                               // 0x0048 (size: 0x8)
+    FVector2D ExtentMin;                                                              // 0x0050 (size: 0x8)
+    FVector2D ExtentMax;                                                              // 0x0058 (size: 0x8)
 
-};
+}; // Size: 0x60
 
 class USlateAccessibleWidgetData : public UObject
 {
-    bool bCanChildrenBeAccessible;
-    ESlateAccessibleBehavior AccessibleBehavior;
-    ESlateAccessibleBehavior AccessibleSummaryBehavior;
-    FText AccessibleText;
-    FSlateAccessibleWidgetDataAccessibleTextDelegate AccessibleTextDelegate;
+    bool bCanChildrenBeAccessible;                                                    // 0x0028 (size: 0x1)
+    ESlateAccessibleBehavior AccessibleBehavior;                                      // 0x0029 (size: 0x1)
+    ESlateAccessibleBehavior AccessibleSummaryBehavior;                               // 0x002A (size: 0x1)
+    FText AccessibleText;                                                             // 0x0030 (size: 0x18)
+    FSlateAccessibleWidgetDataAccessibleTextDelegate AccessibleTextDelegate;          // 0x0048 (size: 0x10)
     FText GetText();
-    FText AccessibleSummaryText;
-    FSlateAccessibleWidgetDataAccessibleSummaryTextDelegate AccessibleSummaryTextDelegate;
+    FText AccessibleSummaryText;                                                      // 0x0058 (size: 0x18)
+    FSlateAccessibleWidgetDataAccessibleSummaryTextDelegate AccessibleSummaryTextDelegate; // 0x0070 (size: 0x10)
     FText GetText();
 
-};
+}; // Size: 0x80
 
 class USlider : public UWidget
 {
-    float Value;
-    FSliderValueDelegate ValueDelegate;
+    float Value;                                                                      // 0x0108 (size: 0x4)
+    FSliderValueDelegate ValueDelegate;                                               // 0x010C (size: 0x10)
     float GetFloat();
-    float MinValue;
-    float MaxValue;
-    FSliderStyle WidgetStyle;
-    TEnumAsByte<EOrientation> Orientation;
-    FLinearColor SliderBarColor;
-    FLinearColor SliderHandleColor;
-    bool IndentHandle;
-    bool Locked;
-    bool MouseUsesStep;
-    bool RequiresControllerLock;
-    float StepSize;
-    bool IsFocusable;
-    FSliderOnMouseCaptureBegin OnMouseCaptureBegin;
+    float MinValue;                                                                   // 0x011C (size: 0x4)
+    float MaxValue;                                                                   // 0x0120 (size: 0x4)
+    FSliderStyle WidgetStyle;                                                         // 0x0128 (size: 0x340)
+    TEnumAsByte<EOrientation> Orientation;                                            // 0x0468 (size: 0x1)
+    FLinearColor SliderBarColor;                                                      // 0x046C (size: 0x10)
+    FLinearColor SliderHandleColor;                                                   // 0x047C (size: 0x10)
+    bool IndentHandle;                                                                // 0x048C (size: 0x1)
+    bool Locked;                                                                      // 0x048D (size: 0x1)
+    bool MouseUsesStep;                                                               // 0x048E (size: 0x1)
+    bool RequiresControllerLock;                                                      // 0x048F (size: 0x1)
+    float StepSize;                                                                   // 0x0490 (size: 0x4)
+    bool IsFocusable;                                                                 // 0x0494 (size: 0x1)
+    FSliderOnMouseCaptureBegin OnMouseCaptureBegin;                                   // 0x0498 (size: 0x10)
     void OnMouseCaptureBeginEvent();
-    FSliderOnMouseCaptureEnd OnMouseCaptureEnd;
+    FSliderOnMouseCaptureEnd OnMouseCaptureEnd;                                       // 0x04A8 (size: 0x10)
     void OnMouseCaptureEndEvent();
-    FSliderOnControllerCaptureBegin OnControllerCaptureBegin;
+    FSliderOnControllerCaptureBegin OnControllerCaptureBegin;                         // 0x04B8 (size: 0x10)
     void OnControllerCaptureBeginEvent();
-    FSliderOnControllerCaptureEnd OnControllerCaptureEnd;
+    FSliderOnControllerCaptureEnd OnControllerCaptureEnd;                             // 0x04C8 (size: 0x10)
     void OnControllerCaptureEndEvent();
-    FSliderOnValueChanged OnValueChanged;
+    FSliderOnValueChanged OnValueChanged;                                             // 0x04D8 (size: 0x10)
     void OnFloatValueChangedEvent(float Value);
 
     void SetValue(float InValue);
@@ -1614,49 +1614,49 @@ class USlider : public UWidget
     void SetIndentHandle(bool InValue);
     float GetValue();
     float GetNormalizedValue();
-};
+}; // Size: 0x4F8
 
 class USpacer : public UWidget
 {
-    FVector2D Size;
+    FVector2D Size;                                                                   // 0x0108 (size: 0x8)
 
     void SetSize(FVector2D InSize);
-};
+}; // Size: 0x120
 
 class USpinBox : public UWidget
 {
-    float Value;
-    FSpinBoxValueDelegate ValueDelegate;
+    float Value;                                                                      // 0x0108 (size: 0x4)
+    FSpinBoxValueDelegate ValueDelegate;                                              // 0x010C (size: 0x10)
     float GetFloat();
-    FSpinBoxStyle WidgetStyle;
-    class USlateWidgetStyleAsset* Style;
-    int32 MinFractionalDigits;
-    int32 MaxFractionalDigits;
-    bool bAlwaysUsesDeltaSnap;
-    float Delta;
-    float SliderExponent;
-    FSlateFontInfo Font;
-    TEnumAsByte<ETextJustify::Type> Justification;
-    float MinDesiredWidth;
-    bool ClearKeyboardFocusOnCommit;
-    bool SelectAllTextOnCommit;
-    FSlateColor ForegroundColor;
-    FSpinBoxOnValueChanged OnValueChanged;
+    FSpinBoxStyle WidgetStyle;                                                        // 0x0120 (size: 0x2E8)
+    class USlateWidgetStyleAsset* Style;                                              // 0x0408 (size: 0x8)
+    int32 MinFractionalDigits;                                                        // 0x0410 (size: 0x4)
+    int32 MaxFractionalDigits;                                                        // 0x0414 (size: 0x4)
+    bool bAlwaysUsesDeltaSnap;                                                        // 0x0418 (size: 0x1)
+    float Delta;                                                                      // 0x041C (size: 0x4)
+    float SliderExponent;                                                             // 0x0420 (size: 0x4)
+    FSlateFontInfo Font;                                                              // 0x0428 (size: 0x58)
+    TEnumAsByte<ETextJustify::Type> Justification;                                    // 0x0480 (size: 0x1)
+    float MinDesiredWidth;                                                            // 0x0484 (size: 0x4)
+    bool ClearKeyboardFocusOnCommit;                                                  // 0x0488 (size: 0x1)
+    bool SelectAllTextOnCommit;                                                       // 0x0489 (size: 0x1)
+    FSlateColor ForegroundColor;                                                      // 0x0490 (size: 0x28)
+    FSpinBoxOnValueChanged OnValueChanged;                                            // 0x04B8 (size: 0x10)
     void OnSpinBoxValueChangedEvent(float InValue);
-    FSpinBoxOnValueCommitted OnValueCommitted;
+    FSpinBoxOnValueCommitted OnValueCommitted;                                        // 0x04C8 (size: 0x10)
     void OnSpinBoxValueCommittedEvent(float InValue, TEnumAsByte<ETextCommit::Type> CommitMethod);
-    FSpinBoxOnBeginSliderMovement OnBeginSliderMovement;
+    FSpinBoxOnBeginSliderMovement OnBeginSliderMovement;                              // 0x04D8 (size: 0x10)
     void OnSpinBoxBeginSliderMovement();
-    FSpinBoxOnEndSliderMovement OnEndSliderMovement;
+    FSpinBoxOnEndSliderMovement OnEndSliderMovement;                                  // 0x04E8 (size: 0x10)
     void OnSpinBoxValueChangedEvent(float InValue);
-    uint8 bOverride_MinValue;
-    uint8 bOverride_MaxValue;
-    uint8 bOverride_MinSliderValue;
-    uint8 bOverride_MaxSliderValue;
-    float MinValue;
-    float MaxValue;
-    float MinSliderValue;
-    float MaxSliderValue;
+    uint8 bOverride_MinValue;                                                         // 0x04F8 (size: 0x1)
+    uint8 bOverride_MaxValue;                                                         // 0x04F8 (size: 0x1)
+    uint8 bOverride_MinSliderValue;                                                   // 0x04F8 (size: 0x1)
+    uint8 bOverride_MaxSliderValue;                                                   // 0x04F8 (size: 0x1)
+    float MinValue;                                                                   // 0x04FC (size: 0x4)
+    float MaxValue;                                                                   // 0x0500 (size: 0x4)
+    float MinSliderValue;                                                             // 0x0504 (size: 0x4)
+    float MaxSliderValue;                                                             // 0x0508 (size: 0x4)
 
     void SetValue(float NewValue);
     void SetMinValue(float NewValue);
@@ -1684,34 +1684,34 @@ class USpinBox : public UWidget
     void ClearMinSliderValue();
     void ClearMaxValue();
     void ClearMaxSliderValue();
-};
+}; // Size: 0x520
 
 class UTextBinding : public UPropertyBinding
 {
 
     FText GetTextValue();
     FString GetStringValue();
-};
+}; // Size: 0x68
 
 class UTextBlock : public UTextLayoutWidget
 {
-    FText Text;
-    FTextBlockTextDelegate TextDelegate;
+    FText Text;                                                                       // 0x0128 (size: 0x18)
+    FTextBlockTextDelegate TextDelegate;                                              // 0x0140 (size: 0x10)
     FText GetText();
-    FSlateColor ColorAndOpacity;
-    FTextBlockColorAndOpacityDelegate ColorAndOpacityDelegate;
+    FSlateColor ColorAndOpacity;                                                      // 0x0150 (size: 0x28)
+    FTextBlockColorAndOpacityDelegate ColorAndOpacityDelegate;                        // 0x0178 (size: 0x10)
     FSlateColor GetSlateColor();
-    FSlateFontInfo Font;
-    FSlateBrush StrikeBrush;
-    FVector2D ShadowOffset;
-    FLinearColor ShadowColorAndOpacity;
-    FTextBlockShadowColorAndOpacityDelegate ShadowColorAndOpacityDelegate;
+    FSlateFontInfo Font;                                                              // 0x0188 (size: 0x58)
+    FSlateBrush StrikeBrush;                                                          // 0x01E0 (size: 0x88)
+    FVector2D ShadowOffset;                                                           // 0x0268 (size: 0x8)
+    FLinearColor ShadowColorAndOpacity;                                               // 0x0270 (size: 0x10)
+    FTextBlockShadowColorAndOpacityDelegate ShadowColorAndOpacityDelegate;            // 0x0280 (size: 0x10)
     FLinearColor GetLinearColor();
-    float MinDesiredWidth;
-    bool bWrapWithInvalidationPanel;
-    bool bAutoWrapText;
-    ETextTransformPolicy TextTransformPolicy;
-    bool bSimpleTextMode;
+    float MinDesiredWidth;                                                            // 0x0290 (size: 0x4)
+    bool bWrapWithInvalidationPanel;                                                  // 0x0294 (size: 0x1)
+    bool bAutoWrapText;                                                               // 0x0295 (size: 0x1)
+    ETextTransformPolicy TextTransformPolicy;                                         // 0x0296 (size: 0x1)
+    bool bSimpleTextMode;                                                             // 0x0297 (size: 0x1)
 
     void SetTextTransformPolicy(ETextTransformPolicy InTransformPolicy);
     void SetText(FText InText);
@@ -1726,111 +1726,111 @@ class UTextBlock : public UTextLayoutWidget
     FText GetText();
     class UMaterialInstanceDynamic* GetDynamicOutlineMaterial();
     class UMaterialInstanceDynamic* GetDynamicFontMaterial();
-};
+}; // Size: 0x2A8
 
 class UThrobber : public UWidget
 {
-    int32 NumberOfPieces;
-    bool bAnimateHorizontally;
-    bool bAnimateVertically;
-    bool bAnimateOpacity;
-    class USlateBrushAsset* PieceImage;
-    FSlateBrush Image;
+    int32 NumberOfPieces;                                                             // 0x0108 (size: 0x4)
+    bool bAnimateHorizontally;                                                        // 0x010C (size: 0x1)
+    bool bAnimateVertically;                                                          // 0x010D (size: 0x1)
+    bool bAnimateOpacity;                                                             // 0x010E (size: 0x1)
+    class USlateBrushAsset* PieceImage;                                               // 0x0110 (size: 0x8)
+    FSlateBrush Image;                                                                // 0x0118 (size: 0x88)
 
     void SetNumberOfPieces(int32 InNumberOfPieces);
     void SetAnimateVertically(bool bInAnimateVertically);
     void SetAnimateOpacity(bool bInAnimateOpacity);
     void SetAnimateHorizontally(bool bInAnimateHorizontally);
-};
+}; // Size: 0x1B0
 
 class UTileView : public UListView
 {
-    float EntryHeight;
-    float EntryWidth;
-    EListItemAlignment TileAlignment;
-    bool bWrapHorizontalNavigation;
+    float EntryHeight;                                                                // 0x0368 (size: 0x4)
+    float EntryWidth;                                                                 // 0x036C (size: 0x4)
+    EListItemAlignment TileAlignment;                                                 // 0x0370 (size: 0x1)
+    bool bWrapHorizontalNavigation;                                                   // 0x0371 (size: 0x1)
 
     void SetEntryWidth(float NewWidth);
     void SetEntryHeight(float NewHeight);
     float GetEntryWidth();
     float GetEntryHeight();
-};
+}; // Size: 0x388
 
 class UTreeView : public UListView
 {
-    FTreeViewBP_OnGetItemChildren BP_OnGetItemChildren;
+    FTreeViewBP_OnGetItemChildren BP_OnGetItemChildren;                               // 0x0378 (size: 0x10)
     void OnGetItemChildrenDynamic(class UObject* Item, TArray<class UObject*>& Children);
-    FTreeViewBP_OnItemExpansionChanged BP_OnItemExpansionChanged;
+    FTreeViewBP_OnItemExpansionChanged BP_OnItemExpansionChanged;                     // 0x0388 (size: 0x10)
     void OnItemExpansionChangedDynamic(class UObject* Item, bool bIsExpanded);
 
     void SetItemExpansion(class UObject* Item, bool bExpandItem);
     void ExpandAll();
     void CollapseAll();
-};
+}; // Size: 0x3C0
 
 class UUMGSequencePlayer : public UObject
 {
-    class UWidgetAnimation* Animation;
-    FMovieSceneRootEvaluationTemplateInstance RootTemplateInstance;
+    class UWidgetAnimation* Animation;                                                // 0x0410 (size: 0x8)
+    FMovieSceneRootEvaluationTemplateInstance RootTemplateInstance;                   // 0x0420 (size: 0xE8)
 
     void SetUserTag(FName InUserTag);
     FName GetUserTag();
-};
+}; // Size: 0x578
 
 class UUMGSequenceTickManager : public UObject
 {
-    TSet<TWeakObjectPtr<UUserWidget>> WeakUserWidgets;
-    class UMovieSceneEntitySystemLinker* Linker;
+    TSet<TWeakObjectPtr<UUserWidget>> WeakUserWidgets;                                // 0x0028 (size: 0x50)
+    class UMovieSceneEntitySystemLinker* Linker;                                      // 0x0078 (size: 0x8)
 
-};
+}; // Size: 0x120
 
 class UUniformGridPanel : public UPanelWidget
 {
-    FMargin SlotPadding;
-    float MinDesiredSlotWidth;
-    float MinDesiredSlotHeight;
+    FMargin SlotPadding;                                                              // 0x0120 (size: 0x10)
+    float MinDesiredSlotWidth;                                                        // 0x0130 (size: 0x4)
+    float MinDesiredSlotHeight;                                                       // 0x0134 (size: 0x4)
 
     void SetSlotPadding(FMargin InSlotPadding);
     void SetMinDesiredSlotWidth(float InMinDesiredSlotWidth);
     void SetMinDesiredSlotHeight(float InMinDesiredSlotHeight);
     class UUniformGridSlot* AddChildToUniformGrid(class UWidget* Content, int32 InRow, int32 InColumn);
-};
+}; // Size: 0x148
 
 class UUniformGridSlot : public UPanelSlot
 {
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
-    int32 Row;
-    int32 Column;
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0038 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0039 (size: 0x1)
+    int32 Row;                                                                        // 0x003C (size: 0x4)
+    int32 Column;                                                                     // 0x0040 (size: 0x4)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetRow(int32 InRow);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
     void SetColumn(int32 InColumn);
-};
+}; // Size: 0x50
 
 class UVerticalBox : public UPanelWidget
 {
 
     class UVerticalBoxSlot* AddChildToVerticalBox(class UWidget* Content);
-};
+}; // Size: 0x130
 
 class UVerticalBoxSlot : public UPanelSlot
 {
-    FSlateChildSize Size;
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FSlateChildSize Size;                                                             // 0x0038 (size: 0x8)
+    FMargin Padding;                                                                  // 0x0040 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0058 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0059 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetSize(FSlateChildSize InSize);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x60
 
 class UViewport : public UContentWidget
 {
-    FLinearColor BackgroundColor;
+    FLinearColor BackgroundColor;                                                     // 0x0120 (size: 0x10)
 
     class AActor* Spawn(TSubclassOf<class AActor> ActorClass);
     void SetViewRotation(FRotator Rotation);
@@ -1838,29 +1838,29 @@ class UViewport : public UContentWidget
     FRotator GetViewRotation();
     class UWorld* GetViewportWorld();
     FVector GetViewLocation();
-};
+}; // Size: 0x168
 
 class UVisibilityBinding : public UPropertyBinding
 {
 
     ESlateVisibility GetValue();
-};
+}; // Size: 0x60
 
 struct FWidgetAnimationBinding
 {
-    FName WidgetName;
-    FName SlotWidgetName;
-    FGuid AnimationGuid;
-    bool bIsRootWidget;
+    FName WidgetName;                                                                 // 0x0000 (size: 0x8)
+    FName SlotWidgetName;                                                             // 0x0008 (size: 0x8)
+    FGuid AnimationGuid;                                                              // 0x0010 (size: 0x10)
+    bool bIsRootWidget;                                                               // 0x0020 (size: 0x1)
 
-};
+}; // Size: 0x24
 
 class UWidgetAnimation : public UMovieSceneSequence
 {
-    class UMovieScene* MovieScene;
-    TArray<FWidgetAnimationBinding> AnimationBindings;
-    bool bLegacyFinishOnStop;
-    FString DisplayLabel;
+    class UMovieScene* MovieScene;                                                    // 0x0060 (size: 0x8)
+    TArray<FWidgetAnimationBinding> AnimationBindings;                                // 0x0068 (size: 0x10)
+    bool bLegacyFinishOnStop;                                                         // 0x0078 (size: 0x1)
+    FString DisplayLabel;                                                             // 0x0080 (size: 0x10)
 
     void UnbindFromAnimationStarted(class UUserWidget* Widget, FUnbindFromAnimationStartedDelegate Delegate);
     void UnbindFromAnimationFinished(class UUserWidget* Widget, FUnbindFromAnimationFinishedDelegate Delegate);
@@ -1870,57 +1870,57 @@ class UWidgetAnimation : public UMovieSceneSequence
     float GetEndTime();
     void BindToAnimationStarted(class UUserWidget* Widget, FBindToAnimationStartedDelegate Delegate);
     void BindToAnimationFinished(class UUserWidget* Widget, FBindToAnimationFinishedDelegate Delegate);
-};
+}; // Size: 0x90
 
 struct FBlueprintWidgetAnimationDelegateBinding
 {
-    EWidgetAnimationEvent Action;
-    FName AnimationToBind;
-    FName FunctionNameToBind;
-    FName UserTag;
+    EWidgetAnimationEvent Action;                                                     // 0x0000 (size: 0x1)
+    FName AnimationToBind;                                                            // 0x0004 (size: 0x8)
+    FName FunctionNameToBind;                                                         // 0x000C (size: 0x8)
+    FName UserTag;                                                                    // 0x0014 (size: 0x8)
 
-};
+}; // Size: 0x1C
 
 class UWidgetAnimationDelegateBinding : public UDynamicBlueprintBinding
 {
-    TArray<FBlueprintWidgetAnimationDelegateBinding> WidgetAnimationDelegateBindings;
+    TArray<FBlueprintWidgetAnimationDelegateBinding> WidgetAnimationDelegateBindings; // 0x0028 (size: 0x10)
 
-};
+}; // Size: 0x38
 
 class UWidgetAnimationPlayCallbackProxy : public UObject
 {
-    FWidgetAnimationPlayCallbackProxyFinished Finished;
+    FWidgetAnimationPlayCallbackProxyFinished Finished;                               // 0x0028 (size: 0x10)
     void WidgetAnimationResult();
 
     class UWidgetAnimationPlayCallbackProxy* CreatePlayAnimationTimeRangeProxyObject(class UUMGSequencePlayer*& Result, class UUserWidget* Widget, class UWidgetAnimation* InAnimation, float StartAtTime, float EndAtTime, int32 NumLoopsToPlay, TEnumAsByte<EUMGSequencePlayMode::Type> PlayMode, float PlaybackSpeed);
     class UWidgetAnimationPlayCallbackProxy* CreatePlayAnimationProxyObject(class UUMGSequencePlayer*& Result, class UUserWidget* Widget, class UWidgetAnimation* InAnimation, float StartAtTime, int32 NumLoopsToPlay, TEnumAsByte<EUMGSequencePlayMode::Type> PlayMode, float PlaybackSpeed);
-};
+}; // Size: 0x48
 
 class UWidgetBinding : public UPropertyBinding
 {
 
     class UWidget* GetValue();
-};
+}; // Size: 0x60
 
 struct FDelegateRuntimeBinding
 {
-    FString ObjectName;
-    FName PropertyName;
-    FName FunctionName;
-    FDynamicPropertyPath SourcePath;
-    EBindingKind Kind;
+    FString ObjectName;                                                               // 0x0000 (size: 0x10)
+    FName PropertyName;                                                               // 0x0010 (size: 0x8)
+    FName FunctionName;                                                               // 0x0018 (size: 0x8)
+    FDynamicPropertyPath SourcePath;                                                  // 0x0020 (size: 0x28)
+    EBindingKind Kind;                                                                // 0x0048 (size: 0x1)
 
-};
+}; // Size: 0x50
 
 class UWidgetBlueprintGeneratedClass : public UBlueprintGeneratedClass
 {
-    class UWidgetTree* WidgetTree;
-    uint8 bClassRequiresNativeTick;
-    TArray<FDelegateRuntimeBinding> Bindings;
-    TArray<class UWidgetAnimation*> Animations;
-    TArray<FName> NamedSlots;
+    class UWidgetTree* WidgetTree;                                                    // 0x0328 (size: 0x8)
+    uint8 bClassRequiresNativeTick;                                                   // 0x0330 (size: 0x1)
+    TArray<FDelegateRuntimeBinding> Bindings;                                         // 0x0338 (size: 0x10)
+    TArray<class UWidgetAnimation*> Animations;                                       // 0x0348 (size: 0x10)
+    TArray<FName> NamedSlots;                                                         // 0x0358 (size: 0x10)
 
-};
+}; // Size: 0x368
 
 class UWidgetBlueprintLibrary : public UBlueprintFunctionLibrary
 {
@@ -1981,30 +1981,30 @@ class UWidgetBlueprintLibrary : public UBlueprintFunctionLibrary
     FEventReply CaptureMouse(FEventReply& Reply, class UWidget* CapturingWidget);
     FEventReply CaptureJoystick(FEventReply& Reply, class UWidget* CapturingWidget, bool bInAllJoysticks);
     void CancelDragDrop();
-};
+}; // Size: 0x28
 
 class UWidgetInteractionComponent : public USceneComponent
 {
-    FWidgetInteractionComponentOnHoveredWidgetChanged OnHoveredWidgetChanged;
+    FWidgetInteractionComponentOnHoveredWidgetChanged OnHoveredWidgetChanged;         // 0x01F8 (size: 0x10)
     void OnHoveredWidgetChanged(class UWidgetComponent* WidgetComponent, class UWidgetComponent* PreviousWidgetComponent);
-    int32 VirtualUserIndex;
-    int32 PointerIndex;
-    TEnumAsByte<ECollisionChannel> TraceChannel;
-    float InteractionDistance;
-    EWidgetInteractionSource InteractionSource;
-    bool bEnableHitTesting;
-    bool bShowDebug;
-    float DebugSphereLineThickness;
-    float DebugLineThickness;
-    FLinearColor DebugColor;
-    FHitResult CustomHitResult;
-    FVector2D LocalHitLocation;
-    FVector2D LastLocalHitLocation;
-    class UWidgetComponent* HoveredWidgetComponent;
-    FHitResult LastHitResult;
-    bool bIsHoveredWidgetInteractable;
-    bool bIsHoveredWidgetFocusable;
-    bool bIsHoveredWidgetHitTestVisible;
+    int32 VirtualUserIndex;                                                           // 0x0218 (size: 0x4)
+    int32 PointerIndex;                                                               // 0x021C (size: 0x4)
+    TEnumAsByte<ECollisionChannel> TraceChannel;                                      // 0x0220 (size: 0x1)
+    float InteractionDistance;                                                        // 0x0224 (size: 0x4)
+    EWidgetInteractionSource InteractionSource;                                       // 0x0228 (size: 0x1)
+    bool bEnableHitTesting;                                                           // 0x0229 (size: 0x1)
+    bool bShowDebug;                                                                  // 0x022A (size: 0x1)
+    float DebugSphereLineThickness;                                                   // 0x022C (size: 0x4)
+    float DebugLineThickness;                                                         // 0x0230 (size: 0x4)
+    FLinearColor DebugColor;                                                          // 0x0234 (size: 0x10)
+    FHitResult CustomHitResult;                                                       // 0x02C0 (size: 0x8C)
+    FVector2D LocalHitLocation;                                                       // 0x034C (size: 0x8)
+    FVector2D LastLocalHitLocation;                                                   // 0x0354 (size: 0x8)
+    class UWidgetComponent* HoveredWidgetComponent;                                   // 0x0360 (size: 0x8)
+    FHitResult LastHitResult;                                                         // 0x0368 (size: 0x8C)
+    bool bIsHoveredWidgetInteractable;                                                // 0x03F4 (size: 0x1)
+    bool bIsHoveredWidgetFocusable;                                                   // 0x03F5 (size: 0x1)
+    bool bIsHoveredWidgetHitTestVisible;                                              // 0x03F6 (size: 0x1)
 
     void SetFocus(class UWidget* FocusWidget);
     void SetCustomHitResult(const FHitResult& HitResult);
@@ -2021,7 +2021,7 @@ class UWidgetInteractionComponent : public USceneComponent
     FHitResult GetLastHitResult();
     class UWidgetComponent* GetHoveredWidgetComponent();
     FVector2D Get2DHitLocation();
-};
+}; // Size: 0x400
 
 class UWidgetLayoutLibrary : public UBlueprintFunctionLibrary
 {
@@ -2048,32 +2048,32 @@ class UWidgetLayoutLibrary : public UBlueprintFunctionLibrary
     bool GetMousePositionScaledByDPI(class APlayerController* Player, float& LocationX, float& LocationY);
     FVector2D GetMousePositionOnViewport(class UObject* WorldContextObject);
     FVector2D GetMousePositionOnPlatform();
-};
+}; // Size: 0x28
 
 struct FWidgetNavigationData
 {
-    EUINavigationRule Rule;
-    FName WidgetToFocus;
-    TWeakObjectPtr<class UWidget> Widget;
-    FWidgetNavigationDataCustomDelegate CustomDelegate;
+    EUINavigationRule Rule;                                                           // 0x0000 (size: 0x1)
+    FName WidgetToFocus;                                                              // 0x0004 (size: 0x8)
+    TWeakObjectPtr<class UWidget> Widget;                                             // 0x000C (size: 0x8)
+    FWidgetNavigationDataCustomDelegate CustomDelegate;                               // 0x0014 (size: 0x10)
     class UWidget* CustomWidgetNavigationDelegate(EUINavigation Navigation);
 
-};
+}; // Size: 0x24
 
 class UWidgetNavigation : public UObject
 {
-    FWidgetNavigationData Up;
-    FWidgetNavigationData Down;
-    FWidgetNavigationData Left;
-    FWidgetNavigationData Right;
-    FWidgetNavigationData Next;
-    FWidgetNavigationData Previous;
+    FWidgetNavigationData Up;                                                         // 0x0028 (size: 0x24)
+    FWidgetNavigationData Down;                                                       // 0x004C (size: 0x24)
+    FWidgetNavigationData Left;                                                       // 0x0070 (size: 0x24)
+    FWidgetNavigationData Right;                                                      // 0x0094 (size: 0x24)
+    FWidgetNavigationData Next;                                                       // 0x00B8 (size: 0x24)
+    FWidgetNavigationData Previous;                                                   // 0x00DC (size: 0x24)
 
-};
+}; // Size: 0x100
 
 class UWidgetSwitcher : public UPanelWidget
 {
-    int32 ActiveWidgetIndex;
+    int32 ActiveWidgetIndex;                                                          // 0x0120 (size: 0x4)
 
     void SetActiveWidgetIndex(int32 Index);
     void SetActiveWidget(class UWidget* Widget);
@@ -2081,108 +2081,108 @@ class UWidgetSwitcher : public UPanelWidget
     int32 GetNumWidgets();
     int32 GetActiveWidgetIndex();
     class UWidget* GetActiveWidget();
-};
+}; // Size: 0x138
 
 class UWidgetSwitcherSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0040 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0050 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0051 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x58
 
 class UWidgetTree : public UObject
 {
-    class UWidget* RootWidget;
+    class UWidget* RootWidget;                                                        // 0x0028 (size: 0x8)
 
-};
+}; // Size: 0x30
 
 class UWindowTitleBarArea : public UContentWidget
 {
-    bool bWindowButtonsEnabled;
-    bool bDoubleClickTogglesFullscreen;
+    bool bWindowButtonsEnabled;                                                       // 0x0120 (size: 0x1)
+    bool bDoubleClickTogglesFullscreen;                                               // 0x0121 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x140
 
 class UWindowTitleBarAreaSlot : public UPanelSlot
 {
-    FMargin Padding;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0048 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0049 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-};
+}; // Size: 0x60
 
 class UWrapBox : public UPanelWidget
 {
-    FVector2D InnerSlotPadding;
-    float WrapWidth;
-    float WrapSize;
-    bool bExplicitWrapWidth;
-    bool bExplicitWrapSize;
-    TEnumAsByte<EOrientation> Orientation;
+    FVector2D InnerSlotPadding;                                                       // 0x0120 (size: 0x8)
+    float WrapWidth;                                                                  // 0x0128 (size: 0x4)
+    float WrapSize;                                                                   // 0x012C (size: 0x4)
+    bool bExplicitWrapWidth;                                                          // 0x0130 (size: 0x1)
+    bool bExplicitWrapSize;                                                           // 0x0131 (size: 0x1)
+    TEnumAsByte<EOrientation> Orientation;                                            // 0x0132 (size: 0x1)
 
     void SetInnerSlotPadding(FVector2D InPadding);
     class UWrapBoxSlot* AddChildToWrapBox(class UWidget* Content);
-};
+}; // Size: 0x148
 
 class UWrapBoxSlot : public UPanelSlot
 {
-    FMargin Padding;
-    bool bFillEmptySpace;
-    float FillSpanWhenLessThan;
-    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;
-    TEnumAsByte<EVerticalAlignment> VerticalAlignment;
+    FMargin Padding;                                                                  // 0x0038 (size: 0x10)
+    bool bFillEmptySpace;                                                             // 0x0048 (size: 0x1)
+    float FillSpanWhenLessThan;                                                       // 0x004C (size: 0x4)
+    TEnumAsByte<EHorizontalAlignment> HorizontalAlignment;                            // 0x0050 (size: 0x1)
+    TEnumAsByte<EVerticalAlignment> VerticalAlignment;                                // 0x0051 (size: 0x1)
 
     void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
     void SetPadding(FMargin InPadding);
     void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
     void SetFillSpanWhenLessThan(float InFillSpanWhenLessThan);
     void SetFillEmptySpace(bool InbFillEmptySpace);
-};
+}; // Size: 0x60
 
 struct FMovieSceneMarginSectionTemplate : public FMovieScenePropertySectionTemplate
 {
-    FMovieSceneFloatChannel TopCurve;
-    FMovieSceneFloatChannel LeftCurve;
-    FMovieSceneFloatChannel RightCurve;
-    FMovieSceneFloatChannel BottomCurve;
-    EMovieSceneBlendType BlendType;
+    FMovieSceneFloatChannel TopCurve;                                                 // 0x0038 (size: 0xA0)
+    FMovieSceneFloatChannel LeftCurve;                                                // 0x00D8 (size: 0xA0)
+    FMovieSceneFloatChannel RightCurve;                                               // 0x0178 (size: 0xA0)
+    FMovieSceneFloatChannel BottomCurve;                                              // 0x0218 (size: 0xA0)
+    EMovieSceneBlendType BlendType;                                                   // 0x02B8 (size: 0x1)
 
-};
+}; // Size: 0x2C0
 
 struct FMovieSceneWidgetMaterialSectionTemplate : public FMovieSceneParameterSectionTemplate
 {
-    TArray<FName> BrushPropertyNamePath;
+    TArray<FName> BrushPropertyNamePath;                                              // 0x0080 (size: 0x10)
 
-};
+}; // Size: 0x90
 
 struct FRichTextStyleRow : public FTableRowBase
 {
-    FTextBlockStyle TextStyle;
+    FTextBlockStyle TextStyle;                                                        // 0x0008 (size: 0x270)
 
-};
+}; // Size: 0x278
 
 struct FRichImageRow : public FTableRowBase
 {
-    FSlateBrush Brush;
+    FSlateBrush Brush;                                                                // 0x0008 (size: 0x88)
 
-};
+}; // Size: 0x90
 
 struct FWidgetComponentInstanceData : public FSceneComponentInstanceData
 {
-};
+}; // Size: 0xC8
 
 class UDefault__WidgetBlueprintGeneratedClass
 {
-};
+}; // Size: 0x0
 
 #endif

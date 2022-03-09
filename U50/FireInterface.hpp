@@ -5,6 +5,6 @@ class IFireInterface_C : public IInterface
 {
 
     void LightOnFire(bool& bpp__Ret__pf);
-};
+}; // Size: 0x28
 
 #endif

@@ -5,58 +5,58 @@
 
 struct FUInt64
 {
-    uint64 Value;
+    uint64 Value;                                                                     // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x8
 
 struct FSteamUGCItemId
 {
-    FUInt64 ID;
+    FUInt64 ID;                                                                       // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x8
 
 struct FSteamKeyValuePair
 {
-    FString Key;
-    FString Value;
+    FString Key;                                                                      // 0x0000 (size: 0x10)
+    FString Value;                                                                    // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 struct FSteamUGCQueryHandle
 {
-    FUInt64 Handle;
+    FUInt64 Handle;                                                                   // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x8
 
 struct FUInt32
 {
-    uint32 Value;
+    uint32 Value;                                                                     // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FSteamAppId
 {
-    FUInt32 ID;
+    FUInt32 ID;                                                                       // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FSteamUGCHandle
 {
-    FUInt64 Handle;
+    FUInt64 Handle;                                                                   // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x8
 
 struct FSteamDepotId
 {
-    FUInt32 ID;
+    FUInt32 ID;                                                                       // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FSteamUGCUpdateHandle
 {
-    FUInt64 Handle;
+    FUInt64 Handle;                                                                   // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x8
 
 class USteamGeneralLibrary : public UBlueprintFunctionLibrary
 {
@@ -113,6 +113,6 @@ class USteamGeneralLibrary : public UBlueprintFunctionLibrary
     bool Equal_SteamAppId(FSteamAppId A, FSteamAppId B);
     bool BreakUInt64(const FUInt64& InVal, int32& OutVal);
     bool BreakUInt32(const FUInt32& InVal, int32& OutVal);
-};
+}; // Size: 0x28
 
 #endif

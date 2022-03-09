@@ -3,6 +3,6 @@
 
 class AUltra_Dynamic_Sky_BP_Child2_C : public AUltra_Dynamic_Sky_BP_C
 {
-};
+}; // Size: 0x588
 
 #endif

@@ -3,12 +3,12 @@
 
 class UJsonUtilitiesDummyObject : public UObject
 {
-};
+}; // Size: 0x28
 
 struct FJsonObjectWrapper
 {
-    FString JsonString;
+    FString JsonString;                                                               // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 #endif

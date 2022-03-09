@@ -3,6 +3,6 @@
 
 class UDeveloperSettings : public UObject
 {
-};
+}; // Size: 0x38
 
 #endif

@@ -3,13 +3,13 @@
 
 class UGraphicsSettingCategoryButton_C : public UUserWidget
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UBorder* BorderFrame;
-    class UButton* Button_0;
-    class UTextBlock* TextBlock_0;
-    FString Name;
-    class UGraphicsSetting_New_C* ParentSetting;
-    FGraphicsSettingCategoryButton_CClicked Clicked;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0260 (size: 0x8)
+    class UBorder* BorderFrame;                                                       // 0x0268 (size: 0x8)
+    class UButton* Button_0;                                                          // 0x0270 (size: 0x8)
+    class UTextBlock* TextBlock_0;                                                    // 0x0278 (size: 0x8)
+    FString Name;                                                                     // 0x0280 (size: 0x10)
+    class UGraphicsSetting_New_C* ParentSetting;                                      // 0x0290 (size: 0x8)
+    FGraphicsSettingCategoryButton_CClicked Clicked;                                  // 0x0298 (size: 0x10)
     void Clicked();
 
     void SetEnabled(bool TRUE);
@@ -17,6 +17,6 @@ class UGraphicsSettingCategoryButton_C : public UUserWidget
     void PreConstruct(bool IsDesignTime);
     void ExecuteUbergraph_GraphicsSettingCategoryButton(int32 EntryPoint);
     void Clicked__DelegateSignature();
-};
+}; // Size: 0x2A8
 
 #endif

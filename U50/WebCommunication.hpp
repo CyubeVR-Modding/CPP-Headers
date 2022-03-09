@@ -28,23 +28,23 @@ class UFileFunctionsWebCom : public UObject
     void bytesToBase64String(TArray<uint8> Bytes, FString& base64String);
     TArray<uint8> base64StringToBytes(EFileFunctionsWebComDirectoryType DirectoryType, FString base64String, bool& success);
     void addBytesToFile(EFileFunctionsWebComDirectoryType DirectoryType, FString FilePath, TArray<uint8> Bytes, bool& success);
-};
+}; // Size: 0x28
 
 struct FhttpRequest
 {
-};
+}; // Size: 0x100
 
 class UWebCommunicationBPLibrary : public UBlueprintFunctionLibrary
 {
-    FWebCommunicationBPLibraryOnhttpRequestCompleteDelegate onhttpRequestCompleteDelegate;
+    FWebCommunicationBPLibraryOnhttpRequestCompleteDelegate onhttpRequestCompleteDelegate; // 0x0028 (size: 0x10)
     void httpRequestCompleteDelegate(const TArray<FString>& Data, const int32 statusCode, const TArray<uint8>& byteData, const FString requestID);
-    FWebCommunicationBPLibraryOnhttpRequestCompleteGoogleInfoDelegate onhttpRequestCompleteGoogleInfoDelegate;
+    FWebCommunicationBPLibraryOnhttpRequestCompleteGoogleInfoDelegate onhttpRequestCompleteGoogleInfoDelegate; // 0x0038 (size: 0x10)
     void httpRequestCompleteGoogleInfoDelegate(const FString Filename, const int64 fileSizeInBytes, const int32 statusCode, const FString downloadID, const FString requestID);
-    FWebCommunicationBPLibraryOnhttpFileProgressDelegate onhttpFileProgressDelegate;
+    FWebCommunicationBPLibraryOnhttpFileProgressDelegate onhttpFileProgressDelegate;  // 0x0048 (size: 0x10)
     void httpFileProgressDelegate(const float Size, const int32 bytesSent, const float percentUpload, const int32 bytesReceived, const float percentDownload);
-    FWebCommunicationBPLibraryOnhttpFileDownloadDelegate onhttpFileDownloadDelegate;
+    FWebCommunicationBPLibraryOnhttpFileDownloadDelegate onhttpFileDownloadDelegate;  // 0x0058 (size: 0x10)
     void httpFileDownloadDelegate(const float Size, const float megaBytesReceived, const float percentDownload, const float megaBit, const FString requestID);
-    FWebCommunicationBPLibraryOnhttpFileUploadDelegate onhttpFileUploadDelegate;
+    FWebCommunicationBPLibraryOnhttpFileUploadDelegate onhttpFileUploadDelegate;      // 0x0068 (size: 0x10)
     void httpFileUploadDelegate(const float Size, const int32 bytesSent, const float percentUpload, const FString requestID);
 
     FString urlEncodePure(FString urlParameter);
@@ -83,10 +83,10 @@ class UWebCommunicationBPLibrary : public UBlueprintFunctionLibrary
     float byteToMegabyte(int32 byte);
     void byteDataToFile(EHTTPWebComFileBytesToFileActionType fileAction, TArray<uint8> byteData, EHTTPWebComFileUpload DirectoryType, FString FilePath);
     void addHTTPRequestHeader(FString ID, FString Value, bool removeAfterHTTPRequest);
-};
+}; // Size: 0x178
 
 class UWebCommunicationRequestCompleteObject : public UObject
 {
-};
+}; // Size: 0xB8
 
 #endif

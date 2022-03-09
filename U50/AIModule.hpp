@@ -5,19 +5,19 @@
 
 struct FAIRequestID
 {
-    uint32 requestID;
+    uint32 requestID;                                                                 // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 class UAIAsyncTaskBlueprintProxy : public UObject
 {
-    FAIAsyncTaskBlueprintProxyOnSuccess OnSuccess;
+    FAIAsyncTaskBlueprintProxyOnSuccess OnSuccess;                                    // 0x0028 (size: 0x10)
     void OAISimpleDelegate(TEnumAsByte<EPathFollowingResult::Type> MovementResult);
-    FAIAsyncTaskBlueprintProxyOnFail OnFail;
+    FAIAsyncTaskBlueprintProxyOnFail OnFail;                                          // 0x0038 (size: 0x10)
     void OAISimpleDelegate(TEnumAsByte<EPathFollowingResult::Type> MovementResult);
 
     void OnMoveCompleted(FAIRequestID requestID, TEnumAsByte<EPathFollowingResult::Type> MovementResult);
-};
+}; // Size: 0x68
 
 class UAIBlueprintHelperLibrary : public UBlueprintFunctionLibrary
 {
@@ -38,25 +38,25 @@ class UAIBlueprintHelperLibrary : public UBlueprintFunctionLibrary
     class UBlackboardComponent* GetBlackboard(class AActor* Target);
     class AAIController* GetAIController(class AActor* ControlledActor);
     class UAIAsyncTaskBlueprintProxy* CreateMoveToProxyObject(class UObject* WorldContextObject, class APawn* Pawn, FVector Destination, class AActor* TargetActor, float AcceptanceRadius, bool bStopOnOverlap);
-};
+}; // Size: 0x28
 
 class AAIController : public AController
 {
-    uint8 bStartAILogicOnPossess;
-    uint8 bStopAILogicOnUnposses;
-    uint8 bLOSflag;
-    uint8 bSkipExtraLOSChecks;
-    uint8 bAllowStrafe;
-    uint8 bWantsPlayerState;
-    uint8 bSetControlRotationFromPawnOrientation;
-    class UPathFollowingComponent* PathFollowingComponent;
-    class UBrainComponent* BrainComponent;
-    class UAIPerceptionComponent* PerceptionComponent;
-    class UPawnActionsComponent* ActionsComp;
-    class UBlackboardComponent* Blackboard;
-    class UGameplayTasksComponent* CachedGameplayTasksComponent;
-    TSubclassOf<class UNavigationQueryFilter> DefaultNavigationFilterClass;
-    FAIControllerReceiveMoveCompleted ReceiveMoveCompleted;
+    uint8 bStartAILogicOnPossess;                                                     // 0x02D0 (size: 0x1)
+    uint8 bStopAILogicOnUnposses;                                                     // 0x02D0 (size: 0x1)
+    uint8 bLOSflag;                                                                   // 0x02D0 (size: 0x1)
+    uint8 bSkipExtraLOSChecks;                                                        // 0x02D0 (size: 0x1)
+    uint8 bAllowStrafe;                                                               // 0x02D0 (size: 0x1)
+    uint8 bWantsPlayerState;                                                          // 0x02D0 (size: 0x1)
+    uint8 bSetControlRotationFromPawnOrientation;                                     // 0x02D0 (size: 0x1)
+    class UPathFollowingComponent* PathFollowingComponent;                            // 0x02D8 (size: 0x8)
+    class UBrainComponent* BrainComponent;                                            // 0x02E0 (size: 0x8)
+    class UAIPerceptionComponent* PerceptionComponent;                                // 0x02E8 (size: 0x8)
+    class UPawnActionsComponent* ActionsComp;                                         // 0x02F0 (size: 0x8)
+    class UBlackboardComponent* Blackboard;                                           // 0x02F8 (size: 0x8)
+    class UGameplayTasksComponent* CachedGameplayTasksComponent;                      // 0x0300 (size: 0x8)
+    TSubclassOf<class UNavigationQueryFilter> DefaultNavigationFilterClass;           // 0x0308 (size: 0x8)
+    FAIControllerReceiveMoveCompleted ReceiveMoveCompleted;                           // 0x0310 (size: 0x10)
     void AIMoveCompletedSignature(FAIRequestID requestID, TEnumAsByte<EPathFollowingResult::Type> Result);
 
     bool UseBlackboard(class UBlackboardData* BlackboardAsset, class UBlackboardComponent*& BlackboardComponent);
@@ -80,71 +80,71 @@ class AAIController : public AController
     FVector GetFocalPoint();
     class UAIPerceptionComponent* GetAIPerceptionComponent();
     void ClaimTaskResource(TSubclassOf<class UGameplayTaskResource> ResourceClass);
-};
+}; // Size: 0x328
 
 class UAIDataProvider : public UObject
 {
-};
+}; // Size: 0x28
 
 class UAIDataProvider_QueryParams : public UAIDataProvider
 {
-    FName ParamName;
-    float FloatValue;
-    int32 IntValue;
-    bool BoolValue;
+    FName ParamName;                                                                  // 0x0028 (size: 0x8)
+    float FloatValue;                                                                 // 0x0030 (size: 0x4)
+    int32 IntValue;                                                                   // 0x0034 (size: 0x4)
+    bool BoolValue;                                                                   // 0x0038 (size: 0x1)
 
-};
+}; // Size: 0x40
 
 class UAIDataProvider_Random : public UAIDataProvider_QueryParams
 {
-    float Min;
-    float Max;
-    uint8 bInteger;
+    float Min;                                                                        // 0x0040 (size: 0x4)
+    float Max;                                                                        // 0x0044 (size: 0x4)
+    uint8 bInteger;                                                                   // 0x0048 (size: 0x1)
 
-};
+}; // Size: 0x50
 
 class UAIHotSpotManager : public UObject
 {
-};
+}; // Size: 0x28
 
 struct FAIStimulus
 {
-    float Age;
-    float ExpirationAge;
-    float Strength;
-    FVector StimulusLocation;
-    FVector ReceiverLocation;
-    FName Tag;
-    uint8 bSuccessfullySensed;
+    float Age;                                                                        // 0x0000 (size: 0x4)
+    float ExpirationAge;                                                              // 0x0004 (size: 0x4)
+    float Strength;                                                                   // 0x0008 (size: 0x4)
+    FVector StimulusLocation;                                                         // 0x000C (size: 0xC)
+    FVector ReceiverLocation;                                                         // 0x0018 (size: 0xC)
+    FName Tag;                                                                        // 0x0024 (size: 0x8)
+    uint8 bSuccessfullySensed;                                                        // 0x0038 (size: 0x1)
 
-};
+}; // Size: 0x3C
 
 struct FActorPerceptionBlueprintInfo
 {
-    class AActor* Target;
-    TArray<FAIStimulus> LastSensedStimuli;
-    uint8 bIsHostile;
+    class AActor* Target;                                                             // 0x0000 (size: 0x8)
+    TArray<FAIStimulus> LastSensedStimuli;                                            // 0x0008 (size: 0x10)
+    uint8 bIsHostile;                                                                 // 0x0018 (size: 0x1)
 
-};
+}; // Size: 0x20
 
 struct FActorPerceptionUpdateInfo
 {
-    int32 TargetId;
-    TWeakObjectPtr<class AActor> Target;
-    FAIStimulus Stimulus;
+    int32 TargetId;                                                                   // 0x0000 (size: 0x4)
+    TWeakObjectPtr<class AActor> Target;                                              // 0x0004 (size: 0x8)
+    FAIStimulus Stimulus;                                                             // 0x000C (size: 0x3C)
 
-};
+}; // Size: 0x48
 
 class UAIPerceptionComponent : public UActorComponent
 {
-    TArray<class UAISenseConfig*> SensesConfig;
-    TSubclassOf<class UAISense> DominantSense;
-    class AAIController* AIOwner;
-    FAIPerceptionComponentOnPerceptionUpdated OnPerceptionUpdated;
+    TArray<class UAISenseConfig*> SensesConfig;                                       // 0x00B0 (size: 0x10)
+    TSubclassOf<class UAISense> DominantSense;                                        // 0x00C0 (size: 0x8)
+    class AAIController* AIOwner;                                                     // 0x00D8 (size: 0x8)
+    FAIPerceptionComponentOnPerceptionUpdated OnPerceptionUpdated;                    // 0x0160 (size: 0x10)
     void PerceptionUpdatedDelegate(const TArray<class AActor*>& UpdatedActors);
-    FAIPerceptionComponentOnTargetPerceptionUpdated OnTargetPerceptionUpdated;
+    FAIPerceptionComponentOnTargetPerceptionUpdated OnTargetPerceptionUpdated;        // 0x0170 (size: 0x10)
     void ActorPerceptionUpdatedDelegate(class AActor* Actor, FAIStimulus Stimulus);
-    FAIPerceptionComponentOnTargetPerceptionInfoUpdated OnTargetPerceptionInfoUpdated;
+    FAIPerceptionComponentOnTargetPerceptionInfoUpdated OnTargetPerceptionInfoUpdated; // 0x0180 (size: 0x10)
     void ActorPerceptionInfoUpdatedDelegate(const FActorPerceptionUpdateInfo& UpdateInfo);
 
     void SetSenseEnabled(TSubclassOf<class UAISense> SenseClass, const bool bEnable);
@@ -157,68 +157,68 @@ class UAIPerceptionComponent : public UActorComponent
     void GetCurrentlyPerceivedActors(TSubclassOf<class UAISense> SenseToUse, TArray<class AActor*>& OutActors);
     bool GetActorsPerception(class AActor* Actor, FActorPerceptionBlueprintInfo& Info);
     void ForgetAll();
-};
+}; // Size: 0x190
 
 class IAIPerceptionListenerInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UAIPerceptionStimuliSourceComponent : public UActorComponent
 {
-    uint8 bAutoRegisterAsSource;
-    TArray<class TSubclassOf<UAISense>> RegisterAsSourceForSenses;
+    uint8 bAutoRegisterAsSource;                                                      // 0x00B0 (size: 0x1)
+    TArray<class TSubclassOf<UAISense>> RegisterAsSourceForSenses;                    // 0x00B8 (size: 0x10)
 
     void UnregisterFromSense(TSubclassOf<class UAISense> SenseClass);
     void UnregisterFromPerceptionSystem();
     void RegisterWithPerceptionSystem();
     void RegisterForSense(TSubclassOf<class UAISense> SenseClass);
-};
+}; // Size: 0xC8
 
 class UAISubsystem : public UObject
 {
-    class UAISystem* AISystem;
+    class UAISystem* AISystem;                                                        // 0x0030 (size: 0x8)
 
-};
+}; // Size: 0x38
 
 class UAIPerceptionSystem : public UAISubsystem
 {
-    TArray<class UAISense*> Senses;
-    float PerceptionAgingRate;
+    TArray<class UAISense*> Senses;                                                   // 0x0088 (size: 0x10)
+    float PerceptionAgingRate;                                                        // 0x0098 (size: 0x4)
 
     void ReportPerceptionEvent(class UObject* WorldContextObject, class UAISenseEvent* PerceptionEvent);
     void ReportEvent(class UAISenseEvent* PerceptionEvent);
     bool RegisterPerceptionStimuliSource(class UObject* WorldContextObject, TSubclassOf<class UAISense> Sense, class AActor* Target);
     void OnPerceptionStimuliSourceEndPlay(class AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     TSubclassOf<class UAISense> GetSenseClassForStimulus(class UObject* WorldContextObject, const FAIStimulus& Stimulus);
-};
+}; // Size: 0x130
 
 class IAIResourceInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UAIResource_Movement : public UGameplayTaskResource
 {
-};
+}; // Size: 0x38
 
 class UAIResource_Logic : public UGameplayTaskResource
 {
-};
+}; // Size: 0x38
 
 class UAISense : public UObject
 {
-    float DefaultExpirationAge;
-    EAISenseNotifyType NotifyType;
-    uint8 bWantsNewPawnNotification;
-    uint8 bAutoRegisterAllPawnsAsSources;
-    class UAIPerceptionSystem* PerceptionSystemInstance;
+    float DefaultExpirationAge;                                                       // 0x0028 (size: 0x4)
+    EAISenseNotifyType NotifyType;                                                    // 0x002C (size: 0x1)
+    uint8 bWantsNewPawnNotification;                                                  // 0x0030 (size: 0x1)
+    uint8 bAutoRegisterAllPawnsAsSources;                                             // 0x0030 (size: 0x1)
+    class UAIPerceptionSystem* PerceptionSystemInstance;                              // 0x0038 (size: 0x8)
 
-};
+}; // Size: 0x80
 
 class UAISense_Blueprint : public UAISense
 {
-    TSubclassOf<class UUserDefinedStruct> ListenerDataType;
-    TArray<class UAIPerceptionComponent*> ListenerContainer;
-    TArray<class UAISenseEvent*> UnprocessedEvents;
+    TSubclassOf<class UUserDefinedStruct> ListenerDataType;                           // 0x0080 (size: 0x8)
+    TArray<class UAIPerceptionComponent*> ListenerContainer;                          // 0x0088 (size: 0x10)
+    TArray<class UAISenseEvent*> UnprocessedEvents;                                   // 0x0098 (size: 0x10)
 
     float OnUpdate(const TArray<class UAISenseEvent*>& EventsToProcess);
     void OnListenerUpdated(class AActor* ActorListener, class UAIPerceptionComponent* PerceptionComponent);
@@ -227,311 +227,311 @@ class UAISense_Blueprint : public UAISense
     void K2_OnNewPawn(class APawn* NewPawn);
     void GetAllListenerComponents(TArray<class UAIPerceptionComponent*>& ListenerComponents);
     void GetAllListenerActors(TArray<class AActor*>& ListenerActors);
-};
+}; // Size: 0xA8
 
 struct FAIDamageEvent
 {
-    float Amount;
-    FVector Location;
-    FVector HitLocation;
-    class AActor* DamagedActor;
-    class AActor* Instigator;
+    float Amount;                                                                     // 0x0000 (size: 0x4)
+    FVector Location;                                                                 // 0x0004 (size: 0xC)
+    FVector HitLocation;                                                              // 0x0010 (size: 0xC)
+    class AActor* DamagedActor;                                                       // 0x0020 (size: 0x8)
+    class AActor* Instigator;                                                         // 0x0028 (size: 0x8)
 
-};
+}; // Size: 0x30
 
 class UAISense_Damage : public UAISense
 {
-    TArray<FAIDamageEvent> RegisteredEvents;
+    TArray<FAIDamageEvent> RegisteredEvents;                                          // 0x0080 (size: 0x10)
 
     void ReportDamageEvent(class UObject* WorldContextObject, class AActor* DamagedActor, class AActor* Instigator, float DamageAmount, FVector EventLocation, FVector HitLocation);
-};
+}; // Size: 0x90
 
 struct FAINoiseEvent
 {
-    FVector NoiseLocation;
-    float Loudness;
-    float MaxRange;
-    class AActor* Instigator;
-    FName Tag;
+    FVector NoiseLocation;                                                            // 0x0004 (size: 0xC)
+    float Loudness;                                                                   // 0x0010 (size: 0x4)
+    float MaxRange;                                                                   // 0x0014 (size: 0x4)
+    class AActor* Instigator;                                                         // 0x0018 (size: 0x8)
+    FName Tag;                                                                        // 0x0020 (size: 0x8)
 
-};
+}; // Size: 0x30
 
 class UAISense_Hearing : public UAISense
 {
-    TArray<FAINoiseEvent> NoiseEvents;
-    float SpeedOfSoundSq;
+    TArray<FAINoiseEvent> NoiseEvents;                                                // 0x0080 (size: 0x10)
+    float SpeedOfSoundSq;                                                             // 0x0090 (size: 0x4)
 
     void ReportNoiseEvent(class UObject* WorldContextObject, FVector NoiseLocation, float Loudness, class AActor* Instigator, float MaxRange, FName Tag);
-};
+}; // Size: 0xE8
 
 struct FAIPredictionEvent
 {
-    class AActor* Requestor;
-    class AActor* PredictedActor;
+    class AActor* Requestor;                                                          // 0x0000 (size: 0x8)
+    class AActor* PredictedActor;                                                     // 0x0008 (size: 0x8)
 
-};
+}; // Size: 0x18
 
 class UAISense_Prediction : public UAISense
 {
-    TArray<FAIPredictionEvent> RegisteredEvents;
+    TArray<FAIPredictionEvent> RegisteredEvents;                                      // 0x0080 (size: 0x10)
 
     void RequestPawnPredictionEvent(class APawn* Requestor, class AActor* PredictedActor, float PredictionTime);
     void RequestControllerPredictionEvent(class AAIController* Requestor, class AActor* PredictedActor, float PredictionTime);
-};
+}; // Size: 0x90
 
 class UAISense_Sight : public UAISense
 {
-    int32 MaxTracesPerTick;
-    int32 MinQueriesPerTimeSliceCheck;
-    double MaxTimeSlicePerTick;
-    float HighImportanceQueryDistanceThreshold;
-    float MaxQueryImportance;
-    float SightLimitQueryImportance;
+    int32 MaxTracesPerTick;                                                           // 0x0148 (size: 0x4)
+    int32 MinQueriesPerTimeSliceCheck;                                                // 0x014C (size: 0x4)
+    double MaxTimeSlicePerTick;                                                       // 0x0150 (size: 0x8)
+    float HighImportanceQueryDistanceThreshold;                                       // 0x0158 (size: 0x4)
+    float MaxQueryImportance;                                                         // 0x0160 (size: 0x4)
+    float SightLimitQueryImportance;                                                  // 0x0164 (size: 0x4)
 
-};
+}; // Size: 0x170
 
 struct FAITeamStimulusEvent
 {
-    class AActor* Broadcaster;
-    class AActor* Enemy;
+    class AActor* Broadcaster;                                                        // 0x0028 (size: 0x8)
+    class AActor* Enemy;                                                              // 0x0030 (size: 0x8)
 
-};
+}; // Size: 0x38
 
 class UAISense_Team : public UAISense
 {
-    TArray<FAITeamStimulusEvent> RegisteredEvents;
+    TArray<FAITeamStimulusEvent> RegisteredEvents;                                    // 0x0080 (size: 0x10)
 
-};
+}; // Size: 0x90
 
 struct FAITouchEvent
 {
-    class AActor* TouchReceiver;
-    class AActor* OtherActor;
+    class AActor* TouchReceiver;                                                      // 0x0010 (size: 0x8)
+    class AActor* OtherActor;                                                         // 0x0018 (size: 0x8)
 
-};
+}; // Size: 0x20
 
 class UAISense_Touch : public UAISense
 {
-    TArray<FAITouchEvent> RegisteredEvents;
+    TArray<FAITouchEvent> RegisteredEvents;                                           // 0x0080 (size: 0x10)
 
-};
+}; // Size: 0x90
 
 class UAISenseBlueprintListener : public UUserDefinedStruct
 {
-};
+}; // Size: 0x108
 
 class UAISenseConfig : public UObject
 {
-    FColor DebugColor;
-    float MaxAge;
-    uint8 bStartsEnabled;
+    FColor DebugColor;                                                                // 0x0028 (size: 0x4)
+    float MaxAge;                                                                     // 0x002C (size: 0x4)
+    uint8 bStartsEnabled;                                                             // 0x0030 (size: 0x1)
 
-};
+}; // Size: 0x48
 
 class UAISenseConfig_Blueprint : public UAISenseConfig
 {
-    TSubclassOf<class UAISense_Blueprint> Implementation;
+    TSubclassOf<class UAISense_Blueprint> Implementation;                             // 0x0048 (size: 0x8)
 
-};
+}; // Size: 0x50
 
 class UAISenseConfig_Damage : public UAISenseConfig
 {
-    TSubclassOf<class UAISense_Damage> Implementation;
+    TSubclassOf<class UAISense_Damage> Implementation;                                // 0x0048 (size: 0x8)
 
-};
+}; // Size: 0x50
 
 struct FAISenseAffiliationFilter
 {
-    uint8 bDetectEnemies;
-    uint8 bDetectNeutrals;
-    uint8 bDetectFriendlies;
+    uint8 bDetectEnemies;                                                             // 0x0000 (size: 0x1)
+    uint8 bDetectNeutrals;                                                            // 0x0000 (size: 0x1)
+    uint8 bDetectFriendlies;                                                          // 0x0000 (size: 0x1)
 
-};
+}; // Size: 0x4
 
 class UAISenseConfig_Hearing : public UAISenseConfig
 {
-    TSubclassOf<class UAISense_Hearing> Implementation;
-    float HearingRange;
-    float LoSHearingRange;
-    uint8 bUseLoSHearing;
-    FAISenseAffiliationFilter DetectionByAffiliation;
+    TSubclassOf<class UAISense_Hearing> Implementation;                               // 0x0048 (size: 0x8)
+    float HearingRange;                                                               // 0x0050 (size: 0x4)
+    float LoSHearingRange;                                                            // 0x0054 (size: 0x4)
+    uint8 bUseLoSHearing;                                                             // 0x0058 (size: 0x1)
+    FAISenseAffiliationFilter DetectionByAffiliation;                                 // 0x005C (size: 0x4)
 
-};
+}; // Size: 0x60
 
 class UAISenseConfig_Prediction : public UAISenseConfig
 {
-};
+}; // Size: 0x48
 
 class UAISenseConfig_Sight : public UAISenseConfig
 {
-    TSubclassOf<class UAISense_Sight> Implementation;
-    float SightRadius;
-    float LoseSightRadius;
-    float PeripheralVisionAngleDegrees;
-    FAISenseAffiliationFilter DetectionByAffiliation;
-    float AutoSuccessRangeFromLastSeenLocation;
-    float PointOfViewBackwardOffset;
-    float NearClippingRadius;
+    TSubclassOf<class UAISense_Sight> Implementation;                                 // 0x0048 (size: 0x8)
+    float SightRadius;                                                                // 0x0050 (size: 0x4)
+    float LoseSightRadius;                                                            // 0x0054 (size: 0x4)
+    float PeripheralVisionAngleDegrees;                                               // 0x0058 (size: 0x4)
+    FAISenseAffiliationFilter DetectionByAffiliation;                                 // 0x005C (size: 0x4)
+    float AutoSuccessRangeFromLastSeenLocation;                                       // 0x0060 (size: 0x4)
+    float PointOfViewBackwardOffset;                                                  // 0x0064 (size: 0x4)
+    float NearClippingRadius;                                                         // 0x0068 (size: 0x4)
 
-};
+}; // Size: 0x70
 
 class UAISenseConfig_Team : public UAISenseConfig
 {
-};
+}; // Size: 0x48
 
 class UAISenseConfig_Touch : public UAISenseConfig
 {
-};
+}; // Size: 0x48
 
 class UAISenseEvent : public UObject
 {
-};
+}; // Size: 0x28
 
 class UAISenseEvent_Damage : public UAISenseEvent
 {
-    FAIDamageEvent Event;
+    FAIDamageEvent Event;                                                             // 0x0028 (size: 0x30)
 
-};
+}; // Size: 0x58
 
 class UAISenseEvent_Hearing : public UAISenseEvent
 {
-    FAINoiseEvent Event;
+    FAINoiseEvent Event;                                                              // 0x0028 (size: 0x30)
 
-};
+}; // Size: 0x58
 
 class IAISightTargetInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UAISystem : public UAISystemBase
 {
-    FSoftClassPath PerceptionSystemClassName;
-    FSoftClassPath HotSpotManagerClassName;
-    float AcceptanceRadius;
-    float PathfollowingRegularPathPointAcceptanceRadius;
-    float PathfollowingNavLinkAcceptanceRadius;
-    bool bFinishMoveOnGoalOverlap;
-    bool bAcceptPartialPaths;
-    bool bAllowStrafing;
-    bool bEnableBTAITasks;
-    bool bAllowControllersAsEQSQuerier;
-    bool bEnableDebuggerPlugin;
-    bool bForgetStaleActors;
-    bool bAddBlackboardSelfKey;
-    TEnumAsByte<ECollisionChannel> DefaultSightCollisionChannel;
-    class UBehaviorTreeManager* BehaviorTreeManager;
-    class UEnvQueryManager* EnvironmentQueryManager;
-    class UAIPerceptionSystem* PerceptionSystem;
-    TArray<class UAIAsyncTaskBlueprintProxy*> AllProxyObjects;
-    class UAIHotSpotManager* HotSpotManager;
-    class UNavLocalGridManager* NavLocalGrids;
+    FSoftClassPath PerceptionSystemClassName;                                         // 0x0058 (size: 0x18)
+    FSoftClassPath HotSpotManagerClassName;                                           // 0x0070 (size: 0x18)
+    float AcceptanceRadius;                                                           // 0x0088 (size: 0x4)
+    float PathfollowingRegularPathPointAcceptanceRadius;                              // 0x008C (size: 0x4)
+    float PathfollowingNavLinkAcceptanceRadius;                                       // 0x0090 (size: 0x4)
+    bool bFinishMoveOnGoalOverlap;                                                    // 0x0094 (size: 0x1)
+    bool bAcceptPartialPaths;                                                         // 0x0095 (size: 0x1)
+    bool bAllowStrafing;                                                              // 0x0096 (size: 0x1)
+    bool bEnableBTAITasks;                                                            // 0x0097 (size: 0x1)
+    bool bAllowControllersAsEQSQuerier;                                               // 0x0098 (size: 0x1)
+    bool bEnableDebuggerPlugin;                                                       // 0x0099 (size: 0x1)
+    bool bForgetStaleActors;                                                          // 0x009A (size: 0x1)
+    bool bAddBlackboardSelfKey;                                                       // 0x009B (size: 0x1)
+    TEnumAsByte<ECollisionChannel> DefaultSightCollisionChannel;                      // 0x009C (size: 0x1)
+    class UBehaviorTreeManager* BehaviorTreeManager;                                  // 0x00A0 (size: 0x8)
+    class UEnvQueryManager* EnvironmentQueryManager;                                  // 0x00A8 (size: 0x8)
+    class UAIPerceptionSystem* PerceptionSystem;                                      // 0x00B0 (size: 0x8)
+    TArray<class UAIAsyncTaskBlueprintProxy*> AllProxyObjects;                        // 0x00B8 (size: 0x10)
+    class UAIHotSpotManager* HotSpotManager;                                          // 0x00C8 (size: 0x8)
+    class UNavLocalGridManager* NavLocalGrids;                                        // 0x00D0 (size: 0x8)
 
     void AILoggingVerbose();
     void AIIgnorePlayers();
-};
+}; // Size: 0x130
 
 class UAITask : public UGameplayTask
 {
-    class AAIController* OwnerController;
+    class AAIController* OwnerController;                                             // 0x0068 (size: 0x8)
 
-};
+}; // Size: 0x70
 
 class UAITask_LockLogic : public UAITask
 {
-};
+}; // Size: 0x70
 
 struct FAIMoveRequest
 {
-    class AActor* GoalActor;
+    class AActor* GoalActor;                                                          // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x40
 
 class UAITask_MoveTo : public UAITask
 {
-    FAITask_MoveToOnRequestFailed OnRequestFailed;
+    FAITask_MoveToOnRequestFailed OnRequestFailed;                                    // 0x0070 (size: 0x10)
     void GenericGameplayTaskDelegate();
-    FAITask_MoveToOnMoveFinished OnMoveFinished;
+    FAITask_MoveToOnMoveFinished OnMoveFinished;                                      // 0x0080 (size: 0x10)
     void MoveTaskCompletedSignature(TEnumAsByte<EPathFollowingResult::Type> Result, class AAIController* AIController);
-    FAIMoveRequest MoveRequest;
+    FAIMoveRequest MoveRequest;                                                       // 0x0090 (size: 0x40)
 
     class UAITask_MoveTo* AIMoveTo(class AAIController* Controller, FVector GoalLocation, class AActor* GoalActor, float AcceptanceRadius, TEnumAsByte<EAIOptionFlag::Type> StopOnOverlap, TEnumAsByte<EAIOptionFlag::Type> AcceptPartialPath, bool bUsePathfinding, bool bLockAILogic, bool bUseContinuosGoalTracking, TEnumAsByte<EAIOptionFlag::Type> ProjectGoalOnNavigation);
-};
+}; // Size: 0x110
 
 class UAITask_RunEQS : public UAITask
 {
 
     class UAITask_RunEQS* RunEQS(class AAIController* Controller, class UEnvQuery* QueryTemplate);
-};
+}; // Size: 0xE8
 
 struct FBTDecoratorLogic
 {
-    TEnumAsByte<EBTDecoratorLogic::Type> Operation;
-    uint16 Number;
+    TEnumAsByte<EBTDecoratorLogic::Type> Operation;                                   // 0x0000 (size: 0x1)
+    uint16 Number;                                                                    // 0x0002 (size: 0x2)
 
-};
+}; // Size: 0x4
 
 class UBehaviorTree : public UObject
 {
-    class UBTCompositeNode* RootNode;
-    class UBlackboardData* BlackboardAsset;
-    TArray<class UBTDecorator*> RootDecorators;
-    TArray<FBTDecoratorLogic> RootDecoratorOps;
+    class UBTCompositeNode* RootNode;                                                 // 0x0030 (size: 0x8)
+    class UBlackboardData* BlackboardAsset;                                           // 0x0038 (size: 0x8)
+    TArray<class UBTDecorator*> RootDecorators;                                       // 0x0040 (size: 0x10)
+    TArray<FBTDecoratorLogic> RootDecoratorOps;                                       // 0x0050 (size: 0x10)
 
-};
+}; // Size: 0x68
 
 class UBrainComponent : public UActorComponent
 {
-    class UBlackboardComponent* BlackboardComp;
-    class AAIController* AIOwner;
+    class UBlackboardComponent* BlackboardComp;                                       // 0x00B8 (size: 0x8)
+    class AAIController* AIOwner;                                                     // 0x00C0 (size: 0x8)
 
     void StopLogic(FString Reason);
     void StartLogic();
     void RestartLogic();
     bool IsRunning();
     bool IsPaused();
-};
+}; // Size: 0x108
 
 class UBehaviorTreeComponent : public UBrainComponent
 {
-    TArray<class UBTNode*> NodeInstances;
-    class UBehaviorTree* DefaultBehaviorTreeAsset;
+    TArray<class UBTNode*> NodeInstances;                                             // 0x0128 (size: 0x10)
+    class UBehaviorTree* DefaultBehaviorTreeAsset;                                    // 0x0278 (size: 0x8)
 
     void SetDynamicSubtree(FGameplayTag InjectTag, class UBehaviorTree* BehaviorAsset);
     float GetTagCooldownEndTime(FGameplayTag CooldownTag);
     void AddCooldownTagDuration(FGameplayTag CooldownTag, float CooldownDuration, bool bAddToExistingDuration);
-};
+}; // Size: 0x298
 
 struct FBehaviorTreeTemplateInfo
 {
-    class UBehaviorTree* Asset;
-    class UBTCompositeNode* Template;
+    class UBehaviorTree* Asset;                                                       // 0x0000 (size: 0x8)
+    class UBTCompositeNode* Template;                                                 // 0x0008 (size: 0x8)
 
-};
+}; // Size: 0x18
 
 class UBehaviorTreeManager : public UObject
 {
-    int32 MaxDebuggerSteps;
-    TArray<FBehaviorTreeTemplateInfo> LoadedTemplates;
-    TArray<class UBehaviorTreeComponent*> ActiveComponents;
+    int32 MaxDebuggerSteps;                                                           // 0x0028 (size: 0x4)
+    TArray<FBehaviorTreeTemplateInfo> LoadedTemplates;                                // 0x0030 (size: 0x10)
+    TArray<class UBehaviorTreeComponent*> ActiveComponents;                           // 0x0040 (size: 0x10)
 
-};
+}; // Size: 0x50
 
 class UBehaviorTreeTypes : public UObject
 {
-};
+}; // Size: 0x28
 
 class IBlackboardAssetProvider : public IInterface
 {
 
     class UBlackboardData* GetBlackboardAsset();
-};
+}; // Size: 0x28
 
 class UBlackboardComponent : public UActorComponent
 {
-    class UBrainComponent* BrainComp;
-    class UBlackboardData* DefaultBlackboardAsset;
-    class UBlackboardData* BlackboardAsset;
-    TArray<class UBlackboardKeyType*> KeyInstances;
+    class UBrainComponent* BrainComp;                                                 // 0x00B0 (size: 0x8)
+    class UBlackboardData* DefaultBlackboardAsset;                                    // 0x00B8 (size: 0x8)
+    class UBlackboardData* BlackboardAsset;                                           // 0x00C0 (size: 0x8)
+    TArray<class UBlackboardKeyType*> KeyInstances;                                   // 0x00E8 (size: 0x10)
 
     void SetValueAsVector(const FName& KeyName, FVector VectorValue);
     void SetValueAsString(const FName& KeyName, FString StringValue);
@@ -557,170 +557,170 @@ class UBlackboardComponent : public UActorComponent
     bool GetRotationFromEntry(const FName& KeyName, FRotator& ResultRotation);
     bool GetLocationFromEntry(const FName& KeyName, FVector& ResultLocation);
     void ClearValue(const FName& KeyName);
-};
+}; // Size: 0x1B8
 
 struct FBlackboardEntry
 {
-    FName EntryName;
-    class UBlackboardKeyType* KeyType;
-    uint8 bInstanceSynced;
+    FName EntryName;                                                                  // 0x0000 (size: 0x8)
+    class UBlackboardKeyType* KeyType;                                                // 0x0008 (size: 0x8)
+    uint8 bInstanceSynced;                                                            // 0x0010 (size: 0x1)
 
-};
+}; // Size: 0x18
 
 class UBlackboardData : public UDataAsset
 {
-    class UBlackboardData* Parent;
-    TArray<FBlackboardEntry> Keys;
-    uint8 bHasSynchronizedKeys;
+    class UBlackboardData* Parent;                                                    // 0x0030 (size: 0x8)
+    TArray<FBlackboardEntry> Keys;                                                    // 0x0038 (size: 0x10)
+    uint8 bHasSynchronizedKeys;                                                       // 0x0048 (size: 0x1)
 
-};
+}; // Size: 0x50
 
 class UBlackboardKeyType : public UObject
 {
-};
+}; // Size: 0x30
 
 class UBlackboardKeyType_Bool : public UBlackboardKeyType
 {
-};
+}; // Size: 0x30
 
 class UBlackboardKeyType_Class : public UBlackboardKeyType
 {
-    UClass* BaseClass;
+    UClass* BaseClass;                                                                // 0x0030 (size: 0x8)
 
-};
+}; // Size: 0x38
 
 class UBlackboardKeyType_Enum : public UBlackboardKeyType
 {
-    class UEnum* EnumType;
-    FString EnumName;
-    uint8 bIsEnumNameValid;
+    class UEnum* EnumType;                                                            // 0x0030 (size: 0x8)
+    FString EnumName;                                                                 // 0x0038 (size: 0x10)
+    uint8 bIsEnumNameValid;                                                           // 0x0048 (size: 0x1)
 
-};
+}; // Size: 0x50
 
 class UBlackboardKeyType_Float : public UBlackboardKeyType
 {
-};
+}; // Size: 0x30
 
 class UBlackboardKeyType_Int : public UBlackboardKeyType
 {
-};
+}; // Size: 0x30
 
 class UBlackboardKeyType_Name : public UBlackboardKeyType
 {
-};
+}; // Size: 0x30
 
 class UBlackboardKeyType_NativeEnum : public UBlackboardKeyType
 {
-    FString EnumName;
-    class UEnum* EnumType;
+    FString EnumName;                                                                 // 0x0030 (size: 0x10)
+    class UEnum* EnumType;                                                            // 0x0040 (size: 0x8)
 
-};
+}; // Size: 0x48
 
 class UBlackboardKeyType_Object : public UBlackboardKeyType
 {
-    UClass* BaseClass;
+    UClass* BaseClass;                                                                // 0x0030 (size: 0x8)
 
-};
+}; // Size: 0x38
 
 class UBlackboardKeyType_Rotator : public UBlackboardKeyType
 {
-};
+}; // Size: 0x30
 
 class UBlackboardKeyType_String : public UBlackboardKeyType
 {
-    FString StringValue;
+    FString StringValue;                                                              // 0x0030 (size: 0x10)
 
-};
+}; // Size: 0x40
 
 class UBlackboardKeyType_Vector : public UBlackboardKeyType
 {
-};
+}; // Size: 0x30
 
 class UBTNode : public UObject
 {
-    FString NodeName;
-    class UBehaviorTree* TreeAsset;
-    class UBTCompositeNode* ParentNode;
+    FString NodeName;                                                                 // 0x0030 (size: 0x10)
+    class UBehaviorTree* TreeAsset;                                                   // 0x0040 (size: 0x8)
+    class UBTCompositeNode* ParentNode;                                               // 0x0048 (size: 0x8)
 
-};
+}; // Size: 0x58
 
 class UBTAuxiliaryNode : public UBTNode
 {
-};
+}; // Size: 0x60
 
 struct FBTCompositeChild
 {
-    class UBTCompositeNode* ChildComposite;
-    class UBTTaskNode* ChildTask;
-    TArray<class UBTDecorator*> Decorators;
-    TArray<FBTDecoratorLogic> DecoratorOps;
+    class UBTCompositeNode* ChildComposite;                                           // 0x0000 (size: 0x8)
+    class UBTTaskNode* ChildTask;                                                     // 0x0008 (size: 0x8)
+    TArray<class UBTDecorator*> Decorators;                                           // 0x0010 (size: 0x10)
+    TArray<FBTDecoratorLogic> DecoratorOps;                                           // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x30
 
 class UBTCompositeNode : public UBTNode
 {
-    TArray<FBTCompositeChild> Children;
-    TArray<class UBTService*> Services;
-    uint8 bApplyDecoratorScope;
+    TArray<FBTCompositeChild> Children;                                               // 0x0058 (size: 0x10)
+    TArray<class UBTService*> Services;                                               // 0x0068 (size: 0x10)
+    uint8 bApplyDecoratorScope;                                                       // 0x0088 (size: 0x1)
 
-};
+}; // Size: 0x90
 
 class UBTComposite_Selector : public UBTCompositeNode
 {
-};
+}; // Size: 0x90
 
 class UBTComposite_Sequence : public UBTCompositeNode
 {
-};
+}; // Size: 0x90
 
 class UBTComposite_SimpleParallel : public UBTCompositeNode
 {
-    TEnumAsByte<EBTParallelMode::Type> FinishMode;
+    TEnumAsByte<EBTParallelMode::Type> FinishMode;                                    // 0x0090 (size: 0x1)
 
-};
+}; // Size: 0x98
 
 class UBTDecorator : public UBTAuxiliaryNode
 {
-    uint8 bInverseCondition;
-    TEnumAsByte<EBTFlowAbortMode::Type> FlowAbortMode;
+    uint8 bInverseCondition;                                                          // 0x0060 (size: 0x1)
+    TEnumAsByte<EBTFlowAbortMode::Type> FlowAbortMode;                                // 0x0064 (size: 0x1)
 
-};
+}; // Size: 0x68
 
 struct FBlackboardKeySelector
 {
-    TArray<class UBlackboardKeyType*> AllowedTypes;
-    FName SelectedKeyName;
-    TSubclassOf<class UBlackboardKeyType> SelectedKeyType;
-    uint8 SelectedKeyID;
-    uint8 bNoneIsAllowedValue;
+    TArray<class UBlackboardKeyType*> AllowedTypes;                                   // 0x0000 (size: 0x10)
+    FName SelectedKeyName;                                                            // 0x0010 (size: 0x8)
+    TSubclassOf<class UBlackboardKeyType> SelectedKeyType;                            // 0x0018 (size: 0x8)
+    uint8 SelectedKeyID;                                                              // 0x0020 (size: 0x1)
+    uint8 bNoneIsAllowedValue;                                                        // 0x0024 (size: 0x1)
 
-};
+}; // Size: 0x28
 
 class UBTDecorator_BlackboardBase : public UBTDecorator
 {
-    FBlackboardKeySelector BlackboardKey;
+    FBlackboardKeySelector BlackboardKey;                                             // 0x0068 (size: 0x28)
 
-};
+}; // Size: 0x90
 
 class UBTDecorator_Blackboard : public UBTDecorator_BlackboardBase
 {
-    int32 IntValue;
-    float FloatValue;
-    FString StringValue;
-    FString CachedDescription;
-    uint8 OperationType;
-    TEnumAsByte<EBTBlackboardRestart::Type> NotifyObserver;
+    int32 IntValue;                                                                   // 0x0090 (size: 0x4)
+    float FloatValue;                                                                 // 0x0094 (size: 0x4)
+    FString StringValue;                                                              // 0x0098 (size: 0x10)
+    FString CachedDescription;                                                        // 0x00A8 (size: 0x10)
+    uint8 OperationType;                                                              // 0x00B8 (size: 0x1)
+    TEnumAsByte<EBTBlackboardRestart::Type> NotifyObserver;                           // 0x00B9 (size: 0x1)
 
-};
+}; // Size: 0xC0
 
 class UBTDecorator_BlueprintBase : public UBTDecorator
 {
-    class AAIController* AIOwner;
-    class AActor* ActorOwner;
-    TArray<FName> ObservedKeyNames;
-    uint8 bShowPropertyDetails;
-    uint8 bCheckConditionOnlyBlackBoardChanges;
-    uint8 bIsObservingBB;
+    class AAIController* AIOwner;                                                     // 0x0068 (size: 0x8)
+    class AActor* ActorOwner;                                                         // 0x0070 (size: 0x8)
+    TArray<FName> ObservedKeyNames;                                                   // 0x0078 (size: 0x10)
+    uint8 bShowPropertyDetails;                                                       // 0x0098 (size: 0x1)
+    uint8 bCheckConditionOnlyBlackBoardChanges;                                       // 0x0098 (size: 0x1)
+    uint8 bIsObservingBB;                                                             // 0x0098 (size: 0x1)
 
     void ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds);
     void ReceiveTick(class AActor* OwnerActor, float DeltaSeconds);
@@ -736,138 +736,138 @@ class UBTDecorator_BlueprintBase : public UBTDecorator
     bool PerformConditionCheck(class AActor* OwnerActor);
     bool IsDecoratorObserverActive();
     bool IsDecoratorExecutionActive();
-};
+}; // Size: 0xA0
 
 class UBTDecorator_CheckGameplayTagsOnActor : public UBTDecorator
 {
-    FBlackboardKeySelector ActorToCheck;
-    EGameplayContainerMatchType TagsToMatch;
-    FGameplayTagContainer GameplayTags;
-    FString CachedDescription;
+    FBlackboardKeySelector ActorToCheck;                                              // 0x0068 (size: 0x28)
+    EGameplayContainerMatchType TagsToMatch;                                          // 0x0090 (size: 0x1)
+    FGameplayTagContainer GameplayTags;                                               // 0x0098 (size: 0x20)
+    FString CachedDescription;                                                        // 0x00B8 (size: 0x10)
 
-};
+}; // Size: 0xC8
 
 class UBTDecorator_CompareBBEntries : public UBTDecorator
 {
-    TEnumAsByte<EBlackBoardEntryComparison::Type> Operator;
-    FBlackboardKeySelector BlackboardKeyA;
-    FBlackboardKeySelector BlackboardKeyB;
+    TEnumAsByte<EBlackBoardEntryComparison::Type> Operator;                           // 0x0068 (size: 0x1)
+    FBlackboardKeySelector BlackboardKeyA;                                            // 0x0070 (size: 0x28)
+    FBlackboardKeySelector BlackboardKeyB;                                            // 0x0098 (size: 0x28)
 
-};
+}; // Size: 0xC0
 
 class UBTDecorator_ConditionalLoop : public UBTDecorator_Blackboard
 {
-};
+}; // Size: 0xC0
 
 class UBTDecorator_ConeCheck : public UBTDecorator
 {
-    float ConeHalfAngle;
-    FBlackboardKeySelector ConeOrigin;
-    FBlackboardKeySelector ConeDirection;
-    FBlackboardKeySelector Observed;
+    float ConeHalfAngle;                                                              // 0x0068 (size: 0x4)
+    FBlackboardKeySelector ConeOrigin;                                                // 0x0070 (size: 0x28)
+    FBlackboardKeySelector ConeDirection;                                             // 0x0098 (size: 0x28)
+    FBlackboardKeySelector Observed;                                                  // 0x00C0 (size: 0x28)
 
-};
+}; // Size: 0xF0
 
 class UBTDecorator_Cooldown : public UBTDecorator
 {
-    float CoolDownTime;
+    float CoolDownTime;                                                               // 0x0068 (size: 0x4)
 
-};
+}; // Size: 0x70
 
 class UBTDecorator_DoesPathExist : public UBTDecorator
 {
-    FBlackboardKeySelector BlackboardKeyA;
-    FBlackboardKeySelector BlackboardKeyB;
-    uint8 bUseSelf;
-    TEnumAsByte<EPathExistanceQueryType::Type> PathQueryType;
-    TSubclassOf<class UNavigationQueryFilter> FilterClass;
+    FBlackboardKeySelector BlackboardKeyA;                                            // 0x0068 (size: 0x28)
+    FBlackboardKeySelector BlackboardKeyB;                                            // 0x0090 (size: 0x28)
+    uint8 bUseSelf;                                                                   // 0x00B8 (size: 0x1)
+    TEnumAsByte<EPathExistanceQueryType::Type> PathQueryType;                         // 0x00BC (size: 0x1)
+    TSubclassOf<class UNavigationQueryFilter> FilterClass;                            // 0x00C0 (size: 0x8)
 
-};
+}; // Size: 0xC8
 
 class UBTDecorator_ForceSuccess : public UBTDecorator
 {
-};
+}; // Size: 0x68
 
 struct FAIDataProviderValue
 {
-    class UAIDataProvider* DataBinding;
-    FName DataField;
+    class UAIDataProvider* DataBinding;                                               // 0x0010 (size: 0x8)
+    FName DataField;                                                                  // 0x0018 (size: 0x8)
 
-};
+}; // Size: 0x20
 
 struct FAIDataProviderTypedValue : public FAIDataProviderValue
 {
-    UClass* PropertyType;
+    UClass* PropertyType;                                                             // 0x0020 (size: 0x8)
 
-};
+}; // Size: 0x30
 
 struct FAIDataProviderFloatValue : public FAIDataProviderTypedValue
 {
-    float DefaultValue;
+    float DefaultValue;                                                               // 0x0030 (size: 0x4)
 
-};
+}; // Size: 0x38
 
 class UBTDecorator_IsAtLocation : public UBTDecorator_BlackboardBase
 {
-    float AcceptableRadius;
-    FAIDataProviderFloatValue ParametrizedAcceptableRadius;
-    FAIDistanceType GeometricDistanceType;
-    uint8 bUseParametrizedRadius;
-    uint8 bUseNavAgentGoalLocation;
-    uint8 bPathFindingBasedTest;
+    float AcceptableRadius;                                                           // 0x0090 (size: 0x4)
+    FAIDataProviderFloatValue ParametrizedAcceptableRadius;                           // 0x0098 (size: 0x38)
+    FAIDistanceType GeometricDistanceType;                                            // 0x00D0 (size: 0x1)
+    uint8 bUseParametrizedRadius;                                                     // 0x00D4 (size: 0x1)
+    uint8 bUseNavAgentGoalLocation;                                                   // 0x00D4 (size: 0x1)
+    uint8 bPathFindingBasedTest;                                                      // 0x00D4 (size: 0x1)
 
-};
+}; // Size: 0xD8
 
 class UBTDecorator_IsBBEntryOfClass : public UBTDecorator_BlackboardBase
 {
-    UClass* TestClass;
+    UClass* TestClass;                                                                // 0x0090 (size: 0x8)
 
-};
+}; // Size: 0x98
 
 class UBTDecorator_KeepInCone : public UBTDecorator
 {
-    float ConeHalfAngle;
-    FBlackboardKeySelector ConeOrigin;
-    FBlackboardKeySelector Observed;
-    uint8 bUseSelfAsOrigin;
-    uint8 bUseSelfAsObserved;
+    float ConeHalfAngle;                                                              // 0x0068 (size: 0x4)
+    FBlackboardKeySelector ConeOrigin;                                                // 0x0070 (size: 0x28)
+    FBlackboardKeySelector Observed;                                                  // 0x0098 (size: 0x28)
+    uint8 bUseSelfAsOrigin;                                                           // 0x00C0 (size: 0x1)
+    uint8 bUseSelfAsObserved;                                                         // 0x00C0 (size: 0x1)
 
-};
+}; // Size: 0xC8
 
 class UBTDecorator_Loop : public UBTDecorator
 {
-    int32 NumLoops;
-    bool bInfiniteLoop;
-    float InfiniteLoopTimeoutTime;
+    int32 NumLoops;                                                                   // 0x0068 (size: 0x4)
+    bool bInfiniteLoop;                                                               // 0x006C (size: 0x1)
+    float InfiniteLoopTimeoutTime;                                                    // 0x0070 (size: 0x4)
 
-};
+}; // Size: 0x78
 
 class UBTDecorator_ReachedMoveGoal : public UBTDecorator
 {
-};
+}; // Size: 0x68
 
 class UBTDecorator_SetTagCooldown : public UBTDecorator
 {
-    FGameplayTag CooldownTag;
-    float CooldownDuration;
-    bool bAddToExistingDuration;
+    FGameplayTag CooldownTag;                                                         // 0x0068 (size: 0x8)
+    float CooldownDuration;                                                           // 0x0070 (size: 0x4)
+    bool bAddToExistingDuration;                                                      // 0x0074 (size: 0x1)
 
-};
+}; // Size: 0x78
 
 class UBTDecorator_TagCooldown : public UBTDecorator
 {
-    FGameplayTag CooldownTag;
-    float CooldownDuration;
-    bool bAddToExistingDuration;
-    bool bActivatesCooldown;
+    FGameplayTag CooldownTag;                                                         // 0x0068 (size: 0x8)
+    float CooldownDuration;                                                           // 0x0070 (size: 0x4)
+    bool bAddToExistingDuration;                                                      // 0x0074 (size: 0x1)
+    bool bActivatesCooldown;                                                          // 0x0075 (size: 0x1)
 
-};
+}; // Size: 0x78
 
 class UBTDecorator_TimeLimit : public UBTDecorator
 {
-    float TimeLimit;
+    float TimeLimit;                                                                  // 0x0068 (size: 0x4)
 
-};
+}; // Size: 0x70
 
 class UBTFunctionLibrary : public UBlueprintFunctionLibrary
 {
@@ -899,29 +899,29 @@ class UBTFunctionLibrary : public UBlueprintFunctionLibrary
     class AActor* GetBlackboardValueAsActor(class UBTNode* NodeOwner, const FBlackboardKeySelector& Key);
     void ClearBlackboardValueAsVector(class UBTNode* NodeOwner, const FBlackboardKeySelector& Key);
     void ClearBlackboardValue(class UBTNode* NodeOwner, const FBlackboardKeySelector& Key);
-};
+}; // Size: 0x28
 
 class UBTService : public UBTAuxiliaryNode
 {
-    float Interval;
-    float RandomDeviation;
-    uint8 bCallTickOnSearchStart;
-    uint8 bRestartTimerOnEachActivation;
+    float Interval;                                                                   // 0x0060 (size: 0x4)
+    float RandomDeviation;                                                            // 0x0064 (size: 0x4)
+    uint8 bCallTickOnSearchStart;                                                     // 0x0068 (size: 0x1)
+    uint8 bRestartTimerOnEachActivation;                                              // 0x0068 (size: 0x1)
 
-};
+}; // Size: 0x70
 
 class UBTService_BlackboardBase : public UBTService
 {
-    FBlackboardKeySelector BlackboardKey;
+    FBlackboardKeySelector BlackboardKey;                                             // 0x0070 (size: 0x28)
 
-};
+}; // Size: 0x98
 
 class UBTService_BlueprintBase : public UBTService
 {
-    class AAIController* AIOwner;
-    class AActor* ActorOwner;
-    uint8 bShowPropertyDetails;
-    uint8 bShowEventDetails;
+    class AAIController* AIOwner;                                                     // 0x0070 (size: 0x8)
+    class AActor* ActorOwner;                                                         // 0x0078 (size: 0x8)
+    uint8 bShowPropertyDetails;                                                       // 0x0090 (size: 0x1)
+    uint8 bShowEventDetails;                                                          // 0x0090 (size: 0x1)
 
     void ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds);
     void ReceiveTick(class AActor* OwnerActor, float DeltaSeconds);
@@ -932,64 +932,64 @@ class UBTService_BlueprintBase : public UBTService
     void ReceiveActivationAI(class AAIController* OwnerController, class APawn* ControlledPawn);
     void ReceiveActivation(class AActor* OwnerActor);
     bool IsServiceActive();
-};
+}; // Size: 0x98
 
 class UBTService_DefaultFocus : public UBTService_BlackboardBase
 {
-    uint8 FocusPriority;
+    uint8 FocusPriority;                                                              // 0x0098 (size: 0x1)
 
-};
+}; // Size: 0xA0
 
 struct FAIDynamicParam
 {
-    FName ParamName;
-    EAIParamType ParamType;
-    float Value;
-    FBlackboardKeySelector BBKey;
+    FName ParamName;                                                                  // 0x0000 (size: 0x8)
+    EAIParamType ParamType;                                                           // 0x0008 (size: 0x1)
+    float Value;                                                                      // 0x000C (size: 0x4)
+    FBlackboardKeySelector BBKey;                                                     // 0x0010 (size: 0x28)
 
-};
+}; // Size: 0x38
 
 struct FEQSParametrizedQueryExecutionRequest
 {
-    class UEnvQuery* QueryTemplate;
-    TArray<FAIDynamicParam> QueryConfig;
-    FBlackboardKeySelector EQSQueryBlackboardKey;
-    TEnumAsByte<EEnvQueryRunMode::Type> RunMode;
-    uint8 bUseBBKeyForQueryTemplate;
+    class UEnvQuery* QueryTemplate;                                                   // 0x0000 (size: 0x8)
+    TArray<FAIDynamicParam> QueryConfig;                                              // 0x0008 (size: 0x10)
+    FBlackboardKeySelector EQSQueryBlackboardKey;                                     // 0x0018 (size: 0x28)
+    TEnumAsByte<EEnvQueryRunMode::Type> RunMode;                                      // 0x0040 (size: 0x1)
+    uint8 bUseBBKeyForQueryTemplate;                                                  // 0x0044 (size: 0x1)
 
-};
+}; // Size: 0x48
 
 class UBTService_RunEQS : public UBTService_BlackboardBase
 {
-    FEQSParametrizedQueryExecutionRequest EQSRequest;
+    FEQSParametrizedQueryExecutionRequest EQSRequest;                                 // 0x0098 (size: 0x48)
 
-};
+}; // Size: 0xF0
 
 class UBTTaskNode : public UBTNode
 {
-    TArray<class UBTService*> Services;
-    uint8 bIgnoreRestartSelf;
+    TArray<class UBTService*> Services;                                               // 0x0058 (size: 0x10)
+    uint8 bIgnoreRestartSelf;                                                         // 0x0068 (size: 0x1)
 
-};
+}; // Size: 0x70
 
 class UBTTask_BlackboardBase : public UBTTaskNode
 {
-    FBlackboardKeySelector BlackboardKey;
+    FBlackboardKeySelector BlackboardKey;                                             // 0x0070 (size: 0x28)
 
-};
+}; // Size: 0x98
 
 struct FIntervalCountdown
 {
-    float Interval;
+    float Interval;                                                                   // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 class UBTTask_BlueprintBase : public UBTTaskNode
 {
-    class AAIController* AIOwner;
-    class AActor* ActorOwner;
-    FIntervalCountdown TickInterval;
-    uint8 bShowPropertyDetails;
+    class AAIController* AIOwner;                                                     // 0x0070 (size: 0x8)
+    class AActor* ActorOwner;                                                         // 0x0078 (size: 0x8)
+    FIntervalCountdown TickInterval;                                                  // 0x0080 (size: 0x8)
+    uint8 bShowPropertyDetails;                                                       // 0x00A0 (size: 0x1)
 
     void SetFinishOnMessageWithId(FName MessageName, int32 requestID);
     void SetFinishOnMessage(FName MessageName);
@@ -1003,213 +1003,213 @@ class UBTTask_BlueprintBase : public UBTTaskNode
     bool IsTaskAborting();
     void FinishExecute(bool bSuccess);
     void FinishAbort();
-};
+}; // Size: 0xA8
 
 class UBTTask_FinishWithResult : public UBTTaskNode
 {
-    TEnumAsByte<EBTNodeResult::Type> Result;
+    TEnumAsByte<EBTNodeResult::Type> Result;                                          // 0x0070 (size: 0x1)
 
-};
+}; // Size: 0x78
 
 class UBTTask_GameplayTaskBase : public UBTTaskNode
 {
-    uint8 bWaitForGameplayTask;
+    uint8 bWaitForGameplayTask;                                                       // 0x0070 (size: 0x1)
 
-};
+}; // Size: 0x78
 
 class UBTTask_MakeNoise : public UBTTaskNode
 {
-    float Loudnes;
+    float Loudnes;                                                                    // 0x0070 (size: 0x4)
 
-};
+}; // Size: 0x78
 
 class UBTTask_MoveTo : public UBTTask_BlackboardBase
 {
-    float AcceptableRadius;
-    TSubclassOf<class UNavigationQueryFilter> FilterClass;
-    float ObservedBlackboardValueTolerance;
-    uint8 bObserveBlackboardValue;
-    uint8 bAllowStrafe;
-    uint8 bAllowPartialPath;
-    uint8 bTrackMovingGoal;
-    uint8 bProjectGoalLocation;
-    uint8 bReachTestIncludesAgentRadius;
-    uint8 bReachTestIncludesGoalRadius;
-    uint8 bStopOnOverlap;
-    uint8 bStopOnOverlapNeedsUpdate;
+    float AcceptableRadius;                                                           // 0x0098 (size: 0x4)
+    TSubclassOf<class UNavigationQueryFilter> FilterClass;                            // 0x00A0 (size: 0x8)
+    float ObservedBlackboardValueTolerance;                                           // 0x00A8 (size: 0x4)
+    uint8 bObserveBlackboardValue;                                                    // 0x00AC (size: 0x1)
+    uint8 bAllowStrafe;                                                               // 0x00AC (size: 0x1)
+    uint8 bAllowPartialPath;                                                          // 0x00AC (size: 0x1)
+    uint8 bTrackMovingGoal;                                                           // 0x00AC (size: 0x1)
+    uint8 bProjectGoalLocation;                                                       // 0x00AC (size: 0x1)
+    uint8 bReachTestIncludesAgentRadius;                                              // 0x00AC (size: 0x1)
+    uint8 bReachTestIncludesGoalRadius;                                               // 0x00AC (size: 0x1)
+    uint8 bStopOnOverlap;                                                             // 0x00AC (size: 0x1)
+    uint8 bStopOnOverlapNeedsUpdate;                                                  // 0x00AD (size: 0x1)
 
-};
+}; // Size: 0xB0
 
 class UBTTask_MoveDirectlyToward : public UBTTask_MoveTo
 {
-    uint8 bDisablePathUpdateOnGoalLocationChange;
-    uint8 bProjectVectorGoalToNavigation;
-    uint8 bUpdatedDeprecatedProperties;
+    uint8 bDisablePathUpdateOnGoalLocationChange;                                     // 0x00B0 (size: 0x1)
+    uint8 bProjectVectorGoalToNavigation;                                             // 0x00B0 (size: 0x1)
+    uint8 bUpdatedDeprecatedProperties;                                               // 0x00B0 (size: 0x1)
 
-};
+}; // Size: 0xB8
 
 class UBTTask_PawnActionBase : public UBTTaskNode
 {
-};
+}; // Size: 0x70
 
 class UBTTask_PlayAnimation : public UBTTaskNode
 {
-    class UAnimationAsset* AnimationToPlay;
-    uint8 bLooping;
-    uint8 bNonBlocking;
-    class UBehaviorTreeComponent* MyOwnerComp;
-    class USkeletalMeshComponent* CachedSkelMesh;
+    class UAnimationAsset* AnimationToPlay;                                           // 0x0070 (size: 0x8)
+    uint8 bLooping;                                                                   // 0x0078 (size: 0x1)
+    uint8 bNonBlocking;                                                               // 0x0078 (size: 0x1)
+    class UBehaviorTreeComponent* MyOwnerComp;                                        // 0x0080 (size: 0x8)
+    class USkeletalMeshComponent* CachedSkelMesh;                                     // 0x0088 (size: 0x8)
 
-};
+}; // Size: 0xB0
 
 class UBTTask_PlaySound : public UBTTaskNode
 {
-    class USoundCue* SoundToPlay;
+    class USoundCue* SoundToPlay;                                                     // 0x0070 (size: 0x8)
 
-};
+}; // Size: 0x78
 
 class UBTTask_PushPawnAction : public UBTTask_PawnActionBase
 {
-    class UPawnAction* Action;
+    class UPawnAction* Action;                                                        // 0x0070 (size: 0x8)
 
-};
+}; // Size: 0x78
 
 class UBTTask_RotateToFaceBBEntry : public UBTTask_BlackboardBase
 {
-    float Precision;
+    float Precision;                                                                  // 0x0098 (size: 0x4)
 
-};
+}; // Size: 0xA0
 
 class UBTTask_RunBehavior : public UBTTaskNode
 {
-    class UBehaviorTree* BehaviorAsset;
+    class UBehaviorTree* BehaviorAsset;                                               // 0x0070 (size: 0x8)
 
-};
+}; // Size: 0x78
 
 class UBTTask_RunBehaviorDynamic : public UBTTaskNode
 {
-    FGameplayTag InjectionTag;
-    class UBehaviorTree* DefaultBehaviorAsset;
-    class UBehaviorTree* BehaviorAsset;
+    FGameplayTag InjectionTag;                                                        // 0x0070 (size: 0x8)
+    class UBehaviorTree* DefaultBehaviorAsset;                                        // 0x0078 (size: 0x8)
+    class UBehaviorTree* BehaviorAsset;                                               // 0x0080 (size: 0x8)
 
-};
+}; // Size: 0x88
 
 struct FEnvNamedValue
 {
-    FName ParamName;
-    EAIParamType ParamType;
-    float Value;
+    FName ParamName;                                                                  // 0x0000 (size: 0x8)
+    EAIParamType ParamType;                                                           // 0x0008 (size: 0x1)
+    float Value;                                                                      // 0x000C (size: 0x4)
 
-};
+}; // Size: 0x10
 
 class UBTTask_RunEQSQuery : public UBTTask_BlackboardBase
 {
-    class UEnvQuery* QueryTemplate;
-    TArray<FEnvNamedValue> queryParams;
-    TArray<FAIDynamicParam> QueryConfig;
-    TEnumAsByte<EEnvQueryRunMode::Type> RunMode;
-    FBlackboardKeySelector EQSQueryBlackboardKey;
-    bool bUseBBKey;
-    FEQSParametrizedQueryExecutionRequest EQSRequest;
+    class UEnvQuery* QueryTemplate;                                                   // 0x0098 (size: 0x8)
+    TArray<FEnvNamedValue> queryParams;                                               // 0x00A0 (size: 0x10)
+    TArray<FAIDynamicParam> QueryConfig;                                              // 0x00B0 (size: 0x10)
+    TEnumAsByte<EEnvQueryRunMode::Type> RunMode;                                      // 0x00C0 (size: 0x1)
+    FBlackboardKeySelector EQSQueryBlackboardKey;                                     // 0x00C8 (size: 0x28)
+    bool bUseBBKey;                                                                   // 0x00F0 (size: 0x1)
+    FEQSParametrizedQueryExecutionRequest EQSRequest;                                 // 0x00F8 (size: 0x48)
 
-};
+}; // Size: 0x150
 
 class UBTTask_SetTagCooldown : public UBTTaskNode
 {
-    FGameplayTag CooldownTag;
-    bool bAddToExistingDuration;
-    float CooldownDuration;
+    FGameplayTag CooldownTag;                                                         // 0x0070 (size: 0x8)
+    bool bAddToExistingDuration;                                                      // 0x0078 (size: 0x1)
+    float CooldownDuration;                                                           // 0x007C (size: 0x4)
 
-};
+}; // Size: 0x80
 
 class UBTTask_Wait : public UBTTaskNode
 {
-    float WaitTime;
-    float RandomDeviation;
+    float WaitTime;                                                                   // 0x0070 (size: 0x4)
+    float RandomDeviation;                                                            // 0x0074 (size: 0x4)
 
-};
+}; // Size: 0x78
 
 class UBTTask_WaitBlackboardTime : public UBTTask_Wait
 {
-    FBlackboardKeySelector BlackboardKey;
+    FBlackboardKeySelector BlackboardKey;                                             // 0x0078 (size: 0x28)
 
-};
+}; // Size: 0xA0
 
 class ICrowdAgentInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UPathFollowingComponent : public UActorComponent
 {
-    class UNavMovementComponent* MovementComp;
-    class ANavigationData* MyNavData;
+    class UNavMovementComponent* MovementComp;                                        // 0x00E8 (size: 0x8)
+    class ANavigationData* MyNavData;                                                 // 0x00F8 (size: 0x8)
 
     void OnNavDataRegistered(class ANavigationData* NavData);
     void OnActorBump(class AActor* SelfActor, class AActor* OtherActor, FVector NormalImpulse, const FHitResult& Hit);
     FVector GetPathDestination();
     TEnumAsByte<EPathFollowingAction::Type> GetPathActionType();
-};
+}; // Size: 0x250
 
 class UCrowdFollowingComponent : public UPathFollowingComponent
 {
-    FVector CrowdAgentMoveDirection;
+    FVector CrowdAgentMoveDirection;                                                  // 0x0268 (size: 0xC)
 
     void SuspendCrowdSteering(bool bSuspend);
-};
+}; // Size: 0x298
 
 struct FCrowdAvoidanceConfig
 {
-    float VelocityBias;
-    float DesiredVelocityWeight;
-    float CurrentVelocityWeight;
-    float SideBiasWeight;
-    float ImpactTimeWeight;
-    float ImpactTimeRange;
-    uint8 CustomPatternIdx;
-    uint8 AdaptiveDivisions;
-    uint8 AdaptiveRings;
-    uint8 AdaptiveDepth;
+    float VelocityBias;                                                               // 0x0000 (size: 0x4)
+    float DesiredVelocityWeight;                                                      // 0x0004 (size: 0x4)
+    float CurrentVelocityWeight;                                                      // 0x0008 (size: 0x4)
+    float SideBiasWeight;                                                             // 0x000C (size: 0x4)
+    float ImpactTimeWeight;                                                           // 0x0010 (size: 0x4)
+    float ImpactTimeRange;                                                            // 0x0014 (size: 0x4)
+    uint8 CustomPatternIdx;                                                           // 0x0018 (size: 0x1)
+    uint8 AdaptiveDivisions;                                                          // 0x0019 (size: 0x1)
+    uint8 AdaptiveRings;                                                              // 0x001A (size: 0x1)
+    uint8 AdaptiveDepth;                                                              // 0x001B (size: 0x1)
 
-};
+}; // Size: 0x1C
 
 struct FCrowdAvoidanceSamplingPattern
 {
-    TArray<float> Angles;
-    TArray<float> Radii;
+    TArray<float> Angles;                                                             // 0x0000 (size: 0x10)
+    TArray<float> Radii;                                                              // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 class UCrowdManager : public UCrowdManagerBase
 {
-    class ANavigationData* MyNavData;
-    TArray<FCrowdAvoidanceConfig> AvoidanceConfig;
-    TArray<FCrowdAvoidanceSamplingPattern> SamplingPatterns;
-    int32 MaxAgents;
-    float MaxAgentRadius;
-    int32 MaxAvoidedAgents;
-    int32 MaxAvoidedWalls;
-    float NavmeshCheckInterval;
-    float PathOptimizationInterval;
-    float SeparationDirClamp;
-    float PathOffsetRadiusMultiplier;
-    uint8 bResolveCollisions;
+    class ANavigationData* MyNavData;                                                 // 0x0028 (size: 0x8)
+    TArray<FCrowdAvoidanceConfig> AvoidanceConfig;                                    // 0x0030 (size: 0x10)
+    TArray<FCrowdAvoidanceSamplingPattern> SamplingPatterns;                          // 0x0040 (size: 0x10)
+    int32 MaxAgents;                                                                  // 0x0050 (size: 0x4)
+    float MaxAgentRadius;                                                             // 0x0054 (size: 0x4)
+    int32 MaxAvoidedAgents;                                                           // 0x0058 (size: 0x4)
+    int32 MaxAvoidedWalls;                                                            // 0x005C (size: 0x4)
+    float NavmeshCheckInterval;                                                       // 0x0060 (size: 0x4)
+    float PathOptimizationInterval;                                                   // 0x0064 (size: 0x4)
+    float SeparationDirClamp;                                                         // 0x0068 (size: 0x4)
+    float PathOffsetRadiusMultiplier;                                                 // 0x006C (size: 0x4)
+    uint8 bResolveCollisions;                                                         // 0x0070 (size: 0x1)
 
-};
+}; // Size: 0xF0
 
 class ADetourCrowdAIController : public AAIController
 {
-};
+}; // Size: 0x328
 
 class UEnvQuery : public UDataAsset
 {
-    FName QueryName;
-    TArray<class UEnvQueryOption*> Options;
+    FName QueryName;                                                                  // 0x0030 (size: 0x8)
+    TArray<class UEnvQueryOption*> Options;                                           // 0x0038 (size: 0x10)
 
-};
+}; // Size: 0x48
 
 class UEnvQueryContext : public UObject
 {
-};
+}; // Size: 0x28
 
 class UEnvQueryContext_BlueprintBase : public UEnvQueryContext
 {
@@ -1218,184 +1218,184 @@ class UEnvQueryContext_BlueprintBase : public UEnvQueryContext
     void ProvideSingleActor(class UObject* QuerierObject, class AActor* QuerierActor, class AActor*& ResultingActor);
     void ProvideLocationsSet(class UObject* QuerierObject, class AActor* QuerierActor, TArray<FVector>& ResultingLocationSet);
     void ProvideActorsSet(class UObject* QuerierObject, class AActor* QuerierActor, TArray<class AActor*>& ResultingActorsSet);
-};
+}; // Size: 0x30
 
 class UEnvQueryContext_Item : public UEnvQueryContext
 {
-};
+}; // Size: 0x28
 
 class UEnvQueryContext_Querier : public UEnvQueryContext
 {
-};
+}; // Size: 0x28
 
 class UEnvQueryDebugHelpers : public UObject
 {
-};
+}; // Size: 0x28
 
 class UEnvQueryNode : public UObject
 {
-    int32 VerNum;
+    int32 VerNum;                                                                     // 0x0028 (size: 0x4)
 
-};
+}; // Size: 0x30
 
 class UEnvQueryGenerator : public UEnvQueryNode
 {
-    FString OptionName;
-    TSubclassOf<class UEnvQueryItemType> ItemType;
-    uint8 bAutoSortTests;
+    FString OptionName;                                                               // 0x0030 (size: 0x10)
+    TSubclassOf<class UEnvQueryItemType> ItemType;                                    // 0x0040 (size: 0x8)
+    uint8 bAutoSortTests;                                                             // 0x0048 (size: 0x1)
 
-};
+}; // Size: 0x50
 
 struct FAIDataProviderBoolValue : public FAIDataProviderTypedValue
 {
-    bool DefaultValue;
+    bool DefaultValue;                                                                // 0x0030 (size: 0x1)
 
-};
+}; // Size: 0x38
 
 class UEnvQueryGenerator_ActorsOfClass : public UEnvQueryGenerator
 {
-    TSubclassOf<class AActor> SearchedActorClass;
-    FAIDataProviderBoolValue GenerateOnlyActorsInRadius;
-    FAIDataProviderFloatValue SearchRadius;
-    TSubclassOf<class UEnvQueryContext> SearchCenter;
+    TSubclassOf<class AActor> SearchedActorClass;                                     // 0x0050 (size: 0x8)
+    FAIDataProviderBoolValue GenerateOnlyActorsInRadius;                              // 0x0058 (size: 0x38)
+    FAIDataProviderFloatValue SearchRadius;                                           // 0x0090 (size: 0x38)
+    TSubclassOf<class UEnvQueryContext> SearchCenter;                                 // 0x00C8 (size: 0x8)
 
-};
+}; // Size: 0xD0
 
 class UEnvQueryGenerator_BlueprintBase : public UEnvQueryGenerator
 {
-    FText GeneratorsActionDescription;
-    TSubclassOf<class UEnvQueryContext> Context;
-    TSubclassOf<class UEnvQueryItemType> GeneratedItemType;
+    FText GeneratorsActionDescription;                                                // 0x0050 (size: 0x18)
+    TSubclassOf<class UEnvQueryContext> Context;                                      // 0x0068 (size: 0x8)
+    TSubclassOf<class UEnvQueryItemType> GeneratedItemType;                           // 0x0070 (size: 0x8)
 
     class UObject* GetQuerier();
     void DoItemGeneration(const TArray<FVector>& ContextLocations);
     void AddGeneratedVector(FVector GeneratedVector);
     void AddGeneratedActor(class AActor* GeneratedActor);
-};
+}; // Size: 0x80
 
 class UEnvQueryGenerator_Composite : public UEnvQueryGenerator
 {
-    TArray<class UEnvQueryGenerator*> Generators;
-    uint8 bAllowDifferentItemTypes;
-    uint8 bHasMatchingItemType;
-    TSubclassOf<class UEnvQueryItemType> ForcedItemType;
+    TArray<class UEnvQueryGenerator*> Generators;                                     // 0x0050 (size: 0x10)
+    uint8 bAllowDifferentItemTypes;                                                   // 0x0060 (size: 0x1)
+    uint8 bHasMatchingItemType;                                                       // 0x0060 (size: 0x1)
+    TSubclassOf<class UEnvQueryItemType> ForcedItemType;                              // 0x0068 (size: 0x8)
 
-};
+}; // Size: 0x70
 
 struct FEnvTraceData
 {
-    int32 VersionNum;
-    TSubclassOf<class UNavigationQueryFilter> NavigationFilter;
-    float ProjectDown;
-    float ProjectUp;
-    float ExtentX;
-    float ExtentY;
-    float ExtentZ;
-    float PostProjectionVerticalOffset;
-    TEnumAsByte<ETraceTypeQuery> TraceChannel;
-    TEnumAsByte<ECollisionChannel> SerializedChannel;
-    TEnumAsByte<EEnvTraceShape::Type> TraceShape;
-    TEnumAsByte<EEnvQueryTrace::Type> TraceMode;
-    uint8 bTraceComplex;
-    uint8 bOnlyBlockingHits;
-    uint8 bCanTraceOnNavMesh;
-    uint8 bCanTraceOnGeometry;
-    uint8 bCanDisableTrace;
-    uint8 bCanProjectDown;
+    int32 VersionNum;                                                                 // 0x0000 (size: 0x4)
+    TSubclassOf<class UNavigationQueryFilter> NavigationFilter;                       // 0x0008 (size: 0x8)
+    float ProjectDown;                                                                // 0x0010 (size: 0x4)
+    float ProjectUp;                                                                  // 0x0014 (size: 0x4)
+    float ExtentX;                                                                    // 0x0018 (size: 0x4)
+    float ExtentY;                                                                    // 0x001C (size: 0x4)
+    float ExtentZ;                                                                    // 0x0020 (size: 0x4)
+    float PostProjectionVerticalOffset;                                               // 0x0024 (size: 0x4)
+    TEnumAsByte<ETraceTypeQuery> TraceChannel;                                        // 0x0028 (size: 0x1)
+    TEnumAsByte<ECollisionChannel> SerializedChannel;                                 // 0x0029 (size: 0x1)
+    TEnumAsByte<EEnvTraceShape::Type> TraceShape;                                     // 0x002A (size: 0x1)
+    TEnumAsByte<EEnvQueryTrace::Type> TraceMode;                                      // 0x002B (size: 0x1)
+    uint8 bTraceComplex;                                                              // 0x002C (size: 0x1)
+    uint8 bOnlyBlockingHits;                                                          // 0x002C (size: 0x1)
+    uint8 bCanTraceOnNavMesh;                                                         // 0x002C (size: 0x1)
+    uint8 bCanTraceOnGeometry;                                                        // 0x002C (size: 0x1)
+    uint8 bCanDisableTrace;                                                           // 0x002C (size: 0x1)
+    uint8 bCanProjectDown;                                                            // 0x002C (size: 0x1)
 
-};
+}; // Size: 0x30
 
 class UEnvQueryGenerator_ProjectedPoints : public UEnvQueryGenerator
 {
-    FEnvTraceData ProjectionData;
+    FEnvTraceData ProjectionData;                                                     // 0x0050 (size: 0x30)
 
-};
+}; // Size: 0x80
 
 class UEnvQueryGenerator_Cone : public UEnvQueryGenerator_ProjectedPoints
 {
-    FAIDataProviderFloatValue AlignedPointsDistance;
-    FAIDataProviderFloatValue ConeDegrees;
-    FAIDataProviderFloatValue AngleStep;
-    FAIDataProviderFloatValue Range;
-    TSubclassOf<class UEnvQueryContext> CenterActor;
-    uint8 bIncludeContextLocation;
+    FAIDataProviderFloatValue AlignedPointsDistance;                                  // 0x0080 (size: 0x38)
+    FAIDataProviderFloatValue ConeDegrees;                                            // 0x00B8 (size: 0x38)
+    FAIDataProviderFloatValue AngleStep;                                              // 0x00F0 (size: 0x38)
+    FAIDataProviderFloatValue Range;                                                  // 0x0128 (size: 0x38)
+    TSubclassOf<class UEnvQueryContext> CenterActor;                                  // 0x0160 (size: 0x8)
+    uint8 bIncludeContextLocation;                                                    // 0x0168 (size: 0x1)
 
-};
+}; // Size: 0x170
 
 class UEnvQueryGenerator_CurrentLocation : public UEnvQueryGenerator
 {
-    TSubclassOf<class UEnvQueryContext> QueryContext;
+    TSubclassOf<class UEnvQueryContext> QueryContext;                                 // 0x0050 (size: 0x8)
 
-};
+}; // Size: 0x58
 
 struct FAIDataProviderIntValue : public FAIDataProviderTypedValue
 {
-    int32 DefaultValue;
+    int32 DefaultValue;                                                               // 0x0030 (size: 0x4)
 
-};
+}; // Size: 0x38
 
 struct FEnvDirection
 {
-    TSubclassOf<class UEnvQueryContext> LineFrom;
-    TSubclassOf<class UEnvQueryContext> LineTo;
-    TSubclassOf<class UEnvQueryContext> Rotation;
-    TEnumAsByte<EEnvDirection::Type> DirMode;
+    TSubclassOf<class UEnvQueryContext> LineFrom;                                     // 0x0000 (size: 0x8)
+    TSubclassOf<class UEnvQueryContext> LineTo;                                       // 0x0008 (size: 0x8)
+    TSubclassOf<class UEnvQueryContext> Rotation;                                     // 0x0010 (size: 0x8)
+    TEnumAsByte<EEnvDirection::Type> DirMode;                                         // 0x0018 (size: 0x1)
 
-};
+}; // Size: 0x20
 
 class UEnvQueryGenerator_Donut : public UEnvQueryGenerator_ProjectedPoints
 {
-    FAIDataProviderFloatValue InnerRadius;
-    FAIDataProviderFloatValue OuterRadius;
-    FAIDataProviderIntValue NumberOfRings;
-    FAIDataProviderIntValue PointsPerRing;
-    FEnvDirection ArcDirection;
-    FAIDataProviderFloatValue ArcAngle;
-    bool bUseSpiralPattern;
-    TSubclassOf<class UEnvQueryContext> Center;
-    uint8 bDefineArc;
+    FAIDataProviderFloatValue InnerRadius;                                            // 0x0080 (size: 0x38)
+    FAIDataProviderFloatValue OuterRadius;                                            // 0x00B8 (size: 0x38)
+    FAIDataProviderIntValue NumberOfRings;                                            // 0x00F0 (size: 0x38)
+    FAIDataProviderIntValue PointsPerRing;                                            // 0x0128 (size: 0x38)
+    FEnvDirection ArcDirection;                                                       // 0x0160 (size: 0x20)
+    FAIDataProviderFloatValue ArcAngle;                                               // 0x0180 (size: 0x38)
+    bool bUseSpiralPattern;                                                           // 0x01B8 (size: 0x1)
+    TSubclassOf<class UEnvQueryContext> Center;                                       // 0x01C0 (size: 0x8)
+    uint8 bDefineArc;                                                                 // 0x01C8 (size: 0x1)
 
-};
+}; // Size: 0x1D0
 
 class UEnvQueryGenerator_OnCircle : public UEnvQueryGenerator_ProjectedPoints
 {
-    FAIDataProviderFloatValue CircleRadius;
-    FAIDataProviderFloatValue SpaceBetween;
-    FAIDataProviderIntValue NumberOfPoints;
-    EPointOnCircleSpacingMethod PointOnCircleSpacingMethod;
-    FEnvDirection ArcDirection;
-    FAIDataProviderFloatValue ArcAngle;
-    float AngleRadians;
-    TSubclassOf<class UEnvQueryContext> CircleCenter;
-    bool bIgnoreAnyContextActorsWhenGeneratingCircle;
-    FAIDataProviderFloatValue CircleCenterZOffset;
-    FEnvTraceData TraceData;
-    uint8 bDefineArc;
+    FAIDataProviderFloatValue CircleRadius;                                           // 0x0080 (size: 0x38)
+    FAIDataProviderFloatValue SpaceBetween;                                           // 0x00B8 (size: 0x38)
+    FAIDataProviderIntValue NumberOfPoints;                                           // 0x00F0 (size: 0x38)
+    EPointOnCircleSpacingMethod PointOnCircleSpacingMethod;                           // 0x0128 (size: 0x1)
+    FEnvDirection ArcDirection;                                                       // 0x0130 (size: 0x20)
+    FAIDataProviderFloatValue ArcAngle;                                               // 0x0150 (size: 0x38)
+    float AngleRadians;                                                               // 0x0188 (size: 0x4)
+    TSubclassOf<class UEnvQueryContext> CircleCenter;                                 // 0x0190 (size: 0x8)
+    bool bIgnoreAnyContextActorsWhenGeneratingCircle;                                 // 0x0198 (size: 0x1)
+    FAIDataProviderFloatValue CircleCenterZOffset;                                    // 0x01A0 (size: 0x38)
+    FEnvTraceData TraceData;                                                          // 0x01D8 (size: 0x30)
+    uint8 bDefineArc;                                                                 // 0x0208 (size: 0x1)
 
-};
+}; // Size: 0x210
 
 class UEnvQueryGenerator_SimpleGrid : public UEnvQueryGenerator_ProjectedPoints
 {
-    FAIDataProviderFloatValue GridSize;
-    FAIDataProviderFloatValue SpaceBetween;
-    TSubclassOf<class UEnvQueryContext> GenerateAround;
+    FAIDataProviderFloatValue GridSize;                                               // 0x0080 (size: 0x38)
+    FAIDataProviderFloatValue SpaceBetween;                                           // 0x00B8 (size: 0x38)
+    TSubclassOf<class UEnvQueryContext> GenerateAround;                               // 0x00F0 (size: 0x8)
 
-};
+}; // Size: 0xF8
 
 class UEnvQueryGenerator_PathingGrid : public UEnvQueryGenerator_SimpleGrid
 {
-    FAIDataProviderBoolValue PathToItem;
-    TSubclassOf<class UNavigationQueryFilter> NavigationFilter;
-    FAIDataProviderFloatValue ScanRangeMultiplier;
+    FAIDataProviderBoolValue PathToItem;                                              // 0x00F8 (size: 0x38)
+    TSubclassOf<class UNavigationQueryFilter> NavigationFilter;                       // 0x0130 (size: 0x8)
+    FAIDataProviderFloatValue ScanRangeMultiplier;                                    // 0x0138 (size: 0x38)
 
-};
+}; // Size: 0x170
 
 class UEnvQueryInstanceBlueprintWrapper : public UObject
 {
-    int32 QueryID;
-    TSubclassOf<class UEnvQueryItemType> ItemType;
-    int32 OptionIndex;
-    FEnvQueryInstanceBlueprintWrapperOnQueryFinishedEvent OnQueryFinishedEvent;
+    int32 QueryID;                                                                    // 0x0030 (size: 0x4)
+    TSubclassOf<class UEnvQueryItemType> ItemType;                                    // 0x0058 (size: 0x8)
+    int32 OptionIndex;                                                                // 0x0060 (size: 0x4)
+    FEnvQueryInstanceBlueprintWrapperOnQueryFinishedEvent OnQueryFinishedEvent;       // 0x0068 (size: 0x10)
     void EQSQueryDoneSignature(class UEnvQueryInstanceBlueprintWrapper* QueryInstance, TEnumAsByte<EEnvQueryStatus::Type> QueryStatus);
 
     void SetNamedParam(FName ParamName, float Value);
@@ -1405,226 +1405,226 @@ class UEnvQueryInstanceBlueprintWrapper : public UObject
     bool GetQueryResultsAsActors(TArray<class AActor*>& ResultActors);
     float GetItemScore(int32 ItemIndex);
     void EQSQueryDoneSignature__DelegateSignature(class UEnvQueryInstanceBlueprintWrapper* QueryInstance, TEnumAsByte<EEnvQueryStatus::Type> QueryStatus);
-};
+}; // Size: 0x78
 
 class UEnvQueryItemType : public UObject
 {
-};
+}; // Size: 0x30
 
 class UEnvQueryItemType_VectorBase : public UEnvQueryItemType
 {
-};
+}; // Size: 0x30
 
 class UEnvQueryItemType_ActorBase : public UEnvQueryItemType_VectorBase
 {
-};
+}; // Size: 0x30
 
 class UEnvQueryItemType_Actor : public UEnvQueryItemType_ActorBase
 {
-};
+}; // Size: 0x30
 
 class UEnvQueryItemType_Direction : public UEnvQueryItemType_VectorBase
 {
-};
+}; // Size: 0x30
 
 class UEnvQueryItemType_Point : public UEnvQueryItemType_VectorBase
 {
-};
+}; // Size: 0x30
 
 struct FEnvQueryInstanceCache
 {
-    class UEnvQuery* Template;
+    class UEnvQuery* Template;                                                        // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x178
 
 class UEnvQueryManager : public UAISubsystem
 {
-    TArray<FEnvQueryInstanceCache> InstanceCache;
-    TArray<class UEnvQueryContext*> LocalContexts;
-    TArray<class UEnvQueryInstanceBlueprintWrapper*> GCShieldedWrappers;
-    float MaxAllowedTestingTime;
-    bool bTestQueriesUsingBreadth;
-    int32 QueryCountWarningThreshold;
-    double QueryCountWarningInterval;
+    TArray<FEnvQueryInstanceCache> InstanceCache;                                     // 0x00A8 (size: 0x10)
+    TArray<class UEnvQueryContext*> LocalContexts;                                    // 0x00B8 (size: 0x10)
+    TArray<class UEnvQueryInstanceBlueprintWrapper*> GCShieldedWrappers;              // 0x00C8 (size: 0x10)
+    float MaxAllowedTestingTime;                                                      // 0x012C (size: 0x4)
+    bool bTestQueriesUsingBreadth;                                                    // 0x0130 (size: 0x1)
+    int32 QueryCountWarningThreshold;                                                 // 0x0134 (size: 0x4)
+    double QueryCountWarningInterval;                                                 // 0x0138 (size: 0x8)
 
     class UEnvQueryInstanceBlueprintWrapper* RunEQSQuery(class UObject* WorldContextObject, class UEnvQuery* QueryTemplate, class UObject* Querier, TEnumAsByte<EEnvQueryRunMode::Type> RunMode, TSubclassOf<class UEnvQueryInstanceBlueprintWrapper> WrapperClass);
-};
+}; // Size: 0x140
 
 class UEnvQueryOption : public UObject
 {
-    class UEnvQueryGenerator* Generator;
-    TArray<class UEnvQueryTest*> Tests;
+    class UEnvQueryGenerator* Generator;                                              // 0x0028 (size: 0x8)
+    TArray<class UEnvQueryTest*> Tests;                                               // 0x0030 (size: 0x10)
 
-};
+}; // Size: 0x40
 
 class UEnvQueryTest : public UEnvQueryNode
 {
-    int32 TestOrder;
-    TEnumAsByte<EEnvTestPurpose::Type> TestPurpose;
-    FString TestComment;
-    TEnumAsByte<EEnvTestFilterOperator::Type> MultipleContextFilterOp;
-    TEnumAsByte<EEnvTestScoreOperator::Type> MultipleContextScoreOp;
-    TEnumAsByte<EEnvTestFilterType::Type> FilterType;
-    FAIDataProviderBoolValue BoolValue;
-    FAIDataProviderFloatValue FloatValueMin;
-    FAIDataProviderFloatValue FloatValueMax;
-    TEnumAsByte<EEnvTestScoreEquation::Type> ScoringEquation;
-    TEnumAsByte<EEnvQueryTestClamping::Type> ClampMinType;
-    TEnumAsByte<EEnvQueryTestClamping::Type> ClampMaxType;
-    EEQSNormalizationType NormalizationType;
-    FAIDataProviderFloatValue ScoreClampMin;
-    FAIDataProviderFloatValue ScoreClampMax;
-    FAIDataProviderFloatValue ScoringFactor;
-    FAIDataProviderFloatValue ReferenceValue;
-    bool bDefineReferenceValue;
-    uint8 bWorkOnFloatValues;
+    int32 TestOrder;                                                                  // 0x0030 (size: 0x4)
+    TEnumAsByte<EEnvTestPurpose::Type> TestPurpose;                                   // 0x0034 (size: 0x1)
+    FString TestComment;                                                              // 0x0038 (size: 0x10)
+    TEnumAsByte<EEnvTestFilterOperator::Type> MultipleContextFilterOp;                // 0x0048 (size: 0x1)
+    TEnumAsByte<EEnvTestScoreOperator::Type> MultipleContextScoreOp;                  // 0x0049 (size: 0x1)
+    TEnumAsByte<EEnvTestFilterType::Type> FilterType;                                 // 0x004A (size: 0x1)
+    FAIDataProviderBoolValue BoolValue;                                               // 0x0050 (size: 0x38)
+    FAIDataProviderFloatValue FloatValueMin;                                          // 0x0088 (size: 0x38)
+    FAIDataProviderFloatValue FloatValueMax;                                          // 0x00C0 (size: 0x38)
+    TEnumAsByte<EEnvTestScoreEquation::Type> ScoringEquation;                         // 0x00F9 (size: 0x1)
+    TEnumAsByte<EEnvQueryTestClamping::Type> ClampMinType;                            // 0x00FA (size: 0x1)
+    TEnumAsByte<EEnvQueryTestClamping::Type> ClampMaxType;                            // 0x00FB (size: 0x1)
+    EEQSNormalizationType NormalizationType;                                          // 0x00FC (size: 0x1)
+    FAIDataProviderFloatValue ScoreClampMin;                                          // 0x0100 (size: 0x38)
+    FAIDataProviderFloatValue ScoreClampMax;                                          // 0x0138 (size: 0x38)
+    FAIDataProviderFloatValue ScoringFactor;                                          // 0x0170 (size: 0x38)
+    FAIDataProviderFloatValue ReferenceValue;                                         // 0x01A8 (size: 0x38)
+    bool bDefineReferenceValue;                                                       // 0x01E0 (size: 0x1)
+    uint8 bWorkOnFloatValues;                                                         // 0x01F0 (size: 0x1)
 
-};
+}; // Size: 0x1F8
 
 class UEnvQueryTest_Distance : public UEnvQueryTest
 {
-    TEnumAsByte<EEnvTestDistance::Type> TestMode;
-    TSubclassOf<class UEnvQueryContext> DistanceTo;
+    TEnumAsByte<EEnvTestDistance::Type> TestMode;                                     // 0x01F8 (size: 0x1)
+    TSubclassOf<class UEnvQueryContext> DistanceTo;                                   // 0x0200 (size: 0x8)
 
-};
+}; // Size: 0x208
 
 class UEnvQueryTest_Dot : public UEnvQueryTest
 {
-    FEnvDirection LineA;
-    FEnvDirection LineB;
-    EEnvTestDot TestMode;
-    bool bAbsoluteValue;
+    FEnvDirection LineA;                                                              // 0x01F8 (size: 0x20)
+    FEnvDirection LineB;                                                              // 0x0218 (size: 0x20)
+    EEnvTestDot TestMode;                                                             // 0x0238 (size: 0x1)
+    bool bAbsoluteValue;                                                              // 0x0239 (size: 0x1)
 
-};
+}; // Size: 0x240
 
 class UEnvQueryTest_GameplayTags : public UEnvQueryTest
 {
-    FGameplayTagQuery TagQueryToMatch;
-    bool bUpdatedToUseQuery;
-    EGameplayContainerMatchType TagsToMatch;
-    FGameplayTagContainer GameplayTags;
+    FGameplayTagQuery TagQueryToMatch;                                                // 0x01F8 (size: 0x48)
+    bool bUpdatedToUseQuery;                                                          // 0x0240 (size: 0x1)
+    EGameplayContainerMatchType TagsToMatch;                                          // 0x0241 (size: 0x1)
+    FGameplayTagContainer GameplayTags;                                               // 0x0248 (size: 0x20)
 
-};
+}; // Size: 0x268
 
 struct FEnvOverlapData
 {
-    float ExtentX;
-    float ExtentY;
-    float ExtentZ;
-    FVector ShapeOffset;
-    TEnumAsByte<ECollisionChannel> OverlapChannel;
-    TEnumAsByte<EEnvOverlapShape::Type> OverlapShape;
-    uint8 bOnlyBlockingHits;
-    uint8 bOverlapComplex;
-    uint8 bSkipOverlapQuerier;
+    float ExtentX;                                                                    // 0x0000 (size: 0x4)
+    float ExtentY;                                                                    // 0x0004 (size: 0x4)
+    float ExtentZ;                                                                    // 0x0008 (size: 0x4)
+    FVector ShapeOffset;                                                              // 0x000C (size: 0xC)
+    TEnumAsByte<ECollisionChannel> OverlapChannel;                                    // 0x0018 (size: 0x1)
+    TEnumAsByte<EEnvOverlapShape::Type> OverlapShape;                                 // 0x0019 (size: 0x1)
+    uint8 bOnlyBlockingHits;                                                          // 0x001C (size: 0x1)
+    uint8 bOverlapComplex;                                                            // 0x001C (size: 0x1)
+    uint8 bSkipOverlapQuerier;                                                        // 0x001C (size: 0x1)
 
-};
+}; // Size: 0x20
 
 class UEnvQueryTest_Overlap : public UEnvQueryTest
 {
-    FEnvOverlapData OverlapData;
+    FEnvOverlapData OverlapData;                                                      // 0x01F8 (size: 0x20)
 
-};
+}; // Size: 0x218
 
 class UEnvQueryTest_Pathfinding : public UEnvQueryTest
 {
-    TEnumAsByte<EEnvTestPathfinding::Type> TestMode;
-    TSubclassOf<class UEnvQueryContext> Context;
-    FAIDataProviderBoolValue PathFromContext;
-    FAIDataProviderBoolValue SkipUnreachable;
-    TSubclassOf<class UNavigationQueryFilter> FilterClass;
+    TEnumAsByte<EEnvTestPathfinding::Type> TestMode;                                  // 0x01F8 (size: 0x1)
+    TSubclassOf<class UEnvQueryContext> Context;                                      // 0x0200 (size: 0x8)
+    FAIDataProviderBoolValue PathFromContext;                                         // 0x0208 (size: 0x38)
+    FAIDataProviderBoolValue SkipUnreachable;                                         // 0x0240 (size: 0x38)
+    TSubclassOf<class UNavigationQueryFilter> FilterClass;                            // 0x0278 (size: 0x8)
 
-};
+}; // Size: 0x280
 
 class UEnvQueryTest_PathfindingBatch : public UEnvQueryTest_Pathfinding
 {
-    FAIDataProviderFloatValue ScanRangeMultiplier;
+    FAIDataProviderFloatValue ScanRangeMultiplier;                                    // 0x0280 (size: 0x38)
 
-};
+}; // Size: 0x2B8
 
 class UEnvQueryTest_Project : public UEnvQueryTest
 {
-    FEnvTraceData ProjectionData;
+    FEnvTraceData ProjectionData;                                                     // 0x01F8 (size: 0x30)
 
-};
+}; // Size: 0x228
 
 class UEnvQueryTest_Random : public UEnvQueryTest
 {
-};
+}; // Size: 0x1F8
 
 class UEnvQueryTest_Trace : public UEnvQueryTest
 {
-    FEnvTraceData TraceData;
-    FAIDataProviderBoolValue TraceFromContext;
-    FAIDataProviderFloatValue ItemHeightOffset;
-    FAIDataProviderFloatValue ContextHeightOffset;
-    TSubclassOf<class UEnvQueryContext> Context;
+    FEnvTraceData TraceData;                                                          // 0x01F8 (size: 0x30)
+    FAIDataProviderBoolValue TraceFromContext;                                        // 0x0228 (size: 0x38)
+    FAIDataProviderFloatValue ItemHeightOffset;                                       // 0x0260 (size: 0x38)
+    FAIDataProviderFloatValue ContextHeightOffset;                                    // 0x0298 (size: 0x38)
+    TSubclassOf<class UEnvQueryContext> Context;                                      // 0x02D0 (size: 0x8)
 
-};
+}; // Size: 0x2D8
 
 class UEnvQueryTest_Volume : public UEnvQueryTest
 {
-    TSubclassOf<class UEnvQueryContext> VolumeContext;
-    TSubclassOf<class AVolume> VolumeClass;
-    uint8 bDoComplexVolumeTest;
+    TSubclassOf<class UEnvQueryContext> VolumeContext;                                // 0x01F8 (size: 0x8)
+    TSubclassOf<class AVolume> VolumeClass;                                           // 0x0200 (size: 0x8)
+    uint8 bDoComplexVolumeTest;                                                       // 0x0208 (size: 0x1)
 
-};
+}; // Size: 0x210
 
 class UEnvQueryTypes : public UObject
 {
-};
+}; // Size: 0x28
 
 class IEQSQueryResultSourceInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UEQSRenderingComponent : public UPrimitiveComponent
 {
-};
+}; // Size: 0x480
 
 class AEQSTestingPawn : public ACharacter
 {
-    class UEnvQuery* QueryTemplate;
-    TArray<FEnvNamedValue> queryParams;
-    TArray<FAIDynamicParam> QueryConfig;
-    float TimeLimitPerStep;
-    int32 StepToDebugDraw;
-    EEnvQueryHightlightMode HighlightMode;
-    uint8 bDrawLabels;
-    uint8 bDrawFailedItems;
-    uint8 bReRunQueryOnlyOnFinishedMove;
-    uint8 bShouldBeVisibleInGame;
-    uint8 bTickDuringGame;
-    TEnumAsByte<EEnvQueryRunMode::Type> QueryingMode;
-    FNavAgentProperties NavAgentProperties;
+    class UEnvQuery* QueryTemplate;                                                   // 0x04C0 (size: 0x8)
+    TArray<FEnvNamedValue> queryParams;                                               // 0x04C8 (size: 0x10)
+    TArray<FAIDynamicParam> QueryConfig;                                              // 0x04D8 (size: 0x10)
+    float TimeLimitPerStep;                                                           // 0x04E8 (size: 0x4)
+    int32 StepToDebugDraw;                                                            // 0x04EC (size: 0x4)
+    EEnvQueryHightlightMode HighlightMode;                                            // 0x04F0 (size: 0x1)
+    uint8 bDrawLabels;                                                                // 0x04F4 (size: 0x1)
+    uint8 bDrawFailedItems;                                                           // 0x04F4 (size: 0x1)
+    uint8 bReRunQueryOnlyOnFinishedMove;                                              // 0x04F4 (size: 0x1)
+    uint8 bShouldBeVisibleInGame;                                                     // 0x04F4 (size: 0x1)
+    uint8 bTickDuringGame;                                                            // 0x04F4 (size: 0x1)
+    TEnumAsByte<EEnvQueryRunMode::Type> QueryingMode;                                 // 0x04F8 (size: 0x1)
+    FNavAgentProperties NavAgentProperties;                                           // 0x0500 (size: 0x30)
 
-};
+}; // Size: 0x550
 
 class IGenericTeamAgentInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class AGridPathAIController : public AAIController
 {
-};
+}; // Size: 0x328
 
 class UGridPathFollowingComponent : public UPathFollowingComponent
 {
-    class UNavLocalGridManager* GridManager;
+    class UNavLocalGridManager* GridManager;                                          // 0x0250 (size: 0x8)
 
-};
+}; // Size: 0x280
 
 class UNavFilter_AIControllerDefault : public UNavigationQueryFilter
 {
-};
+}; // Size: 0x48
 
 class ANavLinkProxy : public AActor
 {
-    TArray<FNavigationLink> PointLinks;
-    TArray<FNavigationSegmentLink> SegmentLinks;
-    class UNavLinkCustomComponent* SmartLinkComp;
-    bool bSmartLinkIsRelevant;
-    FNavLinkProxyOnSmartLinkReached OnSmartLinkReached;
+    TArray<FNavigationLink> PointLinks;                                               // 0x0230 (size: 0x10)
+    TArray<FNavigationSegmentLink> SegmentLinks;                                      // 0x0240 (size: 0x10)
+    class UNavLinkCustomComponent* SmartLinkComp;                                     // 0x0250 (size: 0x8)
+    bool bSmartLinkIsRelevant;                                                        // 0x0258 (size: 0x1)
+    FNavLinkProxyOnSmartLinkReached OnSmartLinkReached;                               // 0x0260 (size: 0x10)
     void SmartLinkReachedSignature(class AActor* MovingActor, const FVector& DestinationPoint);
 
     void SetSmartLinkEnabled(bool bEnabled);
@@ -1632,7 +1632,7 @@ class ANavLinkProxy : public AActor
     void ReceiveSmartLinkReached(class AActor* Agent, const FVector& Destination);
     bool IsSmartLinkEnabled();
     bool HasMovingAgents();
-};
+}; // Size: 0x270
 
 class UNavLocalGridManager : public UObject
 {
@@ -1644,28 +1644,28 @@ class UNavLocalGridManager : public UObject
     int32 AddLocalNavigationGridForPoint(class UObject* WorldContextObject, const FVector& Location, const int32 Radius2D, const float Height, bool bRebuildGrids);
     int32 AddLocalNavigationGridForCapsule(class UObject* WorldContextObject, const FVector& Location, float CapsuleRadius, float CapsuleHalfHeight, const int32 Radius2D, const float Height, bool bRebuildGrids);
     int32 AddLocalNavigationGridForBox(class UObject* WorldContextObject, const FVector& Location, FVector Extent, FRotator Rotation, const int32 Radius2D, const float Height, bool bRebuildGrids);
-};
+}; // Size: 0x58
 
 class UPathFollowingManager : public UObject
 {
-};
+}; // Size: 0x28
 
 class UPawnAction : public UObject
 {
-    class UPawnAction* ChildAction;
-    class UPawnAction* ParentAction;
-    class UPawnActionsComponent* OwnerComponent;
-    class UObject* Instigator;
-    class UBrainComponent* BrainComp;
-    uint8 bAllowNewSameClassInstance;
-    uint8 bReplaceActiveSameClassInstance;
-    uint8 bShouldPauseMovement;
-    uint8 bAlwaysNotifyOnFinished;
+    class UPawnAction* ChildAction;                                                   // 0x0028 (size: 0x8)
+    class UPawnAction* ParentAction;                                                  // 0x0030 (size: 0x8)
+    class UPawnActionsComponent* OwnerComponent;                                      // 0x0038 (size: 0x8)
+    class UObject* Instigator;                                                        // 0x0040 (size: 0x8)
+    class UBrainComponent* BrainComp;                                                 // 0x0048 (size: 0x8)
+    uint8 bAllowNewSameClassInstance;                                                 // 0x0080 (size: 0x1)
+    uint8 bReplaceActiveSameClassInstance;                                            // 0x0080 (size: 0x1)
+    uint8 bShouldPauseMovement;                                                       // 0x0080 (size: 0x1)
+    uint8 bAlwaysNotifyOnFinished;                                                    // 0x0080 (size: 0x1)
 
     TEnumAsByte<EAIRequestPriority::Type> GetActionPriority();
     void Finish(TEnumAsByte<EPawnActionResult::Type> WithResult);
     class UPawnAction* CreateActionInstance(class UObject* WorldContextObject, TSubclassOf<class UPawnAction> ActionClass);
-};
+}; // Size: 0x98
 
 class UPawnAction_BlueprintBase : public UPawnAction
 {
@@ -1675,88 +1675,88 @@ class UPawnAction_BlueprintBase : public UPawnAction
     void ActionResume(class APawn* ControlledPawn);
     void ActionPause(class APawn* ControlledPawn);
     void ActionFinished(class APawn* ControlledPawn, TEnumAsByte<EPawnActionResult::Type> WithResult);
-};
+}; // Size: 0x98
 
 class UPawnAction_Move : public UPawnAction
 {
-    class AActor* GoalActor;
-    FVector GoalLocation;
-    float AcceptableRadius;
-    TSubclassOf<class UNavigationQueryFilter> FilterClass;
-    uint8 bAllowStrafe;
-    uint8 bFinishOnOverlap;
-    uint8 bUsePathfinding;
-    uint8 bAllowPartialPath;
-    uint8 bProjectGoalToNavigation;
-    uint8 bUpdatePathToGoal;
-    uint8 bAbortChildActionOnPathChange;
+    class AActor* GoalActor;                                                          // 0x0098 (size: 0x8)
+    FVector GoalLocation;                                                             // 0x00A0 (size: 0xC)
+    float AcceptableRadius;                                                           // 0x00AC (size: 0x4)
+    TSubclassOf<class UNavigationQueryFilter> FilterClass;                            // 0x00B0 (size: 0x8)
+    uint8 bAllowStrafe;                                                               // 0x00B8 (size: 0x1)
+    uint8 bFinishOnOverlap;                                                           // 0x00B8 (size: 0x1)
+    uint8 bUsePathfinding;                                                            // 0x00B8 (size: 0x1)
+    uint8 bAllowPartialPath;                                                          // 0x00B8 (size: 0x1)
+    uint8 bProjectGoalToNavigation;                                                   // 0x00B8 (size: 0x1)
+    uint8 bUpdatePathToGoal;                                                          // 0x00B8 (size: 0x1)
+    uint8 bAbortChildActionOnPathChange;                                              // 0x00B8 (size: 0x1)
 
-};
+}; // Size: 0xE8
 
 class UPawnAction_Repeat : public UPawnAction
 {
-    class UPawnAction* ActionToRepeat;
-    class UPawnAction* RecentActionCopy;
-    TEnumAsByte<EPawnActionFailHandling::Type> ChildFailureHandlingMode;
+    class UPawnAction* ActionToRepeat;                                                // 0x0098 (size: 0x8)
+    class UPawnAction* RecentActionCopy;                                              // 0x00A0 (size: 0x8)
+    TEnumAsByte<EPawnActionFailHandling::Type> ChildFailureHandlingMode;              // 0x00A8 (size: 0x1)
 
-};
+}; // Size: 0xB8
 
 class UPawnAction_Sequence : public UPawnAction
 {
-    TArray<class UPawnAction*> ActionSequence;
-    TEnumAsByte<EPawnActionFailHandling::Type> ChildFailureHandlingMode;
-    class UPawnAction* RecentActionCopy;
+    TArray<class UPawnAction*> ActionSequence;                                        // 0x0098 (size: 0x10)
+    TEnumAsByte<EPawnActionFailHandling::Type> ChildFailureHandlingMode;              // 0x00A8 (size: 0x1)
+    class UPawnAction* RecentActionCopy;                                              // 0x00B0 (size: 0x8)
 
-};
+}; // Size: 0xC0
 
 class UPawnAction_Wait : public UPawnAction
 {
-    float TimeToWait;
+    float TimeToWait;                                                                 // 0x0098 (size: 0x4)
 
-};
+}; // Size: 0xA8
 
 struct FPawnActionStack
 {
-    class UPawnAction* TopAction;
+    class UPawnAction* TopAction;                                                     // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x8
 
 struct FPawnActionEvent
 {
-    class UPawnAction* Action;
+    class UPawnAction* Action;                                                        // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x18
 
 class UPawnActionsComponent : public UActorComponent
 {
-    class APawn* ControlledPawn;
-    TArray<FPawnActionStack> ActionStacks;
-    TArray<FPawnActionEvent> ActionEvents;
-    class UPawnAction* CurrentAction;
+    class APawn* ControlledPawn;                                                      // 0x00B0 (size: 0x8)
+    TArray<FPawnActionStack> ActionStacks;                                            // 0x00B8 (size: 0x10)
+    TArray<FPawnActionEvent> ActionEvents;                                            // 0x00C8 (size: 0x10)
+    class UPawnAction* CurrentAction;                                                 // 0x00D8 (size: 0x8)
 
     bool K2_PushAction(class UPawnAction* NewAction, TEnumAsByte<EAIRequestPriority::Type> Priority, class UObject* Instigator);
     bool K2_PerformAction(class APawn* Pawn, class UPawnAction* Action, TEnumAsByte<EAIRequestPriority::Type> Priority);
     TEnumAsByte<EPawnActionAbortState::Type> K2_ForceAbortAction(class UPawnAction* ActionToAbort);
     TEnumAsByte<EPawnActionAbortState::Type> K2_AbortAction(class UPawnAction* ActionToAbort);
-};
+}; // Size: 0xE8
 
 class UPawnSensingComponent : public UActorComponent
 {
-    float HearingThreshold;
-    float LOSHearingThreshold;
-    float SightRadius;
-    float SensingInterval;
-    float HearingMaxSoundAge;
-    uint8 bEnableSensingUpdates;
-    uint8 bOnlySensePlayers;
-    uint8 bSeePawns;
-    uint8 bHearNoises;
-    FPawnSensingComponentOnSeePawn OnSeePawn;
+    float HearingThreshold;                                                           // 0x00B0 (size: 0x4)
+    float LOSHearingThreshold;                                                        // 0x00B4 (size: 0x4)
+    float SightRadius;                                                                // 0x00B8 (size: 0x4)
+    float SensingInterval;                                                            // 0x00BC (size: 0x4)
+    float HearingMaxSoundAge;                                                         // 0x00C0 (size: 0x4)
+    uint8 bEnableSensingUpdates;                                                      // 0x00C4 (size: 0x1)
+    uint8 bOnlySensePlayers;                                                          // 0x00C4 (size: 0x1)
+    uint8 bSeePawns;                                                                  // 0x00C4 (size: 0x1)
+    uint8 bHearNoises;                                                                // 0x00C4 (size: 0x1)
+    FPawnSensingComponentOnSeePawn OnSeePawn;                                         // 0x00D0 (size: 0x10)
     void SeePawnDelegate(class APawn* Pawn);
-    FPawnSensingComponentOnHearNoise OnHearNoise;
+    FPawnSensingComponentOnHearNoise OnHearNoise;                                     // 0x00E0 (size: 0x10)
     void HearNoiseDelegate(class APawn* Instigator, const FVector& Location, float Volume);
-    float PeripheralVisionAngle;
-    float PeripheralVisionCosine;
+    float PeripheralVisionAngle;                                                      // 0x00F0 (size: 0x4)
+    float PeripheralVisionCosine;                                                     // 0x00F4 (size: 0x4)
 
     void SetSensingUpdatesEnabled(const bool bEnabled);
     void SetSensingInterval(const float NewSensingInterval);
@@ -1765,47 +1765,47 @@ class UPawnSensingComponent : public UActorComponent
     void HearNoiseDelegate__DelegateSignature(class APawn* Instigator, const FVector& Location, float Volume);
     float GetPeripheralVisionCosine();
     float GetPeripheralVisionAngle();
-};
+}; // Size: 0xF8
 
 class UVisualLoggerExtension : public UObject
 {
-};
+}; // Size: 0x28
 
 struct FAIDataProviderStructValue : public FAIDataProviderValue
 {
-};
+}; // Size: 0x30
 
 struct FAISightEvent
 {
-    class AActor* SeenActor;
-    class AActor* Observer;
+    class AActor* SeenActor;                                                          // 0x0008 (size: 0x8)
+    class AActor* Observer;                                                           // 0x0010 (size: 0x8)
 
-};
+}; // Size: 0x18
 
 struct FEnvQueryRequest
 {
-    class UEnvQuery* QueryTemplate;
-    class UObject* Owner;
-    class UWorld* World;
+    class UEnvQuery* QueryTemplate;                                                   // 0x0000 (size: 0x8)
+    class UObject* Owner;                                                             // 0x0008 (size: 0x8)
+    class UWorld* World;                                                              // 0x0010 (size: 0x8)
 
-};
+}; // Size: 0x68
 
 struct FEnvQueryResult
 {
-    TSubclassOf<class UEnvQueryItemType> ItemType;
-    int32 OptionIndex;
-    int32 QueryID;
+    TSubclassOf<class UEnvQueryItemType> ItemType;                                    // 0x0010 (size: 0x8)
+    int32 OptionIndex;                                                                // 0x002C (size: 0x4)
+    int32 QueryID;                                                                    // 0x0030 (size: 0x4)
 
-};
+}; // Size: 0x40
 
 struct FGenericTeamId
 {
-    uint8 TeamID;
+    uint8 TeamID;                                                                     // 0x0000 (size: 0x1)
 
-};
+}; // Size: 0x1
 
 struct FDefault__AISenseBlueprintListener
 {
-};
+}; // Size: 0x0
 
 #endif

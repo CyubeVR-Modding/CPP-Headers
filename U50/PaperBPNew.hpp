@@ -3,22 +3,22 @@
 
 class APaperBPNew_C : public ADraftUnlockingPaper
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UAudioComponent* Sound;
-    class UParticleSystemComponent* P_Loot_Idle_Loop;
-    class UParticleSystemComponent* P_levelUp_Detail2;
-    class UStaticMeshComponent* PaperE;
-    class USceneComponent* Scene;
-    class UBoxComponent* Box;
-    float Timeline_0_Amount_17986A02463FACAAF3572DAA849A810E;
-    TEnumAsByte<ETimelineDirection::Type> Timeline_0__Direction_17986A02463FACAAF3572DAA849A810E;
-    class UTimelineComponent* Timeline_0;
-    float Dissolve_Amount_DFB4F0014398027AD02C47849C81CA16;
-    TEnumAsByte<ETimelineDirection::Type> Dissolve__Direction_DFB4F0014398027AD02C47849C81CA16;
-    class UTimelineComponent* Dissolve;
-    TEnumAsByte<hand> CurrentSelectedHand;
-    class UMaterialInstanceDynamic* MaterialInstance;
-    bool IsDissolving;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0238 (size: 0x8)
+    class UAudioComponent* Sound;                                                     // 0x0240 (size: 0x8)
+    class UParticleSystemComponent* P_Loot_Idle_Loop;                                 // 0x0248 (size: 0x8)
+    class UParticleSystemComponent* P_levelUp_Detail2;                                // 0x0250 (size: 0x8)
+    class UStaticMeshComponent* PaperE;                                               // 0x0258 (size: 0x8)
+    class USceneComponent* Scene;                                                     // 0x0260 (size: 0x8)
+    class UBoxComponent* Box;                                                         // 0x0268 (size: 0x8)
+    float Timeline_0_Amount_17986A02463FACAAF3572DAA849A810E;                         // 0x0270 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> Timeline_0__Direction_17986A02463FACAAF3572DAA849A810E; // 0x0274 (size: 0x1)
+    class UTimelineComponent* Timeline_0;                                             // 0x0278 (size: 0x8)
+    float Dissolve_Amount_DFB4F0014398027AD02C47849C81CA16;                           // 0x0280 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> Dissolve__Direction_DFB4F0014398027AD02C47849C81CA16; // 0x0284 (size: 0x1)
+    class UTimelineComponent* Dissolve;                                               // 0x0288 (size: 0x8)
+    TEnumAsByte<hand> CurrentSelectedHand;                                            // 0x0290 (size: 0x1)
+    class UMaterialInstanceDynamic* MaterialInstance;                                 // 0x0298 (size: 0x8)
+    bool IsDissolving;                                                                // 0x02A0 (size: 0x1)
 
     void SetGravityGloveTargetIndicatorActive(bool Active, bool Left, bool& _);
     void GetRealWorldLocation(FVector& Location);
@@ -44,6 +44,6 @@ class APaperBPNew_C : public ADraftUnlockingPaper
     void ReceiveTick(float DeltaSeconds);
     void ShowType();
     void ExecuteUbergraph_PaperBPNew(int32 EntryPoint);
-};
+}; // Size: 0x2A1
 
 #endif

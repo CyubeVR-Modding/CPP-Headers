@@ -3,7 +3,7 @@
 
 class UUWorksLibrary : public UUWorks
 {
-};
+}; // Size: 0x28
 
 class UUWorksLibraryConversions : public UUWorksLibrary
 {
@@ -11,7 +11,7 @@ class UUWorksLibraryConversions : public UUWorksLibrary
     FString GetCurrentProcessId();
     TArray<uint8> ConvertStringToBytes(FString Data);
     FString ConvertBytesToString(TArray<uint8> Data);
-};
+}; // Size: 0x28
 
 class UUWorksLibraryGameID : public UUWorksLibrary
 {
@@ -30,7 +30,7 @@ class UUWorksLibraryGameID : public UUWorksLibrary
     FUWorksGameID ConstructFromParametersC(int32 AppID, int32 ModID);
     FUWorksGameID ConstructFromParametersB(int32 AppID);
     FUWorksGameID ConstructFromParametersA(FString Identifier);
-};
+}; // Size: 0x28
 
 class UUWorksLibraryLex : public UUWorksLibrary
 {
@@ -67,7 +67,7 @@ class UUWorksLibraryLex : public UUWorksLibrary
     FString ReadControllerDigitalActionHandle(FUWorksControllerDigitalActionHandle Value);
     FString ReadControllerAnalogActionHandle(FUWorksControllerAnalogActionHandle Value);
     FString ReadControllerActionSetHandle(FUWorksControllerActionSetHandle Value);
-};
+}; // Size: 0x28
 
 class UUWorksLibrarySteamID : public UUWorksLibrary
 {
@@ -107,25 +107,25 @@ class UUWorksLibrarySteamID : public UUWorksLibrary
     FUWorksSteamID ConstructFromParametersA(FString Identifier);
     void ClearIndividualInstance(FUWorksSteamID& SteamID);
     void Clear(FUWorksSteamID& SteamID);
-};
+}; // Size: 0x28
 
 class UUWorksLibraryTickets : public UUWorksLibrary
 {
-};
+}; // Size: 0x28
 
 class UUWorksManager : public UUWorks
 {
-};
+}; // Size: 0x28
 
 class UUWorksManagerNetwork : public UUWorksManager
 {
-    FUWorksManagerNetworkRefreshComplete RefreshComplete;
+    FUWorksManagerNetworkRefreshComplete RefreshComplete;                             // 0x0080 (size: 0x10)
     void RefreshCompleteDelegate(FString AddressSteam, FString AddressExternal, FString AddressInternal, int32 Port);
 
     void Refresh();
     FString GetNetDriverClassName();
     class UUWorksManagerNetwork* GetManagerNetwork();
     void CreateSessionUWorks(FName SessionName, int32 NumPublicConnections, bool bIsLANMatch);
-};
+}; // Size: 0x90
 
 #endif

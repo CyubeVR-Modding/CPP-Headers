@@ -3,6 +3,6 @@
 
 class ABlockItemVR_NoPhysicsState_C : public ABlockItemVR_C
 {
-};
+}; // Size: 0x508
 
 #endif

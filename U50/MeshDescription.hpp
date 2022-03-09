@@ -5,37 +5,37 @@
 
 struct FElementID
 {
-    int32 IDValue;
+    int32 IDValue;                                                                    // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FVertexID : public FElementID
 {
-};
+}; // Size: 0x4
 
 struct FEdgeID : public FElementID
 {
-};
+}; // Size: 0x4
 
 struct FPolygonID : public FElementID
 {
-};
+}; // Size: 0x4
 
 struct FVertexInstanceID : public FElementID
 {
-};
+}; // Size: 0x4
 
 struct FPolygonGroupID : public FElementID
 {
-};
+}; // Size: 0x4
 
 struct FTriangleID : public FElementID
 {
-};
+}; // Size: 0x4
 
 class UDEPRECATED_MeshDescription : public UObject
 {
-};
+}; // Size: 0x28
 
 class UMeshDescriptionBase : public UObject
 {
@@ -125,6 +125,6 @@ class UMeshDescriptionBase : public UObject
     void CreateEdgeWithID(FEdgeID EdgeID, FVertexID VertexID0, FVertexID VertexID1);
     FEdgeID CreateEdge(FVertexID VertexID0, FVertexID VertexID1);
     void ComputePolygonTriangulation(FPolygonID PolygonID);
-};
+}; // Size: 0x390
 
 #endif

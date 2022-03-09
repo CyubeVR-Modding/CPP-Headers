@@ -3,52 +3,52 @@
 
 class UBenchmarkEndWidget_C : public UUserWidget
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UWidgetAnimation* FlyIn;
-    class UBackgroundBlur* BackgroundBlur_0;
-    class UBenchmarkLeaderboards_C* BenchmarkLeaderboards;
-    class UButton* Button_4;
-    class UButton* Button_5;
-    class UButton* Button_7;
-    class UButton* Button_BackToMenu;
-    class UButton* Button_OpenSteamOverlayBuyDLC;
-    class UButton* Button_SwitchView;
-    class UCircularThrobber* CircularThrobber_100;
-    class UHardwareInfoWidget_C* HardwareInfoWidget;
-    class UHorizontalBox* HorizontalBox_Leaderboards;
-    class UHorizontalBox* HorizontalBox_Results;
-    class UHorizontalBox* HorizontalBox_UpperButtons;
-    class UImage* Image_67;
-    class UImage* Image_68;
-    class URetainerBox* RetainerBox_Result;
-    class UTextBlock* TextBlock_0;
-    class UTextBlock* TextBlock_2;
-    class UTextBlock* TextBlock_3;
-    class UTextBlock* TextBlock_14;
-    class UTextBlock* TextBlock_15;
-    class UTextBlock* TextBlock_01PLOW;
-    class UTextBlock* TextBlock_1PLOW;
-    class UTextBlock* TextBlock_ButtonSwitchText;
-    class UTextBlock* TextBlock_InaccurateResults;
-    class UTextBlock* TextBlock_LeaderboardAmount;
-    class UTextBlock* TextBlock_ResultsComparison;
-    class UTextBlock* TextBlock_UNUSUALRESULTS;
-    class UVerticalBox* VerticalBox_BuyDLC;
-    class UWidgetSwitcher* WidgetSwitcher_ComparedResults;
-    class UMediaPlayer* BackgroundMediaPlayer;
-    float BlurTarget;
-    class UMaterialInstanceDynamic* ExportMaterial;
-    float FPS;
-    float Low1FPS;
-    float Low03FPS;
-    bool LeaderboardsVisible;
-    FUWorksSteamLeaderboard LeaderboardRef;
-    FString CurrentHeadsetName;
-    FString CurrentGPUName;
-    class UBenchmarkEndSaveGame_C* SaveGameToUse;
-    int32 ResY;
-    int32 ResX;
-    FString ButtomBottomText;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0260 (size: 0x8)
+    class UWidgetAnimation* FlyIn;                                                    // 0x0268 (size: 0x8)
+    class UBackgroundBlur* BackgroundBlur_0;                                          // 0x0270 (size: 0x8)
+    class UBenchmarkLeaderboards_C* BenchmarkLeaderboards;                            // 0x0278 (size: 0x8)
+    class UButton* Button_4;                                                          // 0x0280 (size: 0x8)
+    class UButton* Button_5;                                                          // 0x0288 (size: 0x8)
+    class UButton* Button_7;                                                          // 0x0290 (size: 0x8)
+    class UButton* Button_BackToMenu;                                                 // 0x0298 (size: 0x8)
+    class UButton* Button_OpenSteamOverlayBuyDLC;                                     // 0x02A0 (size: 0x8)
+    class UButton* Button_SwitchView;                                                 // 0x02A8 (size: 0x8)
+    class UCircularThrobber* CircularThrobber_100;                                    // 0x02B0 (size: 0x8)
+    class UHardwareInfoWidget_C* HardwareInfoWidget;                                  // 0x02B8 (size: 0x8)
+    class UHorizontalBox* HorizontalBox_Leaderboards;                                 // 0x02C0 (size: 0x8)
+    class UHorizontalBox* HorizontalBox_Results;                                      // 0x02C8 (size: 0x8)
+    class UHorizontalBox* HorizontalBox_UpperButtons;                                 // 0x02D0 (size: 0x8)
+    class UImage* Image_67;                                                           // 0x02D8 (size: 0x8)
+    class UImage* Image_68;                                                           // 0x02E0 (size: 0x8)
+    class URetainerBox* RetainerBox_Result;                                           // 0x02E8 (size: 0x8)
+    class UTextBlock* TextBlock_0;                                                    // 0x02F0 (size: 0x8)
+    class UTextBlock* TextBlock_2;                                                    // 0x02F8 (size: 0x8)
+    class UTextBlock* TextBlock_3;                                                    // 0x0300 (size: 0x8)
+    class UTextBlock* TextBlock_14;                                                   // 0x0308 (size: 0x8)
+    class UTextBlock* TextBlock_15;                                                   // 0x0310 (size: 0x8)
+    class UTextBlock* TextBlock_01PLOW;                                               // 0x0318 (size: 0x8)
+    class UTextBlock* TextBlock_1PLOW;                                                // 0x0320 (size: 0x8)
+    class UTextBlock* TextBlock_ButtonSwitchText;                                     // 0x0328 (size: 0x8)
+    class UTextBlock* TextBlock_InaccurateResults;                                    // 0x0330 (size: 0x8)
+    class UTextBlock* TextBlock_LeaderboardAmount;                                    // 0x0338 (size: 0x8)
+    class UTextBlock* TextBlock_ResultsComparison;                                    // 0x0340 (size: 0x8)
+    class UTextBlock* TextBlock_UNUSUALRESULTS;                                       // 0x0348 (size: 0x8)
+    class UVerticalBox* VerticalBox_BuyDLC;                                           // 0x0350 (size: 0x8)
+    class UWidgetSwitcher* WidgetSwitcher_ComparedResults;                            // 0x0358 (size: 0x8)
+    class UMediaPlayer* BackgroundMediaPlayer;                                        // 0x0360 (size: 0x8)
+    float BlurTarget;                                                                 // 0x0368 (size: 0x4)
+    class UMaterialInstanceDynamic* ExportMaterial;                                   // 0x0370 (size: 0x8)
+    float FPS;                                                                        // 0x0378 (size: 0x4)
+    float Low1FPS;                                                                    // 0x037C (size: 0x4)
+    float Low03FPS;                                                                   // 0x0380 (size: 0x4)
+    bool LeaderboardsVisible;                                                         // 0x0384 (size: 0x1)
+    FUWorksSteamLeaderboard LeaderboardRef;                                           // 0x0388 (size: 0x8)
+    FString CurrentHeadsetName;                                                       // 0x0390 (size: 0x10)
+    FString CurrentGPUName;                                                           // 0x03A0 (size: 0x10)
+    class UBenchmarkEndSaveGame_C* SaveGameToUse;                                     // 0x03B0 (size: 0x8)
+    int32 ResY;                                                                       // 0x03B8 (size: 0x4)
+    int32 ResX;                                                                       // 0x03BC (size: 0x4)
+    FString ButtomBottomText;                                                         // 0x03C0 (size: 0x10)
 
     void UpdateSaveGame(bool ShowName);
     void CreateOrLoadSaveGame();
@@ -78,6 +78,6 @@ class UBenchmarkEndWidget_C : public UUserWidget
     void BndEvt__Button_4_K2Node_ComponentBoundEvent_3_OnButtonPressedEvent__DelegateSignature();
     void Start_DLC_Check();
     void ExecuteUbergraph_BenchmarkEndWidget(int32 EntryPoint);
-};
+}; // Size: 0x3D0
 
 #endif

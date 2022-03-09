@@ -5,17 +5,17 @@
 
 class UUWorksInterfaceCore : public UUWorksInterface
 {
-};
+}; // Size: 0x28
 
 class UUWorksRequestCore : public UUWorksRequest
 {
-};
+}; // Size: 0x38
 
 class UUWorksInterfaceCoreAppList : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreAppListSteamAppInstalled SteamAppInstalled;
+    FUWorksInterfaceCoreAppListSteamAppInstalled SteamAppInstalled;                   // 0x0028 (size: 0x10)
     void SteamAppInstalledDelegate(int32 AppID);
-    FUWorksInterfaceCoreAppListSteamAppUninstalled SteamAppUninstalled;
+    FUWorksInterfaceCoreAppListSteamAppUninstalled SteamAppUninstalled;               // 0x0038 (size: 0x10)
     void SteamAppUninstalledDelegate(int32 AppID);
 
     int32 GetNumInstalledApps();
@@ -24,13 +24,13 @@ class UUWorksInterfaceCoreAppList : public UUWorksInterfaceCore
     class UUWorksInterfaceCoreAppList* GetAppList();
     int32 GetAppInstallDir(int32 AppID, FString& Directory, int32 DirectoryMaxLength);
     int32 GetAppBuildId(int32 AppID);
-};
+}; // Size: 0x48
 
 class UUWorksInterfaceCoreApps : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreAppsDlcInstalled DlcInstalled;
+    FUWorksInterfaceCoreAppsDlcInstalled DlcInstalled;                                // 0x0028 (size: 0x10)
     void DlcInstalledDelegate(int32 AppID);
-    FUWorksInterfaceCoreAppsNewUrlLaunchParameters NewUrlLaunchParameters;
+    FUWorksInterfaceCoreAppsNewUrlLaunchParameters NewUrlLaunchParameters;            // 0x0038 (size: 0x10)
     void NewUrlLaunchParametersDelegate();
 
     void UninstallDLC(int32 AppID);
@@ -59,54 +59,54 @@ class UUWorksInterfaceCoreApps : public UUWorksInterfaceCore
     bool BIsCybercafe();
     bool BIsAppInstalled(int32 AppID);
     bool BGetDLCDataByIndex(int32 DLC, int32& AppID, bool& bAvailable, FString& Name, int32 NameMaxLength);
-};
+}; // Size: 0x48
 
 struct FUWorksControllerHandle
 {
-};
+}; // Size: 0x8
 
 struct FUWorksControllerAnalogActionHandle
 {
-};
+}; // Size: 0x8
 
 struct FUWorksControllerMotionData
 {
-    float RotQuatX;
-    float RotQuatY;
-    float RotQuatZ;
-    float RotQuatW;
-    float PosAccelX;
-    float PosAccelY;
-    float PosAccelZ;
-    float RotVelX;
-    float RotVelY;
-    float RotVelZ;
+    float RotQuatX;                                                                   // 0x0000 (size: 0x4)
+    float RotQuatY;                                                                   // 0x0004 (size: 0x4)
+    float RotQuatZ;                                                                   // 0x0008 (size: 0x4)
+    float RotQuatW;                                                                   // 0x000C (size: 0x4)
+    float PosAccelX;                                                                  // 0x0010 (size: 0x4)
+    float PosAccelY;                                                                  // 0x0014 (size: 0x4)
+    float PosAccelZ;                                                                  // 0x0018 (size: 0x4)
+    float RotVelX;                                                                    // 0x001C (size: 0x4)
+    float RotVelY;                                                                    // 0x0020 (size: 0x4)
+    float RotVelZ;                                                                    // 0x0024 (size: 0x4)
 
-};
+}; // Size: 0x28
 
 struct FUWorksControllerActionSetHandle
 {
-};
+}; // Size: 0x8
 
 struct FUWorksControllerDigitalActionHandle
 {
-};
+}; // Size: 0x8
 
 struct FUWorksControllerDigitalActionData
 {
-    bool bState;
-    bool bActive;
+    bool bState;                                                                      // 0x0000 (size: 0x1)
+    bool bActive;                                                                     // 0x0001 (size: 0x1)
 
-};
+}; // Size: 0x2
 
 struct FUWorksControllerAnalogActionData
 {
-    EUWorksControllerSourceMode Mode;
-    float X;
-    float Y;
-    bool bActive;
+    EUWorksControllerSourceMode Mode;                                                 // 0x0000 (size: 0x1)
+    float X;                                                                          // 0x0004 (size: 0x4)
+    float Y;                                                                          // 0x0008 (size: 0x4)
+    bool bActive;                                                                     // 0x000C (size: 0x1)
 
-};
+}; // Size: 0x10
 
 class UUWorksInterfaceCoreController : public UUWorksInterfaceCore
 {
@@ -136,35 +136,35 @@ class UUWorksInterfaceCoreController : public UUWorksInterfaceCore
     FUWorksControllerAnalogActionData GetAnalogActionData(FUWorksControllerHandle ControllerHandle, FUWorksControllerAnalogActionHandle AnalogActionHandle);
     FUWorksControllerActionSetHandle GetActionSetHandle(FString ActionSetName);
     void ActivateActionSet(FUWorksControllerHandle ControllerHandle, FUWorksControllerActionSetHandle ActionSetHandle);
-};
+}; // Size: 0x28
 
 struct FUWorksFriendsGroupID
 {
-};
+}; // Size: 0x2
 
 class UUWorksInterfaceCoreFriends : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreFriendsPersonaStateChange PersonaStateChange;
+    FUWorksInterfaceCoreFriendsPersonaStateChange PersonaStateChange;                 // 0x0028 (size: 0x10)
     void PersonaStateChangeDelegate(FUWorksSteamID SteamID, const TArray<EUWorksPersonaChange>& ChangeFlags);
-    FUWorksInterfaceCoreFriendsGameOverlayActivated GameOverlayActivated;
+    FUWorksInterfaceCoreFriendsGameOverlayActivated GameOverlayActivated;             // 0x0038 (size: 0x10)
     void GameOverlayActivatedDelegate(bool bActive);
-    FUWorksInterfaceCoreFriendsGameServerChangeRequested GameServerChangeRequested;
+    FUWorksInterfaceCoreFriendsGameServerChangeRequested GameServerChangeRequested;   // 0x0048 (size: 0x10)
     void GameServerChangeRequestedDelegate(FString Server, FString Password);
-    FUWorksInterfaceCoreFriendsGameLobbyJoinRequested GameLobbyJoinRequested;
+    FUWorksInterfaceCoreFriendsGameLobbyJoinRequested GameLobbyJoinRequested;         // 0x0058 (size: 0x10)
     void GameLobbyJoinRequestedDelegate(FUWorksSteamID SteamIDLobby, FUWorksSteamID SteamIDFriend);
-    FUWorksInterfaceCoreFriendsAvatarImageLoaded AvatarImageLoaded;
+    FUWorksInterfaceCoreFriendsAvatarImageLoaded AvatarImageLoaded;                   // 0x0068 (size: 0x10)
     void AvatarImageLoadedDelegate(FUWorksSteamID SteamID, class UTexture2D* Image);
-    FUWorksInterfaceCoreFriendsFriendRichPresenceUpdate FriendRichPresenceUpdate;
+    FUWorksInterfaceCoreFriendsFriendRichPresenceUpdate FriendRichPresenceUpdate;     // 0x0078 (size: 0x10)
     void FriendRichPresenceUpdateDelegate(FUWorksSteamID SteamIDFriend, int32 AppID);
-    FUWorksInterfaceCoreFriendsGameRichPresenceJoinRequested GameRichPresenceJoinRequested;
+    FUWorksInterfaceCoreFriendsGameRichPresenceJoinRequested GameRichPresenceJoinRequested; // 0x0088 (size: 0x10)
     void GameRichPresenceJoinRequestedDelegate(FUWorksSteamID SteamIDFriend, FString Connect);
-    FUWorksInterfaceCoreFriendsGameConnectedClanChatMsg GameConnectedClanChatMsg;
+    FUWorksInterfaceCoreFriendsGameConnectedClanChatMsg GameConnectedClanChatMsg;     // 0x0098 (size: 0x10)
     void GameConnectedClanChatMsgDelegate(FUWorksSteamID SteamIDClanChat, FUWorksSteamID SteamIDUser, int32 MessageID);
-    FUWorksInterfaceCoreFriendsGameConnectedChatJoin GameConnectedChatJoin;
+    FUWorksInterfaceCoreFriendsGameConnectedChatJoin GameConnectedChatJoin;           // 0x00A8 (size: 0x10)
     void GameConnectedChatJoinDelegate(FUWorksSteamID SteamIDClanChat, FUWorksSteamID SteamIDUser);
-    FUWorksInterfaceCoreFriendsGameConnectedChatLeave GameConnectedChatLeave;
+    FUWorksInterfaceCoreFriendsGameConnectedChatLeave GameConnectedChatLeave;         // 0x00B8 (size: 0x10)
     void GameConnectedChatLeaveDelegate(FUWorksSteamID SteamIDClanChat, FUWorksSteamID SteamIDUser, bool bKicked, bool bDropped);
-    FUWorksInterfaceCoreFriendsGameConnectedFriendChatMsg GameConnectedFriendChatMsg;
+    FUWorksInterfaceCoreFriendsGameConnectedFriendChatMsg GameConnectedFriendChatMsg; // 0x00C8 (size: 0x10)
     void GameConnectedFriendChatMsgDelegate(FUWorksSteamID SteamIDUser, int32 MessageID);
 
     bool SetRichPresence(FString Key, FString Value);
@@ -245,19 +245,19 @@ class UUWorksInterfaceCoreFriends : public UUWorksInterfaceCore
     void ActivateGameOverlayToStore(int32 AppID, EUWorksOverlayToStoreFlag Flag);
     void ActivateGameOverlayInviteDialog(FUWorksSteamID SteamIDLobby);
     void ActivateGameOverlay(EUWorksOverlayGeneric Dialog);
-};
+}; // Size: 0xD8
 
 struct FUWorksTicketHandle
 {
-};
+}; // Size: 0x4
 
 class UUWorksInterfaceCoreGameServer : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreGameServerGSPolicyResponse GSPolicyResponse;
+    FUWorksInterfaceCoreGameServerGSPolicyResponse GSPolicyResponse;                  // 0x0028 (size: 0x10)
     void GSPolicyResponseDelegate(int32 Secure);
-    FUWorksInterfaceCoreGameServerGSClientGroupStatus GSClientGroupStatus;
+    FUWorksInterfaceCoreGameServerGSClientGroupStatus GSClientGroupStatus;            // 0x0038 (size: 0x10)
     void GSClientGroupStatusDelegate(FUWorksSteamID SteamIDUser, FUWorksSteamID SteamIDGroup, bool bMember, bool bOfficer);
-    FUWorksInterfaceCoreGameServerGSValidateAuthTicketResponse GSValidateAuthTicketResponse;
+    FUWorksInterfaceCoreGameServerGSValidateAuthTicketResponse GSValidateAuthTicketResponse; // 0x0048 (size: 0x10)
     void GSValidateAuthTicketResponseDelegate(FUWorksSteamID SteamID, EUWorksAuthSessionResponse AuthSessionResponse, FUWorksSteamID OwnerSteamID);
 
     bool WasRestartRequested();
@@ -288,11 +288,11 @@ class UUWorksInterfaceCoreGameServer : public UUWorksInterfaceCore
     EUWorksBeginAuthSessionResult BeginAuthSession(TArray<uint8> Ticket, FUWorksSteamID SteamID);
     void AssociateWithClanMinimal(const FAssociateWithClanMinimalCompleted& Completed, FUWorksSteamID SteamIDClan);
     class UUWorksRequestCoreAssociateWithClan* AssociateWithClan();
-};
+}; // Size: 0x58
 
 class UUWorksInterfaceCoreGameServerStats : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreGameServerStatsGSStatsUnloaded GSStatsUnloaded;
+    FUWorksInterfaceCoreGameServerStatsGSStatsUnloaded GSStatsUnloaded;               // 0x0028 (size: 0x10)
     void GSStatsUnloadedDelegate(FUWorksSteamID SteamIDUser);
 
     bool UpdateUserAvgRateStat(FUWorksSteamID SteamIDUser, FString Name, float CountThisSession, float SessionLength);
@@ -308,28 +308,28 @@ class UUWorksInterfaceCoreGameServerStats : public UUWorksInterfaceCore
     bool GetUserAchievement(FUWorksSteamID SteamIDUser, FString Name, bool& bAchieved);
     class UUWorksInterfaceCoreGameServerStats* GetGameServerStats();
     bool ClearUserAchievement(FUWorksSteamID SteamIDUser, FString Name);
-};
+}; // Size: 0x38
 
 struct FUWorksSteamInventoryResult
 {
-};
+}; // Size: 0x4
 
 struct FUWorksSteamItemDetails
 {
-    FUWorksSteamItemInstanceID InstanceID;
-    FUWorksSteamItemDef Definition;
-    int32 Quantity;
-    TArray<EUWorksSteamItemFlags> Flags;
+    FUWorksSteamItemInstanceID InstanceID;                                            // 0x0000 (size: 0x8)
+    FUWorksSteamItemDef Definition;                                                   // 0x0008 (size: 0x4)
+    int32 Quantity;                                                                   // 0x000C (size: 0x4)
+    TArray<EUWorksSteamItemFlags> Flags;                                              // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 class UUWorksInterfaceCoreInventory : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreInventorySteamInventoryResultReady SteamInventoryResultReady;
+    FUWorksInterfaceCoreInventorySteamInventoryResultReady SteamInventoryResultReady; // 0x0028 (size: 0x10)
     void SteamInventoryResultReadyDelegate(FUWorksSteamInventoryResult Handle, EUWorksResult Result);
-    FUWorksInterfaceCoreInventorySteamInventoryFullUpdate SteamInventoryFullUpdate;
+    FUWorksInterfaceCoreInventorySteamInventoryFullUpdate SteamInventoryFullUpdate;   // 0x0038 (size: 0x10)
     void SteamInventoryFullUpdateDelegate(FUWorksSteamInventoryResult Handle);
-    FUWorksInterfaceCoreInventorySteamInventoryDefinitionUpdate SteamInventoryDefinitionUpdate;
+    FUWorksInterfaceCoreInventorySteamInventoryDefinitionUpdate SteamInventoryDefinitionUpdate; // 0x0048 (size: 0x10)
     void SteamInventoryDefinitionUpdateDelegate();
 
     bool TriggerItemDrop(FUWorksSteamInventoryResult& Handle, FUWorksSteamItemDef ItemDefinition);
@@ -358,27 +358,27 @@ class UUWorksInterfaceCoreInventory : public UUWorksInterfaceCore
     bool CheckResultSteamID(FUWorksSteamInventoryResult Handle, FUWorksSteamID SteamID);
     bool AddPromoItems(FUWorksSteamInventoryResult& Handle, TArray<FUWorksSteamItemDef> ItemDefinitions);
     bool AddPromoItem(FUWorksSteamInventoryResult& Handle, FUWorksSteamItemDef ItemDefinition);
-};
+}; // Size: 0x58
 
 class UUWorksInterfaceCoreMatchmaking : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreMatchmakingFavoritesListChanged FavoritesListChanged;
+    FUWorksInterfaceCoreMatchmakingFavoritesListChanged FavoritesListChanged;         // 0x0028 (size: 0x10)
     void FavoritesListChangedDelegate(FString IP, int32 QueryPort, int32 ConnectionPort, int32 AppID, const TArray<EUWorksFavoriteFlags>& Flags, bool bAdd, FUWorksSteamID SteamID);
-    FUWorksInterfaceCoreMatchmakingLobbyInvite LobbyInvite;
+    FUWorksInterfaceCoreMatchmakingLobbyInvite LobbyInvite;                           // 0x0038 (size: 0x10)
     void LobbyInviteDelegate(FUWorksSteamID SteamIDUser, FUWorksSteamID SteamIDLobby, FUWorksGameID GameID);
-    FUWorksInterfaceCoreMatchmakingLobbyDataUpdate LobbyDataUpdate;
+    FUWorksInterfaceCoreMatchmakingLobbyDataUpdate LobbyDataUpdate;                   // 0x0048 (size: 0x10)
     void LobbyDataUpdateDelegate(FUWorksSteamID SteamIDLobby, FUWorksSteamID SteamIDMember, bool bSuccess);
-    FUWorksInterfaceCoreMatchmakingLobbyEnter LobbyEnter;
+    FUWorksInterfaceCoreMatchmakingLobbyEnter LobbyEnter;                             // 0x0058 (size: 0x10)
     void LobbyEnterDelegate(FUWorksSteamID SteamIDLobby, bool bLocked, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
-    FUWorksInterfaceCoreMatchmakingLobbyChatUpdate LobbyChatUpdate;
+    FUWorksInterfaceCoreMatchmakingLobbyChatUpdate LobbyChatUpdate;                   // 0x0068 (size: 0x10)
     void LobbyChatUpdateDelegate(FUWorksSteamID SteamIDLobby, FUWorksSteamID SteamIDUserChanged, FUWorksSteamID SteamIDMakingChange, const TArray<EUWorksChatMemberStateChange>& ChatMemberStateChange);
-    FUWorksInterfaceCoreMatchmakingLobbyChatMsg LobbyChatMsg;
+    FUWorksInterfaceCoreMatchmakingLobbyChatMsg LobbyChatMsg;                         // 0x0078 (size: 0x10)
     void LobbyChatMsgDelegate(FUWorksSteamID SteamIDLobby, FUWorksSteamID SteamIDUser, EUWorksChatEntryType ChatEntryType, int32 ChatID);
-    FUWorksInterfaceCoreMatchmakingLobbyGameCreated LobbyGameCreated;
+    FUWorksInterfaceCoreMatchmakingLobbyGameCreated LobbyGameCreated;                 // 0x0088 (size: 0x10)
     void LobbyGameCreatedDelegate(FUWorksSteamID SteamIDLobby, FUWorksSteamID SteamIDGameServer, FString IP, int32 Port);
-    FUWorksInterfaceCoreMatchmakingLobbyKicked LobbyKicked;
+    FUWorksInterfaceCoreMatchmakingLobbyKicked LobbyKicked;                           // 0x0098 (size: 0x10)
     void LobbyKickedDelegate(FUWorksSteamID SteamIDLobby, FUWorksSteamID SteamIDAdmin, bool bKickedDueToDisconnect);
-    FUWorksInterfaceCoreMatchmakingFavoritesListAccountsUpdated FavoritesListAccountsUpdated;
+    FUWorksInterfaceCoreMatchmakingFavoritesListAccountsUpdated FavoritesListAccountsUpdated; // 0x00A8 (size: 0x10)
     void FavoritesListAccountsUpdatedDelegate(EUWorksResult Result);
 
     bool SetLobbyType(FUWorksSteamID SteamIDLobby, EUWorksLobbyType LobbyType);
@@ -423,7 +423,7 @@ class UUWorksInterfaceCoreMatchmaking : public UUWorksInterfaceCore
     void AddRequestLobbyListDistanceFilter(EUWorksLobbyDistanceFilter LobbyDistanceFilter);
     void AddRequestLobbyListCompatibleMembersFilter(FUWorksSteamID SteamIDLobby);
     int32 AddFavoriteGame(int32 AppID, FString IP, int32 ConnectionPort, int32 QueryPort, TArray<EUWorksFavoriteFlags> Flags, int32 TimeLastPlayedOnServer);
-};
+}; // Size: 0xB8
 
 class UUWorksInterfaceCoreMatchmakingServers : public UUWorksInterfaceCore
 {
@@ -437,13 +437,13 @@ class UUWorksInterfaceCoreMatchmakingServers : public UUWorksInterfaceCore
     void PingMinimal(const FPingMinimalCompleted& Completed, FString IP, int32 Port);
     class UUWorksRequestCorePing* Ping();
     class UUWorksInterfaceCoreMatchmakingServers* GetMatchmakingServers();
-};
+}; // Size: 0x28
 
 class UUWorksInterfaceCoreMusic : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreMusicPlaybackStatusHasChanged PlaybackStatusHasChanged;
+    FUWorksInterfaceCoreMusicPlaybackStatusHasChanged PlaybackStatusHasChanged;       // 0x0028 (size: 0x10)
     void PlaybackStatusHasChangedDelegate();
-    FUWorksInterfaceCoreMusicVolumeHasChanged VolumeHasChanged;
+    FUWorksInterfaceCoreMusicVolumeHasChanged VolumeHasChanged;                       // 0x0038 (size: 0x10)
     void VolumeHasChangedDelegate(float NewVolume);
 
     void SetVolume(float Volume);
@@ -456,24 +456,24 @@ class UUWorksInterfaceCoreMusic : public UUWorksInterfaceCore
     class UUWorksInterfaceCoreMusic* GetMusic();
     bool BIsPlaying();
     bool BIsEnabled();
-};
+}; // Size: 0x48
 
 struct FUWorksP2PSessionState
 {
-    bool bConnectionActive;
-    bool bConnecting;
-    EUWorksP2PSessionError P2PSessionError;
-    bool bUsingRelay;
-    int32 BytesQueuedForSend;
-    int32 PacketsQueuedForSend;
+    bool bConnectionActive;                                                           // 0x0000 (size: 0x1)
+    bool bConnecting;                                                                 // 0x0001 (size: 0x1)
+    EUWorksP2PSessionError P2PSessionError;                                           // 0x0002 (size: 0x1)
+    bool bUsingRelay;                                                                 // 0x0003 (size: 0x1)
+    int32 BytesQueuedForSend;                                                         // 0x0004 (size: 0x4)
+    int32 PacketsQueuedForSend;                                                       // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 class UUWorksInterfaceCoreNetworking : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreNetworkingP2PSessionRequest P2PSessionRequest;
+    FUWorksInterfaceCoreNetworkingP2PSessionRequest P2PSessionRequest;                // 0x0028 (size: 0x10)
     void P2PSessionRequestDelegate(FUWorksSteamID SteamIDRemote);
-    FUWorksInterfaceCoreNetworkingP2PSessionConnectFail P2PSessionConnectFail;
+    FUWorksInterfaceCoreNetworkingP2PSessionConnectFail P2PSessionConnectFail;        // 0x0038 (size: 0x10)
     void P2PSessionConnectFailDelegate(FUWorksSteamID SteamIDRemote, EUWorksP2PSessionError P2PSessionError);
 
     bool SendP2PPacket(FUWorksSteamID SteamIDRemote, TArray<uint8> Data, EUWorksP2PSend P2PSendType, int32 Channel);
@@ -487,11 +487,11 @@ class UUWorksInterfaceCoreNetworking : public UUWorksInterfaceCore
     bool CloseP2PChannelWithUser(FUWorksSteamID SteamIDRemote, int32 Channel);
     bool AllowP2PPacketRelay(bool bAllow);
     bool AcceptP2PSessionWithUser(FUWorksSteamID SteamIDRemote);
-};
+}; // Size: 0x48
 
 struct FUWorksUGCFileWriteStreamHandle
 {
-};
+}; // Size: 0x8
 
 class UUWorksInterfaceCoreRemoteStorage : public UUWorksInterfaceCore
 {
@@ -521,17 +521,17 @@ class UUWorksInterfaceCoreRemoteStorage : public UUWorksInterfaceCore
     bool FileForget(FString File);
     bool FileExists(FString File);
     bool FileDelete(FString File);
-};
+}; // Size: 0x28
 
 struct FUWorksScreenshotHandle
 {
-};
+}; // Size: 0x4
 
 class UUWorksInterfaceCoreScreenshots : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreScreenshotsScreenshotReady ScreenshotReady;
+    FUWorksInterfaceCoreScreenshotsScreenshotReady ScreenshotReady;                   // 0x0028 (size: 0x10)
     void ScreenshotReadyDelegate(FUWorksScreenshotHandle Handle, EUWorksResult Result);
-    FUWorksInterfaceCoreScreenshotsScreenshotRequested ScreenshotRequested;
+    FUWorksInterfaceCoreScreenshotsScreenshotRequested ScreenshotRequested;           // 0x0038 (size: 0x10)
     void ScreenshotRequestedDelegate();
 
     FUWorksScreenshotHandle WriteScreenshot(class UTexture2D* Image);
@@ -544,56 +544,56 @@ class UUWorksInterfaceCoreScreenshots : public UUWorksInterfaceCore
     class UUWorksInterfaceCoreScreenshots* GetScreenshots();
     FUWorksScreenshotHandle AddVRScreenshotToLibrary(EUWorksVRScreenshotType Type, FString Filename, FString VRFileName);
     FUWorksScreenshotHandle AddScreenshotToLibrary(FString FileMame, FString ThumbnailFileName, int32 Width, int32 Height);
-};
+}; // Size: 0x48
 
 struct FUWorksUGCUpdateHandle
 {
-};
+}; // Size: 0x8
 
 struct FUWorksUGCQueryHandle
 {
-};
+}; // Size: 0x8
 
 struct FUWorksUGCHandle
 {
-};
+}; // Size: 0x8
 
 struct FUWorksSteamUGCDetails
 {
-    FUWorksPublishedFileID PublishedFileID;
-    EUWorksResult Result;
-    EUWorksWorkshopFileType fileType;
-    int32 CreatorAppID;
-    int32 ConsumerAppID;
-    FString Title;
-    FString Description;
-    FUWorksSteamID SteamIDOwner;
-    int32 TimeCreated;
-    int32 TimeUpdated;
-    int32 TimeAddedToUserList;
-    EUWorksRemoteStoragePublishedFileVisibility Visibility;
-    bool bBanned;
-    bool bAcceptedForUse;
-    bool bTagsTruncated;
-    TArray<FString> tags;
-    FUWorksUGCHandle File;
-    FUWorksUGCHandle PreviewFile;
-    FString Filename;
-    int32 fileSize;
-    int32 PreviewFileSize;
-    FString URL;
-    int32 votesUp;
-    int32 votesDown;
-    float score;
-    int32 numChildren;
+    FUWorksPublishedFileID PublishedFileID;                                           // 0x0000 (size: 0x8)
+    EUWorksResult Result;                                                             // 0x0008 (size: 0x1)
+    EUWorksWorkshopFileType fileType;                                                 // 0x0009 (size: 0x1)
+    int32 CreatorAppID;                                                               // 0x000C (size: 0x4)
+    int32 ConsumerAppID;                                                              // 0x0010 (size: 0x4)
+    FString Title;                                                                    // 0x0018 (size: 0x10)
+    FString Description;                                                              // 0x0028 (size: 0x10)
+    FUWorksSteamID SteamIDOwner;                                                      // 0x0038 (size: 0x8)
+    int32 TimeCreated;                                                                // 0x0040 (size: 0x4)
+    int32 TimeUpdated;                                                                // 0x0044 (size: 0x4)
+    int32 TimeAddedToUserList;                                                        // 0x0048 (size: 0x4)
+    EUWorksRemoteStoragePublishedFileVisibility Visibility;                           // 0x004C (size: 0x1)
+    bool bBanned;                                                                     // 0x004D (size: 0x1)
+    bool bAcceptedForUse;                                                             // 0x004E (size: 0x1)
+    bool bTagsTruncated;                                                              // 0x004F (size: 0x1)
+    TArray<FString> tags;                                                             // 0x0050 (size: 0x10)
+    FUWorksUGCHandle File;                                                            // 0x0060 (size: 0x8)
+    FUWorksUGCHandle PreviewFile;                                                     // 0x0068 (size: 0x8)
+    FString Filename;                                                                 // 0x0070 (size: 0x10)
+    int32 fileSize;                                                                   // 0x0080 (size: 0x4)
+    int32 PreviewFileSize;                                                            // 0x0084 (size: 0x4)
+    FString URL;                                                                      // 0x0088 (size: 0x10)
+    int32 votesUp;                                                                    // 0x0098 (size: 0x4)
+    int32 votesDown;                                                                  // 0x009C (size: 0x4)
+    float score;                                                                      // 0x00A0 (size: 0x4)
+    int32 numChildren;                                                                // 0x00A4 (size: 0x4)
 
-};
+}; // Size: 0xA8
 
 class UUWorksInterfaceCoreUGC : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreUGCItemInstalled ItemInstalled;
+    FUWorksInterfaceCoreUGCItemInstalled ItemInstalled;                               // 0x0028 (size: 0x10)
     void ItemInstalledDelegate(int32 AppID, FUWorksPublishedFileID PublishedFileID);
-    FUWorksInterfaceCoreUGCDownloadItemResult DownloadItemResult;
+    FUWorksInterfaceCoreUGCDownloadItemResult DownloadItemResult;                     // 0x0038 (size: 0x10)
     void DownloadItemResultDelegate(int32 AppID, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result);
 
     bool UpdateItemPreviewVideo(FUWorksUGCUpdateHandle Handle, int32 Index, FString PreviewVideo);
@@ -675,33 +675,33 @@ class UUWorksInterfaceCoreUGC : public UUWorksInterfaceCore
     bool AddItemPreviewFile(FUWorksUGCUpdateHandle Handle, FString PreviewFile, EUWorksItemPreviewType Type);
     bool AddItemKeyValueTag(FUWorksUGCUpdateHandle Handle, FString Key, FString Value);
     bool AddExcludedTag(FUWorksUGCQueryHandle Handle, FString TagName);
-};
+}; // Size: 0x48
 
 struct FUWorksSteamUser
 {
-};
+}; // Size: 0x4
 
 class UUWorksInterfaceCoreUser : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreUserSteamServersConnected SteamServersConnected;
+    FUWorksInterfaceCoreUserSteamServersConnected SteamServersConnected;              // 0x0038 (size: 0x10)
     void SteamServersConnectedDelegate();
-    FUWorksInterfaceCoreUserSteamServerConnectFailure SteamServerConnectFailure;
+    FUWorksInterfaceCoreUserSteamServerConnectFailure SteamServerConnectFailure;      // 0x0048 (size: 0x10)
     void SteamServerConnectFailureDelegate(EUWorksResult Result, bool bStillRetrying);
-    FUWorksInterfaceCoreUserSteamServersDisconnected SteamServersDisconnected;
+    FUWorksInterfaceCoreUserSteamServersDisconnected SteamServersDisconnected;        // 0x0058 (size: 0x10)
     void SteamServersDisconnectedDelegate(EUWorksResult Result);
-    FUWorksInterfaceCoreUserClientGameServerDeny ClientGameServerDeny;
+    FUWorksInterfaceCoreUserClientGameServerDeny ClientGameServerDeny;                // 0x0068 (size: 0x10)
     void ClientGameServerDenyDelegate(int32 AppID, FString GameServerIP, int32 GameServerPort, bool BSecure, EUWorksDenyReason Reason);
-    FUWorksInterfaceCoreUserIPCFailure IPCFailure;
+    FUWorksInterfaceCoreUserIPCFailure IPCFailure;                                    // 0x0078 (size: 0x10)
     void IPCFailureDelegate(EUWorksFailureType FailureType);
-    FUWorksInterfaceCoreUserLicensesUpdated LicensesUpdated;
+    FUWorksInterfaceCoreUserLicensesUpdated LicensesUpdated;                          // 0x0088 (size: 0x10)
     void LicensesUpdatedDelegate();
-    FUWorksInterfaceCoreUserValidateAuthTicketResponse ValidateAuthTicketResponse;
+    FUWorksInterfaceCoreUserValidateAuthTicketResponse ValidateAuthTicketResponse;    // 0x0098 (size: 0x10)
     void ValidateAuthTicketResponseDelegate(FUWorksSteamID SteamID, EUWorksAuthSessionResponse AuthSessionResponse, FUWorksSteamID OwnerSteamID);
-    FUWorksInterfaceCoreUserMicroTxnAuthorizationResponse MicroTxnAuthorizationResponse;
+    FUWorksInterfaceCoreUserMicroTxnAuthorizationResponse MicroTxnAuthorizationResponse; // 0x00A8 (size: 0x10)
     void MicroTxnAuthorizationResponseDelegate(int32 AppID, FString OrderID, bool bAuthorized);
-    FUWorksInterfaceCoreUserGetAuthSessionTicketResponse GetAuthSessionTicketResponse;
+    FUWorksInterfaceCoreUserGetAuthSessionTicketResponse GetAuthSessionTicketResponse; // 0x00B8 (size: 0x10)
     void GetAuthSessionTicketResponseDelegate(FUWorksTicketHandle AuthTicket, EUWorksResult Result);
-    FUWorksInterfaceCoreUserGameWebCallback GameWebCallback;
+    FUWorksInterfaceCoreUserGameWebCallback GameWebCallback;                          // 0x00C8 (size: 0x10)
     void GameWebCallbackDelegate(FString URL);
 
     EUWorksUserHasLicenseForAppResult UserHasLicenseForApp(FUWorksSteamID SteamID, int32 AppID);
@@ -732,37 +732,37 @@ class UUWorksInterfaceCoreUser : public UUWorksInterfaceCore
     EUWorksBeginAuthSessionResult BeginAuthSession(TArray<uint8> Ticket, FUWorksSteamID SteamID);
     void AdvertiseGame(FUWorksSteamID SteamIDGameServer, FString ServerIP, int32 ServerPort);
     class UAudioComponent* AddBufferToVoiceChannel(TArray<uint8> Buffer, int32 Index);
-};
+}; // Size: 0xD8
 
 struct FUWorksSteamLeaderboard
 {
-};
+}; // Size: 0x8
 
 struct FUWorksSteamLeaderboardEntries
 {
-};
+}; // Size: 0x8
 
 struct FUWorksLeaderboardEntry
 {
-    FUWorksSteamID SteamID;
-    int32 GlobalRank;
-    int32 score;
-    int32 Details;
-    FUWorksUGCHandle UGCHandle;
+    FUWorksSteamID SteamID;                                                           // 0x0000 (size: 0x8)
+    int32 GlobalRank;                                                                 // 0x0008 (size: 0x4)
+    int32 score;                                                                      // 0x000C (size: 0x4)
+    int32 Details;                                                                    // 0x0010 (size: 0x4)
+    FUWorksUGCHandle UGCHandle;                                                       // 0x0018 (size: 0x8)
 
-};
+}; // Size: 0x20
 
 class UUWorksInterfaceCoreUserStats : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreUserStatsUserStatsReceived UserStatsReceived;
+    FUWorksInterfaceCoreUserStatsUserStatsReceived UserStatsReceived;                 // 0x0028 (size: 0x10)
     void UserStatsReceivedDelegate(FUWorksGameID GameID, EUWorksResult Result, FUWorksSteamID SteamID);
-    FUWorksInterfaceCoreUserStatsUserStatsStored UserStatsStored;
+    FUWorksInterfaceCoreUserStatsUserStatsStored UserStatsStored;                     // 0x0038 (size: 0x10)
     void UserStatsStoredDelegate(FUWorksGameID GameID, EUWorksResult Result);
-    FUWorksInterfaceCoreUserStatsUserAchievementStored UserAchievementStored;
+    FUWorksInterfaceCoreUserStatsUserAchievementStored UserAchievementStored;         // 0x0048 (size: 0x10)
     void UserAchievementStoredDelegate(FUWorksGameID GameID, bool bGroupAchievement, FString AchievementName, int32 CurrentProgress, int32 MaxProgress);
-    FUWorksInterfaceCoreUserStatsUserStatsUnloaded UserStatsUnloaded;
+    FUWorksInterfaceCoreUserStatsUserStatsUnloaded UserStatsUnloaded;                 // 0x0058 (size: 0x10)
     void UserStatsUnloadedDelegate(FUWorksSteamID SteamID);
-    FUWorksInterfaceCoreUserStatsUserAchievementIconFetched UserAchievementIconFetched;
+    FUWorksInterfaceCoreUserStatsUserAchievementIconFetched UserAchievementIconFetched; // 0x0068 (size: 0x10)
     void UserAchievementIconFetchedDelegate(FUWorksGameID GameID, FString AchievementName, bool bAchieved, class UTexture2D* Icon);
 
     void UploadLeaderboardScoreMinimal(const FUploadLeaderboardScoreMinimalCompleted& Completed, FUWorksSteamLeaderboard SteamLeaderboard, EUWorksLeaderboardUploadScoreMethod LeaderboardUploadScoreMethod, int32 score, TArray<int32> ScoreDetails);
@@ -819,17 +819,17 @@ class UUWorksInterfaceCoreUserStats : public UUWorksInterfaceCore
     bool ClearAchievement(FString Name);
     void AttachLeaderboardUGCMinimal(const FAttachLeaderboardUGCMinimalCompleted& Completed, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksUGCHandle UGCHandle);
     class UUWorksRequestCoreAttachLeaderboardUGC* AttachLeaderboardUGC();
-};
+}; // Size: 0x78
 
 class UUWorksInterfaceCoreUtils : public UUWorksInterfaceCore
 {
-    FUWorksInterfaceCoreUtilsIPCountry IPCountry;
+    FUWorksInterfaceCoreUtilsIPCountry IPCountry;                                     // 0x0028 (size: 0x10)
     void IPCountryDelegate();
-    FUWorksInterfaceCoreUtilsLowBatteryPower LowBatteryPower;
+    FUWorksInterfaceCoreUtilsLowBatteryPower LowBatteryPower;                         // 0x0038 (size: 0x10)
     void LowBatteryPowerDelegate(int32 MinutesBatteryLeft);
-    FUWorksInterfaceCoreUtilsSteamShutdown SteamShutdown;
+    FUWorksInterfaceCoreUtilsSteamShutdown SteamShutdown;                             // 0x0048 (size: 0x10)
     void SteamShutdownDelegate();
-    FUWorksInterfaceCoreUtilsGamepadTextInputDismissed GamepadTextInputDismissed;
+    FUWorksInterfaceCoreUtilsGamepadTextInputDismissed GamepadTextInputDismissed;     // 0x0058 (size: 0x10)
     void GamepadTextInputDismissedDelegate(bool bSubmitted, int32 SubmittedText);
 
     void StartVRDashboard();
@@ -852,13 +852,13 @@ class UUWorksInterfaceCoreUtils : public UUWorksInterfaceCore
     EUWorksUniverse GetConnectedUniverse();
     int32 GetAppID();
     bool BOverlayNeedsPresent();
-};
+}; // Size: 0x68
 
 class UUWorksRequestCoreGetFileDetails : public UUWorksRequestCore
 {
-    FUWorksRequestCoreGetFileDetailsOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreGetFileDetailsOnRequestCompleted OnRequestCompleted;            // 0x0070 (size: 0x10)
     void GetFileDetailsDelegate(bool bSuccessful, EUWorksResult Result, int32 fileSize, FString FileSHA, const TArray<int32>& FileFlags);
-    FUWorksRequestCoreGetFileDetailsOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreGetFileDetailsOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0080 (size: 0x10)
     void GetFileDetailsMinimalDelegate(bool bSuccessful, EUWorksResult Result, int32 fileSize, FString FileSHA, const TArray<int32>& FileFlags);
 
     void SetInput(FString Filename);
@@ -866,13 +866,13 @@ class UUWorksRequestCoreGetFileDetails : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, int32& fileSize, FString& FileSHA, TArray<int32>& FileFlags);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x90
 
 class UUWorksRequestCoreSetPersonaName : public UUWorksRequestCore
 {
-    FUWorksRequestCoreSetPersonaNameOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreSetPersonaNameOnRequestCompleted OnRequestCompleted;            // 0x0050 (size: 0x10)
     void SetPersonaNameDelegate(bool bSuccessful, bool bSuccess, bool bLocalSuccess, EUWorksResult Result);
-    FUWorksRequestCoreSetPersonaNameOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreSetPersonaNameOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void SetPersonaNameMinimalDelegate(bool bSuccessful, bool bSuccess, bool bLocalSuccess, EUWorksResult Result);
 
     void SetInput(FString Name);
@@ -880,13 +880,13 @@ class UUWorksRequestCoreSetPersonaName : public UUWorksRequestCore
     void GetOutput(bool& bSuccess, bool& bLocalSuccess, EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreDownloadClanActivityCounts : public UUWorksRequestCore
 {
-    FUWorksRequestCoreDownloadClanActivityCountsOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreDownloadClanActivityCountsOnRequestCompleted OnRequestCompleted; // 0x0050 (size: 0x10)
     void DownloadClanActivityCountsDelegate(bool bSuccessful, bool bSuccess);
-    FUWorksRequestCoreDownloadClanActivityCountsOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreDownloadClanActivityCountsOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void DownloadClanActivityCountsMinimalDelegate(bool bSuccessful, bool bSuccess);
 
     void SetInput(TArray<FUWorksSteamID> SteamIDClans);
@@ -894,13 +894,13 @@ class UUWorksRequestCoreDownloadClanActivityCounts : public UUWorksRequestCore
     void GetOutput(bool& bSuccess);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreRequestClanOfficerList : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestClanOfficerListOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestClanOfficerListOnRequestCompleted OnRequestCompleted;    // 0x0050 (size: 0x10)
     void RequestClanOfficerListDelegate(bool bSuccessful, FUWorksSteamID SteamIDClan, int32 Officers, bool bSuccess);
-    FUWorksRequestCoreRequestClanOfficerListOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestClanOfficerListOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void RequestClanOfficerListMinimalDelegate(bool bSuccessful, FUWorksSteamID SteamIDClan, int32 Officers, bool bSuccess);
 
     void SetInput(FUWorksSteamID SteamID);
@@ -908,13 +908,13 @@ class UUWorksRequestCoreRequestClanOfficerList : public UUWorksRequestCore
     void GetOutput(FUWorksSteamID& SteamIDClan, int32& Officers, bool& bSuccess);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreJoinClanChatRoom : public UUWorksRequestCore
 {
-    FUWorksRequestCoreJoinClanChatRoomOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreJoinClanChatRoomOnRequestCompleted OnRequestCompleted;          // 0x0050 (size: 0x10)
     void JoinClanChatRoomDelegate(bool bSuccessful, FUWorksSteamID SteamIDClanChat, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
-    FUWorksRequestCoreJoinClanChatRoomOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreJoinClanChatRoomOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void JoinClanChatRoomMinimalDelegate(bool bSuccessful, FUWorksSteamID SteamIDClanChat, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
 
     void SetInput(FUWorksSteamID SteamIDClan);
@@ -922,13 +922,13 @@ class UUWorksRequestCoreJoinClanChatRoom : public UUWorksRequestCore
     void GetOutput(FUWorksSteamID& SteamIDClanChat, EUWorksChatRoomEnterResponse& ChatRoomEnterResponse);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreGetFollowerCount : public UUWorksRequestCore
 {
-    FUWorksRequestCoreGetFollowerCountOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreGetFollowerCountOnRequestCompleted OnRequestCompleted;          // 0x0058 (size: 0x10)
     void GetFollowerCountDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, int32 Count);
-    FUWorksRequestCoreGetFollowerCountOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreGetFollowerCountOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void GetFollowerCountMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, int32 Count);
 
     void SetInput(FUWorksSteamID SteamID);
@@ -936,13 +936,13 @@ class UUWorksRequestCoreGetFollowerCount : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksSteamID& SteamID, int32& Count);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreIsFollowing : public UUWorksRequestCore
 {
-    FUWorksRequestCoreIsFollowingOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreIsFollowingOnRequestCompleted OnRequestCompleted;               // 0x0058 (size: 0x10)
     void IsFollowingDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, bool bIsFollowing);
-    FUWorksRequestCoreIsFollowingOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreIsFollowingOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void IsFollowingMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, bool bIsFollowing);
 
     void SetInput(FUWorksSteamID SteamID);
@@ -950,13 +950,13 @@ class UUWorksRequestCoreIsFollowing : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksSteamID& SteamID, bool& bIsFollowing);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreEnumerateFollowingList : public UUWorksRequestCore
 {
-    FUWorksRequestCoreEnumerateFollowingListOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreEnumerateFollowingListOnRequestCompleted OnRequestCompleted;    // 0x0058 (size: 0x10)
     void EnumerateFollowingListDelegate(bool bSuccessful, EUWorksResult Result, const TArray<FUWorksSteamID>& SteamIDs, int32 ResultsReturned, int32 TotalResultCount);
-    FUWorksRequestCoreEnumerateFollowingListOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreEnumerateFollowingListOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void EnumerateFollowingListMinimalDelegate(bool bSuccessful, EUWorksResult Result, const TArray<FUWorksSteamID>& SteamIDs, int32 ResultsReturned, int32 TotalResultCount);
 
     void SetInput(int32 StartIndex);
@@ -964,13 +964,13 @@ class UUWorksRequestCoreEnumerateFollowingList : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, TArray<FUWorksSteamID>& SteamIDs, int32& ResultsReturned, int32& TotalResultCount);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreAssociateWithClan : public UUWorksRequestCore
 {
-    FUWorksRequestCoreAssociateWithClanOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreAssociateWithClanOnRequestCompleted OnRequestCompleted;         // 0x0048 (size: 0x10)
     void AssociateWithClanDelegate(bool bSuccessful, EUWorksResult Result);
-    FUWorksRequestCoreAssociateWithClanOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreAssociateWithClanOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0058 (size: 0x10)
     void AssociateWithClanMinimalDelegate(bool bSuccessful, EUWorksResult Result);
 
     void SetInput(FUWorksSteamID SteamIDClan);
@@ -978,13 +978,13 @@ class UUWorksRequestCoreAssociateWithClan : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x68
 
 class UUWorksRequestCoreComputeNewPlayerCompatibility : public UUWorksRequestCore
 {
-    FUWorksRequestCoreComputeNewPlayerCompatibilityOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreComputeNewPlayerCompatibilityOnRequestCompleted OnRequestCompleted; // 0x0058 (size: 0x10)
     void ComputeNewPlayerCompatibilityDelegate(bool bSuccessful, EUWorksResult Result, int32 PlayersThatDontLikeCandidate, int32 PlayersThatCandidateDoesntLike, int32 ClanPlayersThatDontLikeCandidate, FUWorksSteamID SteamIDCandidate);
-    FUWorksRequestCoreComputeNewPlayerCompatibilityOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreComputeNewPlayerCompatibilityOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void ComputeNewPlayerCompatibilityMinimalDelegate(bool bSuccessful, EUWorksResult Result, int32 PlayersThatDontLikeCandidate, int32 PlayersThatCandidateDoesntLike, int32 ClanPlayersThatDontLikeCandidate, FUWorksSteamID SteamIDCandidate);
 
     void SetInput(FUWorksSteamID SteamIDNewPlayer);
@@ -992,13 +992,13 @@ class UUWorksRequestCoreComputeNewPlayerCompatibility : public UUWorksRequestCor
     void GetOutput(EUWorksResult& Result, int32& PlayersThatDontLikeCandidate, int32& PlayersThatCandidateDoesntLike, int32& ClanPlayersThatDontLikeCandidate, FUWorksSteamID& SteamIDCandidate);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreRequestUserStatsGS : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestUserStatsGSOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestUserStatsGSOnRequestCompleted OnRequestCompleted;        // 0x0050 (size: 0x10)
     void ServerRequestUserStatsDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDUser);
-    FUWorksRequestCoreRequestUserStatsGSOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestUserStatsGSOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void ServerRequestUserStatsMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDUser);
 
     void SetInput(FUWorksSteamID SteamIDUser);
@@ -1006,13 +1006,13 @@ class UUWorksRequestCoreRequestUserStatsGS : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksSteamID& SteamIDUser);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreStoreUserStats : public UUWorksRequestCore
 {
-    FUWorksRequestCoreStoreUserStatsOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreStoreUserStatsOnRequestCompleted OnRequestCompleted;            // 0x0050 (size: 0x10)
     void ServerStoreUserStatsDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDUser);
-    FUWorksRequestCoreStoreUserStatsOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreStoreUserStatsOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void ServerStoreUserStatsMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDUser);
 
     void SetInput(FUWorksSteamID SteamIDUser);
@@ -1020,13 +1020,13 @@ class UUWorksRequestCoreStoreUserStats : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksSteamID& SteamIDUser);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreRequestEligiblePromoItemDefinitionsIDs : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestEligiblePromoItemDefinitionsIDsOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestEligiblePromoItemDefinitionsIDsOnRequestCompleted OnRequestCompleted; // 0x0058 (size: 0x10)
     void RequestEligiblePromoItemDefinitionsIDsDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, int32 NumEligiblePromoItemsDefinitionsIDs, bool bCachedData);
-    FUWorksRequestCoreRequestEligiblePromoItemDefinitionsIDsOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestEligiblePromoItemDefinitionsIDsOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void RequestEligiblePromoItemDefinitionsIDsMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, int32 NumEligiblePromoItemsDefinitionsIDs, bool bCachedData);
 
     void SetInput(FUWorksSteamID SteamID);
@@ -1034,26 +1034,26 @@ class UUWorksRequestCoreRequestEligiblePromoItemDefinitionsIDs : public UUWorksR
     void GetOutput(EUWorksResult& Result, FUWorksSteamID& SteamID, int32& NumEligiblePromoItemsDefinitionsIDs, bool& bCachedData);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreRequestLobbyList : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestLobbyListOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestLobbyListOnRequestCompleted OnRequestCompleted;          // 0x0040 (size: 0x10)
     void RequestLobbyListDelegate(bool bSuccessful, int32 LobbiesMatching);
-    FUWorksRequestCoreRequestLobbyListOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestLobbyListOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0050 (size: 0x10)
     void RequestLobbyListMinimalDelegate(bool bSuccessful, int32 LobbiesMatching);
 
     bool IsActive();
     void GetOutput(int32& LobbiesMatching);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x60
 
 class UUWorksRequestCoreCreateLobby : public UUWorksRequestCore
 {
-    FUWorksRequestCoreCreateLobbyOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreCreateLobbyOnRequestCompleted OnRequestCompleted;               // 0x0050 (size: 0x10)
     void CreateLobbyDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDLobby);
-    FUWorksRequestCoreCreateLobbyOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreCreateLobbyOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void CreateLobbyMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDLobby);
 
     void SetInput(EUWorksLobbyType LobbyType, int32 MaxMembers);
@@ -1061,13 +1061,13 @@ class UUWorksRequestCoreCreateLobby : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksSteamID& SteamIDLobby);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreJoinLobby : public UUWorksRequestCore
 {
-    FUWorksRequestCoreJoinLobbyOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreJoinLobbyOnRequestCompleted OnRequestCompleted;                 // 0x0060 (size: 0x10)
     void JoinLobbyDelegate(bool bSuccessful, FUWorksSteamID SteamIDLobby, const TArray<uint8>& ChatPermissions, bool bLocked, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
-    FUWorksRequestCoreJoinLobbyOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreJoinLobbyOnRequestCompletedMinimal OnRequestCompletedMinimal;   // 0x0070 (size: 0x10)
     void JoinLobbyMinimalDelegate(bool bSuccessful, FUWorksSteamID SteamIDLobby, const TArray<uint8>& ChatPermissions, bool bLocked, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
 
     void SetInput(FUWorksSteamID SteamIDLobby);
@@ -1075,42 +1075,42 @@ class UUWorksRequestCoreJoinLobby : public UUWorksRequestCore
     void GetOutput(FUWorksSteamID& SteamIDLobby, TArray<uint8>& ChatPermissions, bool& bLocked, EUWorksChatRoomEnterResponse& ChatRoomEnterResponse);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x80
 
 struct FUWorksServerInfo
 {
-    FString Name;
-    FString IP;
-    int32 QueryPort;
-    int32 ConnectionPort;
-    int32 Ping;
-    bool bHadSuccessfulResponse;
-    bool bDoNotRefresh;
-    FString GameDir;
-    FString Map;
-    FString GameDescription;
-    int32 AppID;
-    int32 Players;
-    int32 MaxPlayers;
-    int32 BotPlayers;
-    bool bPassword;
-    bool BSecure;
-    int32 TimeLastPlayed;
-    int32 ServerVersion;
-    FString GameTags;
-    FUWorksSteamID SteamID;
+    FString Name;                                                                     // 0x0000 (size: 0x10)
+    FString IP;                                                                       // 0x0010 (size: 0x10)
+    int32 QueryPort;                                                                  // 0x0020 (size: 0x4)
+    int32 ConnectionPort;                                                             // 0x0024 (size: 0x4)
+    int32 Ping;                                                                       // 0x0028 (size: 0x4)
+    bool bHadSuccessfulResponse;                                                      // 0x002C (size: 0x1)
+    bool bDoNotRefresh;                                                               // 0x002D (size: 0x1)
+    FString GameDir;                                                                  // 0x0030 (size: 0x10)
+    FString Map;                                                                      // 0x0040 (size: 0x10)
+    FString GameDescription;                                                          // 0x0050 (size: 0x10)
+    int32 AppID;                                                                      // 0x0060 (size: 0x4)
+    int32 Players;                                                                    // 0x0064 (size: 0x4)
+    int32 MaxPlayers;                                                                 // 0x0068 (size: 0x4)
+    int32 BotPlayers;                                                                 // 0x006C (size: 0x4)
+    bool bPassword;                                                                   // 0x0070 (size: 0x1)
+    bool BSecure;                                                                     // 0x0071 (size: 0x1)
+    int32 TimeLastPlayed;                                                             // 0x0074 (size: 0x4)
+    int32 ServerVersion;                                                              // 0x0078 (size: 0x4)
+    FString GameTags;                                                                 // 0x0080 (size: 0x10)
+    FUWorksSteamID SteamID;                                                           // 0x0090 (size: 0x8)
 
-};
+}; // Size: 0x98
 
 class UUWorksRequestCoreServerList : public UUWorksRequestCore
 {
-    FUWorksRequestCoreServerListOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreServerListOnRequestCompleted OnRequestCompleted;                // 0x0110 (size: 0x10)
     void ServerListDelegate(const TArray<FUWorksServerInfo>& Servers);
-    FUWorksRequestCoreServerListOnRequestUpdated OnRequestUpdated;
+    FUWorksRequestCoreServerListOnRequestUpdated OnRequestUpdated;                    // 0x0120 (size: 0x10)
     void ServerListUpdateDelegate(bool bSuccessful, FUWorksServerInfo Server);
-    FUWorksRequestCoreServerListOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreServerListOnRequestCompletedMinimal OnRequestCompletedMinimal;  // 0x0130 (size: 0x10)
     void ServerListMinimalDelegate(const TArray<FUWorksServerInfo>& Servers);
-    FUWorksRequestCoreServerListOnRequestUpdatedMinimal OnRequestUpdatedMinimal;
+    FUWorksRequestCoreServerListOnRequestUpdatedMinimal OnRequestUpdatedMinimal;      // 0x0140 (size: 0x10)
     void ServerListUpdateMinimalDelegate(bool bSuccessful, FUWorksServerInfo Server);
 
     void SetInput(int32 AppID, EUWorksServerQueryType queryType);
@@ -1136,13 +1136,13 @@ class UUWorksRequestCoreServerList : public UUWorksRequestCore
     void AddFilterAnd(int32 Value);
     void AddFilterAddr(FString Value);
     void Activate();
-};
+}; // Size: 0x150
 
 class UUWorksRequestCorePing : public UUWorksRequestCore
 {
-    FUWorksRequestCorePingOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCorePingOnRequestCompleted OnRequestCompleted;                      // 0x00E0 (size: 0x10)
     void PingDelegate(bool bSuccessful, FUWorksServerInfo Server);
-    FUWorksRequestCorePingOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCorePingOnRequestCompletedMinimal OnRequestCompletedMinimal;        // 0x00F0 (size: 0x10)
     void PingMinimalDelegate(bool bSuccessful, FUWorksServerInfo Server);
 
     void SetInput(FString IP, int32 Port);
@@ -1150,25 +1150,25 @@ class UUWorksRequestCorePing : public UUWorksRequestCore
     void GetOutput(FUWorksServerInfo& Server);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x100
 
 struct FUWorksPlayerInfo
 {
-    FString Name;
-    int32 score;
-    float TimePlayed;
+    FString Name;                                                                     // 0x0000 (size: 0x10)
+    int32 score;                                                                      // 0x0010 (size: 0x4)
+    float TimePlayed;                                                                 // 0x0014 (size: 0x4)
 
-};
+}; // Size: 0x18
 
 class UUWorksRequestCorePlayers : public UUWorksRequestCore
 {
-    FUWorksRequestCorePlayersOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCorePlayersOnRequestCompleted OnRequestCompleted;                   // 0x0070 (size: 0x10)
     void PlayersDelegate(const TArray<FUWorksPlayerInfo>& Players);
-    FUWorksRequestCorePlayersOnRequestUpdated OnRequestUpdated;
+    FUWorksRequestCorePlayersOnRequestUpdated OnRequestUpdated;                       // 0x0080 (size: 0x10)
     void PlayersUpdateDelegate(bool bSuccessful, FUWorksPlayerInfo Player);
-    FUWorksRequestCorePlayersOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCorePlayersOnRequestCompletedMinimal OnRequestCompletedMinimal;     // 0x0090 (size: 0x10)
     void PlayersMinimalDelegate(const TArray<FUWorksPlayerInfo>& Players);
-    FUWorksRequestCorePlayersOnRequestUpdatedMinimal OnRequestUpdatedMinimal;
+    FUWorksRequestCorePlayersOnRequestUpdatedMinimal OnRequestUpdatedMinimal;         // 0x00A0 (size: 0x10)
     void PlayersUpdateMinimalDelegate(bool bSuccessful, FUWorksPlayerInfo Player);
 
     void SetInput(FString IP, int32 Port);
@@ -1176,24 +1176,24 @@ class UUWorksRequestCorePlayers : public UUWorksRequestCore
     void GetOutput(FUWorksPlayerInfo& UpdatedPlayer, TArray<FUWorksPlayerInfo>& Players);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0xB0
 
 struct FUWorksRuleInfo
 {
-    FString Name;
-    FString Value;
+    FString Name;                                                                     // 0x0000 (size: 0x10)
+    FString Value;                                                                    // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 class UUWorksRequestCoreRules : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRulesOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRulesOnRequestCompleted OnRequestCompleted;                     // 0x0078 (size: 0x10)
     void RulesDelegate(const TArray<FUWorksRuleInfo>& Rules);
-    FUWorksRequestCoreRulesOnRequestUpdated OnRequestUpdated;
+    FUWorksRequestCoreRulesOnRequestUpdated OnRequestUpdated;                         // 0x0088 (size: 0x10)
     void RulesUpdateDelegate(bool bSuccessful, FUWorksRuleInfo Rule);
-    FUWorksRequestCoreRulesOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRulesOnRequestCompletedMinimal OnRequestCompletedMinimal;       // 0x0098 (size: 0x10)
     void RulesMinimalDelegate(const TArray<FUWorksRuleInfo>& Rules);
-    FUWorksRequestCoreRulesOnRequestUpdatedMinimal OnRequestUpdatedMinimal;
+    FUWorksRequestCoreRulesOnRequestUpdatedMinimal OnRequestUpdatedMinimal;           // 0x00A8 (size: 0x10)
     void RulesUpdateMinimalDelegate(bool bSuccessful, FUWorksRuleInfo Rule);
 
     void SetInput(FString IP, int32 Port);
@@ -1201,13 +1201,13 @@ class UUWorksRequestCoreRules : public UUWorksRequestCore
     void GetOutput(FUWorksRuleInfo& UpdatedRule, TArray<FUWorksRuleInfo>& Rules);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0xB8
 
 class UUWorksRequestCoreFileWriteAsync : public UUWorksRequestCore
 {
-    FUWorksRequestCoreFileWriteAsyncOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreFileWriteAsyncOnRequestCompleted OnRequestCompleted;            // 0x0060 (size: 0x10)
     void FileWriteAsyncDelegate(bool bSuccessful, EUWorksResult Result);
-    FUWorksRequestCoreFileWriteAsyncOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreFileWriteAsyncOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0070 (size: 0x10)
     void FileWriteAsyncMinimalDelegate(bool bSuccessful, EUWorksResult Result);
 
     void SetInput(FString File, TArray<uint8> Buffer);
@@ -1215,13 +1215,13 @@ class UUWorksRequestCoreFileWriteAsync : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x80
 
 class UUWorksRequestCoreFileReadAsync : public UUWorksRequestCore
 {
-    FUWorksRequestCoreFileReadAsyncOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreFileReadAsyncOnRequestCompleted OnRequestCompleted;             // 0x0068 (size: 0x10)
     void FileReadAsyncDelegate(bool bSuccessful, EUWorksResult Result, int32 Offset, const TArray<uint8>& Buffer);
-    FUWorksRequestCoreFileReadAsyncOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreFileReadAsyncOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0078 (size: 0x10)
     void FileReadAsyncMinimalDelegate(bool bSuccessful, EUWorksResult Result, int32 Offset, const TArray<uint8>& Buffer);
 
     void SetInput(FString File, int32 Offset, int32 BytesToRead);
@@ -1229,13 +1229,13 @@ class UUWorksRequestCoreFileReadAsync : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, int32& Offset, TArray<uint8>& Buffer);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x88
 
 class UUWorksRequestCoreSendQueryUGCRequest : public UUWorksRequestCore
 {
-    FUWorksRequestCoreSendQueryUGCRequestOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreSendQueryUGCRequestOnRequestCompleted OnRequestCompleted;       // 0x0058 (size: 0x10)
     void SendQueryUGCRequestDelegate(bool bSuccessful, FUWorksUGCQueryHandle UGCQueryHandle, EUWorksResult Result, int32 numResultsReturned, int32 TotalMatchingResults, bool bCachedData);
-    FUWorksRequestCoreSendQueryUGCRequestOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreSendQueryUGCRequestOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void SendQueryUGCRequestMinimalDelegate(bool bSuccessful, FUWorksUGCQueryHandle UGCQueryHandle, EUWorksResult Result, int32 numResultsReturned, int32 TotalMatchingResults, bool bCachedData);
 
     void SetInput(FUWorksUGCQueryHandle UGCQueryHandle);
@@ -1243,13 +1243,13 @@ class UUWorksRequestCoreSendQueryUGCRequest : public UUWorksRequestCore
     void GetOutput(FUWorksUGCQueryHandle& UGCQueryHandle, EUWorksResult& Result, int32& numResultsReturned, int32& TotalMatchingResults, bool& bCachedData);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreCreateItem : public UUWorksRequestCore
 {
-    FUWorksRequestCoreCreateItemOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreCreateItemOnRequestCompleted OnRequestCompleted;                // 0x0050 (size: 0x10)
     void CreateItemDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID, bool bUserNeedsToAcceptWorkshopLegalAgreement);
-    FUWorksRequestCoreCreateItemOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreCreateItemOnRequestCompletedMinimal OnRequestCompletedMinimal;  // 0x0060 (size: 0x10)
     void CreateItemMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID, bool bUserNeedsToAcceptWorkshopLegalAgreement);
 
     void SetInput(int32 ConsumerAppID, EUWorksWorkshopFileType fileType);
@@ -1257,13 +1257,13 @@ class UUWorksRequestCoreCreateItem : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksPublishedFileID& PublishedFileID, bool& bUserNeedsToAcceptWorkshopLegalAgreement);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreSubmitItemUpdate : public UUWorksRequestCore
 {
-    FUWorksRequestCoreSubmitItemUpdateOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreSubmitItemUpdateOnRequestCompleted OnRequestCompleted;          // 0x0058 (size: 0x10)
     void SubmitItemUpdateDelegate(bool bSuccessful, EUWorksResult Result, bool bUserNeedsToAcceptWorkshopLegalAgreement);
-    FUWorksRequestCoreSubmitItemUpdateOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreSubmitItemUpdateOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void SubmitItemUpdateMinimalDelegate(bool bSuccessful, EUWorksResult Result, bool bUserNeedsToAcceptWorkshopLegalAgreement);
 
     void SetInput(FUWorksUGCUpdateHandle UGCUpdateHandle, FString ChangeNote);
@@ -1271,13 +1271,13 @@ class UUWorksRequestCoreSubmitItemUpdate : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, bool& bUserNeedsToAcceptWorkshopLegalAgreement);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreSetUserItemVote : public UUWorksRequestCore
 {
-    FUWorksRequestCoreSetUserItemVoteOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreSetUserItemVoteOnRequestCompleted OnRequestCompleted;           // 0x0058 (size: 0x10)
     void SetUserItemVoteDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bVoteUp);
-    FUWorksRequestCoreSetUserItemVoteOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreSetUserItemVoteOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void SetUserItemVoteMinimalDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bVoteUp);
 
     void SetInput(FUWorksPublishedFileID PublishedFileID, bool bVoteUp);
@@ -1285,13 +1285,13 @@ class UUWorksRequestCoreSetUserItemVote : public UUWorksRequestCore
     void GetOutput(FUWorksPublishedFileID& PublishedFileID, EUWorksResult& Result, bool& bVoteUp);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreGetUserItemVote : public UUWorksRequestCore
 {
-    FUWorksRequestCoreGetUserItemVoteOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreGetUserItemVoteOnRequestCompleted OnRequestCompleted;           // 0x0050 (size: 0x10)
     void GetUserItemVoteDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bVotedUp, bool bVotedDown, bool bVoteSkipped);
-    FUWorksRequestCoreGetUserItemVoteOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreGetUserItemVoteOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void GetUserItemVoteMinimalDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bVotedUp, bool bVotedDown, bool bVoteSkipped);
 
     void SetInput(FUWorksPublishedFileID PublishedFileID);
@@ -1299,13 +1299,13 @@ class UUWorksRequestCoreGetUserItemVote : public UUWorksRequestCore
     void GetOutput(FUWorksPublishedFileID& PublishedFileID, EUWorksResult& Result, bool& bVotedUp, bool& bVotedDown, bool& bVoteSkipped);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreAddItemToFavorites : public UUWorksRequestCore
 {
-    FUWorksRequestCoreAddItemToFavoritesOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreAddItemToFavoritesOnRequestCompleted OnRequestCompleted;        // 0x0058 (size: 0x10)
     void AddItemToFavoritesDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bWasAddRequest);
-    FUWorksRequestCoreAddItemToFavoritesOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreAddItemToFavoritesOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void AddItemToFavoritesMinimalDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bWasAddRequest);
 
     void SetInput(int32 AppID, FUWorksPublishedFileID PublishedFileID);
@@ -1313,13 +1313,13 @@ class UUWorksRequestCoreAddItemToFavorites : public UUWorksRequestCore
     void GetOutput(FUWorksPublishedFileID& PublishedFileID, EUWorksResult& Result, bool& bWasAddRequest);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreRemoveItemFromFavorites : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRemoveItemFromFavoritesOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRemoveItemFromFavoritesOnRequestCompleted OnRequestCompleted;   // 0x0058 (size: 0x10)
     void RemoveItemFromFavoritesDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bWasAddRequest);
-    FUWorksRequestCoreRemoveItemFromFavoritesOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRemoveItemFromFavoritesOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void RemoveItemFromFavoritesMinimalDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bWasAddRequest);
 
     void SetInput(int32 AppID, FUWorksPublishedFileID PublishedFileID);
@@ -1327,13 +1327,13 @@ class UUWorksRequestCoreRemoveItemFromFavorites : public UUWorksRequestCore
     void GetOutput(FUWorksPublishedFileID& PublishedFileID, EUWorksResult& Result, bool& bWasAddRequest);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreSubscribeItem : public UUWorksRequestCore
 {
-    FUWorksRequestCoreSubscribeItemOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreSubscribeItemOnRequestCompleted OnRequestCompleted;             // 0x0050 (size: 0x10)
     void SubscribeItemDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID);
-    FUWorksRequestCoreSubscribeItemOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreSubscribeItemOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void SubscribeItemMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID);
 
     void SetInput(FUWorksPublishedFileID PublishedFileID);
@@ -1341,13 +1341,13 @@ class UUWorksRequestCoreSubscribeItem : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksPublishedFileID& PublishedFileID);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreUnsubscribeItem : public UUWorksRequestCore
 {
-    FUWorksRequestCoreUnsubscribeItemOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreUnsubscribeItemOnRequestCompleted OnRequestCompleted;           // 0x0050 (size: 0x10)
     void UnsubscribeItemDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID);
-    FUWorksRequestCoreUnsubscribeItemOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreUnsubscribeItemOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void UnsubscribeItemMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID);
 
     void SetInput(FUWorksPublishedFileID PublishedFileID);
@@ -1355,13 +1355,13 @@ class UUWorksRequestCoreUnsubscribeItem : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksPublishedFileID& PublishedFileID);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreStartPlaytimeTracking : public UUWorksRequestCore
 {
-    FUWorksRequestCoreStartPlaytimeTrackingOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreStartPlaytimeTrackingOnRequestCompleted OnRequestCompleted;     // 0x0050 (size: 0x10)
     void StartPlaytimeTrackingDelegate(bool bSuccessful, EUWorksResult Result);
-    FUWorksRequestCoreStartPlaytimeTrackingOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreStartPlaytimeTrackingOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void StartPlaytimeTrackingMinimalDelegate(bool bSuccessful, EUWorksResult Result);
 
     void SetInput(TArray<FUWorksPublishedFileID> PublishedFileID);
@@ -1369,13 +1369,13 @@ class UUWorksRequestCoreStartPlaytimeTracking : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreStopPlaytimeTracking : public UUWorksRequestCore
 {
-    FUWorksRequestCoreStopPlaytimeTrackingOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreStopPlaytimeTrackingOnRequestCompleted OnRequestCompleted;      // 0x0050 (size: 0x10)
     void StopPlaytimeTrackingDelegate(bool bSuccessful, EUWorksResult Result);
-    FUWorksRequestCoreStopPlaytimeTrackingOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreStopPlaytimeTrackingOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void StopPlaytimeTrackingMinimalDelegate(bool bSuccessful, EUWorksResult Result);
 
     void SetInput(TArray<FUWorksPublishedFileID> PublishedFileIDs);
@@ -1383,26 +1383,26 @@ class UUWorksRequestCoreStopPlaytimeTracking : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreStopPlaytimeTrackingForAllItems : public UUWorksRequestCore
 {
-    FUWorksRequestCoreStopPlaytimeTrackingForAllItemsOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreStopPlaytimeTrackingForAllItemsOnRequestCompleted OnRequestCompleted; // 0x0040 (size: 0x10)
     void StopPlaytimeTrackingForAllItemsDelegate(bool bSuccessful, EUWorksResult Result);
-    FUWorksRequestCoreStopPlaytimeTrackingForAllItemsOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreStopPlaytimeTrackingForAllItemsOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0050 (size: 0x10)
     void StopPlaytimeTrackingForAllItemsMinimalDelegate(bool bSuccessful, EUWorksResult Result);
 
     bool IsActive();
     void GetOutput(EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x60
 
 class UUWorksRequestCoreRequestEncryptedAppTicket : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestEncryptedAppTicketOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestEncryptedAppTicketOnRequestCompleted OnRequestCompleted; // 0x0050 (size: 0x10)
     void RequestEncryptedAppTicketDelegate(bool bSuccessful, EUWorksResult Result);
-    FUWorksRequestCoreRequestEncryptedAppTicketOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestEncryptedAppTicketOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void RequestEncryptedAppTicketMinimalDelegate(bool bSuccessful, EUWorksResult Result);
 
     void SetInput(TArray<uint8> Buffer);
@@ -1410,13 +1410,13 @@ class UUWorksRequestCoreRequestEncryptedAppTicket : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UUWorksRequestCoreRequestStoreAuthURL : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestStoreAuthURLOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestStoreAuthURLOnRequestCompleted OnRequestCompleted;       // 0x0058 (size: 0x10)
     void RequestStoreAuthURLDelegate(bool bSuccessful, FString URL);
-    FUWorksRequestCoreRequestStoreAuthURLOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestStoreAuthURLOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void RequestStoreAuthURLMinimalDelegate(bool bSuccessful, FString URL);
 
     void SetInput(FString URL);
@@ -1424,13 +1424,13 @@ class UUWorksRequestCoreRequestStoreAuthURL : public UUWorksRequestCore
     void GetOutput(FString& URL);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreRequestUserStats : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestUserStatsOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestUserStatsOnRequestCompleted OnRequestCompleted;          // 0x0058 (size: 0x10)
     void RequestUserStatsDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result, FUWorksSteamID SteamID);
-    FUWorksRequestCoreRequestUserStatsOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestUserStatsOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void RequestUserStatsMinimalDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result, FUWorksSteamID SteamID);
 
     void SetInput(FUWorksSteamID SteamID);
@@ -1438,13 +1438,13 @@ class UUWorksRequestCoreRequestUserStats : public UUWorksRequestCore
     void GetOutput(FUWorksGameID& GameID, EUWorksResult& Result, FUWorksSteamID& SteamID);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreFindOrCreateLeaderboard : public UUWorksRequestCore
 {
-    FUWorksRequestCoreFindOrCreateLeaderboardOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreFindOrCreateLeaderboardOnRequestCompleted OnRequestCompleted;   // 0x0060 (size: 0x10)
     void FindOrCreateLeaderboardDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
-    FUWorksRequestCoreFindOrCreateLeaderboardOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreFindOrCreateLeaderboardOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0070 (size: 0x10)
     void FindOrCreateLeaderboardMinimalDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
 
     void SetInput(FString LeaderboardName, EUWorksLeaderboardSortMethod LeaderboardSortMethod, EUWorksLeaderboardDisplayType LeaderboardDisplayType);
@@ -1452,13 +1452,13 @@ class UUWorksRequestCoreFindOrCreateLeaderboard : public UUWorksRequestCore
     void GetOutput(FUWorksSteamLeaderboard& SteamLeaderboard, bool& bLeaderboardFound);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x80
 
 class UUWorksRequestCoreFindLeaderboard : public UUWorksRequestCore
 {
-    FUWorksRequestCoreFindLeaderboardOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreFindLeaderboardOnRequestCompleted OnRequestCompleted;           // 0x0058 (size: 0x10)
     void FindLeaderboardDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
-    FUWorksRequestCoreFindLeaderboardOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreFindLeaderboardOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void FindLeaderboardMinimalDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
 
     void SetInput(FString LeaderboardName);
@@ -1466,13 +1466,13 @@ class UUWorksRequestCoreFindLeaderboard : public UUWorksRequestCore
     void GetOutput(FUWorksSteamLeaderboard& SteamLeaderboard, bool& bLeaderboardFound);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreDownloadLeaderboardEntries : public UUWorksRequestCore
 {
-    FUWorksRequestCoreDownloadLeaderboardEntriesOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreDownloadLeaderboardEntriesOnRequestCompleted OnRequestCompleted; // 0x0068 (size: 0x10)
     void DownloadLeaderboardEntriesDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksSteamLeaderboardEntries SteamLeaderboardEntries, int32 EntryCount);
-    FUWorksRequestCoreDownloadLeaderboardEntriesOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreDownloadLeaderboardEntriesOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0078 (size: 0x10)
     void DownloadLeaderboardEntriesMinimalDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksSteamLeaderboardEntries SteamLeaderboardEntries, int32 EntryCount);
 
     void SetInput(FUWorksSteamLeaderboard SteamLeaderboard, EUWorksLeaderboardDataRequest LeaderboardDataRequest, int32 RangeStart, int32 RangeEnd);
@@ -1480,13 +1480,13 @@ class UUWorksRequestCoreDownloadLeaderboardEntries : public UUWorksRequestCore
     void GetOutput(FUWorksSteamLeaderboard& SteamLeaderboard, FUWorksSteamLeaderboardEntries& SteamLeaderboardEntries, int32& EntryCount);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x88
 
 class UUWorksRequestCoreDownloadLeaderboardEntriesForUsers : public UUWorksRequestCore
 {
-    FUWorksRequestCoreDownloadLeaderboardEntriesForUsersOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreDownloadLeaderboardEntriesForUsersOnRequestCompleted OnRequestCompleted; // 0x0068 (size: 0x10)
     void DownloadLeaderboardEntriesForUsersDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksSteamLeaderboardEntries SteamLeaderboardEntries, int32 EntryCount);
-    FUWorksRequestCoreDownloadLeaderboardEntriesForUsersOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreDownloadLeaderboardEntriesForUsersOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0078 (size: 0x10)
     void DownloadLeaderboardEntriesForUsersMinimalDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksSteamLeaderboardEntries SteamLeaderboardEntries, int32 EntryCount);
 
     void SetInput(FUWorksSteamLeaderboard SteamLeaderboard, TArray<FUWorksSteamID> Users);
@@ -1494,13 +1494,13 @@ class UUWorksRequestCoreDownloadLeaderboardEntriesForUsers : public UUWorksReque
     void GetOutput(FUWorksSteamLeaderboard& SteamLeaderboard, FUWorksSteamLeaderboardEntries& SteamLeaderboardEntries, int32& EntryCount);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x88
 
 class UUWorksRequestCoreUploadLeaderboardScore : public UUWorksRequestCore
 {
-    FUWorksRequestCoreUploadLeaderboardScoreOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreUploadLeaderboardScoreOnRequestCompleted OnRequestCompleted;    // 0x0078 (size: 0x10)
     void UploadLeaderboardScoreDelegate(bool bSuccessful, bool bSuccess, FUWorksSteamLeaderboard SteamLeaderboard, int32 score, bool bScoreChanged, int32 GlobalRankNew, int32 GlobalRankPrevious);
-    FUWorksRequestCoreUploadLeaderboardScoreOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreUploadLeaderboardScoreOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0088 (size: 0x10)
     void UploadLeaderboardScoreMinimalDelegate(bool bSuccessful, bool bSuccess, FUWorksSteamLeaderboard SteamLeaderboard, int32 score, bool bScoreChanged, int32 GlobalRankNew, int32 GlobalRankPrevious);
 
     void SetInput(FUWorksSteamLeaderboard SteamLeaderboard, EUWorksLeaderboardUploadScoreMethod LeaderboardUploadScoreMethod, int32 score, TArray<int32> ScoreDetails);
@@ -1508,13 +1508,13 @@ class UUWorksRequestCoreUploadLeaderboardScore : public UUWorksRequestCore
     void GetOutput(bool& bSuccess, FUWorksSteamLeaderboard& SteamLeaderboard, int32& score, bool& bScoreChanged, int32& GlobalRankNew, int32& GlobalRankPrevious);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x98
 
 class UUWorksRequestCoreAttachLeaderboardUGC : public UUWorksRequestCore
 {
-    FUWorksRequestCoreAttachLeaderboardUGCOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreAttachLeaderboardUGCOnRequestCompleted OnRequestCompleted;      // 0x0058 (size: 0x10)
     void AttachLeaderboardUGCDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamLeaderboard SteamLeaderboard);
-    FUWorksRequestCoreAttachLeaderboardUGCOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreAttachLeaderboardUGCOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0068 (size: 0x10)
     void AttachLeaderboardUGCMinimalDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamLeaderboard SteamLeaderboard);
 
     void SetInput(FUWorksSteamLeaderboard SteamLeaderboard, FUWorksUGCHandle UGCHandle);
@@ -1522,39 +1522,39 @@ class UUWorksRequestCoreAttachLeaderboardUGC : public UUWorksRequestCore
     void GetOutput(EUWorksResult& Result, FUWorksSteamLeaderboard& SteamLeaderboard);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x78
 
 class UUWorksRequestCoreGetNumberOfCurrentPlayers : public UUWorksRequestCore
 {
-    FUWorksRequestCoreGetNumberOfCurrentPlayersOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreGetNumberOfCurrentPlayersOnRequestCompleted OnRequestCompleted; // 0x0040 (size: 0x10)
     void GetNumberOfCurrentPlayersDelegate(bool bSuccessful, bool bSuccess, int32 Players);
-    FUWorksRequestCoreGetNumberOfCurrentPlayersOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreGetNumberOfCurrentPlayersOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0050 (size: 0x10)
     void GetNumberOfCurrentPlayersMinimalDelegate(bool bSuccessful, bool bSuccess, int32 Players);
 
     bool IsActive();
     void GetOutput(bool& bSuccess, int32& Players);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x60
 
 class UUWorksRequestCoreRequestGlobalAchievementPercentages : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestGlobalAchievementPercentagesOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestGlobalAchievementPercentagesOnRequestCompleted OnRequestCompleted; // 0x0048 (size: 0x10)
     void RequestGlobalAchievementPercentagesDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result);
-    FUWorksRequestCoreRequestGlobalAchievementPercentagesOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestGlobalAchievementPercentagesOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0058 (size: 0x10)
     void RequestGlobalAchievementPercentagesMinimalDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result);
 
     bool IsActive();
     void GetOutput(FUWorksGameID& GameID, EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x68
 
 class UUWorksRequestCoreRequestGlobalStats : public UUWorksRequestCore
 {
-    FUWorksRequestCoreRequestGlobalStatsOnRequestCompleted OnRequestCompleted;
+    FUWorksRequestCoreRequestGlobalStatsOnRequestCompleted OnRequestCompleted;        // 0x0050 (size: 0x10)
     void RequestGlobalStatsDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result);
-    FUWorksRequestCoreRequestGlobalStatsOnRequestCompletedMinimal OnRequestCompletedMinimal;
+    FUWorksRequestCoreRequestGlobalStatsOnRequestCompletedMinimal OnRequestCompletedMinimal; // 0x0060 (size: 0x10)
     void RequestGlobalStatsMinimalDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result);
 
     void SetInput(int32 HistoryDays);
@@ -1562,492 +1562,492 @@ class UUWorksRequestCoreRequestGlobalStats : public UUWorksRequestCore
     void GetOutput(FUWorksGameID& GameID, EUWorksResult& Result);
     void Deactivate();
     void Activate();
-};
+}; // Size: 0x70
 
 class UCoreGetFileDetailsNode : public UBlueprintAsyncActionBase
 {
-    FCoreGetFileDetailsNodeCompleted Completed;
+    FCoreGetFileDetailsNodeCompleted Completed;                                       // 0x0030 (size: 0x10)
     void GetFileDetailsDelegate(bool bSuccessful, EUWorksResult Result, int32 fileSize, FString FileSHA, const TArray<int32>& FileFlags);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, int32 fileSize, FString FileSHA, const TArray<int32>& FileFlags);
     class UCoreGetFileDetailsNode* GetFileDetailsNode(FString Filename);
-};
+}; // Size: 0x40
 
 class UCoreSetPersonaNameNode : public UBlueprintAsyncActionBase
 {
-    FCoreSetPersonaNameNodeCompleted Completed;
+    FCoreSetPersonaNameNodeCompleted Completed;                                       // 0x0030 (size: 0x10)
     void SetPersonaNameDelegate(bool bSuccessful, bool bSuccess, bool bLocalSuccess, EUWorksResult Result);
 
     class UCoreSetPersonaNameNode* SetPersonaNameNode(FString Name);
     void OnRequestCompleted(bool bSuccessful, bool bSuccess, bool bLocalSuccess, EUWorksResult Result);
-};
+}; // Size: 0x40
 
 class UCoreDownloadClanActivityCountsNode : public UBlueprintAsyncActionBase
 {
-    FCoreDownloadClanActivityCountsNodeCompleted Completed;
+    FCoreDownloadClanActivityCountsNodeCompleted Completed;                           // 0x0030 (size: 0x10)
     void DownloadClanActivityCountsDelegate(bool bSuccessful, bool bSuccess);
 
     void OnRequestCompleted(bool bSuccessful, bool bSuccess);
     class UCoreDownloadClanActivityCountsNode* DownloadClanActivityCountsNode(TArray<FUWorksSteamID> SteamIDClans);
-};
+}; // Size: 0x40
 
 class UCoreRequestClanOfficerListNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestClanOfficerListNodeCompleted Completed;
+    FCoreRequestClanOfficerListNodeCompleted Completed;                               // 0x0030 (size: 0x10)
     void RequestClanOfficerListDelegate(bool bSuccessful, FUWorksSteamID SteamIDClan, int32 Officers, bool bSuccess);
 
     class UCoreRequestClanOfficerListNode* RequestClanOfficerListNode(FUWorksSteamID SteamID);
     void OnRequestCompleted(bool bSuccessful, FUWorksSteamID SteamIDClan, int32 Officers, bool bSuccess);
-};
+}; // Size: 0x40
 
 class UCoreJoinClanChatRoomNode : public UBlueprintAsyncActionBase
 {
-    FCoreJoinClanChatRoomNodeCompleted Completed;
+    FCoreJoinClanChatRoomNodeCompleted Completed;                                     // 0x0030 (size: 0x10)
     void JoinClanChatRoomDelegate(bool bSuccessful, FUWorksSteamID SteamIDClanChat, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
 
     void OnRequestCompleted(bool bSuccessful, FUWorksSteamID SteamIDClanChat, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
     class UCoreJoinClanChatRoomNode* JoinClanChatRoomNode(FUWorksSteamID SteamIDClan);
-};
+}; // Size: 0x40
 
 class UCoreGetFollowerCountNode : public UBlueprintAsyncActionBase
 {
-    FCoreGetFollowerCountNodeCompleted Completed;
+    FCoreGetFollowerCountNodeCompleted Completed;                                     // 0x0030 (size: 0x10)
     void GetFollowerCountDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, int32 Count);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, int32 Count);
     class UCoreGetFollowerCountNode* GetFollowerCountNode(FUWorksSteamID SteamID);
-};
+}; // Size: 0x40
 
 class UCoreIsFollowingNode : public UBlueprintAsyncActionBase
 {
-    FCoreIsFollowingNodeCompleted Completed;
+    FCoreIsFollowingNodeCompleted Completed;                                          // 0x0030 (size: 0x10)
     void IsFollowingDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, bool bIsFollowing);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, bool bIsFollowing);
     class UCoreIsFollowingNode* IsFollowingNode(FUWorksSteamID SteamID);
-};
+}; // Size: 0x40
 
 class UCoreEnumerateFollowingListNode : public UBlueprintAsyncActionBase
 {
-    FCoreEnumerateFollowingListNodeCompleted Completed;
+    FCoreEnumerateFollowingListNodeCompleted Completed;                               // 0x0030 (size: 0x10)
     void EnumerateFollowingListDelegate(bool bSuccessful, EUWorksResult Result, const TArray<FUWorksSteamID>& SteamIDs, int32 ResultsReturned, int32 TotalResultCount);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, const TArray<FUWorksSteamID>& SteamIDs, int32 ResultsReturned, int32 TotalResultCount);
     class UCoreEnumerateFollowingListNode* EnumerateFollowingListNode(int32 StartIndex);
-};
+}; // Size: 0x40
 
 class UCoreAssociateWithClanNode : public UBlueprintAsyncActionBase
 {
-    FCoreAssociateWithClanNodeCompleted Completed;
+    FCoreAssociateWithClanNodeCompleted Completed;                                    // 0x0030 (size: 0x10)
     void AssociateWithClanDelegate(bool bSuccessful, EUWorksResult Result);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result);
     class UCoreAssociateWithClanNode* AssociateWithClanNode(FUWorksSteamID SteamIDClan);
-};
+}; // Size: 0x40
 
 class UCoreComputeNewPlayerCompatibilityNode : public UBlueprintAsyncActionBase
 {
-    FCoreComputeNewPlayerCompatibilityNodeCompleted Completed;
+    FCoreComputeNewPlayerCompatibilityNodeCompleted Completed;                        // 0x0030 (size: 0x10)
     void ComputeNewPlayerCompatibilityDelegate(bool bSuccessful, EUWorksResult Result, int32 PlayersThatDontLikeCandidate, int32 PlayersThatCandidateDoesntLike, int32 ClanPlayersThatDontLikeCandidate, FUWorksSteamID SteamIDCandidate);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, int32 PlayersThatDontLikeCandidate, int32 PlayersThatCandidateDoesntLike, int32 ClanPlayersThatDontLikeCandidate, FUWorksSteamID SteamIDCandidate);
     class UCoreComputeNewPlayerCompatibilityNode* ComputeNewPlayerCompatibilityNode(FUWorksSteamID SteamIDNewPlayer);
-};
+}; // Size: 0x40
 
 class UCoreRequestUserStatsGSNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestUserStatsGSNodeCompleted Completed;
+    FCoreRequestUserStatsGSNodeCompleted Completed;                                   // 0x0030 (size: 0x10)
     void ServerRequestUserStatsDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDUser);
 
     class UCoreRequestUserStatsGSNode* RequestUserStatsGSNode(FUWorksSteamID SteamIDUser);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDUser);
-};
+}; // Size: 0x40
 
 class UCoreStoreUserStatsNode : public UBlueprintAsyncActionBase
 {
-    FCoreStoreUserStatsNodeCompleted Completed;
+    FCoreStoreUserStatsNodeCompleted Completed;                                       // 0x0030 (size: 0x10)
     void ServerStoreUserStatsDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDUser);
 
     class UCoreStoreUserStatsNode* StoreUserStatsNode(FUWorksSteamID SteamIDUser);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDUser);
-};
+}; // Size: 0x40
 
 class UCoreRequestEligiblePromoItemDefinitionsIDsNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestEligiblePromoItemDefinitionsIDsNodeCompleted Completed;
+    FCoreRequestEligiblePromoItemDefinitionsIDsNodeCompleted Completed;               // 0x0030 (size: 0x10)
     void RequestEligiblePromoItemDefinitionsIDsDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, int32 NumEligiblePromoItemsDefinitionsIDs, bool bCachedData);
 
     class UCoreRequestEligiblePromoItemDefinitionsIDsNode* RequestEligiblePromoItemDefinitionsIDsNode(FUWorksSteamID SteamID);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamID, int32 NumEligiblePromoItemsDefinitionsIDs, bool bCachedData);
-};
+}; // Size: 0x40
 
 class UCoreRequestLobbyListNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestLobbyListNodeCompleted Completed;
+    FCoreRequestLobbyListNodeCompleted Completed;                                     // 0x0030 (size: 0x10)
     void RequestLobbyListDelegate(bool bSuccessful, int32 LobbiesMatching);
 
     class UCoreRequestLobbyListNode* RequestLobbyListNode();
     void OnRequestCompleted(bool bSuccessful, int32 LobbiesMatching);
-};
+}; // Size: 0x40
 
 class UCoreCreateLobbyNode : public UBlueprintAsyncActionBase
 {
-    FCoreCreateLobbyNodeCompleted Completed;
+    FCoreCreateLobbyNodeCompleted Completed;                                          // 0x0030 (size: 0x10)
     void CreateLobbyDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDLobby);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksSteamID SteamIDLobby);
     class UCoreCreateLobbyNode* CreateLobbyNode(EUWorksLobbyType LobbyType, int32 MaxMembers);
-};
+}; // Size: 0x40
 
 class UCoreJoinLobbyNode : public UBlueprintAsyncActionBase
 {
-    FCoreJoinLobbyNodeCompleted Completed;
+    FCoreJoinLobbyNodeCompleted Completed;                                            // 0x0030 (size: 0x10)
     void JoinLobbyDelegate(bool bSuccessful, FUWorksSteamID SteamIDLobby, const TArray<uint8>& ChatPermissions, bool bLocked, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
 
     void OnRequestCompleted(bool bSuccessful, FUWorksSteamID SteamIDLobby, const TArray<uint8>& ChatPermissions, bool bLocked, EUWorksChatRoomEnterResponse ChatRoomEnterResponse);
     class UCoreJoinLobbyNode* JoinLobbyNode(FUWorksSteamID SteamIDLobby);
-};
+}; // Size: 0x40
 
 class UCoreServerListNode : public UBlueprintAsyncActionBase
 {
-    FCoreServerListNodeUpdated Updated;
+    FCoreServerListNodeUpdated Updated;                                               // 0x0030 (size: 0x10)
     void ServerListUpdateDelegate(bool bSuccessful, FUWorksServerInfo Server);
 
     class UCoreServerListNode* ServerListNode(int32 AppID, EUWorksServerQueryType queryType, int32 MaxUpdates);
     void OnRequestUpdated(bool bSuccessful, FUWorksServerInfo Server);
-};
+}; // Size: 0x50
 
 class UCorePingNode : public UBlueprintAsyncActionBase
 {
-    FCorePingNodeCompleted Completed;
+    FCorePingNodeCompleted Completed;                                                 // 0x0030 (size: 0x10)
     void PingDelegate(bool bSuccessful, FUWorksServerInfo Server);
 
     class UCorePingNode* PingNode(FString IP, int32 Port);
     void OnRequestCompleted(bool bSuccessful, FUWorksServerInfo Server);
-};
+}; // Size: 0x40
 
 class UCorePlayersNode : public UBlueprintAsyncActionBase
 {
-    FCorePlayersNodeUpdated Updated;
+    FCorePlayersNodeUpdated Updated;                                                  // 0x0030 (size: 0x10)
     void PlayersUpdateDelegate(bool bSuccessful, FUWorksPlayerInfo Player);
 
     class UCorePlayersNode* PlayersNode(FString IP, int32 Port, int32 MaxUpdates);
     void OnRequestUpdated(bool bSuccessful, FUWorksPlayerInfo Player);
-};
+}; // Size: 0x50
 
 class UCoreRulesNode : public UBlueprintAsyncActionBase
 {
-    FCoreRulesNodeUpdated Updated;
+    FCoreRulesNodeUpdated Updated;                                                    // 0x0030 (size: 0x10)
     void RulesUpdateDelegate(bool bSuccessful, FUWorksRuleInfo Rule);
 
     class UCoreRulesNode* RulesNode(FString IP, int32 Port, int32 MaxUpdates);
     void OnRequestUpdated(bool bSuccessful, FUWorksRuleInfo Rule);
-};
+}; // Size: 0x50
 
 class UCoreFileWriteAsyncNode : public UBlueprintAsyncActionBase
 {
-    FCoreFileWriteAsyncNodeCompleted Completed;
+    FCoreFileWriteAsyncNodeCompleted Completed;                                       // 0x0030 (size: 0x10)
     void FileWriteAsyncDelegate(bool bSuccessful, EUWorksResult Result);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result);
     class UCoreFileWriteAsyncNode* FileWriteAsyncNode(FString File, TArray<uint8> Buffer);
-};
+}; // Size: 0x40
 
 class UCoreFileReadAsyncNode : public UBlueprintAsyncActionBase
 {
-    FCoreFileReadAsyncNodeCompleted Completed;
+    FCoreFileReadAsyncNodeCompleted Completed;                                        // 0x0030 (size: 0x10)
     void FileReadAsyncDelegate(bool bSuccessful, EUWorksResult Result, int32 Offset, const TArray<uint8>& Buffer);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, int32 Offset, const TArray<uint8>& Buffer);
     class UCoreFileReadAsyncNode* FileReadAsyncNode(FString File, int32 Offset, int32 BytesToRead);
-};
+}; // Size: 0x40
 
 class UCoreSendQueryUGCRequestNode : public UBlueprintAsyncActionBase
 {
-    FCoreSendQueryUGCRequestNodeCompleted Completed;
+    FCoreSendQueryUGCRequestNodeCompleted Completed;                                  // 0x0030 (size: 0x10)
     void SendQueryUGCRequestDelegate(bool bSuccessful, FUWorksUGCQueryHandle UGCQueryHandle, EUWorksResult Result, int32 numResultsReturned, int32 TotalMatchingResults, bool bCachedData);
 
     class UCoreSendQueryUGCRequestNode* SendQueryUGCRequestNode(FUWorksUGCQueryHandle UGCQueryHandle);
     void OnRequestCompleted(bool bSuccessful, FUWorksUGCQueryHandle UGCQueryHandle, EUWorksResult Result, int32 numResultsReturned, int32 TotalMatchingResults, bool bCachedData);
-};
+}; // Size: 0x40
 
 class UCoreCreateItemNode : public UBlueprintAsyncActionBase
 {
-    FCoreCreateItemNodeCompleted Completed;
+    FCoreCreateItemNodeCompleted Completed;                                           // 0x0030 (size: 0x10)
     void CreateItemDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID, bool bUserNeedsToAcceptWorkshopLegalAgreement);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID, bool bUserNeedsToAcceptWorkshopLegalAgreement);
     class UCoreCreateItemNode* CreateItemNode(int32 ConsumerAppID, EUWorksWorkshopFileType fileType);
-};
+}; // Size: 0x40
 
 class UCoreSubmitItemUpdateNode : public UBlueprintAsyncActionBase
 {
-    FCoreSubmitItemUpdateNodeCompleted Completed;
+    FCoreSubmitItemUpdateNodeCompleted Completed;                                     // 0x0030 (size: 0x10)
     void SubmitItemUpdateDelegate(bool bSuccessful, EUWorksResult Result, bool bUserNeedsToAcceptWorkshopLegalAgreement);
 
     class UCoreSubmitItemUpdateNode* SubmitItemUpdateNode(FUWorksUGCUpdateHandle UGCUpdateHandle, FString ChangeNote);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, bool bUserNeedsToAcceptWorkshopLegalAgreement);
-};
+}; // Size: 0x40
 
 class UCoreSetUserItemVoteNode : public UBlueprintAsyncActionBase
 {
-    FCoreSetUserItemVoteNodeCompleted Completed;
+    FCoreSetUserItemVoteNodeCompleted Completed;                                      // 0x0030 (size: 0x10)
     void SetUserItemVoteDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bVoteUp);
 
     class UCoreSetUserItemVoteNode* SetUserItemVoteNode(FUWorksPublishedFileID PublishedFileID, bool bVoteUp);
     void OnRequestCompleted(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bVoteUp);
-};
+}; // Size: 0x40
 
 class UCoreGetUserItemVoteNode : public UBlueprintAsyncActionBase
 {
-    FCoreGetUserItemVoteNodeCompleted Completed;
+    FCoreGetUserItemVoteNodeCompleted Completed;                                      // 0x0030 (size: 0x10)
     void GetUserItemVoteDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bVotedUp, bool bVotedDown, bool bVoteSkipped);
 
     void OnRequestCompleted(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bVotedUp, bool bVotedDown, bool bVoteSkipped);
     class UCoreGetUserItemVoteNode* GetUserItemVoteNode(FUWorksPublishedFileID PublishedFileID);
-};
+}; // Size: 0x40
 
 class UCoreAddItemToFavoritesNode : public UBlueprintAsyncActionBase
 {
-    FCoreAddItemToFavoritesNodeCompleted Completed;
+    FCoreAddItemToFavoritesNodeCompleted Completed;                                   // 0x0030 (size: 0x10)
     void AddItemToFavoritesDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bWasAddRequest);
 
     void OnRequestCompleted(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bWasAddRequest);
     class UCoreAddItemToFavoritesNode* AddItemToFavoritesNode(int32 AppID, FUWorksPublishedFileID PublishedFileID);
-};
+}; // Size: 0x40
 
 class UCoreRemoveItemFromFavoritesNode : public UBlueprintAsyncActionBase
 {
-    FCoreRemoveItemFromFavoritesNodeCompleted Completed;
+    FCoreRemoveItemFromFavoritesNodeCompleted Completed;                              // 0x0030 (size: 0x10)
     void RemoveItemFromFavoritesDelegate(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bWasAddRequest);
 
     class UCoreRemoveItemFromFavoritesNode* RemoveItemFromFavoritesNode(int32 AppID, FUWorksPublishedFileID PublishedFileID);
     void OnRequestCompleted(bool bSuccessful, FUWorksPublishedFileID PublishedFileID, EUWorksResult Result, bool bWasAddRequest);
-};
+}; // Size: 0x40
 
 class UCoreSubscribeItemNode : public UBlueprintAsyncActionBase
 {
-    FCoreSubscribeItemNodeCompleted Completed;
+    FCoreSubscribeItemNodeCompleted Completed;                                        // 0x0030 (size: 0x10)
     void SubscribeItemDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID);
 
     class UCoreSubscribeItemNode* SubscribeItemNode(FUWorksPublishedFileID PublishedFileID);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID);
-};
+}; // Size: 0x40
 
 class UCoreUnsubscribeItemNode : public UBlueprintAsyncActionBase
 {
-    FCoreUnsubscribeItemNodeCompleted Completed;
+    FCoreUnsubscribeItemNodeCompleted Completed;                                      // 0x0030 (size: 0x10)
     void UnsubscribeItemDelegate(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID);
 
     class UCoreUnsubscribeItemNode* UnsubscribeItemNode(FUWorksPublishedFileID PublishedFileID);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksPublishedFileID PublishedFileID);
-};
+}; // Size: 0x40
 
 class UCoreStartPlaytimeTrackingNode : public UBlueprintAsyncActionBase
 {
-    FCoreStartPlaytimeTrackingNodeCompleted Completed;
+    FCoreStartPlaytimeTrackingNodeCompleted Completed;                                // 0x0030 (size: 0x10)
     void StartPlaytimeTrackingDelegate(bool bSuccessful, EUWorksResult Result);
 
     class UCoreStartPlaytimeTrackingNode* StartPlaytimeTrackingNode(TArray<FUWorksPublishedFileID> PublishedFileID);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result);
-};
+}; // Size: 0x40
 
 class UCoreStopPlaytimeTrackingNode : public UBlueprintAsyncActionBase
 {
-    FCoreStopPlaytimeTrackingNodeCompleted Completed;
+    FCoreStopPlaytimeTrackingNodeCompleted Completed;                                 // 0x0030 (size: 0x10)
     void StopPlaytimeTrackingDelegate(bool bSuccessful, EUWorksResult Result);
 
     class UCoreStopPlaytimeTrackingNode* StopPlaytimeTrackingNode(TArray<FUWorksPublishedFileID> PublishedFileID);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result);
-};
+}; // Size: 0x40
 
 class UCoreStopPlaytimeTrackingForAllItemsNode : public UBlueprintAsyncActionBase
 {
-    FCoreStopPlaytimeTrackingForAllItemsNodeCompleted Completed;
+    FCoreStopPlaytimeTrackingForAllItemsNodeCompleted Completed;                      // 0x0030 (size: 0x10)
     void StopPlaytimeTrackingForAllItemsDelegate(bool bSuccessful, EUWorksResult Result);
 
     class UCoreStopPlaytimeTrackingForAllItemsNode* StopPlaytimeTrackingForAllItemsNode();
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result);
-};
+}; // Size: 0x40
 
 class UCoreRequestEncryptedAppTicketNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestEncryptedAppTicketNodeCompleted Completed;
+    FCoreRequestEncryptedAppTicketNodeCompleted Completed;                            // 0x0030 (size: 0x10)
     void RequestEncryptedAppTicketDelegate(bool bSuccessful, EUWorksResult Result);
 
     class UCoreRequestEncryptedAppTicketNode* RequestEncryptedAppTicketNode(TArray<uint8> Buffer);
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result);
-};
+}; // Size: 0x40
 
 class UCoreRequestStoreAuthURLNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestStoreAuthURLNodeCompleted Completed;
+    FCoreRequestStoreAuthURLNodeCompleted Completed;                                  // 0x0030 (size: 0x10)
     void RequestStoreAuthURLDelegate(bool bSuccessful, FString URL);
 
     class UCoreRequestStoreAuthURLNode* RequestStoreAuthURLNode(FString URL);
     void OnRequestCompleted(bool bSuccessful, FString URL);
-};
+}; // Size: 0x40
 
 class UCoreRequestUserStatsNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestUserStatsNodeCompleted Completed;
+    FCoreRequestUserStatsNodeCompleted Completed;                                     // 0x0030 (size: 0x10)
     void RequestUserStatsDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result, FUWorksSteamID SteamID);
 
     class UCoreRequestUserStatsNode* RequestUserStatsNode(FUWorksSteamID SteamID);
     void OnRequestCompleted(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result, FUWorksSteamID SteamID);
-};
+}; // Size: 0x40
 
 class UCoreFindOrCreateLeaderboardNode : public UBlueprintAsyncActionBase
 {
-    FCoreFindOrCreateLeaderboardNodeCompleted Completed;
+    FCoreFindOrCreateLeaderboardNodeCompleted Completed;                              // 0x0030 (size: 0x10)
     void FindOrCreateLeaderboardDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
 
     void OnRequestCompleted(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
     class UCoreFindOrCreateLeaderboardNode* FindOrCreateLeaderboardNode(FString LeaderboardName, EUWorksLeaderboardSortMethod LeaderboardSortMethod, EUWorksLeaderboardDisplayType LeaderboardDisplayType);
-};
+}; // Size: 0x40
 
 class UCoreFindLeaderboardNode : public UBlueprintAsyncActionBase
 {
-    FCoreFindLeaderboardNodeCompleted Completed;
+    FCoreFindLeaderboardNodeCompleted Completed;                                      // 0x0030 (size: 0x10)
     void FindLeaderboardDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
 
     void OnRequestCompleted(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
     class UCoreFindLeaderboardNode* FindLeaderboardNode(FString LeaderboardName);
-};
+}; // Size: 0x40
 
 class UCoreDownloadLeaderboardEntriesNode : public UBlueprintAsyncActionBase
 {
-    FCoreDownloadLeaderboardEntriesNodeCompleted Completed;
+    FCoreDownloadLeaderboardEntriesNodeCompleted Completed;                           // 0x0030 (size: 0x10)
     void DownloadLeaderboardEntriesDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksSteamLeaderboardEntries SteamLeaderboardEntries, int32 EntryCount);
 
     void OnRequestCompleted(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksSteamLeaderboardEntries SteamLeaderboardEntries, int32 EntryCount);
     class UCoreDownloadLeaderboardEntriesNode* DownloadLeaderboardEntriesNode(FUWorksSteamLeaderboard SteamLeaderboard, EUWorksLeaderboardDataRequest LeaderboardDataRequest, int32 RangeStart, int32 RangeEnd);
-};
+}; // Size: 0x40
 
 class UCoreDownloadLeaderboardEntriesForUsersNode : public UBlueprintAsyncActionBase
 {
-    FCoreDownloadLeaderboardEntriesForUsersNodeCompleted Completed;
+    FCoreDownloadLeaderboardEntriesForUsersNodeCompleted Completed;                   // 0x0030 (size: 0x10)
     void DownloadLeaderboardEntriesForUsersDelegate(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksSteamLeaderboardEntries SteamLeaderboardEntries, int32 EntryCount);
 
     void OnRequestCompleted(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, FUWorksSteamLeaderboardEntries SteamLeaderboardEntries, int32 EntryCount);
     class UCoreDownloadLeaderboardEntriesForUsersNode* DownloadLeaderboardEntriesForUsersNode(FUWorksSteamLeaderboard SteamLeaderboard, TArray<FUWorksSteamID> Users);
-};
+}; // Size: 0x40
 
 class UCoreUploadLeaderboardScoreNode : public UBlueprintAsyncActionBase
 {
-    FCoreUploadLeaderboardScoreNodeCompleted Completed;
+    FCoreUploadLeaderboardScoreNodeCompleted Completed;                               // 0x0030 (size: 0x10)
     void UploadLeaderboardScoreDelegate(bool bSuccessful, bool bSuccess, FUWorksSteamLeaderboard SteamLeaderboard, int32 score, bool bScoreChanged, int32 GlobalRankNew, int32 GlobalRankPrevious);
 
     class UCoreUploadLeaderboardScoreNode* UploadLeaderboardScoreNode(FUWorksSteamLeaderboard SteamLeaderboard, EUWorksLeaderboardUploadScoreMethod LeaderboardUploadScoreMethod, int32 score, TArray<int32> ScoreDetails);
     void OnRequestCompleted(bool bSuccessful, bool bSuccess, FUWorksSteamLeaderboard SteamLeaderboard, int32 score, bool bScoreChanged, int32 GlobalRankNew, int32 GlobalRankPrevious);
-};
+}; // Size: 0x40
 
 class UCoreAttachLeaderboardUGCNode : public UBlueprintAsyncActionBase
 {
-    FCoreAttachLeaderboardUGCNodeCompleted Completed;
+    FCoreAttachLeaderboardUGCNodeCompleted Completed;                                 // 0x0030 (size: 0x10)
     void AttachLeaderboardUGCDelegate(bool bSuccessful, EUWorksResult Result, FUWorksSteamLeaderboard SteamLeaderboard);
 
     void OnRequestCompleted(bool bSuccessful, EUWorksResult Result, FUWorksSteamLeaderboard SteamLeaderboard);
     class UCoreAttachLeaderboardUGCNode* AttachLeaderboardUGCNode(FUWorksSteamLeaderboard SteamLeaderboard, FUWorksUGCHandle UGCHandle);
-};
+}; // Size: 0x40
 
 class UCoreGetNumberOfCurrentPlayersNode : public UBlueprintAsyncActionBase
 {
-    FCoreGetNumberOfCurrentPlayersNodeCompleted Completed;
+    FCoreGetNumberOfCurrentPlayersNodeCompleted Completed;                            // 0x0030 (size: 0x10)
     void GetNumberOfCurrentPlayersDelegate(bool bSuccessful, bool bSuccess, int32 Players);
 
     void OnRequestCompleted(bool bSuccessful, bool bSuccess, int32 Players);
     class UCoreGetNumberOfCurrentPlayersNode* GetNumberOfCurrentPlayersNode();
-};
+}; // Size: 0x40
 
 class UCoreRequestGlobalAchievementPercentagesNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestGlobalAchievementPercentagesNodeCompleted Completed;
+    FCoreRequestGlobalAchievementPercentagesNodeCompleted Completed;                  // 0x0030 (size: 0x10)
     void RequestGlobalAchievementPercentagesDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result);
 
     class UCoreRequestGlobalAchievementPercentagesNode* RequestGlobalAchievementPercentagesNode();
     void OnRequestCompleted(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result);
-};
+}; // Size: 0x40
 
 class UCoreRequestGlobalStatsNode : public UBlueprintAsyncActionBase
 {
-    FCoreRequestGlobalStatsNodeCompleted Completed;
+    FCoreRequestGlobalStatsNodeCompleted Completed;                                   // 0x0030 (size: 0x10)
     void RequestGlobalStatsDelegate(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result);
 
     class UCoreRequestGlobalStatsNode* RequestGlobalStatsNode(int32 HistoryDays);
     void OnRequestCompleted(bool bSuccessful, FUWorksGameID GameID, EUWorksResult Result);
-};
+}; // Size: 0x40
 
 struct FUWorksSteamPipe
 {
-};
+}; // Size: 0x4
 
 struct FUWorksAnnexCoreAppList
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreApps
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreController
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreFriends
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreGameServer
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreGameServerStats
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreInventory
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreMatchmaking
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreMatchmakingServers
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreMusic
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreNetworking
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreRemoteStorage
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreScreenshots
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreUGC
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreUser
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreUserStats
 {
-};
+}; // Size: 0x1
 
 struct FUWorksAnnexCoreUtils
 {
-};
+}; // Size: 0x1
 
 #endif

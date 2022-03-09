@@ -3,9 +3,9 @@
 
 class ABlockPreviewRenderActorIngamePreview_C : public AActor
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UWidgetComponent* Widget;
-    class USceneComponent* DefaultSceneRoot;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0220 (size: 0x8)
+    class UWidgetComponent* Widget;                                                   // 0x0228 (size: 0x8)
+    class USceneComponent* DefaultSceneRoot;                                          // 0x0230 (size: 0x8)
 
     void DoStuff(class UTextureRenderTarget2D* TextureRenderTarget);
     void WriteToDisk();
@@ -13,6 +13,6 @@ class ABlockPreviewRenderActorIngamePreview_C : public AActor
     void SetBlockType(int32 ID);
     void OnSaveComplete(bool NewParam);
     void ExecuteUbergraph_BlockPreviewRenderActorIngamePreview(int32 EntryPoint);
-};
+}; // Size: 0x238
 
 #endif

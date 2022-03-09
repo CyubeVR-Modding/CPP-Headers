@@ -3,79 +3,79 @@
 
 class ABlockItemVR_C : public ABlockItem
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UNiagaraComponent* BlockItemSphereNiagaraSystem;
-    class UStaticMeshComponent* CubeOutline;
-    class UTextRenderComponent* Amount2;
-    class UStaticMeshComponent* CubeForSockets;
-    class UTextRenderComponent* TextRender;
-    class UStaticMeshComponent* Cube;
-    class UStaticMeshComponent* Down;
-    class UStaticMeshComponent* Up;
-    class UStaticMeshComponent* Back;
-    class UStaticMeshComponent* Front;
-    class UStaticMeshComponent* Right;
-    class UStaticMeshComponent* Left;
-    class UBoxComponent* Box;
-    float FadeToHand_FadePercentage_7EC1DF214A17A94362F2F69CB74CC75C;
-    TEnumAsByte<ETimelineDirection::Type> FadeToHand__Direction_7EC1DF214A17A94362F2F69CB74CC75C;
-    class UTimelineComponent* FadeToHand;
-    float FadeCoalBurning_NewTrack_0_3F6EE20D4BCC90679D7B68B6F253FD41;
-    TEnumAsByte<ETimelineDirection::Type> FadeCoalBurning__Direction_3F6EE20D4BCC90679D7B68B6F253FD41;
-    class UTimelineComponent* FadeCoalBurning;
-    float FadeScale_Scale_B4E6C13B44D2D717C065229A41F60F19;
-    TEnumAsByte<ETimelineDirection::Type> FadeScale__Direction_B4E6C13B44D2D717C065229A41F60F19;
-    class UTimelineComponent* FadeScale;
-    float GetSmaller_1_21C2406F41BB1B8C530318BF4C6355BC;
-    TEnumAsByte<ETimelineDirection::Type> GetSmaller__Direction_21C2406F41BB1B8C530318BF4C6355BC;
-    class UTimelineComponent* GetSmaller;
-    class UMaterialInstanceDynamic* Material;
-    class UMaterialInstanceDynamic* MaterialInstanceDynamic;
-    class AMyChunkManager_C* ChunkManager;
-    bool Rotate;
-    float SphereDis;
-    TArray<class UStaticMeshComponent*> Spheres;
-    bool IsPartOfStructure;
-    class ABlockItemVR_C* OverlapToAttachTo;
-    class ABlockItemVR_C* IsAttachedTo;
-    TArray<ERotation> SphereDirections;
-    class UStaticMeshComponent* SphereToAttachTo;
-    bool HasSomethingAttachedTo;
-    class ABlockItemVR_C* StructureMainItem;
-    TEnumAsByte<hand> LastGrabbedByHand;
-    class ABlockItemVR_C* ItemOverlapWith;
-    EItemClass CurrentItemClass;
-    FVector OriginalScale;
-    bool DragOutUI;
-    float LastVibration;
-    TArray<class UParticleSystemComponent*> Particles;
-    EBlockTypeBP CraftingType;
-    int32 CraftingTypeUniqueID;
-    int32 CraftingAmount;
-    class AFirstPersonCharacterVR_C* OverlapCharacter;
-    ERotation SphereToAttachToDirection;
-    bool DoBeginPlay;
-    int32 Amount;
-    class AChestInternalsBP_C* IsInChest;
-    int32 IsInChestIndex;
-    class AChestInternalsBP_C* FromChest;
-    int32 FromChestIndex;
-    bool DoFadeScale;
-    FBlockItemVR_CReleased Released;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x02F8 (size: 0x8)
+    class UNiagaraComponent* BlockItemSphereNiagaraSystem;                            // 0x0300 (size: 0x8)
+    class UStaticMeshComponent* CubeOutline;                                          // 0x0308 (size: 0x8)
+    class UTextRenderComponent* Amount2;                                              // 0x0310 (size: 0x8)
+    class UStaticMeshComponent* CubeForSockets;                                       // 0x0318 (size: 0x8)
+    class UTextRenderComponent* TextRender;                                           // 0x0320 (size: 0x8)
+    class UStaticMeshComponent* Cube;                                                 // 0x0328 (size: 0x8)
+    class UStaticMeshComponent* Down;                                                 // 0x0330 (size: 0x8)
+    class UStaticMeshComponent* Up;                                                   // 0x0338 (size: 0x8)
+    class UStaticMeshComponent* Back;                                                 // 0x0340 (size: 0x8)
+    class UStaticMeshComponent* Front;                                                // 0x0348 (size: 0x8)
+    class UStaticMeshComponent* Right;                                                // 0x0350 (size: 0x8)
+    class UStaticMeshComponent* Left;                                                 // 0x0358 (size: 0x8)
+    class UBoxComponent* Box;                                                         // 0x0360 (size: 0x8)
+    float FadeToHand_FadePercentage_7EC1DF214A17A94362F2F69CB74CC75C;                 // 0x0368 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> FadeToHand__Direction_7EC1DF214A17A94362F2F69CB74CC75C; // 0x036C (size: 0x1)
+    class UTimelineComponent* FadeToHand;                                             // 0x0370 (size: 0x8)
+    float FadeCoalBurning_NewTrack_0_3F6EE20D4BCC90679D7B68B6F253FD41;                // 0x0378 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> FadeCoalBurning__Direction_3F6EE20D4BCC90679D7B68B6F253FD41; // 0x037C (size: 0x1)
+    class UTimelineComponent* FadeCoalBurning;                                        // 0x0380 (size: 0x8)
+    float FadeScale_Scale_B4E6C13B44D2D717C065229A41F60F19;                           // 0x0388 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> FadeScale__Direction_B4E6C13B44D2D717C065229A41F60F19; // 0x038C (size: 0x1)
+    class UTimelineComponent* FadeScale;                                              // 0x0390 (size: 0x8)
+    float GetSmaller_1_21C2406F41BB1B8C530318BF4C6355BC;                              // 0x0398 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> GetSmaller__Direction_21C2406F41BB1B8C530318BF4C6355BC; // 0x039C (size: 0x1)
+    class UTimelineComponent* GetSmaller;                                             // 0x03A0 (size: 0x8)
+    class UMaterialInstanceDynamic* Material;                                         // 0x03A8 (size: 0x8)
+    class UMaterialInstanceDynamic* MaterialInstanceDynamic;                          // 0x03B0 (size: 0x8)
+    class AMyChunkManager_C* ChunkManager;                                            // 0x03B8 (size: 0x8)
+    bool Rotate;                                                                      // 0x03C0 (size: 0x1)
+    float SphereDis;                                                                  // 0x03C4 (size: 0x4)
+    TArray<class UStaticMeshComponent*> Spheres;                                      // 0x03C8 (size: 0x10)
+    bool IsPartOfStructure;                                                           // 0x03D8 (size: 0x1)
+    class ABlockItemVR_C* OverlapToAttachTo;                                          // 0x03E0 (size: 0x8)
+    class ABlockItemVR_C* IsAttachedTo;                                               // 0x03E8 (size: 0x8)
+    TArray<ERotation> SphereDirections;                                               // 0x03F0 (size: 0x10)
+    class UStaticMeshComponent* SphereToAttachTo;                                     // 0x0400 (size: 0x8)
+    bool HasSomethingAttachedTo;                                                      // 0x0408 (size: 0x1)
+    class ABlockItemVR_C* StructureMainItem;                                          // 0x0410 (size: 0x8)
+    TEnumAsByte<hand> LastGrabbedByHand;                                              // 0x0418 (size: 0x1)
+    class ABlockItemVR_C* ItemOverlapWith;                                            // 0x0420 (size: 0x8)
+    EItemClass CurrentItemClass;                                                      // 0x0428 (size: 0x1)
+    FVector OriginalScale;                                                            // 0x042C (size: 0xC)
+    bool DragOutUI;                                                                   // 0x0438 (size: 0x1)
+    float LastVibration;                                                              // 0x043C (size: 0x4)
+    TArray<class UParticleSystemComponent*> Particles;                                // 0x0440 (size: 0x10)
+    EBlockTypeBP CraftingType;                                                        // 0x0450 (size: 0x1)
+    int32 CraftingTypeUniqueID;                                                       // 0x0454 (size: 0x4)
+    int32 CraftingAmount;                                                             // 0x0458 (size: 0x4)
+    class AFirstPersonCharacterVR_C* OverlapCharacter;                                // 0x0460 (size: 0x8)
+    ERotation SphereToAttachToDirection;                                              // 0x0468 (size: 0x1)
+    bool DoBeginPlay;                                                                 // 0x0469 (size: 0x1)
+    int32 Amount;                                                                     // 0x046C (size: 0x4)
+    class AChestInternalsBP_C* IsInChest;                                             // 0x0470 (size: 0x8)
+    int32 IsInChestIndex;                                                             // 0x0478 (size: 0x4)
+    class AChestInternalsBP_C* FromChest;                                             // 0x0480 (size: 0x8)
+    int32 FromChestIndex;                                                             // 0x0488 (size: 0x4)
+    bool DoFadeScale;                                                                 // 0x048C (size: 0x1)
+    FBlockItemVR_CReleased Released;                                                  // 0x0490 (size: 0x10)
     void Released();
-    FVector Speed;
-    class UParticleSystemComponent* OnFireParticles;
-    bool IsMelting;
-    float MeltAmountBP;
-    bool GravGlovActive;
-    FRotator FadeStartRotation;
-    FVector FadeStartLocation;
-    FTimerHandle SpreadFireTimer;
-    bool L_BehindBack;
-    bool PlayHapticFeedbackOnGrabbedHand;
-    FTimerHandle ShowCraftingHintTimer;
-    bool FadingToDestroyed;
-    FTimerHandle NoLongerFromChestTimer;
+    FVector Speed;                                                                    // 0x04A0 (size: 0xC)
+    class UParticleSystemComponent* OnFireParticles;                                  // 0x04B0 (size: 0x8)
+    bool IsMelting;                                                                   // 0x04B8 (size: 0x1)
+    float MeltAmountBP;                                                               // 0x04BC (size: 0x4)
+    bool GravGlovActive;                                                              // 0x04C0 (size: 0x1)
+    FRotator FadeStartRotation;                                                       // 0x04C4 (size: 0xC)
+    FVector FadeStartLocation;                                                        // 0x04D0 (size: 0xC)
+    FTimerHandle SpreadFireTimer;                                                     // 0x04E0 (size: 0x8)
+    bool L_BehindBack;                                                                // 0x04E8 (size: 0x1)
+    bool PlayHapticFeedbackOnGrabbedHand;                                             // 0x04E9 (size: 0x1)
+    FTimerHandle ShowCraftingHintTimer;                                               // 0x04F0 (size: 0x8)
+    bool FadingToDestroyed;                                                           // 0x04F8 (size: 0x1)
+    FTimerHandle NoLongerFromChestTimer;                                              // 0x0500 (size: 0x8)
 
     void SetGravityGloveTargetIndicatorActive(bool Active, bool Left, bool& _);
     void GetRealWorldLocation(FVector& Location);
@@ -161,6 +161,6 @@ class ABlockItemVR_C : public ABlockItem
     void SetObjectRotation(class AVRHandFingers_C* hand, float Percent);
     void ExecuteUbergraph_BlockItemVR(int32 EntryPoint);
     void Released__DelegateSignature();
-};
+}; // Size: 0x508
 
 #endif

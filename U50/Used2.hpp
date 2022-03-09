@@ -3,8 +3,8 @@
 
 class UUsed2_C : public UUserWidget
 {
-    class UImage* Image_0;
+    class UImage* Image_0;                                                            // 0x0260 (size: 0x8)
 
-};
+}; // Size: 0x268
 
 #endif

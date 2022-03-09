@@ -3,23 +3,23 @@
 
 class ULeftSelectorMain_New_C : public UUserWidget
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UWidgetAnimation* FadeOutButtons;
-    class UBorder* Border_Buttons;
-    class UCraftingList_New_C* CraftingList_New;
-    class UImage* Image_0;
-    class UInGameSelector_New_C* InGameSelector_New;
-    class UMainSelectorButton_C* MainSelectorButton0;
-    class UMainSelectorButton_C* MainSelectorButton1;
-    class UMainSelectorButton_C* MainSelectorButton2;
-    class UMainSelectorButton_C* MainSelectorButton3;
-    class USettingsUI_New_C* SettingsUI_New;
-    class UTextBlock* TextAtTop;
-    class UTutorialOverview_New_C* TutorialOverview_New;
-    class UWidgetSwitcher* WidgetSwitcher_0;
-    TArray<class USelectorMainButton_C*> MainButtons;
-    TArray<class UMainSelectorButton_C*> MainButtonsNew;
-    FVector2D Size;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0260 (size: 0x8)
+    class UWidgetAnimation* FadeOutButtons;                                           // 0x0268 (size: 0x8)
+    class UBorder* Border_Buttons;                                                    // 0x0270 (size: 0x8)
+    class UCraftingList_New_C* CraftingList_New;                                      // 0x0278 (size: 0x8)
+    class UImage* Image_0;                                                            // 0x0280 (size: 0x8)
+    class UInGameSelector_New_C* InGameSelector_New;                                  // 0x0288 (size: 0x8)
+    class UMainSelectorButton_C* MainSelectorButton0;                                 // 0x0290 (size: 0x8)
+    class UMainSelectorButton_C* MainSelectorButton1;                                 // 0x0298 (size: 0x8)
+    class UMainSelectorButton_C* MainSelectorButton2;                                 // 0x02A0 (size: 0x8)
+    class UMainSelectorButton_C* MainSelectorButton3;                                 // 0x02A8 (size: 0x8)
+    class USettingsUI_New_C* SettingsUI_New;                                          // 0x02B0 (size: 0x8)
+    class UTextBlock* TextAtTop;                                                      // 0x02B8 (size: 0x8)
+    class UTutorialOverview_New_C* TutorialOverview_New;                              // 0x02C0 (size: 0x8)
+    class UWidgetSwitcher* WidgetSwitcher_0;                                          // 0x02C8 (size: 0x8)
+    TArray<class USelectorMainButton_C*> MainButtons;                                 // 0x02D0 (size: 0x10)
+    TArray<class UMainSelectorButton_C*> MainButtonsNew;                              // 0x02E0 (size: 0x10)
+    FVector2D Size;                                                                   // 0x02F0 (size: 0x8)
 
     void SetTextToBlockName(EBlockTypeBP Type);
     void SetDescribeText(FText InText, FLinearColor Specified Color);
@@ -41,6 +41,6 @@ class ULeftSelectorMain_New_C : public UUserWidget
     void PlayFadeOutButtons(TEnumAsByte<EUMGSequencePlayMode::Type> PlayMode);
     void BndEvt__MainSelectorButton3_K2Node_ComponentBoundEvent_16_Clicked__DelegateSignature();
     void ExecuteUbergraph_LeftSelectorMain_New(int32 EntryPoint);
-};
+}; // Size: 0x2F8
 
 #endif

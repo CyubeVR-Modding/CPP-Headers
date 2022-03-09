@@ -12,6 +12,6 @@ class UFL_Math_C : public UBlueprintFunctionLibrary
     void VectorToString(FVector Vector, class UObject* __WorldContext, FString& String);
     void IsPointInBoundingBox3D(FVector Point, FVector BoxCenter, FVector BoxExtend, class UObject* __WorldContext, bool& TRUE);
     void IsPointInBoundingBox2D(FVector2D Point, FVector2D BoxCenter, FVector2D BoxExtend, class UObject* __WorldContext, bool& TRUE);
-};
+}; // Size: 0x28
 
 #endif

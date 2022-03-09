@@ -3,52 +3,52 @@
 
 class AToolBP_C : public ATool
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UStaticMeshComponent* WallMountHint;
-    class UStaticMeshComponent* ToolMesh;
-    float Timeline_2_FadePercentage_0CAD3C564938463DCD41BA961A6F98A9;
-    TEnumAsByte<ETimelineDirection::Type> Timeline_2__Direction_0CAD3C564938463DCD41BA961A6F98A9;
-    class UTimelineComponent* Timeline_2;
-    float Timeline_1_1_29561E1A4E5533F4AA5F03B46CD247CA;
-    TEnumAsByte<ETimelineDirection::Type> Timeline_1__Direction_29561E1A4E5533F4AA5F03B46CD247CA;
-    class UTimelineComponent* Timeline_1;
-    float Timeline_0_Percent_D88BA42547C3FBCFDAD02FB1CC007561;
-    TEnumAsByte<ETimelineDirection::Type> Timeline_0__Direction_D88BA42547C3FBCFDAD02FB1CC007561;
-    class UTimelineComponent* Timeline_0;
-    bool Active;
-    FVector LastFrontLocation;
-    FVector LastFrameFrontLocation;
-    FVector LastLastFrameFrontLocation;
-    FVector LastVelocity;
-    FVector LastVelocityAvg;
-    TArray<FVector> LastVelocities;
-    float LastHit;
-    FVector ToolLocationLastHit;
-    bool HitFreeAgain;
-    class AChunkManager* ChunkManager;
-    class AFirstPersonCharacterVR_C* Player;
-    class UMaterialInstanceDynamic* MeshMaterial;
-    bool CanHitTree;
-    bool CollisionPhysicsBodyBlock;
-    bool InsideMesh;
-    float LastSpeed;
-    FVector EnterBlockLocation;
-    FVector FrontLocationOnEnter;
-    FVector LastFrameShoveBlockLocation;
-    bool IsRealTool;
-    bool IsFreeTool;
-    bool IsFreeToolUsed;
-    TEnumAsByte<hand> CurrentSelectedHand;
-    class AActor* ParentHandUsed;
-    class UPhysicsHandleComponent* CurrentAttachedHandle;
-    TEnumAsByte<hand> CurrentAttachedHand;
-    bool DontBlockStatic;
-    bool OneReleaseDone;
-    class UGripMotionControllerComponent* GrippedByGrip;
-    bool L_BehindBack;
-    float LastCantMineHintShown;
-    float LastCantDestroyHintShown;
-    FTimerHandle WallMountNearTimer;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x02A8 (size: 0x8)
+    class UStaticMeshComponent* WallMountHint;                                        // 0x02B0 (size: 0x8)
+    class UStaticMeshComponent* ToolMesh;                                             // 0x02B8 (size: 0x8)
+    float Timeline_2_FadePercentage_0CAD3C564938463DCD41BA961A6F98A9;                 // 0x02C0 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> Timeline_2__Direction_0CAD3C564938463DCD41BA961A6F98A9; // 0x02C4 (size: 0x1)
+    class UTimelineComponent* Timeline_2;                                             // 0x02C8 (size: 0x8)
+    float Timeline_1_1_29561E1A4E5533F4AA5F03B46CD247CA;                              // 0x02D0 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> Timeline_1__Direction_29561E1A4E5533F4AA5F03B46CD247CA; // 0x02D4 (size: 0x1)
+    class UTimelineComponent* Timeline_1;                                             // 0x02D8 (size: 0x8)
+    float Timeline_0_Percent_D88BA42547C3FBCFDAD02FB1CC007561;                        // 0x02E0 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> Timeline_0__Direction_D88BA42547C3FBCFDAD02FB1CC007561; // 0x02E4 (size: 0x1)
+    class UTimelineComponent* Timeline_0;                                             // 0x02E8 (size: 0x8)
+    bool Active;                                                                      // 0x02F0 (size: 0x1)
+    FVector LastFrontLocation;                                                        // 0x02F4 (size: 0xC)
+    FVector LastFrameFrontLocation;                                                   // 0x0300 (size: 0xC)
+    FVector LastLastFrameFrontLocation;                                               // 0x030C (size: 0xC)
+    FVector LastVelocity;                                                             // 0x0318 (size: 0xC)
+    FVector LastVelocityAvg;                                                          // 0x0324 (size: 0xC)
+    TArray<FVector> LastVelocities;                                                   // 0x0330 (size: 0x10)
+    float LastHit;                                                                    // 0x0340 (size: 0x4)
+    FVector ToolLocationLastHit;                                                      // 0x0344 (size: 0xC)
+    bool HitFreeAgain;                                                                // 0x0350 (size: 0x1)
+    class AChunkManager* ChunkManager;                                                // 0x0358 (size: 0x8)
+    class AFirstPersonCharacterVR_C* Player;                                          // 0x0360 (size: 0x8)
+    class UMaterialInstanceDynamic* MeshMaterial;                                     // 0x0368 (size: 0x8)
+    bool CanHitTree;                                                                  // 0x0370 (size: 0x1)
+    bool CollisionPhysicsBodyBlock;                                                   // 0x0371 (size: 0x1)
+    bool InsideMesh;                                                                  // 0x0372 (size: 0x1)
+    float LastSpeed;                                                                  // 0x0374 (size: 0x4)
+    FVector EnterBlockLocation;                                                       // 0x0378 (size: 0xC)
+    FVector FrontLocationOnEnter;                                                     // 0x0384 (size: 0xC)
+    FVector LastFrameShoveBlockLocation;                                              // 0x0390 (size: 0xC)
+    bool IsRealTool;                                                                  // 0x039C (size: 0x1)
+    bool IsFreeTool;                                                                  // 0x039D (size: 0x1)
+    bool IsFreeToolUsed;                                                              // 0x039E (size: 0x1)
+    TEnumAsByte<hand> CurrentSelectedHand;                                            // 0x039F (size: 0x1)
+    class AActor* ParentHandUsed;                                                     // 0x03A0 (size: 0x8)
+    class UPhysicsHandleComponent* CurrentAttachedHandle;                             // 0x03A8 (size: 0x8)
+    TEnumAsByte<hand> CurrentAttachedHand;                                            // 0x03B0 (size: 0x1)
+    bool DontBlockStatic;                                                             // 0x03B1 (size: 0x1)
+    bool OneReleaseDone;                                                              // 0x03B2 (size: 0x1)
+    class UGripMotionControllerComponent* GrippedByGrip;                              // 0x03B8 (size: 0x8)
+    bool L_BehindBack;                                                                // 0x03C0 (size: 0x1)
+    float LastCantMineHintShown;                                                      // 0x03C4 (size: 0x4)
+    float LastCantDestroyHintShown;                                                   // 0x03C8 (size: 0x4)
+    FTimerHandle WallMountNearTimer;                                                  // 0x03D0 (size: 0x8)
 
     void SetGravityGloveTargetIndicatorActive(bool Active, bool Left, bool& _);
     void GetRealWorldLocation(FVector& Location);
@@ -109,6 +109,6 @@ class AToolBP_C : public ATool
     void CheckWallMountNearEvent();
     void DestroyWallMountHint();
     void ExecuteUbergraph_ToolBP(int32 EntryPoint);
-};
+}; // Size: 0x3D8
 
 #endif

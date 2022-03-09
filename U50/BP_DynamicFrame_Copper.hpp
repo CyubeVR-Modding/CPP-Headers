@@ -3,6 +3,6 @@
 
 class ABP_DynamicFrame_Copper_C : public ABP_DynamicFrame_Gold_C
 {
-};
+}; // Size: 0x4C1
 
 #endif

@@ -3,13 +3,13 @@
 
 class ARuntimeCactusBP_C : public ARuntimeCactus
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    float MakeSmaller_NewTrack_0_A28346AB4B367A8B8CA914B61DD4BBF8;
-    TEnumAsByte<ETimelineDirection::Type> MakeSmaller__Direction_A28346AB4B367A8B8CA914B61DD4BBF8;
-    class UTimelineComponent* MakeSmaller;
-    float LastHit;
-    float Health;
-    FVector StartScale;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0278 (size: 0x8)
+    float MakeSmaller_NewTrack_0_A28346AB4B367A8B8CA914B61DD4BBF8;                    // 0x0280 (size: 0x4)
+    TEnumAsByte<ETimelineDirection::Type> MakeSmaller__Direction_A28346AB4B367A8B8CA914B61DD4BBF8; // 0x0284 (size: 0x1)
+    class UTimelineComponent* MakeSmaller;                                            // 0x0288 (size: 0x8)
+    float LastHit;                                                                    // 0x0290 (size: 0x4)
+    float Health;                                                                     // 0x0294 (size: 0x4)
+    FVector StartScale;                                                               // 0x0298 (size: 0xC)
 
     void MakeSmaller__FinishedFunc();
     void MakeSmaller__UpdateFunc();
@@ -22,6 +22,6 @@ class ARuntimeCactusBP_C : public ARuntimeCactus
     void HitByTool(class AToolBP_C* Tool, EBlockTypeBP Type, FVector InputPin, float MinSpeed);
     void SetType(ETreeType NewType);
     void ExecuteUbergraph_RuntimeCactusBP(int32 EntryPoint);
-};
+}; // Size: 0x2A4
 
 #endif

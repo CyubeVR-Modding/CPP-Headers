@@ -3,6 +3,6 @@
 
 class AMyCinematicCameraBP_C : public ACineCameraActor
 {
-};
+}; // Size: 0x800
 
 #endif

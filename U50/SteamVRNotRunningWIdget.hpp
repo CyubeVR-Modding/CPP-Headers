@@ -3,8 +3,8 @@
 
 class USteamVRNotRunningWIdget_C : public UUserWidget
 {
-    class UImage* Image_20;
+    class UImage* Image_20;                                                           // 0x0260 (size: 0x8)
 
-};
+}; // Size: 0x268
 
 #endif

@@ -5,32 +5,32 @@
 
 struct FMagicLeapARPinState
 {
-    float Confidence;
-    float ValidRadius;
-    float RotationError;
-    float TranslationError;
-    EMagicLeapARPinType PinType;
+    float Confidence;                                                                 // 0x0000 (size: 0x4)
+    float ValidRadius;                                                                // 0x0004 (size: 0x4)
+    float RotationError;                                                              // 0x0008 (size: 0x4)
+    float TranslationError;                                                           // 0x000C (size: 0x4)
+    EMagicLeapARPinType PinType;                                                      // 0x0010 (size: 0x1)
 
-};
+}; // Size: 0x14
 
 class UMagicLeapARPinComponent : public USceneComponent
 {
-    FString ObjectUID;
-    int32 UserIndex;
-    EMagicLeapAutoPinType AutoPinType;
-    bool bShouldPinActor;
-    TSubclassOf<class UMagicLeapARPinSaveGame> PinDataClass;
-    TSet<EMagicLeapARPinType> SearchPinTypes;
-    class USphereComponent* SearchVolume;
-    FMagicLeapARPinComponentOnPersistentEntityPinned OnPersistentEntityPinned;
+    FString ObjectUID;                                                                // 0x01F8 (size: 0x10)
+    int32 UserIndex;                                                                  // 0x0208 (size: 0x4)
+    EMagicLeapAutoPinType AutoPinType;                                                // 0x020C (size: 0x1)
+    bool bShouldPinActor;                                                             // 0x020D (size: 0x1)
+    TSubclassOf<class UMagicLeapARPinSaveGame> PinDataClass;                          // 0x0210 (size: 0x8)
+    TSet<EMagicLeapARPinType> SearchPinTypes;                                         // 0x0218 (size: 0x50)
+    class USphereComponent* SearchVolume;                                             // 0x0268 (size: 0x8)
+    FMagicLeapARPinComponentOnPersistentEntityPinned OnPersistentEntityPinned;        // 0x0270 (size: 0x10)
     void PersistentEntityPinned(bool bRestoredOrSynced);
-    FMagicLeapARPinComponentOnPersistentEntityPinLost OnPersistentEntityPinLost;
+    FMagicLeapARPinComponentOnPersistentEntityPinLost OnPersistentEntityPinLost;      // 0x0280 (size: 0x10)
     void PersistentEntityPinLost();
-    FMagicLeapARPinComponentOnPinDataLoadAttemptCompleted OnPinDataLoadAttemptCompleted;
+    FMagicLeapARPinComponentOnPinDataLoadAttemptCompleted OnPinDataLoadAttemptCompleted; // 0x0290 (size: 0x10)
     void MagicLeapARPinDataLoadAttemptCompleted(bool bDataRestored);
-    FGuid PinnedCFUID;
-    class USceneComponent* PinnedSceneComponent;
-    class UMagicLeapARPinSaveGame* PinData;
+    FGuid PinnedCFUID;                                                                // 0x02A0 (size: 0x10)
+    class USceneComponent* PinnedSceneComponent;                                      // 0x02B0 (size: 0x8)
+    class UMagicLeapARPinSaveGame* PinData;                                           // 0x02B8 (size: 0x8)
 
     void UnPin();
     class UMagicLeapARPinSaveGame* TryGetPinData(TSubclassOf<class UMagicLeapARPinSaveGame> InPinDataClass, bool& OutPinDataValid);
@@ -49,17 +49,17 @@ class UMagicLeapARPinComponent : public USceneComponent
     class UMagicLeapARPinSaveGame* GetPinData(TSubclassOf<class UMagicLeapARPinSaveGame> PinDataClass);
     void AttemptPinDataRestorationAsync();
     bool AttemptPinDataRestoration();
-};
+}; // Size: 0x3B0
 
 struct FMagicLeapARPinQuery
 {
-    TSet<EMagicLeapARPinType> Types;
-    int32 MaxResults;
-    FVector TargetPoint;
-    float Radius;
-    bool bSorted;
+    TSet<EMagicLeapARPinType> Types;                                                  // 0x0000 (size: 0x50)
+    int32 MaxResults;                                                                 // 0x0050 (size: 0x4)
+    FVector TargetPoint;                                                              // 0x0054 (size: 0xC)
+    float Radius;                                                                     // 0x0060 (size: 0x4)
+    bool bSorted;                                                                     // 0x0064 (size: 0x1)
 
-};
+}; // Size: 0x68
 
 class UMagicLeapARPinFunctionLibrary : public UBlueprintFunctionLibrary
 {
@@ -85,51 +85,51 @@ class UMagicLeapARPinFunctionLibrary : public UBlueprintFunctionLibrary
     void BindToOnMagicLeapContentBindingFoundDelegate(const FBindToOnMagicLeapContentBindingFoundDelegateDelegate& Delegate);
     void BindToOnMagicLeapARPinUpdatedDelegate(const FBindToOnMagicLeapARPinUpdatedDelegateDelegate& Delegate);
     FString ARPinIdToString(const FGuid& ARPinId);
-};
+}; // Size: 0x28
 
 class AMagicLeapARPinInfoActorBase : public AActor
 {
-    FGuid PinId;
-    bool bVisibilityOverride;
+    FGuid PinId;                                                                      // 0x0220 (size: 0x10)
+    bool bVisibilityOverride;                                                         // 0x0230 (size: 0x1)
 
     void OnUpdateARPinState();
-};
+}; // Size: 0x238
 
 class AMagicLeapARPinRenderer : public AActor
 {
-    bool bInfoActorsVisibilityOverride;
-    TMap<class FGuid, class AMagicLeapARPinInfoActorBase*> AllInfoActors;
-    TSubclassOf<class AMagicLeapARPinInfoActorBase> ClassToSpawn;
+    bool bInfoActorsVisibilityOverride;                                               // 0x0220 (size: 0x1)
+    TMap<class FGuid, class AMagicLeapARPinInfoActorBase*> AllInfoActors;             // 0x0228 (size: 0x50)
+    TSubclassOf<class AMagicLeapARPinInfoActorBase> ClassToSpawn;                     // 0x0280 (size: 0x8)
 
     void SetVisibilityOverride(const bool InVisibilityOverride);
-};
+}; // Size: 0x288
 
 class UMagicLeapARPinSettings : public UObject
 {
-    float UpdateCheckFrequency;
-    FMagicLeapARPinState OnUpdatedEventTriggerDelta;
+    float UpdateCheckFrequency;                                                       // 0x0028 (size: 0x4)
+    FMagicLeapARPinState OnUpdatedEventTriggerDelta;                                  // 0x002C (size: 0x14)
 
-};
+}; // Size: 0x40
 
 class UMagicLeapARPinSaveGame : public USaveGame
 {
-    FGuid PinnedID;
-    FTransform ComponentWorldTransform;
-    FTransform PinTransform;
-    bool bShouldPinActor;
+    FGuid PinnedID;                                                                   // 0x0028 (size: 0x10)
+    FTransform ComponentWorldTransform;                                               // 0x0040 (size: 0x30)
+    FTransform PinTransform;                                                          // 0x0070 (size: 0x30)
+    bool bShouldPinActor;                                                             // 0x00A0 (size: 0x1)
 
-};
+}; // Size: 0xB0
 
 struct FMagicLeapARPinObjectIdList
 {
-    TSet<FString> ObjectIdList;
+    TSet<FString> ObjectIdList;                                                       // 0x0000 (size: 0x50)
 
-};
+}; // Size: 0x50
 
 class UMagicLeapARPinContentBindings : public USaveGame
 {
-    TMap<class FGuid, class FMagicLeapARPinObjectIdList> AllContentBindings;
+    TMap<class FGuid, class FMagicLeapARPinObjectIdList> AllContentBindings;          // 0x0028 (size: 0x50)
 
-};
+}; // Size: 0x78
 
 #endif

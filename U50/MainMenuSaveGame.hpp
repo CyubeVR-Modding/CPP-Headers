@@ -3,6 +3,6 @@
 
 class UMainMenuSaveGame_C : public USaveGame
 {
-};
+}; // Size: 0x28
 
 #endif

@@ -12,28 +12,28 @@ class UMediaSource : public UObject
     void SetMediaOptionFloat(const FName& Key, float Value);
     void SetMediaOptionBool(const FName& Key, bool Value);
     FString GetUrl();
-};
+}; // Size: 0x80
 
 class UBaseMediaSource : public UMediaSource
 {
-    FName PlayerName;
+    FName PlayerName;                                                                 // 0x0080 (size: 0x8)
 
-};
+}; // Size: 0x88
 
 class UFileMediaSource : public UBaseMediaSource
 {
-    FString FilePath;
-    bool PrecacheFile;
+    FString FilePath;                                                                 // 0x0088 (size: 0x10)
+    bool PrecacheFile;                                                                // 0x0098 (size: 0x1)
 
     void SetFilePath(FString Path);
-};
+}; // Size: 0xB0
 
 struct FMediaCaptureDevice
 {
-    FText DisplayName;
-    FString URL;
+    FText DisplayName;                                                                // 0x0000 (size: 0x18)
+    FString URL;                                                                      // 0x0018 (size: 0x10)
 
-};
+}; // Size: 0x28
 
 class UMediaBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
 {
@@ -41,56 +41,56 @@ class UMediaBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
     void EnumerateWebcamCaptureDevices(TArray<FMediaCaptureDevice>& OutDevices, int32 Filter);
     void EnumerateVideoCaptureDevices(TArray<FMediaCaptureDevice>& OutDevices, int32 Filter);
     void EnumerateAudioCaptureDevices(TArray<FMediaCaptureDevice>& OutDevices, int32 Filter);
-};
+}; // Size: 0x28
 
 class UMediaComponent : public UActorComponent
 {
-    class UMediaTexture* MediaTexture;
-    class UMediaPlayer* MediaPlayer;
+    class UMediaTexture* MediaTexture;                                                // 0x00B0 (size: 0x8)
+    class UMediaPlayer* MediaPlayer;                                                  // 0x00B8 (size: 0x8)
 
     class UMediaTexture* GetMediaTexture();
     class UMediaPlayer* GetMediaPlayer();
-};
+}; // Size: 0xC0
 
 class UMediaTimeStampInfo : public UObject
 {
-    FTimespan Time;
-    int64 SequenceIndex;
+    FTimespan Time;                                                                   // 0x0028 (size: 0x8)
+    int64 SequenceIndex;                                                              // 0x0030 (size: 0x8)
 
-};
+}; // Size: 0x38
 
 class UMediaPlayer : public UObject
 {
-    FMediaPlayerOnEndReached OnEndReached;
+    FMediaPlayerOnEndReached OnEndReached;                                            // 0x0028 (size: 0x10)
     void OnMediaPlayerMediaEvent();
-    FMediaPlayerOnMediaClosed OnMediaClosed;
+    FMediaPlayerOnMediaClosed OnMediaClosed;                                          // 0x0038 (size: 0x10)
     void OnMediaPlayerMediaEvent();
-    FMediaPlayerOnMediaOpened OnMediaOpened;
+    FMediaPlayerOnMediaOpened OnMediaOpened;                                          // 0x0048 (size: 0x10)
     void OnMediaPlayerMediaOpened(FString OpenedUrl);
-    FMediaPlayerOnMediaOpenFailed OnMediaOpenFailed;
+    FMediaPlayerOnMediaOpenFailed OnMediaOpenFailed;                                  // 0x0058 (size: 0x10)
     void OnMediaPlayerMediaOpenFailed(FString FailedUrl);
-    FMediaPlayerOnPlaybackResumed OnPlaybackResumed;
+    FMediaPlayerOnPlaybackResumed OnPlaybackResumed;                                  // 0x0068 (size: 0x10)
     void OnMediaPlayerMediaEvent();
-    FMediaPlayerOnPlaybackSuspended OnPlaybackSuspended;
+    FMediaPlayerOnPlaybackSuspended OnPlaybackSuspended;                              // 0x0078 (size: 0x10)
     void OnMediaPlayerMediaEvent();
-    FMediaPlayerOnSeekCompleted OnSeekCompleted;
+    FMediaPlayerOnSeekCompleted OnSeekCompleted;                                      // 0x0088 (size: 0x10)
     void OnMediaPlayerMediaEvent();
-    FMediaPlayerOnTracksChanged OnTracksChanged;
+    FMediaPlayerOnTracksChanged OnTracksChanged;                                      // 0x0098 (size: 0x10)
     void OnMediaPlayerMediaEvent();
-    FTimespan CacheAhead;
-    FTimespan CacheBehind;
-    FTimespan CacheBehindGame;
-    bool NativeAudioOut;
-    bool PlayOnOpen;
-    uint8 Shuffle;
-    uint8 Loop;
-    class UMediaPlaylist* Playlist;
-    int32 PlaylistIndex;
-    FTimespan TimeDelay;
-    float HorizontalFieldOfView;
-    float VerticalFieldOfView;
-    FRotator ViewRotation;
-    FGuid PlayerGuid;
+    FTimespan CacheAhead;                                                             // 0x00A8 (size: 0x8)
+    FTimespan CacheBehind;                                                            // 0x00B0 (size: 0x8)
+    FTimespan CacheBehindGame;                                                        // 0x00B8 (size: 0x8)
+    bool NativeAudioOut;                                                              // 0x00C0 (size: 0x1)
+    bool PlayOnOpen;                                                                  // 0x00C1 (size: 0x1)
+    uint8 Shuffle;                                                                    // 0x00C4 (size: 0x1)
+    uint8 Loop;                                                                       // 0x00C4 (size: 0x1)
+    class UMediaPlaylist* Playlist;                                                   // 0x00C8 (size: 0x8)
+    int32 PlaylistIndex;                                                              // 0x00D0 (size: 0x4)
+    FTimespan TimeDelay;                                                              // 0x00D8 (size: 0x8)
+    float HorizontalFieldOfView;                                                      // 0x00E0 (size: 0x4)
+    float VerticalFieldOfView;                                                        // 0x00E4 (size: 0x4)
+    FRotator ViewRotation;                                                            // 0x00E8 (size: 0xC)
+    FGuid PlayerGuid;                                                                 // 0x0120 (size: 0x10)
 
     bool SupportsSeeking();
     bool SupportsScrubbing();
@@ -164,11 +164,11 @@ class UMediaPlayer : public UObject
     bool CanPlayUrl(FString URL);
     bool CanPlaySource(class UMediaSource* MediaSource);
     bool CanPause();
-};
+}; // Size: 0x138
 
 class UMediaPlaylist : public UObject
 {
-    TArray<class UMediaSource*> items;
+    TArray<class UMediaSource*> items;                                                // 0x0028 (size: 0x10)
 
     bool Replace(int32 Index, class UMediaSource* Replacement);
     bool RemoveAt(int32 Index);
@@ -182,22 +182,22 @@ class UMediaPlaylist : public UObject
     bool AddUrl(FString URL);
     bool AddFile(FString FilePath);
     bool Add(class UMediaSource* MediaSource);
-};
+}; // Size: 0x38
 
 struct FMediaSoundComponentSpectralData
 {
-    float FrequencyHz;
-    float Magnitude;
+    float FrequencyHz;                                                                // 0x0000 (size: 0x4)
+    float Magnitude;                                                                  // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 class UMediaSoundComponent : public USynthComponent
 {
-    EMediaSoundChannels Channels;
-    bool DynamicRateAdjustment;
-    float RateAdjustmentFactor;
-    FFloatRange RateAdjustmentRange;
-    class UMediaPlayer* MediaPlayer;
+    EMediaSoundChannels Channels;                                                     // 0x06C0 (size: 0x4)
+    bool DynamicRateAdjustment;                                                       // 0x06C4 (size: 0x1)
+    float RateAdjustmentFactor;                                                       // 0x06C8 (size: 0x4)
+    FFloatRange RateAdjustmentRange;                                                  // 0x06CC (size: 0x10)
+    class UMediaPlayer* MediaPlayer;                                                  // 0x06E0 (size: 0x8)
 
     void SetSpectralAnalysisSettings(TArray<float> InFrequenciesToAnalyze, EMediaSoundComponentFFTSize InFFTSize);
     void SetMediaPlayer(class UMediaPlayer* NewMediaPlayer);
@@ -209,47 +209,47 @@ class UMediaSoundComponent : public USynthComponent
     class UMediaPlayer* GetMediaPlayer();
     float GetEnvelopeValue();
     bool BP_GetAttenuationSettingsToApply(FSoundAttenuationSettings& OutAttenuationSettings);
-};
+}; // Size: 0x8E0
 
 class UMediaTexture : public UTexture
 {
-    TEnumAsByte<TextureAddress> AddressX;
-    TEnumAsByte<TextureAddress> AddressY;
-    bool AutoClear;
-    FLinearColor ClearColor;
-    bool EnableGenMips;
-    uint8 NumMips;
-    bool NewStyleOutput;
-    TEnumAsByte<MediaTextureOutputFormat> OutputFormat;
-    float CurrentAspectRatio;
-    TEnumAsByte<MediaTextureOrientation> CurrentOrientation;
-    class UMediaPlayer* MediaPlayer;
+    TEnumAsByte<TextureAddress> AddressX;                                             // 0x00D8 (size: 0x1)
+    TEnumAsByte<TextureAddress> AddressY;                                             // 0x00D9 (size: 0x1)
+    bool AutoClear;                                                                   // 0x00DA (size: 0x1)
+    FLinearColor ClearColor;                                                          // 0x00DC (size: 0x10)
+    bool EnableGenMips;                                                               // 0x00EC (size: 0x1)
+    uint8 NumMips;                                                                    // 0x00ED (size: 0x1)
+    bool NewStyleOutput;                                                              // 0x00EE (size: 0x1)
+    TEnumAsByte<MediaTextureOutputFormat> OutputFormat;                               // 0x00EF (size: 0x1)
+    float CurrentAspectRatio;                                                         // 0x00F0 (size: 0x4)
+    TEnumAsByte<MediaTextureOrientation> CurrentOrientation;                          // 0x00F4 (size: 0x1)
+    class UMediaPlayer* MediaPlayer;                                                  // 0x00F8 (size: 0x8)
 
     void SetMediaPlayer(class UMediaPlayer* NewMediaPlayer);
     int32 GetWidth();
     class UMediaPlayer* GetMediaPlayer();
     int32 GetHeight();
     float GetAspectRatio();
-};
+}; // Size: 0x1B0
 
 class UPlatformMediaSource : public UMediaSource
 {
-    class UMediaSource* MediaSource;
+    class UMediaSource* MediaSource;                                                  // 0x0080 (size: 0x8)
 
-};
+}; // Size: 0x88
 
 class UStreamMediaSource : public UBaseMediaSource
 {
-    FString StreamUrl;
+    FString StreamUrl;                                                                // 0x0088 (size: 0x10)
 
-};
+}; // Size: 0x98
 
 class UTimeSynchronizableMediaSource : public UBaseMediaSource
 {
-    bool bUseTimeSynchronization;
-    int32 FrameDelay;
-    double TimeDelay;
+    bool bUseTimeSynchronization;                                                     // 0x0088 (size: 0x1)
+    int32 FrameDelay;                                                                 // 0x008C (size: 0x4)
+    double TimeDelay;                                                                 // 0x0090 (size: 0x8)
 
-};
+}; // Size: 0x98
 
 #endif

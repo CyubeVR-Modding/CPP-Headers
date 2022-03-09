@@ -3,11 +3,11 @@
 
 class UBriefcaseButtonMapping_C : public UUserWidget
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UImage* Image_82;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0260 (size: 0x8)
+    class UImage* Image_82;                                                           // 0x0268 (size: 0x8)
 
     void Construct();
     void ExecuteUbergraph_BriefcaseButtonMapping(int32 EntryPoint);
-};
+}; // Size: 0x270
 
 #endif

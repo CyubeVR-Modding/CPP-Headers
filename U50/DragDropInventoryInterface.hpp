@@ -8,6 +8,6 @@ class IDragDropInventoryInterface_C : public IInterface
     void Drop(class UItem_C* PayloadItemWidget, class UItem_C* DroppedOnItemWidget, EBlockTypeBP Type, bool& success);
     void SetTextAtTop(FText Text);
     void AddDragWidget(class UItemDrag_C* Widget);
-};
+}; // Size: 0x28
 
 #endif

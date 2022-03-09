@@ -3,6 +3,6 @@
 
 class UNameWidget_C : public UUserWidget
 {
-};
+}; // Size: 0x260
 
 #endif

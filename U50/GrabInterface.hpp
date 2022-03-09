@@ -12,6 +12,6 @@ class IGrabInterface_C : public IInterface
     void DeactivateTelekinesis(class UStaticMeshComponent*& bpp__Return__pf);
     void CanTelekinesis(bool bpp__LineOfSight__pf, bool& bpp__Can__pf, class AActor*& bpp__ActorToGrab__pf);
     void ActivateTelekinesis(hand bpp__Hand__pf, bool bpp__GravityGlove__pf, class UPrimitiveComponent*& bpp__SimulatingComponent__pf);
-};
+}; // Size: 0x28
 
 #endif

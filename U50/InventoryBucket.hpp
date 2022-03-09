@@ -3,42 +3,42 @@
 
 class AInventoryBucket_C : public AReceiveLightActor
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UArrowComponent* WidgetSpawnLocNotEnoughFreeSpace;
-    class USceneComponent* Scene;
-    class USceneComponent* Scene1;
-    class UChildActorComponent* CrystalSlotChildActor;
-    class UStaticMeshComponent* ConeSuckDefault;
-    class UStaticMeshComponent* ConeBlow;
-    class UCapsuleComponent* CrystalHolderCollisionCapsule;
-    class UStaticMeshComponent* CrystalMesh;
-    class UParticleSystemComponent* SuckParticle1;
-    class UVectorFieldComponent* VectorField;
-    class UAudioComponent* BucketSound;
-    class UParticleSystemComponent* P_LevelExit_Ice;
-    class UParticleSystemComponent* SuckParticle;
-    class UArrowComponent* SucLoc;
-    class UStaticMeshComponent* Cone;
-    class UArrowComponent* Arrow;
-    class UStaticMeshComponent* BucketMesh;
-    class UBoxComponent* Box1;
-    class UBoxComponent* Box;
-    class UWidgetComponent* Widget;
-    class UArrowComponent* WidgetSpawnLoc;
-    class UCapsuleComponent* Capsule;
-    class UParticleSystemComponent* ParticleSystem;
-    bool BucketActive;
-    TEnumAsByte<hand> WidgetSetFromHand;
-    bool BucketReceiveActive;
-    TSet<AActor*> IgnoreToSphere;
-    TEnumAsByte<hand> CurrentSelectedHand;
-    class UMaterialInstanceDynamic* VeinMat;
-    int32 BucketMode;
-    float BucketSuckStrength;
-    bool MainParticleActive;
-    bool EverUsedCrystalInBucket;
-    float LastCrystalHintShown;
-    float LastCrystalEmptyHintShown;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0268 (size: 0x8)
+    class UArrowComponent* WidgetSpawnLocNotEnoughFreeSpace;                          // 0x0270 (size: 0x8)
+    class USceneComponent* Scene;                                                     // 0x0278 (size: 0x8)
+    class USceneComponent* Scene1;                                                    // 0x0280 (size: 0x8)
+    class UChildActorComponent* CrystalSlotChildActor;                                // 0x0288 (size: 0x8)
+    class UStaticMeshComponent* ConeSuckDefault;                                      // 0x0290 (size: 0x8)
+    class UStaticMeshComponent* ConeBlow;                                             // 0x0298 (size: 0x8)
+    class UCapsuleComponent* CrystalHolderCollisionCapsule;                           // 0x02A0 (size: 0x8)
+    class UStaticMeshComponent* CrystalMesh;                                          // 0x02A8 (size: 0x8)
+    class UParticleSystemComponent* SuckParticle1;                                    // 0x02B0 (size: 0x8)
+    class UVectorFieldComponent* VectorField;                                         // 0x02B8 (size: 0x8)
+    class UAudioComponent* BucketSound;                                               // 0x02C0 (size: 0x8)
+    class UParticleSystemComponent* P_LevelExit_Ice;                                  // 0x02C8 (size: 0x8)
+    class UParticleSystemComponent* SuckParticle;                                     // 0x02D0 (size: 0x8)
+    class UArrowComponent* SucLoc;                                                    // 0x02D8 (size: 0x8)
+    class UStaticMeshComponent* Cone;                                                 // 0x02E0 (size: 0x8)
+    class UArrowComponent* Arrow;                                                     // 0x02E8 (size: 0x8)
+    class UStaticMeshComponent* BucketMesh;                                           // 0x02F0 (size: 0x8)
+    class UBoxComponent* Box1;                                                        // 0x02F8 (size: 0x8)
+    class UBoxComponent* Box;                                                         // 0x0300 (size: 0x8)
+    class UWidgetComponent* Widget;                                                   // 0x0308 (size: 0x8)
+    class UArrowComponent* WidgetSpawnLoc;                                            // 0x0310 (size: 0x8)
+    class UCapsuleComponent* Capsule;                                                 // 0x0318 (size: 0x8)
+    class UParticleSystemComponent* ParticleSystem;                                   // 0x0320 (size: 0x8)
+    bool BucketActive;                                                                // 0x0328 (size: 0x1)
+    TEnumAsByte<hand> WidgetSetFromHand;                                              // 0x0329 (size: 0x1)
+    bool BucketReceiveActive;                                                         // 0x032A (size: 0x1)
+    TSet<AActor*> IgnoreToSphere;                                                     // 0x0330 (size: 0x50)
+    TEnumAsByte<hand> CurrentSelectedHand;                                            // 0x0380 (size: 0x1)
+    class UMaterialInstanceDynamic* VeinMat;                                          // 0x0388 (size: 0x8)
+    int32 BucketMode;                                                                 // 0x0390 (size: 0x4)
+    float BucketSuckStrength;                                                         // 0x0394 (size: 0x4)
+    bool MainParticleActive;                                                          // 0x0398 (size: 0x1)
+    bool EverUsedCrystalInBucket;                                                     // 0x0399 (size: 0x1)
+    float LastCrystalHintShown;                                                       // 0x039C (size: 0x4)
+    float LastCrystalEmptyHintShown;                                                  // 0x03A0 (size: 0x4)
 
     void CanGrabCrystal(bool& CanGrab, FColor& Color, float& ChargeState);
     void AttachCrystal(FColor CrystalColor, float CrystalChargeState, bool& Attached);
@@ -72,6 +72,6 @@ class AInventoryBucket_C : public AReceiveLightActor
     void RemovedCrystal();
     void ShowNotEnoughFreeSpace(bool BehindBack);
     void ExecuteUbergraph_InventoryBucket(int32 EntryPoint);
-};
+}; // Size: 0x3A4
 
 #endif

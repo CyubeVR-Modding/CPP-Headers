@@ -5,59 +5,59 @@
 
 class UMovieSceneSignedObject : public UObject
 {
-    FGuid Signature;
+    FGuid Signature;                                                                  // 0x0028 (size: 0x10)
 
-};
+}; // Size: 0x50
 
 struct FMovieSceneSectionEvalOptions
 {
-    bool bCanEditCompletionMode;
-    EMovieSceneCompletionMode CompletionMode;
+    bool bCanEditCompletionMode;                                                      // 0x0000 (size: 0x1)
+    EMovieSceneCompletionMode CompletionMode;                                         // 0x0001 (size: 0x1)
 
-};
+}; // Size: 0x2
 
 struct FMovieSceneEasingSettings
 {
-    int32 AutoEaseInDuration;
-    int32 AutoEaseOutDuration;
-    TScriptInterface<class IMovieSceneEasingFunction> EaseIn;
-    bool bManualEaseIn;
-    int32 ManualEaseInDuration;
-    TScriptInterface<class IMovieSceneEasingFunction> EaseOut;
-    bool bManualEaseOut;
-    int32 ManualEaseOutDuration;
+    int32 AutoEaseInDuration;                                                         // 0x0000 (size: 0x4)
+    int32 AutoEaseOutDuration;                                                        // 0x0004 (size: 0x4)
+    TScriptInterface<class IMovieSceneEasingFunction> EaseIn;                         // 0x0008 (size: 0x10)
+    bool bManualEaseIn;                                                               // 0x0018 (size: 0x1)
+    int32 ManualEaseInDuration;                                                       // 0x001C (size: 0x4)
+    TScriptInterface<class IMovieSceneEasingFunction> EaseOut;                        // 0x0020 (size: 0x10)
+    bool bManualEaseOut;                                                              // 0x0030 (size: 0x1)
+    int32 ManualEaseOutDuration;                                                      // 0x0034 (size: 0x4)
 
-};
+}; // Size: 0x38
 
 struct FMovieSceneFrameRange
 {
-};
+}; // Size: 0x10
 
 struct FOptionalMovieSceneBlendType
 {
-    EMovieSceneBlendType BlendType;
-    bool bIsValid;
+    EMovieSceneBlendType BlendType;                                                   // 0x0000 (size: 0x1)
+    bool bIsValid;                                                                    // 0x0001 (size: 0x1)
 
-};
+}; // Size: 0x2
 
 class UMovieSceneSection : public UMovieSceneSignedObject
 {
-    FMovieSceneSectionEvalOptions EvalOptions;
-    FMovieSceneEasingSettings Easing;
-    FMovieSceneFrameRange SectionRange;
-    FFrameNumber PreRollFrames;
-    FFrameNumber PostRollFrames;
-    int32 RowIndex;
-    int32 OverlapPriority;
-    uint8 bIsActive;
-    uint8 bIsLocked;
-    float StartTime;
-    float EndTime;
-    float PrerollTime;
-    float PostrollTime;
-    uint8 bIsInfinite;
-    bool bSupportsInfiniteRange;
-    FOptionalMovieSceneBlendType BlendType;
+    FMovieSceneSectionEvalOptions EvalOptions;                                        // 0x0050 (size: 0x2)
+    FMovieSceneEasingSettings Easing;                                                 // 0x0058 (size: 0x38)
+    FMovieSceneFrameRange SectionRange;                                               // 0x0090 (size: 0x10)
+    FFrameNumber PreRollFrames;                                                       // 0x00A0 (size: 0x4)
+    FFrameNumber PostRollFrames;                                                      // 0x00A4 (size: 0x4)
+    int32 RowIndex;                                                                   // 0x00A8 (size: 0x4)
+    int32 OverlapPriority;                                                            // 0x00AC (size: 0x4)
+    uint8 bIsActive;                                                                  // 0x00B0 (size: 0x1)
+    uint8 bIsLocked;                                                                  // 0x00B0 (size: 0x1)
+    float StartTime;                                                                  // 0x00B4 (size: 0x4)
+    float EndTime;                                                                    // 0x00B8 (size: 0x4)
+    float PrerollTime;                                                                // 0x00BC (size: 0x4)
+    float PostrollTime;                                                               // 0x00C0 (size: 0x4)
+    uint8 bIsInfinite;                                                                // 0x00C4 (size: 0x1)
+    bool bSupportsInfiniteRange;                                                      // 0x00C8 (size: 0x1)
+    FOptionalMovieSceneBlendType BlendType;                                           // 0x00C9 (size: 0x2)
 
     void SetRowIndex(int32 NewRowIndex);
     void SetPreRollFrames(int32 InPreRollFrames);
@@ -75,155 +75,155 @@ class UMovieSceneSection : public UMovieSceneSignedObject
     int32 GetOverlapPriority();
     EMovieSceneCompletionMode GetCompletionMode();
     FOptionalMovieSceneBlendType GetBlendType();
-};
+}; // Size: 0xE8
 
 struct FMovieSceneTrackEvalOptions
 {
-    uint8 bCanEvaluateNearestSection;
-    uint8 bEvalNearestSection;
-    uint8 bEvaluateInPreroll;
-    uint8 bEvaluateInPostroll;
-    uint8 bEvaluateNearestSection;
+    uint8 bCanEvaluateNearestSection;                                                 // 0x0000 (size: 0x1)
+    uint8 bEvalNearestSection;                                                        // 0x0000 (size: 0x1)
+    uint8 bEvaluateInPreroll;                                                         // 0x0000 (size: 0x1)
+    uint8 bEvaluateInPostroll;                                                        // 0x0000 (size: 0x1)
+    uint8 bEvaluateNearestSection;                                                    // 0x0000 (size: 0x1)
 
-};
+}; // Size: 0x4
 
 struct FMovieSceneTrackEvaluationFieldEntry
 {
-    class UMovieSceneSection* Section;
-    FFrameNumberRange Range;
-    FFrameNumber ForcedTime;
-    ESectionEvaluationFlags Flags;
-    int16 LegacySortOrder;
+    class UMovieSceneSection* Section;                                                // 0x0000 (size: 0x8)
+    FFrameNumberRange Range;                                                          // 0x0008 (size: 0x10)
+    FFrameNumber ForcedTime;                                                          // 0x0018 (size: 0x4)
+    ESectionEvaluationFlags Flags;                                                    // 0x001C (size: 0x1)
+    int16 LegacySortOrder;                                                            // 0x001E (size: 0x2)
 
-};
+}; // Size: 0x20
 
 struct FMovieSceneTrackEvaluationField
 {
-    TArray<FMovieSceneTrackEvaluationFieldEntry> Entries;
+    TArray<FMovieSceneTrackEvaluationFieldEntry> Entries;                             // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 class UMovieSceneTrack : public UMovieSceneSignedObject
 {
-    FMovieSceneTrackEvalOptions EvalOptions;
-    bool bIsEvalDisabled;
-    FGuid EvaluationFieldGuid;
-    FMovieSceneTrackEvaluationField EvaluationField;
+    FMovieSceneTrackEvalOptions EvalOptions;                                          // 0x0050 (size: 0x4)
+    bool bIsEvalDisabled;                                                             // 0x0055 (size: 0x1)
+    FGuid EvaluationFieldGuid;                                                        // 0x0058 (size: 0x10)
+    FMovieSceneTrackEvaluationField EvaluationField;                                  // 0x0068 (size: 0x10)
 
-};
+}; // Size: 0x78
 
 class UMovieSceneNameableTrack : public UMovieSceneTrack
 {
-};
+}; // Size: 0x78
 
 struct FMovieScenePropertyBinding
 {
-    FName PropertyName;
-    FName PropertyPath;
-    bool bCanUseClassLookup;
+    FName PropertyName;                                                               // 0x0000 (size: 0x8)
+    FName PropertyPath;                                                               // 0x0008 (size: 0x8)
+    bool bCanUseClassLookup;                                                          // 0x0010 (size: 0x1)
 
-};
+}; // Size: 0x14
 
 struct FMovieSceneObjectBindingID
 {
-    int32 SequenceID;
-    EMovieSceneObjectBindingSpace Space;
-    FGuid Guid;
+    int32 SequenceID;                                                                 // 0x0000 (size: 0x4)
+    EMovieSceneObjectBindingSpace Space;                                              // 0x0004 (size: 0x1)
+    FGuid Guid;                                                                       // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 class UMovieSceneSequence : public UMovieSceneSignedObject
 {
-    class UMovieSceneCompiledData* CompiledData;
-    EMovieSceneCompletionMode DefaultCompletionMode;
-    bool bParentContextsAreSignificant;
-    bool bPlayableDirectly;
-    EMovieSceneSequenceFlags SequenceFlags;
+    class UMovieSceneCompiledData* CompiledData;                                      // 0x0050 (size: 0x8)
+    EMovieSceneCompletionMode DefaultCompletionMode;                                  // 0x0058 (size: 0x1)
+    bool bParentContextsAreSignificant;                                               // 0x0059 (size: 0x1)
+    bool bPlayableDirectly;                                                           // 0x005A (size: 0x1)
+    EMovieSceneSequenceFlags SequenceFlags;                                           // 0x005B (size: 0x1)
 
     TArray<FMovieSceneObjectBindingID> FindBindingsByTag(FName InBindingName);
     FMovieSceneObjectBindingID FindBindingByTag(FName InBindingName);
-};
+}; // Size: 0x60
 
 struct FMovieSceneSequenceLoopCount
 {
-    int32 Value;
+    int32 Value;                                                                      // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FMovieSceneSequencePlaybackSettings
 {
-    uint8 bAutoPlay;
-    FMovieSceneSequenceLoopCount LoopCount;
-    float PlayRate;
-    float StartTime;
-    uint8 bRandomStartTime;
-    uint8 bRestoreState;
-    uint8 bDisableMovementInput;
-    uint8 bDisableLookAtInput;
-    uint8 bHidePlayer;
-    uint8 bHideHud;
-    uint8 bDisableCameraCuts;
-    uint8 bPauseAtEnd;
+    uint8 bAutoPlay;                                                                  // 0x0000 (size: 0x1)
+    FMovieSceneSequenceLoopCount LoopCount;                                           // 0x0004 (size: 0x4)
+    float PlayRate;                                                                   // 0x0008 (size: 0x4)
+    float StartTime;                                                                  // 0x000C (size: 0x4)
+    uint8 bRandomStartTime;                                                           // 0x0010 (size: 0x1)
+    uint8 bRestoreState;                                                              // 0x0010 (size: 0x1)
+    uint8 bDisableMovementInput;                                                      // 0x0010 (size: 0x1)
+    uint8 bDisableLookAtInput;                                                        // 0x0010 (size: 0x1)
+    uint8 bHidePlayer;                                                                // 0x0010 (size: 0x1)
+    uint8 bHideHud;                                                                   // 0x0010 (size: 0x1)
+    uint8 bDisableCameraCuts;                                                         // 0x0010 (size: 0x1)
+    uint8 bPauseAtEnd;                                                                // 0x0010 (size: 0x1)
 
-};
+}; // Size: 0x14
 
 struct FMovieSceneSequenceID
 {
-    uint32 Value;
+    uint32 Value;                                                                     // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FMovieSceneRootEvaluationTemplateInstance
 {
-    TWeakObjectPtr<class UMovieSceneSequence> WeakRootSequence;
-    class UMovieSceneCompiledDataManager* CompiledDataManager;
-    class UMovieSceneEntitySystemLinker* EntitySystemLinker;
-    TMap<class FMovieSceneSequenceID, class UObject*> DirectorInstances;
+    TWeakObjectPtr<class UMovieSceneSequence> WeakRootSequence;                       // 0x0000 (size: 0x8)
+    class UMovieSceneCompiledDataManager* CompiledDataManager;                        // 0x0008 (size: 0x8)
+    class UMovieSceneEntitySystemLinker* EntitySystemLinker;                          // 0x0018 (size: 0x8)
+    TMap<class FMovieSceneSequenceID, class UObject*> DirectorInstances;              // 0x0090 (size: 0x50)
 
-};
+}; // Size: 0xE8
 
 struct FMovieSceneSequenceReplProperties
 {
-    FFrameTime LastKnownPosition;
-    TEnumAsByte<EMovieScenePlayerStatus::Type> LastKnownStatus;
-    int32 LastKnownNumLoops;
+    FFrameTime LastKnownPosition;                                                     // 0x0000 (size: 0x8)
+    TEnumAsByte<EMovieScenePlayerStatus::Type> LastKnownStatus;                       // 0x0008 (size: 0x1)
+    int32 LastKnownNumLoops;                                                          // 0x000C (size: 0x4)
 
-};
+}; // Size: 0x10
 
 struct FMovieSceneSequencePlaybackParams
 {
-    FFrameTime Frame;
-    float Time;
-    FString MarkedFrame;
-    EMovieScenePositionType PositionType;
-    EUpdatePositionMethod UpdateMethod;
+    FFrameTime Frame;                                                                 // 0x0000 (size: 0x8)
+    float Time;                                                                       // 0x0008 (size: 0x4)
+    FString MarkedFrame;                                                              // 0x0010 (size: 0x10)
+    EMovieScenePositionType PositionType;                                             // 0x0020 (size: 0x1)
+    EUpdatePositionMethod UpdateMethod;                                               // 0x0021 (size: 0x1)
 
-};
+}; // Size: 0x28
 
 class UMovieSceneSequencePlayer : public UObject
 {
-    FMovieSceneSequencePlayerOnPlay OnPlay;
+    FMovieSceneSequencePlayerOnPlay OnPlay;                                           // 0x0410 (size: 0x10)
     void OnMovieSceneSequencePlayerEvent();
-    FMovieSceneSequencePlayerOnPlayReverse OnPlayReverse;
+    FMovieSceneSequencePlayerOnPlayReverse OnPlayReverse;                             // 0x0420 (size: 0x10)
     void OnMovieSceneSequencePlayerEvent();
-    FMovieSceneSequencePlayerOnStop OnStop;
+    FMovieSceneSequencePlayerOnStop OnStop;                                           // 0x0430 (size: 0x10)
     void OnMovieSceneSequencePlayerEvent();
-    FMovieSceneSequencePlayerOnPause OnPause;
+    FMovieSceneSequencePlayerOnPause OnPause;                                         // 0x0440 (size: 0x10)
     void OnMovieSceneSequencePlayerEvent();
-    FMovieSceneSequencePlayerOnFinished OnFinished;
+    FMovieSceneSequencePlayerOnFinished OnFinished;                                   // 0x0450 (size: 0x10)
     void OnMovieSceneSequencePlayerEvent();
-    TEnumAsByte<EMovieScenePlayerStatus::Type> status;
-    uint8 bReversePlayback;
-    class UMovieSceneSequence* Sequence;
-    FFrameNumber StartTime;
-    int32 DurationFrames;
-    float DurationSubFrames;
-    int32 CurrentNumLoops;
-    FMovieSceneSequencePlaybackSettings PlaybackSettings;
-    FMovieSceneRootEvaluationTemplateInstance RootTemplateInstance;
-    FMovieSceneSequenceReplProperties NetSyncProps;
-    TScriptInterface<class IMovieScenePlaybackClient> PlaybackClient;
-    class UMovieSceneSequenceTickManager* TickManager;
+    TEnumAsByte<EMovieScenePlayerStatus::Type> status;                                // 0x0460 (size: 0x1)
+    uint8 bReversePlayback;                                                           // 0x0464 (size: 0x1)
+    class UMovieSceneSequence* Sequence;                                              // 0x0468 (size: 0x8)
+    FFrameNumber StartTime;                                                           // 0x0470 (size: 0x4)
+    int32 DurationFrames;                                                             // 0x0474 (size: 0x4)
+    float DurationSubFrames;                                                          // 0x0478 (size: 0x4)
+    int32 CurrentNumLoops;                                                            // 0x047C (size: 0x4)
+    FMovieSceneSequencePlaybackSettings PlaybackSettings;                             // 0x0480 (size: 0x14)
+    FMovieSceneRootEvaluationTemplateInstance RootTemplateInstance;                   // 0x0498 (size: 0xE8)
+    FMovieSceneSequenceReplProperties NetSyncProps;                                   // 0x05E8 (size: 0x10)
+    TScriptInterface<class IMovieScenePlaybackClient> PlaybackClient;                 // 0x05F8 (size: 0x10)
+    class UMovieSceneSequenceTickManager* TickManager;                                // 0x0608 (size: 0x8)
 
     void StopAtCurrentTime();
     void Stop();
@@ -265,48 +265,48 @@ class UMovieSceneSequencePlayer : public UObject
     FQualifiedFrameTime GetCurrentTime();
     TArray<class UObject*> GetBoundObjects(FMovieSceneObjectBindingID ObjectBinding);
     void ChangePlaybackDirection();
-};
+}; // Size: 0x680
 
 struct FMovieSceneSectionParameters
 {
-    FFrameNumber StartFrameOffset;
-    bool bCanLoop;
-    FFrameNumber EndFrameOffset;
-    FFrameNumber FirstLoopStartFrameOffset;
-    float TimeScale;
-    int32 HierarchicalBias;
-    float StartOffset;
-    float PrerollTime;
-    float PostrollTime;
+    FFrameNumber StartFrameOffset;                                                    // 0x0000 (size: 0x4)
+    bool bCanLoop;                                                                    // 0x0004 (size: 0x1)
+    FFrameNumber EndFrameOffset;                                                      // 0x0008 (size: 0x4)
+    FFrameNumber FirstLoopStartFrameOffset;                                           // 0x000C (size: 0x4)
+    float TimeScale;                                                                  // 0x0010 (size: 0x4)
+    int32 HierarchicalBias;                                                           // 0x0014 (size: 0x4)
+    float StartOffset;                                                                // 0x0018 (size: 0x4)
+    float PrerollTime;                                                                // 0x001C (size: 0x4)
+    float PostrollTime;                                                               // 0x0020 (size: 0x4)
 
-};
+}; // Size: 0x24
 
 class UMovieSceneSubSection : public UMovieSceneSection
 {
-    FMovieSceneSectionParameters Parameters;
-    float StartOffset;
-    float TimeScale;
-    float PrerollTime;
-    class UMovieSceneSequence* SubSequence;
-    TLazyObjectPtr<class AActor> ActorToRecord;
-    FString TargetSequenceName;
-    FDirectoryPath TargetPathToRecordTo;
+    FMovieSceneSectionParameters Parameters;                                          // 0x00E8 (size: 0x24)
+    float StartOffset;                                                                // 0x010C (size: 0x4)
+    float TimeScale;                                                                  // 0x0110 (size: 0x4)
+    float PrerollTime;                                                                // 0x0114 (size: 0x4)
+    class UMovieSceneSequence* SubSequence;                                           // 0x0118 (size: 0x8)
+    TLazyObjectPtr<class AActor> ActorToRecord;                                       // 0x0120 (size: 0x1C)
+    FString TargetSequenceName;                                                       // 0x0140 (size: 0x10)
+    FDirectoryPath TargetPathToRecordTo;                                              // 0x0150 (size: 0x10)
 
     void SetSequence(class UMovieSceneSequence* Sequence);
     class UMovieSceneSequence* GetSequence();
-};
+}; // Size: 0x160
 
 class UMovieSceneEntitySystem : public UObject
 {
-    class UMovieSceneEntitySystemLinker* Linker;
+    class UMovieSceneEntitySystemLinker* Linker;                                      // 0x0028 (size: 0x8)
 
-};
+}; // Size: 0x40
 
 class UMovieSceneSubTrack : public UMovieSceneNameableTrack
 {
-    TArray<class UMovieSceneSection*> Sections;
+    TArray<class UMovieSceneSection*> Sections;                                       // 0x0078 (size: 0x10)
 
-};
+}; // Size: 0x88
 
 class IMovieSceneCustomClockSource : public IInterface
 {
@@ -315,818 +315,818 @@ class IMovieSceneCustomClockSource : public IInterface
     void OnStopPlaying(const FQualifiedFrameTime& InStopTime);
     void OnStartPlaying(const FQualifiedFrameTime& InStartTime);
     FFrameTime OnRequestCurrentTime(const FQualifiedFrameTime& InCurrentTime, float InPlayRate);
-};
+}; // Size: 0x28
 
 class IMovieSceneEntityProvider : public IInterface
 {
-};
+}; // Size: 0x28
 
 class IMovieScenePlaybackClient : public IInterface
 {
-};
+}; // Size: 0x28
 
 class IMovieSceneTrackTemplateProducer : public IInterface
 {
-};
+}; // Size: 0x28
 
 class INodeAndChannelMappings : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UMovieSceneNodeGroup : public UObject
 {
-};
+}; // Size: 0x28
 
 class UMovieSceneNodeGroupCollection : public UObject
 {
-};
+}; // Size: 0x28
 
 struct FMovieSceneSpawnable
 {
-    FTransform SpawnTransform;
-    TArray<FName> tags;
-    bool bContinuouslyRespawn;
-    bool bEvaluateTracksWhenNotSpawned;
-    FGuid Guid;
-    FString Name;
-    class UObject* ObjectTemplate;
-    TArray<FGuid> ChildPossessables;
-    ESpawnOwnership Ownership;
-    FName LevelName;
+    FTransform SpawnTransform;                                                        // 0x0000 (size: 0x30)
+    TArray<FName> tags;                                                               // 0x0030 (size: 0x10)
+    bool bContinuouslyRespawn;                                                        // 0x0040 (size: 0x1)
+    bool bEvaluateTracksWhenNotSpawned;                                               // 0x0041 (size: 0x1)
+    FGuid Guid;                                                                       // 0x0044 (size: 0x10)
+    FString Name;                                                                     // 0x0058 (size: 0x10)
+    class UObject* ObjectTemplate;                                                    // 0x0068 (size: 0x8)
+    TArray<FGuid> ChildPossessables;                                                  // 0x0070 (size: 0x10)
+    ESpawnOwnership Ownership;                                                        // 0x0080 (size: 0x1)
+    FName LevelName;                                                                  // 0x0084 (size: 0x8)
 
-};
+}; // Size: 0x90
 
 struct FMovieScenePossessable
 {
-    TArray<FName> tags;
-    FGuid Guid;
-    FString Name;
-    UClass* PossessedObjectClass;
-    FGuid ParentGuid;
+    TArray<FName> tags;                                                               // 0x0000 (size: 0x10)
+    FGuid Guid;                                                                       // 0x0010 (size: 0x10)
+    FString Name;                                                                     // 0x0020 (size: 0x10)
+    UClass* PossessedObjectClass;                                                     // 0x0030 (size: 0x8)
+    FGuid ParentGuid;                                                                 // 0x0038 (size: 0x10)
 
-};
+}; // Size: 0x48
 
 struct FMovieSceneBinding
 {
-    FGuid ObjectGuid;
-    FString BindingName;
-    TArray<class UMovieSceneTrack*> Tracks;
+    FGuid ObjectGuid;                                                                 // 0x0000 (size: 0x10)
+    FString BindingName;                                                              // 0x0010 (size: 0x10)
+    TArray<class UMovieSceneTrack*> Tracks;                                           // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x30
 
 struct FMovieSceneObjectBindingIDs
 {
-    TArray<FMovieSceneObjectBindingID> IDs;
+    TArray<FMovieSceneObjectBindingID> IDs;                                           // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FMovieSceneMarkedFrame
 {
-    FFrameNumber FrameNumber;
-    FString Label;
+    FFrameNumber FrameNumber;                                                         // 0x0000 (size: 0x4)
+    FString Label;                                                                    // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 class UMovieScene : public UMovieSceneSignedObject
 {
-    TArray<FMovieSceneSpawnable> Spawnables;
-    TArray<FMovieScenePossessable> Possessables;
-    TArray<FMovieSceneBinding> ObjectBindings;
-    TMap<class FName, class FMovieSceneObjectBindingIDs> BindingGroups;
-    TArray<class UMovieSceneTrack*> MasterTracks;
-    class UMovieSceneTrack* CameraCutTrack;
-    FMovieSceneFrameRange SelectionRange;
-    FMovieSceneFrameRange PlaybackRange;
-    FFrameRate TickResolution;
-    FFrameRate DisplayRate;
-    EMovieSceneEvaluationType EvaluationType;
-    EUpdateClockSource ClockSource;
-    FSoftObjectPath CustomClockSourcePath;
-    TArray<FMovieSceneMarkedFrame> MarkedFrames;
+    TArray<FMovieSceneSpawnable> Spawnables;                                          // 0x0050 (size: 0x10)
+    TArray<FMovieScenePossessable> Possessables;                                      // 0x0060 (size: 0x10)
+    TArray<FMovieSceneBinding> ObjectBindings;                                        // 0x0070 (size: 0x10)
+    TMap<class FName, class FMovieSceneObjectBindingIDs> BindingGroups;               // 0x0080 (size: 0x50)
+    TArray<class UMovieSceneTrack*> MasterTracks;                                     // 0x00D0 (size: 0x10)
+    class UMovieSceneTrack* CameraCutTrack;                                           // 0x00E0 (size: 0x8)
+    FMovieSceneFrameRange SelectionRange;                                             // 0x00E8 (size: 0x10)
+    FMovieSceneFrameRange PlaybackRange;                                              // 0x00F8 (size: 0x10)
+    FFrameRate TickResolution;                                                        // 0x0108 (size: 0x8)
+    FFrameRate DisplayRate;                                                           // 0x0110 (size: 0x8)
+    EMovieSceneEvaluationType EvaluationType;                                         // 0x0118 (size: 0x1)
+    EUpdateClockSource ClockSource;                                                   // 0x0119 (size: 0x1)
+    FSoftObjectPath CustomClockSourcePath;                                            // 0x0120 (size: 0x18)
+    TArray<FMovieSceneMarkedFrame> MarkedFrames;                                      // 0x0138 (size: 0x10)
 
-};
+}; // Size: 0x148
 
 struct FMovieSceneBindingOverrideData
 {
-    FMovieSceneObjectBindingID ObjectBindingId;
-    TWeakObjectPtr<class UObject> Object;
-    bool bOverridesDefault;
+    FMovieSceneObjectBindingID ObjectBindingId;                                       // 0x0000 (size: 0x18)
+    TWeakObjectPtr<class UObject> Object;                                             // 0x0018 (size: 0x8)
+    bool bOverridesDefault;                                                           // 0x0020 (size: 0x1)
 
-};
+}; // Size: 0x24
 
 class UMovieSceneBindingOverrides : public UObject
 {
-    TArray<FMovieSceneBindingOverrideData> BindingData;
+    TArray<FMovieSceneBindingOverrideData> BindingData;                               // 0x0028 (size: 0x10)
 
-};
+}; // Size: 0x90
 
 class IMovieSceneBindingOwnerInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UMovieSceneBlenderSystem : public UMovieSceneEntitySystem
 {
-};
+}; // Size: 0x60
 
 struct FMovieSceneChannel
 {
-};
+}; // Size: 0x8
 
 struct FMovieSceneBoolChannel : public FMovieSceneChannel
 {
-    TArray<FFrameNumber> Times;
-    bool DefaultValue;
-    bool bHasDefaultValue;
-    TArray<bool> Values;
+    TArray<FFrameNumber> Times;                                                       // 0x0008 (size: 0x10)
+    bool DefaultValue;                                                                // 0x0018 (size: 0x1)
+    bool bHasDefaultValue;                                                            // 0x0019 (size: 0x1)
+    TArray<bool> Values;                                                              // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x90
 
 class UMovieSceneBoolSection : public UMovieSceneSection
 {
-    bool DefaultValue;
-    FMovieSceneBoolChannel BoolCurve;
+    bool DefaultValue;                                                                // 0x00E8 (size: 0x1)
+    FMovieSceneBoolChannel BoolCurve;                                                 // 0x00F0 (size: 0x90)
 
-};
+}; // Size: 0x180
 
 class UMovieSceneEntityInstantiatorSystem : public UMovieSceneEntitySystem
 {
-};
+}; // Size: 0x40
 
 class UMovieSceneGenericBoundObjectInstantiator : public UMovieSceneEntityInstantiatorSystem
 {
-};
+}; // Size: 0x40
 
 class UMovieSceneBoundSceneComponentInstantiator : public UMovieSceneEntityInstantiatorSystem
 {
-};
+}; // Size: 0x40
 
 class IMovieSceneSceneComponentImpersonator : public IInterface
 {
-};
+}; // Size: 0x28
 
 struct FMovieSceneTrackIdentifier
 {
-    uint32 Value;
+    uint32 Value;                                                                     // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FMovieSceneEvalTemplatePtr
 {
-};
+}; // Size: 0x88
 
 struct FMovieSceneTrackImplementationPtr
 {
-};
+}; // Size: 0x38
 
 struct FMovieSceneEvaluationTrack
 {
-    FGuid ObjectBindingId;
-    uint16 EvaluationPriority;
-    EEvaluationMethod EvaluationMethod;
-    TWeakObjectPtr<class UMovieSceneTrack> SourceTrack;
-    TArray<FMovieSceneEvalTemplatePtr> ChildTemplates;
-    FMovieSceneTrackImplementationPtr TrackTemplate;
-    FName EvaluationGroup;
-    uint8 bEvaluateInPreroll;
-    uint8 bEvaluateInPostroll;
-    uint8 bTearDownPriority;
+    FGuid ObjectBindingId;                                                            // 0x0000 (size: 0x10)
+    uint16 EvaluationPriority;                                                        // 0x0010 (size: 0x2)
+    EEvaluationMethod EvaluationMethod;                                               // 0x0012 (size: 0x1)
+    TWeakObjectPtr<class UMovieSceneTrack> SourceTrack;                               // 0x0014 (size: 0x8)
+    TArray<FMovieSceneEvalTemplatePtr> ChildTemplates;                                // 0x0020 (size: 0x10)
+    FMovieSceneTrackImplementationPtr TrackTemplate;                                  // 0x0030 (size: 0x38)
+    FName EvaluationGroup;                                                            // 0x0068 (size: 0x8)
+    uint8 bEvaluateInPreroll;                                                         // 0x0070 (size: 0x1)
+    uint8 bEvaluateInPostroll;                                                        // 0x0070 (size: 0x1)
+    uint8 bTearDownPriority;                                                          // 0x0070 (size: 0x1)
 
-};
+}; // Size: 0x78
 
 struct FMovieSceneEvaluationTemplateSerialNumber
 {
-    uint32 Value;
+    uint32 Value;                                                                     // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FMovieSceneTemplateGenerationLedger
 {
-    FMovieSceneTrackIdentifier LastTrackIdentifier;
-    TMap<class FGuid, class FMovieSceneTrackIdentifier> TrackSignatureToTrackIdentifier;
-    TMap<class FGuid, class FMovieSceneFrameRange> SubSectionRanges;
+    FMovieSceneTrackIdentifier LastTrackIdentifier;                                   // 0x0000 (size: 0x4)
+    TMap<class FGuid, class FMovieSceneTrackIdentifier> TrackSignatureToTrackIdentifier; // 0x0008 (size: 0x50)
+    TMap<class FGuid, class FMovieSceneFrameRange> SubSectionRanges;                  // 0x0058 (size: 0x50)
 
-};
+}; // Size: 0xA8
 
 struct FMovieSceneEvaluationTemplate
 {
-    TMap<class FMovieSceneTrackIdentifier, class FMovieSceneEvaluationTrack> Tracks;
-    FGuid SequenceSignature;
-    FMovieSceneEvaluationTemplateSerialNumber TemplateSerialNumber;
-    FMovieSceneTemplateGenerationLedger TemplateLedger;
+    TMap<class FMovieSceneTrackIdentifier, class FMovieSceneEvaluationTrack> Tracks;  // 0x0000 (size: 0x50)
+    FGuid SequenceSignature;                                                          // 0x00A0 (size: 0x10)
+    FMovieSceneEvaluationTemplateSerialNumber TemplateSerialNumber;                   // 0x00B0 (size: 0x4)
+    FMovieSceneTemplateGenerationLedger TemplateLedger;                               // 0x00B8 (size: 0xA8)
 
-};
+}; // Size: 0x160
 
 struct FMovieSceneSequenceHierarchyNode
 {
-    FMovieSceneSequenceID ParentID;
-    TArray<FMovieSceneSequenceID> Children;
+    FMovieSceneSequenceID ParentID;                                                   // 0x0000 (size: 0x4)
+    TArray<FMovieSceneSequenceID> Children;                                           // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FMovieSceneSubSequenceTree
 {
-};
+}; // Size: 0x60
 
 struct FMovieSceneTimeTransform
 {
-    float TimeScale;
-    FFrameTime Offset;
+    float TimeScale;                                                                  // 0x0000 (size: 0x4)
+    FFrameTime Offset;                                                                // 0x0004 (size: 0x8)
 
-};
+}; // Size: 0xC
 
 struct FMovieSceneTimeWarping
 {
-    FFrameNumber Start;
-    FFrameNumber End;
+    FFrameNumber Start;                                                               // 0x0000 (size: 0x4)
+    FFrameNumber End;                                                                 // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 struct FMovieSceneNestedSequenceTransform
 {
-    FMovieSceneTimeTransform LinearTransform;
-    FMovieSceneTimeWarping Warping;
+    FMovieSceneTimeTransform LinearTransform;                                         // 0x0000 (size: 0xC)
+    FMovieSceneTimeWarping Warping;                                                   // 0x000C (size: 0x8)
 
-};
+}; // Size: 0x14
 
 struct FMovieSceneSequenceTransform
 {
-    FMovieSceneTimeTransform LinearTransform;
-    TArray<FMovieSceneNestedSequenceTransform> NestedTransforms;
+    FMovieSceneTimeTransform LinearTransform;                                         // 0x0000 (size: 0xC)
+    TArray<FMovieSceneNestedSequenceTransform> NestedTransforms;                      // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 struct FMovieSceneSequenceInstanceDataPtr
 {
-};
+}; // Size: 0x18
 
 struct FMovieSceneSubSequenceData
 {
-    FSoftObjectPath Sequence;
-    FMovieSceneSequenceTransform RootToSequenceTransform;
-    FFrameRate TickResolution;
-    FMovieSceneSequenceID DeterministicSequenceID;
-    FMovieSceneFrameRange PlayRange;
-    FMovieSceneFrameRange FullPlayRange;
-    FMovieSceneFrameRange UnwarpedPlayRange;
-    FMovieSceneFrameRange PreRollRange;
-    FMovieSceneFrameRange PostRollRange;
-    int16 HierarchicalBias;
-    bool bHasHierarchicalEasing;
-    FMovieSceneSequenceInstanceDataPtr InstanceData;
-    FGuid SubSectionSignature;
-    FMovieSceneSequenceTransform OuterToInnerTransform;
+    FSoftObjectPath Sequence;                                                         // 0x0000 (size: 0x18)
+    FMovieSceneSequenceTransform RootToSequenceTransform;                             // 0x0018 (size: 0x20)
+    FFrameRate TickResolution;                                                        // 0x0038 (size: 0x8)
+    FMovieSceneSequenceID DeterministicSequenceID;                                    // 0x0040 (size: 0x4)
+    FMovieSceneFrameRange PlayRange;                                                  // 0x0044 (size: 0x10)
+    FMovieSceneFrameRange FullPlayRange;                                              // 0x0054 (size: 0x10)
+    FMovieSceneFrameRange UnwarpedPlayRange;                                          // 0x0064 (size: 0x10)
+    FMovieSceneFrameRange PreRollRange;                                               // 0x0074 (size: 0x10)
+    FMovieSceneFrameRange PostRollRange;                                              // 0x0084 (size: 0x10)
+    int16 HierarchicalBias;                                                           // 0x0094 (size: 0x2)
+    bool bHasHierarchicalEasing;                                                      // 0x0096 (size: 0x1)
+    FMovieSceneSequenceInstanceDataPtr InstanceData;                                  // 0x0098 (size: 0x18)
+    FGuid SubSectionSignature;                                                        // 0x00B8 (size: 0x10)
+    FMovieSceneSequenceTransform OuterToInnerTransform;                               // 0x00C8 (size: 0x20)
 
-};
+}; // Size: 0xE8
 
 struct FMovieSceneSequenceHierarchy
 {
-    FMovieSceneSequenceHierarchyNode RootNode;
-    FMovieSceneSubSequenceTree Tree;
-    TMap<class FMovieSceneSequenceID, class FMovieSceneSubSequenceData> SubSequences;
-    TMap<class FMovieSceneSequenceID, class FMovieSceneSequenceHierarchyNode> Hierarchy;
+    FMovieSceneSequenceHierarchyNode RootNode;                                        // 0x0000 (size: 0x18)
+    FMovieSceneSubSequenceTree Tree;                                                  // 0x0018 (size: 0x60)
+    TMap<class FMovieSceneSequenceID, class FMovieSceneSubSequenceData> SubSequences; // 0x0078 (size: 0x50)
+    TMap<class FMovieSceneSequenceID, class FMovieSceneSequenceHierarchyNode> Hierarchy; // 0x00C8 (size: 0x50)
 
-};
+}; // Size: 0x118
 
 struct FMovieSceneEvaluationFieldEntityTree
 {
-};
+}; // Size: 0x60
 
 struct FMovieSceneEvaluationFieldEntityKey
 {
-    TWeakObjectPtr<class UObject> EntityOwner;
-    uint32 EntityID;
+    TWeakObjectPtr<class UObject> EntityOwner;                                        // 0x0000 (size: 0x8)
+    uint32 EntityID;                                                                  // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 struct FMovieSceneEvaluationFieldEntity
 {
-    FMovieSceneEvaluationFieldEntityKey Key;
-    int32 SharedMetaDataIndex;
+    FMovieSceneEvaluationFieldEntityKey Key;                                          // 0x0000 (size: 0xC)
+    int32 SharedMetaDataIndex;                                                        // 0x000C (size: 0x4)
 
-};
+}; // Size: 0x10
 
 struct FMovieSceneEvaluationFieldEntityMetaData
 {
-    FFrameNumber ForcedTime;
-    ESectionEvaluationFlags Flags;
-    uint8 bEvaluateInSequencePreRoll;
-    uint8 bEvaluateInSequencePostRoll;
+    FFrameNumber ForcedTime;                                                          // 0x0000 (size: 0x4)
+    ESectionEvaluationFlags Flags;                                                    // 0x0008 (size: 0x1)
+    uint8 bEvaluateInSequencePreRoll;                                                 // 0x0009 (size: 0x1)
+    uint8 bEvaluateInSequencePostRoll;                                                // 0x0009 (size: 0x1)
 
-};
+}; // Size: 0xC
 
 struct FMovieSceneEvaluationFieldSharedEntityMetaData
 {
-    FGuid ObjectBindingId;
+    FGuid ObjectBindingId;                                                            // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FMovieSceneEntityComponentField
 {
-    FMovieSceneEvaluationFieldEntityTree PersistentEntityTree;
-    FMovieSceneEvaluationFieldEntityTree OneShotEntityTree;
-    TArray<FMovieSceneEvaluationFieldEntity> Entities;
-    TArray<FMovieSceneEvaluationFieldEntityMetaData> EntityMetaData;
-    TArray<FMovieSceneEvaluationFieldSharedEntityMetaData> SharedMetaData;
+    FMovieSceneEvaluationFieldEntityTree PersistentEntityTree;                        // 0x0000 (size: 0x60)
+    FMovieSceneEvaluationFieldEntityTree OneShotEntityTree;                           // 0x0060 (size: 0x60)
+    TArray<FMovieSceneEvaluationFieldEntity> Entities;                                // 0x00C0 (size: 0x10)
+    TArray<FMovieSceneEvaluationFieldEntityMetaData> EntityMetaData;                  // 0x00D0 (size: 0x10)
+    TArray<FMovieSceneEvaluationFieldSharedEntityMetaData> SharedMetaData;            // 0x00E0 (size: 0x10)
 
-};
+}; // Size: 0xF0
 
 struct FMovieSceneEvaluationGroupLUTIndex
 {
-    int32 NumInitPtrs;
-    int32 NumEvalPtrs;
+    int32 NumInitPtrs;                                                                // 0x0000 (size: 0x4)
+    int32 NumEvalPtrs;                                                                // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 struct FMovieSceneEvaluationFieldTrackPtr
 {
-    FMovieSceneSequenceID SequenceID;
-    FMovieSceneTrackIdentifier TrackIdentifier;
+    FMovieSceneSequenceID SequenceID;                                                 // 0x0000 (size: 0x4)
+    FMovieSceneTrackIdentifier TrackIdentifier;                                       // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 struct FMovieSceneFieldEntry_EvaluationTrack
 {
-    FMovieSceneEvaluationFieldTrackPtr TrackPtr;
-    uint16 numChildren;
+    FMovieSceneEvaluationFieldTrackPtr TrackPtr;                                      // 0x0000 (size: 0x8)
+    uint16 numChildren;                                                               // 0x0008 (size: 0x2)
 
-};
+}; // Size: 0xC
 
 struct FMovieSceneFieldEntry_ChildTemplate
 {
-    uint16 ChildIndex;
-    ESectionEvaluationFlags Flags;
-    FFrameNumber ForcedTime;
+    uint16 ChildIndex;                                                                // 0x0000 (size: 0x2)
+    ESectionEvaluationFlags Flags;                                                    // 0x0002 (size: 0x1)
+    FFrameNumber ForcedTime;                                                          // 0x0004 (size: 0x4)
 
-};
+}; // Size: 0x8
 
 struct FMovieSceneEvaluationGroup
 {
-    TArray<FMovieSceneEvaluationGroupLUTIndex> LUTIndices;
-    TArray<FMovieSceneFieldEntry_EvaluationTrack> TrackLUT;
-    TArray<FMovieSceneFieldEntry_ChildTemplate> SectionLUT;
+    TArray<FMovieSceneEvaluationGroupLUTIndex> LUTIndices;                            // 0x0000 (size: 0x10)
+    TArray<FMovieSceneFieldEntry_EvaluationTrack> TrackLUT;                           // 0x0010 (size: 0x10)
+    TArray<FMovieSceneFieldEntry_ChildTemplate> SectionLUT;                           // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x30
 
 struct FMovieSceneEvaluationKey
 {
-    FMovieSceneSequenceID SequenceID;
-    FMovieSceneTrackIdentifier TrackIdentifier;
-    uint32 SectionIndex;
+    FMovieSceneSequenceID SequenceID;                                                 // 0x0000 (size: 0x4)
+    FMovieSceneTrackIdentifier TrackIdentifier;                                       // 0x0004 (size: 0x4)
+    uint32 SectionIndex;                                                              // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 struct FMovieSceneOrderedEvaluationKey
 {
-    FMovieSceneEvaluationKey Key;
-    uint16 SetupIndex;
-    uint16 TearDownIndex;
+    FMovieSceneEvaluationKey Key;                                                     // 0x0000 (size: 0xC)
+    uint16 SetupIndex;                                                                // 0x000C (size: 0x2)
+    uint16 TearDownIndex;                                                             // 0x000E (size: 0x2)
 
-};
+}; // Size: 0x10
 
 struct FMovieSceneEvaluationMetaData
 {
-    TArray<FMovieSceneSequenceID> ActiveSequences;
-    TArray<FMovieSceneOrderedEvaluationKey> ActiveEntities;
+    TArray<FMovieSceneSequenceID> ActiveSequences;                                    // 0x0000 (size: 0x10)
+    TArray<FMovieSceneOrderedEvaluationKey> ActiveEntities;                           // 0x0010 (size: 0x10)
 
-};
+}; // Size: 0x20
 
 struct FMovieSceneEvaluationField
 {
-    TArray<FMovieSceneFrameRange> Ranges;
-    TArray<FMovieSceneEvaluationGroup> Groups;
-    TArray<FMovieSceneEvaluationMetaData> MetaData;
+    TArray<FMovieSceneFrameRange> Ranges;                                             // 0x0000 (size: 0x10)
+    TArray<FMovieSceneEvaluationGroup> Groups;                                        // 0x0010 (size: 0x10)
+    TArray<FMovieSceneEvaluationMetaData> MetaData;                                   // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x30
 
 struct FMovieSceneSequenceCompilerMaskStruct
 {
-    uint8 bHierarchy;
-    uint8 bEvaluationTemplate;
-    uint8 bEvaluationTemplateField;
-    uint8 bEntityComponentField;
+    uint8 bHierarchy;                                                                 // 0x0000 (size: 0x1)
+    uint8 bEvaluationTemplate;                                                        // 0x0000 (size: 0x1)
+    uint8 bEvaluationTemplateField;                                                   // 0x0000 (size: 0x1)
+    uint8 bEntityComponentField;                                                      // 0x0000 (size: 0x1)
 
-};
+}; // Size: 0x1
 
 class UMovieSceneCompiledData : public UObject
 {
-    FMovieSceneEvaluationTemplate EvaluationTemplate;
-    FMovieSceneSequenceHierarchy Hierarchy;
-    FMovieSceneEntityComponentField EntityComponentField;
-    FMovieSceneEvaluationField TrackTemplateField;
-    TArray<FFrameTime> DeterminismFences;
-    FGuid CompiledSignature;
-    FGuid CompilerVersion;
-    FMovieSceneSequenceCompilerMaskStruct AccumulatedMask;
-    FMovieSceneSequenceCompilerMaskStruct AllocatedMask;
-    EMovieSceneSequenceFlags AccumulatedFlags;
+    FMovieSceneEvaluationTemplate EvaluationTemplate;                                 // 0x0028 (size: 0x160)
+    FMovieSceneSequenceHierarchy Hierarchy;                                           // 0x0188 (size: 0x118)
+    FMovieSceneEntityComponentField EntityComponentField;                             // 0x02A0 (size: 0xF0)
+    FMovieSceneEvaluationField TrackTemplateField;                                    // 0x0390 (size: 0x30)
+    TArray<FFrameTime> DeterminismFences;                                             // 0x03C0 (size: 0x10)
+    FGuid CompiledSignature;                                                          // 0x03D0 (size: 0x10)
+    FGuid CompilerVersion;                                                            // 0x03E0 (size: 0x10)
+    FMovieSceneSequenceCompilerMaskStruct AccumulatedMask;                            // 0x03F0 (size: 0x1)
+    FMovieSceneSequenceCompilerMaskStruct AllocatedMask;                              // 0x03F1 (size: 0x1)
+    EMovieSceneSequenceFlags AccumulatedFlags;                                        // 0x03F2 (size: 0x1)
 
-};
+}; // Size: 0x3F8
 
 class UMovieSceneCompiledDataManager : public UObject
 {
-    TMap<int32, FMovieSceneSequenceHierarchy> Hierarchies;
-    TMap<int32, FMovieSceneEvaluationTemplate> TrackTemplates;
-    TMap<int32, FMovieSceneEvaluationField> TrackTemplateFields;
-    TMap<int32, FMovieSceneEntityComponentField> EntityComponentFields;
+    TMap<int32, FMovieSceneSequenceHierarchy> Hierarchies;                            // 0x00D8 (size: 0x50)
+    TMap<int32, FMovieSceneEvaluationTemplate> TrackTemplates;                        // 0x0128 (size: 0x50)
+    TMap<int32, FMovieSceneEvaluationField> TrackTemplateFields;                      // 0x0178 (size: 0x50)
+    TMap<int32, FMovieSceneEntityComponentField> EntityComponentFields;               // 0x01C8 (size: 0x50)
 
-};
+}; // Size: 0x230
 
 class IMovieSceneFloatDecomposer : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UMovieSceneBuiltInEasingFunction : public UObject
 {
-    EMovieSceneBuiltInEasing Type;
+    EMovieSceneBuiltInEasing Type;                                                    // 0x0030 (size: 0x1)
 
-};
+}; // Size: 0x38
 
 class UMovieSceneEasingExternalCurve : public UObject
 {
-    class UCurveFloat* Curve;
+    class UCurveFloat* Curve;                                                         // 0x0030 (size: 0x8)
 
-};
+}; // Size: 0x38
 
 class IMovieSceneEasingFunction : public IInterface
 {
 
     float OnEvaluate(float Interp);
-};
+}; // Size: 0x28
 
 struct FMovieSceneEntitySystemGraphNodes
 {
-};
+}; // Size: 0x38
 
 struct FMovieSceneEntitySystemGraph
 {
-    FMovieSceneEntitySystemGraphNodes Nodes;
+    FMovieSceneEntitySystemGraphNodes Nodes;                                          // 0x0080 (size: 0x38)
 
-};
+}; // Size: 0x138
 
 class UMovieSceneEntitySystemLinker : public UObject
 {
-    FMovieSceneEntitySystemGraph SystemGraph;
+    FMovieSceneEntitySystemGraph SystemGraph;                                         // 0x0238 (size: 0x138)
 
-};
+}; // Size: 0x458
 
 class UMovieSceneEvalTimeSystem : public UMovieSceneEntitySystem
 {
-};
+}; // Size: 0x50
 
 class UMovieSceneFolder : public UObject
 {
-    FName FolderName;
-    TArray<class UMovieSceneFolder*> ChildFolders;
-    TArray<class UMovieSceneTrack*> ChildMasterTracks;
-    TArray<FString> ChildObjectBindingStrings;
+    FName FolderName;                                                                 // 0x0028 (size: 0x8)
+    TArray<class UMovieSceneFolder*> ChildFolders;                                    // 0x0030 (size: 0x10)
+    TArray<class UMovieSceneTrack*> ChildMasterTracks;                                // 0x0040 (size: 0x10)
+    TArray<FString> ChildObjectBindingStrings;                                        // 0x0050 (size: 0x10)
 
-};
+}; // Size: 0x70
 
 class IMovieSceneKeyProxy : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UMovieSceneMasterInstantiatorSystem : public UMovieSceneEntityInstantiatorSystem
 {
-};
+}; // Size: 0x40
 
 class IMovieScenePreAnimatedStateSystemInterface : public IInterface
 {
-};
+}; // Size: 0x28
 
 class UMovieSceneCachePreAnimatedStateSystem : public UMovieSceneEntityInstantiatorSystem
 {
-};
+}; // Size: 0x40
 
 class UMovieSceneRestorePreAnimatedStateSystem : public UMovieSceneEntityInstantiatorSystem
 {
-};
+}; // Size: 0x40
 
 class UMovieSceneSequenceTickManager : public UObject
 {
-    TArray<class AActor*> SequenceActors;
-    class UMovieSceneEntitySystemLinker* Linker;
+    TArray<class AActor*> SequenceActors;                                             // 0x0028 (size: 0x10)
+    class UMovieSceneEntitySystemLinker* Linker;                                      // 0x0038 (size: 0x8)
 
-};
+}; // Size: 0xD0
 
 class UMovieSceneSpawnablesSystem : public UMovieSceneEntitySystem
 {
-};
+}; // Size: 0x40
 
 class UMovieSceneSpawnSection : public UMovieSceneBoolSection
 {
-};
+}; // Size: 0x188
 
 class UMovieSceneSpawnTrack : public UMovieSceneTrack
 {
-    TArray<class UMovieSceneSection*> Sections;
-    FGuid ObjectGuid;
+    TArray<class UMovieSceneSection*> Sections;                                       // 0x0078 (size: 0x10)
+    FGuid ObjectGuid;                                                                 // 0x0088 (size: 0x10)
 
-};
+}; // Size: 0x98
 
 class UTestMovieSceneTrack : public UMovieSceneTrack
 {
-    bool bHighPassFilter;
-    TArray<class UMovieSceneSection*> SectionArray;
+    bool bHighPassFilter;                                                             // 0x0080 (size: 0x1)
+    TArray<class UMovieSceneSection*> SectionArray;                                   // 0x0088 (size: 0x10)
 
-};
+}; // Size: 0x98
 
 class UTestMovieSceneSection : public UMovieSceneSection
 {
-};
+}; // Size: 0xE8
 
 class UTestMovieSceneSequence : public UMovieSceneSequence
 {
-    class UMovieScene* MovieScene;
+    class UMovieScene* MovieScene;                                                    // 0x0060 (size: 0x8)
 
-};
+}; // Size: 0x68
 
 class UTestMovieSceneSubTrack : public UMovieSceneSubTrack
 {
-    TArray<class UMovieSceneSection*> SectionArray;
+    TArray<class UMovieSceneSection*> SectionArray;                                   // 0x0088 (size: 0x10)
 
-};
+}; // Size: 0x98
 
 class UTestMovieSceneSubSection : public UMovieSceneSubSection
 {
-};
+}; // Size: 0x160
 
 struct FMovieSceneTrackInstanceInput
 {
-    class UMovieSceneSection* Section;
+    class UMovieSceneSection* Section;                                                // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x10
 
 class UMovieSceneTrackInstance : public UObject
 {
-    class UObject* AnimatedObject;
-    bool bIsMasterTrackInstance;
-    class UMovieSceneEntitySystemLinker* Linker;
-    TArray<FMovieSceneTrackInstanceInput> Inputs;
+    class UObject* AnimatedObject;                                                    // 0x0028 (size: 0x8)
+    bool bIsMasterTrackInstance;                                                      // 0x0030 (size: 0x1)
+    class UMovieSceneEntitySystemLinker* Linker;                                      // 0x0038 (size: 0x8)
+    TArray<FMovieSceneTrackInstanceInput> Inputs;                                     // 0x0040 (size: 0x10)
 
-};
+}; // Size: 0x50
 
 class UMovieSceneTrackInstanceInstantiator : public UMovieSceneEntityInstantiatorSystem
 {
-};
+}; // Size: 0xF0
 
 class UMovieSceneTrackInstanceSystem : public UMovieSceneEntitySystem
 {
-    class UMovieSceneTrackInstanceInstantiator* Instantiator;
+    class UMovieSceneTrackInstanceInstantiator* Instantiator;                         // 0x0040 (size: 0x8)
 
-};
+}; // Size: 0x48
 
 struct FMovieSceneTangentData
 {
-    float ArriveTangent;
-    float LeaveTangent;
-    float ArriveTangentWeight;
-    float LeaveTangentWeight;
-    TEnumAsByte<ERichCurveTangentWeightMode> TangentWeightMode;
+    float ArriveTangent;                                                              // 0x0000 (size: 0x4)
+    float LeaveTangent;                                                               // 0x0004 (size: 0x4)
+    float ArriveTangentWeight;                                                        // 0x0008 (size: 0x4)
+    float LeaveTangentWeight;                                                         // 0x000C (size: 0x4)
+    TEnumAsByte<ERichCurveTangentWeightMode> TangentWeightMode;                       // 0x0010 (size: 0x1)
 
-};
+}; // Size: 0x14
 
 struct FMovieSceneFloatValue
 {
-    float Value;
-    FMovieSceneTangentData Tangent;
-    TEnumAsByte<ERichCurveInterpMode> InterpMode;
-    TEnumAsByte<ERichCurveTangentMode> TangentMode;
-    uint8 PaddingByte;
+    float Value;                                                                      // 0x0000 (size: 0x4)
+    FMovieSceneTangentData Tangent;                                                   // 0x0004 (size: 0x14)
+    TEnumAsByte<ERichCurveInterpMode> InterpMode;                                     // 0x0018 (size: 0x1)
+    TEnumAsByte<ERichCurveTangentMode> TangentMode;                                   // 0x0019 (size: 0x1)
+    uint8 PaddingByte;                                                                // 0x001A (size: 0x1)
 
-};
+}; // Size: 0x1C
 
 struct FMovieSceneKeyHandleMap : public FKeyHandleLookupTable
 {
-};
+}; // Size: 0x60
 
 struct FMovieSceneFloatChannel : public FMovieSceneChannel
 {
-    TEnumAsByte<ERichCurveExtrapolation> PreInfinityExtrap;
-    TEnumAsByte<ERichCurveExtrapolation> PostInfinityExtrap;
-    TArray<FFrameNumber> Times;
-    TArray<FMovieSceneFloatValue> Values;
-    float DefaultValue;
-    bool bHasDefaultValue;
-    FMovieSceneKeyHandleMap KeyHandles;
-    FFrameRate TickResolution;
+    TEnumAsByte<ERichCurveExtrapolation> PreInfinityExtrap;                           // 0x0008 (size: 0x1)
+    TEnumAsByte<ERichCurveExtrapolation> PostInfinityExtrap;                          // 0x0009 (size: 0x1)
+    TArray<FFrameNumber> Times;                                                       // 0x0010 (size: 0x10)
+    TArray<FMovieSceneFloatValue> Values;                                             // 0x0020 (size: 0x10)
+    float DefaultValue;                                                               // 0x0030 (size: 0x4)
+    bool bHasDefaultValue;                                                            // 0x0034 (size: 0x1)
+    FMovieSceneKeyHandleMap KeyHandles;                                               // 0x0038 (size: 0x60)
+    FFrameRate TickResolution;                                                        // 0x0098 (size: 0x8)
 
-};
+}; // Size: 0xA0
 
 struct FMovieSceneByteChannel : public FMovieSceneChannel
 {
-    TArray<FFrameNumber> Times;
-    uint8 DefaultValue;
-    bool bHasDefaultValue;
-    TArray<uint8> Values;
-    class UEnum* Enum;
+    TArray<FFrameNumber> Times;                                                       // 0x0008 (size: 0x10)
+    uint8 DefaultValue;                                                               // 0x0018 (size: 0x1)
+    bool bHasDefaultValue;                                                            // 0x0019 (size: 0x1)
+    TArray<uint8> Values;                                                             // 0x0020 (size: 0x10)
+    class UEnum* Enum;                                                                // 0x0030 (size: 0x8)
 
-};
+}; // Size: 0x98
 
 struct FMovieSceneIntegerChannel : public FMovieSceneChannel
 {
-    TArray<FFrameNumber> Times;
-    int32 DefaultValue;
-    bool bHasDefaultValue;
-    TArray<int32> Values;
+    TArray<FFrameNumber> Times;                                                       // 0x0008 (size: 0x10)
+    int32 DefaultValue;                                                               // 0x0018 (size: 0x4)
+    bool bHasDefaultValue;                                                            // 0x001C (size: 0x1)
+    TArray<int32> Values;                                                             // 0x0020 (size: 0x10)
 
-};
+}; // Size: 0x90
 
 struct FMovieSceneObjectPathChannelKeyValue
 {
-    TSoftObjectPtr<UObject> SoftPtr;
-    class UObject* HardPtr;
+    TSoftObjectPtr<UObject> SoftPtr;                                                  // 0x0000 (size: 0x28)
+    class UObject* HardPtr;                                                           // 0x0028 (size: 0x8)
 
-};
+}; // Size: 0x30
 
 struct FMovieSceneObjectPathChannel : public FMovieSceneChannel
 {
-    UClass* PropertyClass;
-    TArray<FFrameNumber> Times;
-    TArray<FMovieSceneObjectPathChannelKeyValue> Values;
-    FMovieSceneObjectPathChannelKeyValue DefaultValue;
+    UClass* PropertyClass;                                                            // 0x0008 (size: 0x8)
+    TArray<FFrameNumber> Times;                                                       // 0x0010 (size: 0x10)
+    TArray<FMovieSceneObjectPathChannelKeyValue> Values;                              // 0x0020 (size: 0x10)
+    FMovieSceneObjectPathChannelKeyValue DefaultValue;                                // 0x0030 (size: 0x30)
 
-};
+}; // Size: 0xC0
 
 struct FMovieSceneEvalTemplateBase
 {
-};
+}; // Size: 0x10
 
 struct FMovieSceneEvalTemplate : public FMovieSceneEvalTemplateBase
 {
-    EMovieSceneCompletionMode CompletionMode;
-    TWeakObjectPtr<class UMovieSceneSection> SourceSectionPtr;
+    EMovieSceneCompletionMode CompletionMode;                                         // 0x0010 (size: 0x1)
+    TWeakObjectPtr<class UMovieSceneSection> SourceSectionPtr;                        // 0x0014 (size: 0x8)
 
-};
+}; // Size: 0x20
 
 struct FMovieSceneTrackImplementation : public FMovieSceneEvalTemplateBase
 {
-};
+}; // Size: 0x10
 
 struct FMovieScenePropertySectionData
 {
-    FName PropertyName;
-    FString PropertyPath;
+    FName PropertyName;                                                               // 0x0000 (size: 0x8)
+    FString PropertyPath;                                                             // 0x0008 (size: 0x10)
 
-};
+}; // Size: 0x18
 
 struct FMovieScenePropertySectionTemplate : public FMovieSceneEvalTemplate
 {
-    FMovieScenePropertySectionData PropertyData;
+    FMovieScenePropertySectionData PropertyData;                                      // 0x0020 (size: 0x18)
 
-};
+}; // Size: 0x38
 
 struct FTrackInstanceInputComponent
 {
-    class UMovieSceneSection* Section;
-    int32 OutputIndex;
+    class UMovieSceneSection* Section;                                                // 0x0000 (size: 0x8)
+    int32 OutputIndex;                                                                // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0x10
 
 struct FMovieSceneTrackInstanceComponent
 {
-    class UMovieSceneSection* Owner;
-    TSubclassOf<class UMovieSceneTrackInstance> TrackInstanceClass;
+    class UMovieSceneSection* Owner;                                                  // 0x0000 (size: 0x8)
+    TSubclassOf<class UMovieSceneTrackInstance> TrackInstanceClass;                   // 0x0008 (size: 0x8)
 
-};
+}; // Size: 0x10
 
 struct FEasingComponentData
 {
-    class UMovieSceneSection* Section;
+    class UMovieSceneSection* Section;                                                // 0x0000 (size: 0x8)
 
-};
+}; // Size: 0x8
 
 struct FMovieSceneSectionGroup
 {
-    TArray<TWeakObjectPtr<UMovieSceneSection>> Sections;
+    TArray<TWeakObjectPtr<UMovieSceneSection>> Sections;                              // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FMovieSceneTrackLabels
 {
-    TArray<FString> Strings;
+    TArray<FString> Strings;                                                          // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FMovieSceneExpansionState
 {
-    bool bExpanded;
+    bool bExpanded;                                                                   // 0x0000 (size: 0x1)
 
-};
+}; // Size: 0x1
 
 struct FMovieSceneEditorData
 {
-    TMap<class FString, class FMovieSceneExpansionState> ExpansionStates;
-    TArray<FString> PinnedNodes;
-    double ViewStart;
-    double ViewEnd;
-    double WorkStart;
-    double WorkEnd;
-    TSet<FFrameNumber> MarkedFrames;
-    FFloatRange WorkingRange;
-    FFloatRange ViewRange;
+    TMap<class FString, class FMovieSceneExpansionState> ExpansionStates;             // 0x0000 (size: 0x50)
+    TArray<FString> PinnedNodes;                                                      // 0x0050 (size: 0x10)
+    double ViewStart;                                                                 // 0x0060 (size: 0x8)
+    double ViewEnd;                                                                   // 0x0068 (size: 0x8)
+    double WorkStart;                                                                 // 0x0070 (size: 0x8)
+    double WorkEnd;                                                                   // 0x0078 (size: 0x8)
+    TSet<FFrameNumber> MarkedFrames;                                                  // 0x0080 (size: 0x50)
+    FFloatRange WorkingRange;                                                         // 0x00D0 (size: 0x10)
+    FFloatRange ViewRange;                                                            // 0x00E0 (size: 0x10)
 
-};
+}; // Size: 0xF0
 
 struct FMovieSceneTimecodeSource
 {
-    FTimecode Timecode;
-    FFrameNumber DeltaFrame;
+    FTimecode Timecode;                                                               // 0x0000 (size: 0x14)
+    FFrameNumber DeltaFrame;                                                          // 0x0014 (size: 0x4)
 
-};
+}; // Size: 0x18
 
 struct FMovieSceneEntitySystemGraphNode
 {
-    class UMovieSceneEntitySystem* System;
+    class UMovieSceneEntitySystem* System;                                            // 0x0020 (size: 0x8)
 
-};
+}; // Size: 0x28
 
 struct FMovieSceneEmptyStruct
 {
-};
+}; // Size: 0x1
 
 struct FMovieSceneSegmentIdentifier
 {
-    int32 IdentifierIndex;
+    int32 IdentifierIndex;                                                            // 0x0000 (size: 0x4)
 
-};
+}; // Size: 0x4
 
 struct FMovieSceneEvaluationFieldSegmentPtr : public FMovieSceneEvaluationFieldTrackPtr
 {
-    FMovieSceneSegmentIdentifier SegmentID;
+    FMovieSceneSegmentIdentifier SegmentID;                                           // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0xC
 
 struct FMovieSceneEvaluationOperand
 {
-    FGuid ObjectBindingId;
-    FMovieSceneSequenceID SequenceID;
+    FGuid ObjectBindingId;                                                            // 0x0000 (size: 0x10)
+    FMovieSceneSequenceID SequenceID;                                                 // 0x0010 (size: 0x4)
 
-};
+}; // Size: 0x14
 
 struct FMovieSceneSubSectionData
 {
-    TWeakObjectPtr<class UMovieSceneSubSection> Section;
-    FGuid ObjectBindingId;
-    ESectionEvaluationFlags Flags;
+    TWeakObjectPtr<class UMovieSceneSubSection> Section;                              // 0x0000 (size: 0x8)
+    FGuid ObjectBindingId;                                                            // 0x0008 (size: 0x10)
+    ESectionEvaluationFlags Flags;                                                    // 0x0018 (size: 0x1)
 
-};
+}; // Size: 0x1C
 
 struct FMovieSceneKeyStruct
 {
-};
+}; // Size: 0x8
 
 struct FMovieSceneKeyTimeStruct : public FMovieSceneKeyStruct
 {
-    FFrameNumber Time;
+    FFrameNumber Time;                                                                // 0x0008 (size: 0x4)
 
-};
+}; // Size: 0x28
 
 struct FGeneratedMovieSceneKeyStruct
 {
-};
+}; // Size: 0x50
 
 struct FMovieSceneSegment
 {
-};
+}; // Size: 0x58
 
 struct FSectionEvaluationData
 {
-    int32 ImplIndex;
-    FFrameNumber ForcedTime;
-    ESectionEvaluationFlags Flags;
+    int32 ImplIndex;                                                                  // 0x0000 (size: 0x4)
+    FFrameNumber ForcedTime;                                                          // 0x0004 (size: 0x4)
+    ESectionEvaluationFlags Flags;                                                    // 0x0008 (size: 0x1)
 
-};
+}; // Size: 0xC
 
 struct FMovieSceneSubSequenceTreeEntry
 {
-};
+}; // Size: 0x8
 
 struct FMovieSceneSequenceInstanceData
 {
-};
+}; // Size: 0x8
 
 struct FMovieSceneWarpCounter
 {
-    TArray<uint32> WarpCounts;
+    TArray<uint32> WarpCounts;                                                        // 0x0000 (size: 0x10)
 
-};
+}; // Size: 0x10
 
 struct FTestMovieSceneEvalTemplate : public FMovieSceneEvalTemplate
 {
-};
+}; // Size: 0x20
 
 struct FMovieSceneTrackDisplayOptions
 {
-    uint8 bShowVerticalFrames;
+    uint8 bShowVerticalFrames;                                                        // 0x0000 (size: 0x1)
 
-};
+}; // Size: 0x4
 
 struct FMovieSceneTrackInstanceEntry
 {
-    class UObject* BoundObject;
-    class UMovieSceneTrackInstance* TrackInstance;
+    class UObject* BoundObject;                                                       // 0x0000 (size: 0x8)
+    class UMovieSceneTrackInstance* TrackInstance;                                    // 0x0008 (size: 0x8)
 
-};
+}; // Size: 0x10
 
 #endif

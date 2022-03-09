@@ -3,6 +3,6 @@
 
 class UHandAnimCommon_C : public UAnimInstance
 {
-};
+}; // Size: 0x2C0
 
 #endif

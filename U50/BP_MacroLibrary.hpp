@@ -3,6 +3,6 @@
 
 class ABP_MacroLibrary_C : public AActor
 {
-};
+}; // Size: 0x220
 
 #endif

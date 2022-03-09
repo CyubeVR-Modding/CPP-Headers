@@ -3,16 +3,16 @@
 
 class AMainMenuLevel_C : public ALevelScriptActor
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    class UMediaPlayer* Player;
-    int32 BlocksPlaced;
-    class UWidget* SteamVRNotRunningWIdget;
-    bool SteamVRNotRunning;
-    bool SteamVRRunningInitialized;
-    FMainMenuLevel_CNewEventDispatcher_0 NewEventDispatcher_0;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x0228 (size: 0x8)
+    class UMediaPlayer* Player;                                                       // 0x0230 (size: 0x8)
+    int32 BlocksPlaced;                                                               // 0x0238 (size: 0x4)
+    class UWidget* SteamVRNotRunningWIdget;                                           // 0x0240 (size: 0x8)
+    bool SteamVRNotRunning;                                                           // 0x0248 (size: 0x1)
+    bool SteamVRRunningInitialized;                                                   // 0x0249 (size: 0x1)
+    FMainMenuLevel_CNewEventDispatcher_0 NewEventDispatcher_0;                        // 0x0250 (size: 0x10)
     void NewEventDispatcher_0();
-    class AStaticMeshActor* Sphere_2_ExecuteUbergraph_MainMenuLevel_RefProperty;
-    class AMainMenuWidgetActorNew_C* MainMenuWidgetActorNew_2_ExecuteUbergraph_MainMenuLevel_RefProperty;
+    class AStaticMeshActor* Sphere_2_ExecuteUbergraph_MainMenuLevel_RefProperty;      // 0x0260 (size: 0x8)
+    class AMainMenuWidgetActorNew_C* MainMenuWidgetActorNew_2_ExecuteUbergraph_MainMenuLevel_RefProperty; // 0x0268 (size: 0x8)
 
     void Completed_508DA1C148F626FB79DAD6B286C40073(bool bSuccessful, FUWorksSteamLeaderboard SteamLeaderboard, bool bLeaderboardFound);
     void OnFailure_A44803C44D08B1015648F2B92269F4DA();
@@ -33,6 +33,6 @@ class AMainMenuLevel_C : public ALevelScriptActor
     void SetDarkMode(bool Enabled);
     void ExecuteUbergraph_MainMenuLevel(int32 EntryPoint);
     void NewEventDispatcher_0__DelegateSignature();
-};
+}; // Size: 0x270
 
 #endif

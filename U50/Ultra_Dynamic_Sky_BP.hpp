@@ -3,144 +3,144 @@
 
 class AUltra_Dynamic_Sky_BP_C : public AActor
 {
-    class UStaticMeshComponent* moon_plane;
-    class UArrowComponent* Arrow;
-    class UArrowComponent* Sun_Root;
-    class UStaticMeshComponent* Ultra_Dynamic_Sky_Sphere;
-    class USceneComponent* DefaultSceneRoot;
-    class ADirectionalLight* Direction Light (Sun);
-    class UMaterialInstanceDynamic* UDM_mat;
-    bool Refresh Settings;
-    float Cloud Speed;
-    float Cloud Density;
-    float Cloud DensityMultiplier;
-    float Cloud Wisps Opacity;
-    TArray<class UCurveLinearColor*> Horizon Base Color Curve;
-    TArray<class UCurveLinearColor*> Zenith Base Color Curve;
-    TArray<class UCurveLinearColor*> Cloud Light Color Curve;
-    TArray<class UCurveLinearColor*> Cloud Dark Color Curve;
-    float Time of Day;
-    TArray<class UCurveLinearColor*> Sun Color Curve;
-    class UCurveFloat* Shine Intensity Curve;
-    float Saturation;
-    class UCurveLinearColor* Sun Cloudy Color Curve;
-    class AExponentialHeightFog* Exponential Height Fog;
-    class UCurveFloat* Stars Intensity Curve;
-    float Cloud Phase;
-    float Moon Scale;
-    float Moon Inclination;
-    float Moon Phase;
-    bool Automatically Set Advanced Settings using Time of Day;
-    float Stars Visibility;
-    float Moon Intensity;
-    float Moon Position;
-    float Sun Angle;
-    FLinearColor Horizon Base Color;
-    FLinearColor Zenith Base Color;
-    FLinearColor Cloud Light Color;
-    FLinearColor Cloud Dark Color;
-    FLinearColor Sun Color;
-    float Cloud Shine Intensity;
-    FLinearColor Sun Light Color;
-    float Day Length;
-    class UCurveFloat* Moon Position Curve;
-    bool Animate Day/Night Cycle;
-    bool Simulate Cloud Density Changes;
-    float Cloud Density Shift Frequency (min);
-    float Cloud Density Shift Frequency (max);
-    float Cloud Density_target;
-    float Cloud Density Change (Smoothing);
-    float Cloud Opacity;
-    float Overall Intensity;
-    float Sun Brightness;
-    FLinearColor Moon Color;
-    float Shine Variation;
-    float Sun Lighting Intensity;
-    class UCurveFloat* Sun Highlight Radius_curve;
-    float Sun Highlight Radius;
-    bool First Day;
-    bool Simulate Moon Phase Changes;
-    float Stars_Intensity;
-    FLinearColor Stars_Color;
-    float Moon Orbit Offset;
-    FRotator Sun Rotation;
-    float Sun Radius;
-    class UMaterialInstanceDynamic* Cloud Shadows MID;
-    bool Use Cloud Shadows;
-    float Cloud Shadows Scale;
-    float Cloud Shadows Intensity;
-    class ADirectionalLight* Moon Light;
-    bool Manually Select Sun Color;
-    bool Automatically Set Moon Light Rotation;
-    bool Automatically Set Sun Light Rotation;
-    float Moonlight Intensity;
-    float Stars Speed;
-    float Sun Inclination;
-    float Sun Yaw;
-    float Moon Rotation;
-    class UTexture2D* Custom Moon Texture;
-    bool Use Custom Moon Texture;
-    class ASkyLight* SkyLight;
-    bool Recapture Sky light periodically;
-    float Sky Light recapture period;
-    class UCurveFloat* Night Filter Curve;
-    float Night brightness;
-    float Moon Glow Intensity;
-    class UCurveFloat* Directional_Intensity_Curve;
-    float Sun_Light_Intensity;
-    float Aurora Intensity;
-    float Aurora IntensityMultiplier;
-    float Aurora Speed;
-    bool Use Fast Skylight;
-    bool Use Auroras;
-    class UTexture* Clouds Base Texture;
-    float Cloud Tiling;
-    float Cloud Direction;
-    bool One Cloud Layer;
-    float Cloud Height 1;
-    float Cloud Height 2;
-    int32 color_scheme;
-    class UMaterialInstanceDynamic* Moon mat;
-    class UCurveFloat* SunBrightnessCurve;
-    int32 ColorSchemeTarget;
-    float ColorSchemeTargetPercentage;
-    float WeatherInterpSpeed;
-    float OverallIntensityTarget;
-    float SaturationTarget;
-    float LightTemperature;
-    float LightTemperatureTarget;
-    float SunLightWeatherMultiplier;
-    float SunLightWeatherMultiplierTarget;
-    class AWindDirectionalSource* WindSource;
-    float WindStrength;
-    float WindStrengthTarget;
-    float RainStrength;
-    float RainStrengthTarget;
-    FLinearColor FogWeatherColor;
-    FLinearColor FogWeatherColorTarget;
-    float SnowAmount;
-    float SnowAmountTarget;
-    class AAudioManager* AudioManager;
-    float WindSpeed;
-    float WindSpeedTarget;
-    float DayLenghtDivider;
-    float NightLengthDivider;
-    bool UseNewColors;
-    class AMC_GameState* K2Node_DynamicCast_AsCube_Game_State_BP;
-    bool K2Node_DynamicCast_bSuccess;
-    class AChunkManager* K2Node_DynamicCast_AsMy_Chunk_Manager;
-    bool K2Node_DynamicCast_bSuccess_1;
-    bool Temp_bool_Variable;
-    bool CallFunc_GetDevModeBP__DevMode;
-    bool CallFunc_GetDevModeBP__DevModeLoadWorld;
-    float K2Node_Event_DeltaSeconds;
-    EWeather K2Node_CustomEvent_NewWeather;
-    bool K2Node_SwitchEnum_CmpSuccess;
-    TArray<class AAudioManager*> CallFunc_GetAllActorsOfClass_OutActors;
-    class AAudioManager* CallFunc_Array_Get_Item;
-    float K2Node_CustomEvent_DayLengthDivider;
-    float K2Node_CustomEvent_NightLengthDivider;
-    float K2Node_Select_Default;
+    class UStaticMeshComponent* moon_plane;                                           // 0x0220 (size: 0x8)
+    class UArrowComponent* Arrow;                                                     // 0x0228 (size: 0x8)
+    class UArrowComponent* Sun_Root;                                                  // 0x0230 (size: 0x8)
+    class UStaticMeshComponent* Ultra_Dynamic_Sky_Sphere;                             // 0x0238 (size: 0x8)
+    class USceneComponent* DefaultSceneRoot;                                          // 0x0240 (size: 0x8)
+    class ADirectionalLight* Direction Light (Sun);                                   // 0x0248 (size: 0x8)
+    class UMaterialInstanceDynamic* UDM_mat;                                          // 0x0250 (size: 0x8)
+    bool Refresh Settings;                                                            // 0x0258 (size: 0x1)
+    float Cloud Speed;                                                                // 0x025C (size: 0x4)
+    float Cloud Density;                                                              // 0x0260 (size: 0x4)
+    float Cloud DensityMultiplier;                                                    // 0x0264 (size: 0x4)
+    float Cloud Wisps Opacity;                                                        // 0x0268 (size: 0x4)
+    TArray<class UCurveLinearColor*> Horizon Base Color Curve;                        // 0x0270 (size: 0x10)
+    TArray<class UCurveLinearColor*> Zenith Base Color Curve;                         // 0x0280 (size: 0x10)
+    TArray<class UCurveLinearColor*> Cloud Light Color Curve;                         // 0x0290 (size: 0x10)
+    TArray<class UCurveLinearColor*> Cloud Dark Color Curve;                          // 0x02A0 (size: 0x10)
+    float Time of Day;                                                                // 0x02B0 (size: 0x4)
+    TArray<class UCurveLinearColor*> Sun Color Curve;                                 // 0x02B8 (size: 0x10)
+    class UCurveFloat* Shine Intensity Curve;                                         // 0x02C8 (size: 0x8)
+    float Saturation;                                                                 // 0x02D0 (size: 0x4)
+    class UCurveLinearColor* Sun Cloudy Color Curve;                                  // 0x02D8 (size: 0x8)
+    class AExponentialHeightFog* Exponential Height Fog;                              // 0x02E0 (size: 0x8)
+    class UCurveFloat* Stars Intensity Curve;                                         // 0x02E8 (size: 0x8)
+    float Cloud Phase;                                                                // 0x02F0 (size: 0x4)
+    float Moon Scale;                                                                 // 0x02F4 (size: 0x4)
+    float Moon Inclination;                                                           // 0x02F8 (size: 0x4)
+    float Moon Phase;                                                                 // 0x02FC (size: 0x4)
+    bool Automatically Set Advanced Settings using Time of Day;                       // 0x0300 (size: 0x1)
+    float Stars Visibility;                                                           // 0x0304 (size: 0x4)
+    float Moon Intensity;                                                             // 0x0308 (size: 0x4)
+    float Moon Position;                                                              // 0x030C (size: 0x4)
+    float Sun Angle;                                                                  // 0x0310 (size: 0x4)
+    FLinearColor Horizon Base Color;                                                  // 0x0314 (size: 0x10)
+    FLinearColor Zenith Base Color;                                                   // 0x0324 (size: 0x10)
+    FLinearColor Cloud Light Color;                                                   // 0x0334 (size: 0x10)
+    FLinearColor Cloud Dark Color;                                                    // 0x0344 (size: 0x10)
+    FLinearColor Sun Color;                                                           // 0x0354 (size: 0x10)
+    float Cloud Shine Intensity;                                                      // 0x0364 (size: 0x4)
+    FLinearColor Sun Light Color;                                                     // 0x0368 (size: 0x10)
+    float Day Length;                                                                 // 0x0378 (size: 0x4)
+    class UCurveFloat* Moon Position Curve;                                           // 0x0380 (size: 0x8)
+    bool Animate Day/Night Cycle;                                                     // 0x0388 (size: 0x1)
+    bool Simulate Cloud Density Changes;                                              // 0x0389 (size: 0x1)
+    float Cloud Density Shift Frequency (min);                                        // 0x038C (size: 0x4)
+    float Cloud Density Shift Frequency (max);                                        // 0x0390 (size: 0x4)
+    float Cloud Density_target;                                                       // 0x0394 (size: 0x4)
+    float Cloud Density Change (Smoothing);                                           // 0x0398 (size: 0x4)
+    float Cloud Opacity;                                                              // 0x039C (size: 0x4)
+    float Overall Intensity;                                                          // 0x03A0 (size: 0x4)
+    float Sun Brightness;                                                             // 0x03A4 (size: 0x4)
+    FLinearColor Moon Color;                                                          // 0x03A8 (size: 0x10)
+    float Shine Variation;                                                            // 0x03B8 (size: 0x4)
+    float Sun Lighting Intensity;                                                     // 0x03BC (size: 0x4)
+    class UCurveFloat* Sun Highlight Radius_curve;                                    // 0x03C0 (size: 0x8)
+    float Sun Highlight Radius;                                                       // 0x03C8 (size: 0x4)
+    bool First Day;                                                                   // 0x03CC (size: 0x1)
+    bool Simulate Moon Phase Changes;                                                 // 0x03CD (size: 0x1)
+    float Stars_Intensity;                                                            // 0x03D0 (size: 0x4)
+    FLinearColor Stars_Color;                                                         // 0x03D4 (size: 0x10)
+    float Moon Orbit Offset;                                                          // 0x03E4 (size: 0x4)
+    FRotator Sun Rotation;                                                            // 0x03E8 (size: 0xC)
+    float Sun Radius;                                                                 // 0x03F4 (size: 0x4)
+    class UMaterialInstanceDynamic* Cloud Shadows MID;                                // 0x03F8 (size: 0x8)
+    bool Use Cloud Shadows;                                                           // 0x0400 (size: 0x1)
+    float Cloud Shadows Scale;                                                        // 0x0404 (size: 0x4)
+    float Cloud Shadows Intensity;                                                    // 0x0408 (size: 0x4)
+    class ADirectionalLight* Moon Light;                                              // 0x0410 (size: 0x8)
+    bool Manually Select Sun Color;                                                   // 0x0418 (size: 0x1)
+    bool Automatically Set Moon Light Rotation;                                       // 0x0419 (size: 0x1)
+    bool Automatically Set Sun Light Rotation;                                        // 0x041A (size: 0x1)
+    float Moonlight Intensity;                                                        // 0x041C (size: 0x4)
+    float Stars Speed;                                                                // 0x0420 (size: 0x4)
+    float Sun Inclination;                                                            // 0x0424 (size: 0x4)
+    float Sun Yaw;                                                                    // 0x0428 (size: 0x4)
+    float Moon Rotation;                                                              // 0x042C (size: 0x4)
+    class UTexture2D* Custom Moon Texture;                                            // 0x0430 (size: 0x8)
+    bool Use Custom Moon Texture;                                                     // 0x0438 (size: 0x1)
+    class ASkyLight* SkyLight;                                                        // 0x0440 (size: 0x8)
+    bool Recapture Sky light periodically;                                            // 0x0448 (size: 0x1)
+    float Sky Light recapture period;                                                 // 0x044C (size: 0x4)
+    class UCurveFloat* Night Filter Curve;                                            // 0x0450 (size: 0x8)
+    float Night brightness;                                                           // 0x0458 (size: 0x4)
+    float Moon Glow Intensity;                                                        // 0x045C (size: 0x4)
+    class UCurveFloat* Directional_Intensity_Curve;                                   // 0x0460 (size: 0x8)
+    float Sun_Light_Intensity;                                                        // 0x0468 (size: 0x4)
+    float Aurora Intensity;                                                           // 0x046C (size: 0x4)
+    float Aurora IntensityMultiplier;                                                 // 0x0470 (size: 0x4)
+    float Aurora Speed;                                                               // 0x0474 (size: 0x4)
+    bool Use Fast Skylight;                                                           // 0x0478 (size: 0x1)
+    bool Use Auroras;                                                                 // 0x0479 (size: 0x1)
+    class UTexture* Clouds Base Texture;                                              // 0x0480 (size: 0x8)
+    float Cloud Tiling;                                                               // 0x0488 (size: 0x4)
+    float Cloud Direction;                                                            // 0x048C (size: 0x4)
+    bool One Cloud Layer;                                                             // 0x0490 (size: 0x1)
+    float Cloud Height 1;                                                             // 0x0494 (size: 0x4)
+    float Cloud Height 2;                                                             // 0x0498 (size: 0x4)
+    int32 color_scheme;                                                               // 0x049C (size: 0x4)
+    class UMaterialInstanceDynamic* Moon mat;                                         // 0x04A0 (size: 0x8)
+    class UCurveFloat* SunBrightnessCurve;                                            // 0x04A8 (size: 0x8)
+    int32 ColorSchemeTarget;                                                          // 0x04B0 (size: 0x4)
+    float ColorSchemeTargetPercentage;                                                // 0x04B4 (size: 0x4)
+    float WeatherInterpSpeed;                                                         // 0x04B8 (size: 0x4)
+    float OverallIntensityTarget;                                                     // 0x04BC (size: 0x4)
+    float SaturationTarget;                                                           // 0x04C0 (size: 0x4)
+    float LightTemperature;                                                           // 0x04C4 (size: 0x4)
+    float LightTemperatureTarget;                                                     // 0x04C8 (size: 0x4)
+    float SunLightWeatherMultiplier;                                                  // 0x04CC (size: 0x4)
+    float SunLightWeatherMultiplierTarget;                                            // 0x04D0 (size: 0x4)
+    class AWindDirectionalSource* WindSource;                                         // 0x04D8 (size: 0x8)
+    float WindStrength;                                                               // 0x04E0 (size: 0x4)
+    float WindStrengthTarget;                                                         // 0x04E4 (size: 0x4)
+    float RainStrength;                                                               // 0x04E8 (size: 0x4)
+    float RainStrengthTarget;                                                         // 0x04EC (size: 0x4)
+    FLinearColor FogWeatherColor;                                                     // 0x04F0 (size: 0x10)
+    FLinearColor FogWeatherColorTarget;                                               // 0x0500 (size: 0x10)
+    float SnowAmount;                                                                 // 0x0510 (size: 0x4)
+    float SnowAmountTarget;                                                           // 0x0514 (size: 0x4)
+    class AAudioManager* AudioManager;                                                // 0x0518 (size: 0x8)
+    float WindSpeed;                                                                  // 0x0520 (size: 0x4)
+    float WindSpeedTarget;                                                            // 0x0524 (size: 0x4)
+    float DayLenghtDivider;                                                           // 0x0528 (size: 0x4)
+    float NightLengthDivider;                                                         // 0x052C (size: 0x4)
+    bool UseNewColors;                                                                // 0x0530 (size: 0x1)
+    class AMC_GameState* K2Node_DynamicCast_AsCube_Game_State_BP;                     // 0x0538 (size: 0x8)
+    bool K2Node_DynamicCast_bSuccess;                                                 // 0x0540 (size: 0x1)
+    class AChunkManager* K2Node_DynamicCast_AsMy_Chunk_Manager;                       // 0x0548 (size: 0x8)
+    bool K2Node_DynamicCast_bSuccess_1;                                               // 0x0550 (size: 0x1)
+    bool Temp_bool_Variable;                                                          // 0x0551 (size: 0x1)
+    bool CallFunc_GetDevModeBP__DevMode;                                              // 0x0552 (size: 0x1)
+    bool CallFunc_GetDevModeBP__DevModeLoadWorld;                                     // 0x0553 (size: 0x1)
+    float K2Node_Event_DeltaSeconds;                                                  // 0x0554 (size: 0x4)
+    EWeather K2Node_CustomEvent_NewWeather;                                           // 0x0558 (size: 0x1)
+    bool K2Node_SwitchEnum_CmpSuccess;                                                // 0x0559 (size: 0x1)
+    TArray<class AAudioManager*> CallFunc_GetAllActorsOfClass_OutActors;              // 0x0560 (size: 0x10)
+    class AAudioManager* CallFunc_Array_Get_Item;                                     // 0x0570 (size: 0x8)
+    float K2Node_CustomEvent_DayLengthDivider;                                        // 0x0578 (size: 0x4)
+    float K2Node_CustomEvent_NightLengthDivider;                                      // 0x057C (size: 0x4)
+    float K2Node_Select_Default;                                                      // 0x0580 (size: 0x4)
 
     void UserConstructionScript();
     void Set Solar Angle();
@@ -156,6 +156,6 @@ class AUltra_Dynamic_Sky_BP_C : public AActor
     void GetBlendedCurve(TArray<class UCurveLinearColor*>& bpp__Curve__pf, float bpp__InTime__pf, FLinearColor& bpp__Color__pf);
     void ExecuteUbergraph_Ultra_Dynamic_Sky_BP_0(int32 bpp__EntryPoint__pf);
     void AnimateWeather();
-};
+}; // Size: 0x588
 
 #endif

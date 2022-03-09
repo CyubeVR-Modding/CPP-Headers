@@ -8,6 +8,6 @@ class IHandAnimInterface_C : public IInterface
     void SetGripType(TEnumAsByte<HandPoseEnum> Value);
     void SetGripState(TEnumAsByte<GripEnum> Value);
     void SetHandType(EControllerHand Value);
-};
+}; // Size: 0x28
 
 #endif

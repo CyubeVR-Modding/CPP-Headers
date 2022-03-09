@@ -5,6 +5,6 @@ class AChairBP_Bright_C : public AChairBP_C
 {
 
     void UserConstructionScript();
-};
+}; // Size: 0x2D0
 
 #endif

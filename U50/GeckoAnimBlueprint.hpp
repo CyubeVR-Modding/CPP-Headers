@@ -3,55 +3,55 @@
 
 class UGeckoAnimBlueprint_C : public UAnimInstance
 {
-    FPointerToUberGraphFrame UberGraphFrame;
-    FAnimNode_Root AnimGraphNode_Root;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_16;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_15;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_14;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_13;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_12;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_11;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_10;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_9;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_8;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_7;
-    FAnimNode_StateResult AnimGraphNode_StateResult_10;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_6;
-    FAnimNode_StateResult AnimGraphNode_StateResult_9;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_5;
-    FAnimNode_StateResult AnimGraphNode_StateResult_8;
-    FAnimNode_StateMachine AnimGraphNode_StateMachine_2;
-    FAnimNode_StateResult AnimGraphNode_StateResult_7;
-    FAnimNode_BlendSpacePlayer AnimGraphNode_BlendSpacePlayer;
-    FAnimNode_StateResult AnimGraphNode_StateResult_6;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_7;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_6;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_5;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_4;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_3;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_2;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_1;
-    FAnimNode_TransitionResult AnimGraphNode_TransitionResult;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_4;
-    FAnimNode_StateResult AnimGraphNode_StateResult_5;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_3;
-    FAnimNode_StateResult AnimGraphNode_StateResult_4;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_2;
-    FAnimNode_StateResult AnimGraphNode_StateResult_3;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_1;
-    FAnimNode_StateResult AnimGraphNode_StateResult_2;
-    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer;
-    FAnimNode_StateResult AnimGraphNode_StateResult_1;
-    FAnimNode_StateMachine AnimGraphNode_StateMachine_1;
-    FAnimNode_StateResult AnimGraphNode_StateResult;
-    FAnimNode_StateMachine AnimGraphNode_StateMachine;
-    float Speed;
-    bool bIsMoving;
-    int32 Random200;
-    int32 Random50;
-    int32 Random2000;
-    float RandomIdleSpeed;
-    bool bIsGrabbed;
+    FPointerToUberGraphFrame UberGraphFrame;                                          // 0x02C0 (size: 0x8)
+    FAnimNode_Root AnimGraphNode_Root;                                                // 0x02C8 (size: 0x30)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_16;                     // 0x02F8 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_15;                     // 0x0320 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_14;                     // 0x0348 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_13;                     // 0x0370 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_12;                     // 0x0398 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_11;                     // 0x03C0 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_10;                     // 0x03E8 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_9;                      // 0x0410 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_8;                      // 0x0438 (size: 0x28)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_7;                          // 0x0460 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_10;                               // 0x04E0 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_6;                          // 0x0510 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_9;                                // 0x0590 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_5;                          // 0x05C0 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_8;                                // 0x0640 (size: 0x30)
+    FAnimNode_StateMachine AnimGraphNode_StateMachine_2;                              // 0x0670 (size: 0xB0)
+    FAnimNode_StateResult AnimGraphNode_StateResult_7;                                // 0x0720 (size: 0x30)
+    FAnimNode_BlendSpacePlayer AnimGraphNode_BlendSpacePlayer;                        // 0x0750 (size: 0xE8)
+    FAnimNode_StateResult AnimGraphNode_StateResult_6;                                // 0x0838 (size: 0x30)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_7;                      // 0x0868 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_6;                      // 0x0890 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_5;                      // 0x08B8 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_4;                      // 0x08E0 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_3;                      // 0x0908 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_2;                      // 0x0930 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult_1;                      // 0x0958 (size: 0x28)
+    FAnimNode_TransitionResult AnimGraphNode_TransitionResult;                        // 0x0980 (size: 0x28)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_4;                          // 0x09A8 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_5;                                // 0x0A28 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_3;                          // 0x0A58 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_4;                                // 0x0AD8 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_2;                          // 0x0B08 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_3;                                // 0x0B88 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer_1;                          // 0x0BB8 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_2;                                // 0x0C38 (size: 0x30)
+    FAnimNode_SequencePlayer AnimGraphNode_SequencePlayer;                            // 0x0C68 (size: 0x80)
+    FAnimNode_StateResult AnimGraphNode_StateResult_1;                                // 0x0CE8 (size: 0x30)
+    FAnimNode_StateMachine AnimGraphNode_StateMachine_1;                              // 0x0D18 (size: 0xB0)
+    FAnimNode_StateResult AnimGraphNode_StateResult;                                  // 0x0DC8 (size: 0x30)
+    FAnimNode_StateMachine AnimGraphNode_StateMachine;                                // 0x0DF8 (size: 0xB0)
+    float Speed;                                                                      // 0x0EA8 (size: 0x4)
+    bool bIsMoving;                                                                   // 0x0EAC (size: 0x1)
+    int32 Random200;                                                                  // 0x0EB0 (size: 0x4)
+    int32 Random50;                                                                   // 0x0EB4 (size: 0x4)
+    int32 Random2000;                                                                 // 0x0EB8 (size: 0x4)
+    float RandomIdleSpeed;                                                            // 0x0EBC (size: 0x4)
+    bool bIsGrabbed;                                                                  // 0x0EC0 (size: 0x1)
 
     void AnimGraph(FPoseLink& AnimGraph);
     void EvaluateGraphExposedInputs_ExecuteUbergraph_GeckoAnimBlueprint_AnimGraphNode_TransitionResult_EC7670FD42570204D39870B403217D63();
@@ -70,6 +70,6 @@ class UGeckoAnimBlueprint_C : public UAnimInstance
     void UpdateIdleSpeed();
     void BlueprintInitializeAnimation();
     void ExecuteUbergraph_GeckoAnimBlueprint(int32 EntryPoint);
-};
+}; // Size: 0xEC1
 
 #endif

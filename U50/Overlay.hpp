@@ -3,28 +3,28 @@
 
 class UOverlays : public UObject
 {
-};
+}; // Size: 0x28
 
 struct FOverlayItem
 {
-    FTimespan StartTime;
-    FTimespan EndTime;
-    FString Text;
-    FVector2D Position;
+    FTimespan StartTime;                                                              // 0x0000 (size: 0x8)
+    FTimespan EndTime;                                                                // 0x0008 (size: 0x8)
+    FString Text;                                                                     // 0x0010 (size: 0x10)
+    FVector2D Position;                                                               // 0x0020 (size: 0x8)
 
-};
+}; // Size: 0x28
 
 class UBasicOverlays : public UOverlays
 {
-    TArray<FOverlayItem> Overlays;
+    TArray<FOverlayItem> Overlays;                                                    // 0x0028 (size: 0x10)
 
-};
+}; // Size: 0x38
 
 class ULocalizedOverlays : public UOverlays
 {
-    class UBasicOverlays* DefaultOverlays;
-    TMap<class FString, class UBasicOverlays*> LocaleToOverlaysMap;
+    class UBasicOverlays* DefaultOverlays;                                            // 0x0028 (size: 0x8)
+    TMap<class FString, class UBasicOverlays*> LocaleToOverlaysMap;                   // 0x0030 (size: 0x50)
 
-};
+}; // Size: 0x80
 
 #endif

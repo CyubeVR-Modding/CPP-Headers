@@ -5,6 +5,6 @@ class UAutomationUtilsBlueprintLibrary : public UBlueprintFunctionLibrary
 {
 
     void TakeGameplayAutomationScreenshot(const FString ScreenshotName, float MaxGlobalError, float MaxLocalError, FString MapNameOverride);
-};
+}; // Size: 0x28
 
 #endif
